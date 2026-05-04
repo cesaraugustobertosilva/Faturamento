@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/", "destination": "/Dashboard_Faturamentos_2026-05-04.html" }
+  ]
+}
