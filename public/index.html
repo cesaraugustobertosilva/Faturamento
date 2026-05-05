@@ -139,7 +139,7 @@ tbody tr:nth-child(even){background:#F7FAFA}
     <small id="last-update">Atualizado: 04/05/2026, 15:18:43</small>
   </div>
   <div class="topbar-actions">
-    <button class="btn btn-ghost btn-sm" onclick="loadData().then(function(){render();toast("Dados atualizados!","ok");})" title="Recarregar dados">↻ Recarregar</button>
+    <button class="btn btn-ghost btn-sm" onclick="loadData().then(function(){render();toast('Dados atualizados!','ok');})" title="Recarregar dados">↻ Recarregar</button>
     <button class="btn btn-ghost" onclick="openModalVolumes()">+ Volume Diário</button>
     <button class="btn btn-ghost" onclick="openModalTarifas()">Tarifas</button>
     <button class="btn btn-ghost" onclick="openModal()">Editar Dados</button>
@@ -537,6 +537,19 @@ function calcularValorRegistro(r){
 // ============================================================
 var D,TARIFAS,VOLUMES_BASE,chartH=null,chartP=null;
 
+var LS_KEY = 'faturamento_data';
+
+function lsLoad(){
+  try{
+    var s=localStorage.getItem(LS_KEY);
+    return s?JSON.parse(s):null;
+  }catch(_){return null;}
+}
+
+function lsSave(payload){
+  try{localStorage.setItem(LS_KEY,JSON.stringify(payload));}catch(_){}
+}
+
 async function loadData(){
   try {
     var res = await fetch('/api/data');
@@ -546,9 +559,16 @@ async function loadData(){
     TARIFAS = json.tarifas || JSON.parse(JSON.stringify(TARIFAS_DEFAULT));
     VOLUMES_BASE = json.volumes || [];
   } catch(e) {
-    D = JSON.parse(JSON.stringify(DEFAULT));
-    TARIFAS = JSON.parse(JSON.stringify(TARIFAS_DEFAULT));
-    VOLUMES_BASE = [];
+    var local = lsLoad();
+    if(local){
+      D = local.d || JSON.parse(JSON.stringify(DEFAULT));
+      TARIFAS = local.tarifas || JSON.parse(JSON.stringify(TARIFAS_DEFAULT));
+      VOLUMES_BASE = local.volumes || [];
+    } else {
+      D = JSON.parse(JSON.stringify(DEFAULT));
+      TARIFAS = JSON.parse(JSON.stringify(TARIFAS_DEFAULT));
+      VOLUMES_BASE = [];
+    }
   }
   if(!D.historico_mensal)D.historico_mensal=[];
   D.historico_mensal.sort(function(a,b){return new Date(a.mes)-new Date(b.mes);});
@@ -557,16 +577,18 @@ async function loadData(){
 
 
 async function saveAll(){
+  var payload = {d: D, tarifas: TARIFAS, volumes: VOLUMES_BASE};
+  lsSave(payload);
   try {
     var res = await fetch('/api/data', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({d: D, tarifas: TARIFAS, volumes: VOLUMES_BASE})
+      body: JSON.stringify(payload)
     });
-    if (!res.ok) throw new Error('Erro ao salvar');
+    if (!res.ok) throw new Error('Erro ao salvar na API (status '+res.status+')');
   } catch(e) {
-    toast('Erro ao salvar dados!', 'err');
-    throw e;
+    toast('Dados salvos localmente (API indisponivel)', 'err');
+    console.warn('[saveAll] API indisponivel, dados no localStorage:', e.message);
   }
 }
 
