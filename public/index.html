@@ -1,0 +1,1376 @@
+<html lang="pt-BR"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard — Faturamentos 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --blue-dark:#023631;
+  --blue-mid:#075056;
+  --blue-light:#C8EDEA;
+  --green:#2A7C79;
+  --red:#C0392B;
+  --orange:#E67E22;
+  --gray-bg:#ECEFF3;
+  --gray-mid:#7B8A8C;
+  --card:#FFFFFF;
+  --text:#012824;
+  --muted:#4A545E;
+  --radius:12px;
+  --shadow:0 4px 20px rgba(2,54,49,.10);
+}
+body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--gray-bg);color:var(--text);min-height:100vh;}
+.topbar{background:var(--blue-dark);color:#fff;padding:0 32px;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;border-bottom:3px solid var(--blue-mid);box-shadow:0 2px 12px rgba(0,0,0,.3)}
+.topbar h1{font-size:1.2rem;font-weight:800}
+.topbar small{font-size:.8rem;opacity:.65;display:block;margin-top:2px}
+.topbar-actions{display:flex;gap:10px}
+.btn{padding:8px 18px;border-radius:8px;border:none;cursor:pointer;font-size:.85rem;font-weight:700;font-family:'Plus Jakarta Sans',sans-serif;transition:all .2s;}
+.btn-ghost{background:transparent;border:2px solid rgba(255,255,255,.45);color:#fff}
+.btn-ghost:hover{background:rgba(255,255,255,.15);border-color:#fff}
+.btn-blue{background:var(--blue-mid);color:#fff}
+.btn-blue:hover{background:var(--blue-dark)}
+.btn-green{background:#1E8449;color:#fff}
+.btn-green:hover{background:#145a32}
+.btn-red{background:var(--red);color:#fff}
+.btn-red:hover{background:#922b21}
+.btn-orange{background:var(--orange);color:#fff}
+.btn-orange:hover{background:#ca6f1e}
+.btn-sm{padding:5px 12px;font-size:.78rem}
+.wrap{max-width:1400px;margin:0 auto;padding:28px 20px}
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;margin-bottom:24px}
+.kpi{background:var(--card);border-radius:var(--radius);padding:20px 22px;box-shadow:var(--shadow);border-left:5px solid var(--blue-mid);position:relative;overflow:hidden}
+.kpi.accent{background:var(--blue-dark);border-left-color:var(--green)}
+.kpi.accent .lbl{color:rgba(236,239,243,.75)}
+.kpi.accent .val{color:#ECEFF3}
+.kpi::after{content:'';position:absolute;top:-20px;right:-20px;width:88px;height:88px;border-radius:50%;background:var(--blue-mid);opacity:.10}
+.kpi .lbl{font-size:.72rem;text-transform:uppercase;color:var(--muted);letter-spacing:.6px;margin-bottom:6px;font-weight:600}
+.kpi .val{font-size:1.65rem;font-weight:800;color:var(--blue-dark)}
+.kpi .dlt{font-size:.8rem;margin-top:5px;font-weight:700}
+.up{color:#1E8449}
+.down{color:var(--red)}
+.subtl{font-size:.78rem;color:var(--gray-mid);margin-bottom:16px}
+#last-update{font-size:.75rem;color:var(--gray-mid);margin-top:4px}
+.chart-row{display:grid;grid-template-columns:2fr 1.2fr;gap:18px;margin-bottom:24px}
+@media(max-width:860px){.chart-row{grid-template-columns:1fr}}
+.card{background:var(--card);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);display:flex;flex-direction:column;min-height:0;}
+.card-hd{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+.card-hd h2{font-size:.95rem;font-weight:700;color:var(--blue-dark);display:flex;align-items:center;gap:8px}
+.card-hd h2::before{content:'';display:inline-block;width:4px;height:15px;background:var(--green);border-radius:2px}
+.card canvas{width:100%;height:280px !important}
+.comp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.comp-card{background:var(--card);border-radius:var(--radius);padding:18px 20px;box-shadow:var(--shadow);border-top:5px solid #ccc}
+.comp-card .c-nome{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:8px}
+.comp-card .c-pct{font-size:2rem;font-weight:800;line-height:1;margin-bottom:8px}
+.comp-card .c-vals{font-size:.76rem;color:var(--muted);line-height:1.9}
+.comp-card .c-bar-bg{height:6px;background:#E0E8E7;border-radius:3px;margin-top:12px;overflow:hidden}
+.comp-card .c-bar-fill{height:100%;border-radius:3px;transition:width .7s ease}
+.comp-card.ok .c-pct{color:#1E8449}
+.comp-card.warn .c-pct{color:var(--orange)}
+.comp-card.crit .c-pct{color:var(--red)}
+.prog-row+.prog-row{margin-top:10px}
+.prog-head{display:flex;justify-content:space-between;font-size:.8rem;margin-bottom:3px;color:var(--muted)}
+.prog{width:100%;height:7px;border-radius:999px;background:#E0E8E7;overflow:hidden}
+.prog-bar{height:100%;border-radius:999px;transition:width .6s ease}
+.tbl-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:.88rem}
+thead th{background:var(--blue-dark);color:#ECEFF3;padding:11px 15px;text-align:left;font-size:.75rem;text-transform:uppercase;letter-spacing:.4px;font-weight:700}
+thead th:first-child{border-radius:8px 0 0 0}
+thead th:last-child{border-radius:0 8px 0 0}
+tbody td{padding:9px 15px;border-bottom:1px solid #E2E7EB;font-size:.84rem}
+tbody tr:nth-child(even){background:#F7FAFA}
+.badge{display:inline-flex;align-items:center;padding:2px 8px;border-radius:999px;font-size:.75rem;font-weight:700}
+.badge.up{background:rgba(30,132,73,.12);color:#145a32}
+.badge.down{background:rgba(192,57,43,.10);color:#922B21}
+.badge.neu{background:rgba(127,140,141,.12);color:#515A5A}
+.badge.info{background:rgba(7,80,86,.12);color:#075056}
+.modal-overlay{position:fixed;inset:0;background:rgba(1,24,20,.55);display:flex;align-items:flex-start;justify-content:center;padding:40px 16px;opacity:0;pointer-events:none;transition:.2s;z-index:200}
+.modal-overlay.open{opacity:1;pointer-events:auto}
+.modal{background:var(--card);border-radius:16px;max-width:1000px;width:100%;max-height:85vh;display:flex;flex-direction:column;box-shadow:0 18px 50px rgba(0,0,0,.35);}
+.modal-hd{padding:16px 22px;border-bottom:1px solid #D5E4E1;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(90deg,var(--blue-dark),#08706A);color:#ECF0F1;border-radius:16px 16px 0 0}
+.modal-hd h3{font-size:.95rem;font-weight:700}
+.modal-bd{padding:16px 22px 18px;overflow-y:auto;flex:1}
+.modal-ft{padding:12px 22px 16px;border-top:1px solid #D5E4E1;display:flex;justify-content:flex-end;gap:8px}
+.tabs{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
+.tab{padding:6px 12px;border-radius:999px;border:1px solid #C5DDD9;font-size:.75rem;cursor:pointer;color:var(--muted);background:#F6FBFB;}
+.tab.active{background:var(--blue-mid);color:#fff;border-color:var(--blue-mid)}
+.tab-pane{display:none}
+.tab-pane.active{display:block}
+.frm-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.frm-grid label{display:block;font-size:.78rem;color:var(--muted);margin-bottom:4px}
+.frm-grid input{padding:7px 9px;border-radius:8px;border:1.5px solid #C5DDD9;font-size:.85rem;width:100%}
+.prow-frm{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr auto;gap:6px;margin-bottom:6px;align-items:center}
+.prow-frm input{padding:6px 7px;border-radius:8px;border:1.5px solid #C5DDD9;font-size:.82rem;}
+.hrow{display:grid;grid-template-columns:1fr 1.2fr auto;gap:6px;margin-bottom:6px}
+.tarifa-section{margin-bottom:24px}
+.tarifa-section h4{font-size:.85rem;font-weight:700;color:var(--blue-dark);padding:8px 12px;background:var(--blue-light);border-radius:8px;margin-bottom:10px}
+.tarifa-row{display:grid;grid-template-columns:1fr auto auto;gap:8px;align-items:center;margin-bottom:6px}
+.tarifa-row input[type=text]{padding:6px 9px;border-radius:8px;border:1.5px solid #C5DDD9;font-size:.82rem;width:100%}
+.tarifa-row input[type=number]{padding:6px 9px;border-radius:8px;border:1.5px solid #C5DDD9;font-size:.82rem;width:110px}
+.tarifa-tipo-badge{font-size:.72rem;font-weight:700;padding:3px 8px;border-radius:999px;white-space:nowrap}
+.tarifa-tipo-badge.fixo{background:rgba(230,126,34,.15);color:#9a5f0a}
+.tarifa-tipo-badge.unitario{background:rgba(42,124,121,.15);color:#075056}
+.vol-form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-bottom:14px}
+.vol-form-grid label{font-size:.78rem;font-weight:600;display:block;margin-bottom:4px;color:var(--muted)}
+.vol-form-grid select,.vol-form-grid input{width:100%;padding:7px 9px;font-size:.84rem;border-radius:8px;border:1.5px solid #C5DDD9;outline:none;font-family:'Plus Jakarta Sans',sans-serif}
+.vol-form-grid select:focus,.vol-form-grid input:focus{border-color:var(--green)}
+.vol-actions{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.hidden{display:none!important}
+.vol-tabela-wrap{overflow-x:auto}
+.vol-tabela th{background:var(--blue-dark);color:#ECEFF3;padding:9px 12px;font-size:.73rem;text-transform:uppercase;letter-spacing:.4px}
+.vol-tabela td{padding:8px 12px;border-bottom:1px solid #E2E7EB;font-size:.82rem}
+.vol-tabela tbody tr:nth-child(even){background:#F7FAFA}
+.tag-diario{background:rgba(7,80,86,.12);color:#075056;padding:2px 8px;border-radius:999px;font-size:.72rem;font-weight:700}
+.tag-mensal{background:rgba(230,126,34,.12);color:#9a5f0a;padding:2px 8px;border-radius:999px;font-size:.72rem;font-weight:700}
+.feriado-row{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;margin-bottom:6px}
+.feriado-row input{padding:6px 9px;border-radius:8px;border:1.5px solid #C5DDD9;font-size:.82rem;width:100%}
+.toast{position:fixed;bottom:18px;right:18px;background:var(--blue-dark);color:#ECF0F1;padding:9px 14px;border-radius:999px;font-size:.8rem;opacity:0;transform:translateY(12px);pointer-events:none;transition:.25s;z-index:400}
+.toast.show{opacity:1;transform:translateY(0)}
+.toast.ok{background:#1E8449}
+.toast.err{background:var(--red)}
+.alert-info{background:rgba(7,80,86,.08);border:1px solid rgba(7,80,86,.2);border-radius:8px;padding:10px 14px;font-size:.8rem;color:var(--blue-mid);margin-bottom:14px}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div>
+    <h1>Dashboard Faturamentos 2026</h1>
+    <small id="last-update">Atualizado: 04/05/2026, 15:18:43</small>
+  </div>
+  <div class="topbar-actions">
+    <button class="btn btn-ghost btn-sm" onclick="loadData().then(function(){render();toast("Dados atualizados!","ok");})" title="Recarregar dados">↻ Recarregar</button>
+    <button class="btn btn-ghost" onclick="openModalVolumes()">+ Volume Diário</button>
+    <button class="btn btn-ghost" onclick="openModalTarifas()">Tarifas</button>
+    <button class="btn btn-ghost" onclick="openModal()">Editar Dados</button>
+    <button class="btn btn-blue" onclick="exportCSV()">Exportar CSV</button>
+    <button class="btn btn-green" onclick="salvarComoHTML()" title="Salva o HTML com todos os dados embutidos para compartilhar">Salvar HTML</button>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="kpi-grid">
+    <div class="kpi accent">
+      <div class="lbl" id="lbl-mes-atual">Previsão Mês Atual (Mai/26)</div>
+      <div class="val" id="kpi-atual">R$&nbsp;1.906.896,28</div>
+      <div class="dlt down" id="kpi-vs-media">-19.9% vs expectativa</div>
+      <button class="btn btn-green btn-sm" style="margin-top:10px;font-size:.74rem;width:100%" onclick="aplicarProjecao()">Aplicar projeção por volumes</button>
+    </div>
+    <div class="kpi">
+      <div class="lbl">Média Últimos 12 Meses</div>
+      <div class="val" id="kpi-media">R$&nbsp;1.956.659,00</div>
+      <div class="dlt" id="kpi-vs-ano">—</div>
+    </div>
+    <div class="kpi">
+      <div class="lbl">Expectativa de Faturamento</div>
+      <div class="val" id="kpi-expectativa">R$&nbsp;2.380.549,41</div>
+    </div>
+  </div>
+
+  <p class="subtl">Painel consolidado de faturamento projetado por parceiro para abril/26. A projeção via volumes é calculada automaticamente com base nas tarifas configuradas e nos dias úteis do mês.</p>
+
+  <div class="chart-row">
+    <div class="card">
+      <div class="card-hd"><h2>Evolução Mensal (12 meses)</h2></div>
+      <canvas id="chart-h" style="box-sizing: border-box; display: block; height: 317px; width: 794px;" width="894" height="357"></canvas>
+    </div>
+    <div class="card">
+      <div class="card-hd"><h2>Participação por Parceiro</h2></div>
+      <canvas id="chart-p" style="box-sizing: border-box; display: block; height: 317px; width: 459px;" width="516" height="357"></canvas>
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom:24px">
+    <div class="card-hd"><h2>Representatividade dos Parceiros</h2></div>
+    <div id="progress-bars"><div class="prog-row"><div class="prog-head"><span><strong>Agibank</strong></span><span>R$&nbsp;444.421,30 • 23.3%</span></div><div class="prog"><div class="prog-bar" style="width:23.3%;background:#00A896"></div></div></div><div class="prog-row"><div class="prog-head"><span><strong>Bradesco CPI</strong></span><span>R$&nbsp;436.342,04 • 22.9%</span></div><div class="prog"><div class="prog-bar" style="width:22.9%;background:#023631"></div></div></div><div class="prog-row"><div class="prog-head"><span><strong>Bradesco Digitação</strong></span><span>R$&nbsp;16.896,64 • 0.9%</span></div><div class="prog"><div class="prog-bar" style="width:0.9%;background:#075056"></div></div></div><div class="prog-row"><div class="prog-head"><span><strong>Bradesco Esteira Única</strong></span><span>R$&nbsp;424.300,92 • 22.3%</span></div><div class="prog"><div class="prog-bar" style="width:22.3%;background:#3a9c98"></div></div></div><div class="prog-row"><div class="prog-head"><span><strong>Bradesco Obrigações de Fazer</strong></span><span>R$&nbsp;105.358,39 • 5.5%</span></div><div class="prog"><div class="prog-bar" style="width:5.5%;background:#2A7C79"></div></div></div><div class="prog-row"><div class="prog-head"><span><strong>Eagle</strong></span><span>R$&nbsp;12.442,50 • 0.7%</span></div><div class="prog"><div class="prog-bar" style="width:0.7%;background:#E67E22"></div></div></div><div class="prog-row"><div class="prog-head"><span><strong>Zurich</strong></span><span>R$&nbsp;39.247,75 • 2.1%</span></div><div class="prog"><div class="prog-bar" style="width:2.1%;background:#C0392B"></div></div></div><div class="prog-row"><div class="prog-head"><span><strong>CWT</strong></span><span>R$&nbsp;65.614,72 • 3.4%</span></div><div class="prog"><div class="prog-bar" style="width:3.4%;background:#3498DB"></div></div></div><div class="prog-row"><div class="prog-head"><span><strong>Bradesco Contratos e Pacotes</strong></span><span>R$&nbsp;96.024,98 • 5.0%</span></div><div class="prog"><div class="prog-bar" style="width:5.0%;background:#9B59B6"></div></div></div><div class="prog-row"><div class="prog-head"><span><strong>GSI Law</strong></span><span>R$&nbsp;1.000,00 • 0.1%</span></div><div class="prog"><div class="prog-bar" style="width:0.1%;background:#F1C40F"></div></div></div><div class="prog-row"><div class="prog-head"><span><strong>Hoepers</strong></span><span>R$&nbsp;3.551,60 • 0.2%</span></div><div class="prog"><div class="prog-bar" style="width:0.2%;background:#1ABC9C"></div></div></div><div class="prog-row"><div class="prog-head"><span><strong>Zarro</strong></span><span>R$&nbsp;585,00 • 0.0%</span></div><div class="prog"><div class="prog-bar" style="width:0.0%;background:#E74C3C"></div></div></div><div class="prog-row"><div class="prog-head"><span><strong>Demais Clientes</strong></span><span>R$&nbsp;261.110,44 • 13.7%</span></div><div class="prog"><div class="prog-bar" style="width:13.7%;background:#BDC3C7"></div></div></div></div>
+  </div>
+
+  <div class="card" style="margin-bottom:24px">
+    <div class="card-hd"><h2>Projetado vs. Esperado — <span id="lbl-mes-comp">Maio/2026</span></h2></div>
+    <div class="comp-grid" id="comp-grid"><div class="comp-card crit"><div class="c-nome">Agibank</div><div class="c-pct">63.5%</div><div class="c-vals"><div>Projetado: <strong>R$&nbsp;444.421,30</strong></div><div>Esperado: <strong>R$&nbsp;699.867,43</strong></div></div><div class="c-bar-bg"><div class="c-bar-fill" style="width:63.5%;background:#00A896"></div></div></div><div class="comp-card warn"><div class="c-nome">Bradesco CPI</div><div class="c-pct">99.0%</div><div class="c-vals"><div>Projetado: <strong>R$&nbsp;436.342,04</strong></div><div>Esperado: <strong>R$&nbsp;440.833,57</strong></div></div><div class="c-bar-bg"><div class="c-bar-fill" style="width:99.0%;background:#023631"></div></div></div><div class="comp-card ok"><div class="c-nome">Bradesco Digitação</div><div class="c-pct">138.8%</div><div class="c-vals"><div>Projetado: <strong>R$&nbsp;16.896,64</strong></div><div>Esperado: <strong>R$&nbsp;12.170,52</strong></div></div><div class="c-bar-bg"><div class="c-bar-fill" style="width:130.0%;background:#075056"></div></div></div><div class="comp-card warn"><div class="c-nome">Bradesco Esteira Única</div><div class="c-pct">83.4%</div><div class="c-vals"><div>Projetado: <strong>R$&nbsp;424.300,92</strong></div><div>Esperado: <strong>R$&nbsp;509.000,00</strong></div></div><div class="c-bar-bg"><div class="c-bar-fill" style="width:83.4%;background:#3a9c98"></div></div></div><div class="comp-card ok"><div class="c-nome">Bradesco Obrigações de Fazer</div><div class="c-pct">100.0%</div><div class="c-vals"><div>Projetado: <strong>R$&nbsp;105.358,39</strong></div><div>Esperado: <strong>R$&nbsp;105.358,39</strong></div></div><div class="c-bar-bg"><div class="c-bar-fill" style="width:100.0%;background:#2A7C79"></div></div></div><div class="comp-card warn"><div class="c-nome">Eagle</div><div class="c-pct">86.2%</div><div class="c-vals"><div>Projetado: <strong>R$&nbsp;12.442,50</strong></div><div>Esperado: <strong>R$&nbsp;14.430,00</strong></div></div><div class="c-bar-bg"><div class="c-bar-fill" style="width:86.2%;background:#E67E22"></div></div></div><div class="comp-card ok"><div class="c-nome">Zurich</div><div class="c-pct">134.7%</div><div class="c-vals"><div>Projetado: <strong>R$&nbsp;39.247,75</strong></div><div>Esperado: <strong>R$&nbsp;29.143,69</strong></div></div><div class="c-bar-bg"><div class="c-bar-fill" style="width:130.0%;background:#C0392B"></div></div></div><div class="comp-card warn"><div class="c-nome">CWT</div><div class="c-pct">86.3%</div><div class="c-vals"><div>Projetado: <strong>R$&nbsp;65.614,72</strong></div><div>Esperado: <strong>R$&nbsp;76.046,58</strong></div></div><div class="c-bar-bg"><div class="c-bar-fill" style="width:86.3%;background:#3498DB"></div></div></div><div class="comp-card crit"><div class="c-nome">Bradesco Contratos e Pacotes</div><div class="c-pct">78.2%</div><div class="c-vals"><div>Projetado: <strong>R$&nbsp;96.024,98</strong></div><div>Esperado: <strong>R$&nbsp;122.839,45</strong></div></div><div class="c-bar-bg"><div class="c-bar-fill" style="width:78.2%;background:#9B59B6"></div></div></div><div class="comp-card ok"><div class="c-nome">GSI Law</div><div class="c-pct">100.0%</div><div class="c-vals"><div>Projetado: <strong>R$&nbsp;1.000,00</strong></div><div>Esperado: <strong>R$&nbsp;1.000,00</strong></div></div><div class="c-bar-bg"><div class="c-bar-fill" style="width:100.0%;background:#F1C40F"></div></div></div><div class="comp-card ok"><div class="c-nome">Hoepers</div><div class="c-pct">100.0%</div><div class="c-vals"><div>Projetado: <strong>R$&nbsp;3.551,60</strong></div><div>Esperado: <strong>R$&nbsp;3.551,60</strong></div></div><div class="c-bar-bg"><div class="c-bar-fill" style="width:100.0%;background:#1ABC9C"></div></div></div><div class="comp-card ok"><div class="c-nome">Zarro</div><div class="c-pct">100.0%</div><div class="c-vals"><div>Projetado: <strong>R$&nbsp;585,00</strong></div><div>Esperado: <strong>R$&nbsp;585,00</strong></div></div><div class="c-bar-bg"><div class="c-bar-fill" style="width:100.0%;background:#E74C3C"></div></div></div><div class="comp-card ok"><div class="c-nome">Demais Clientes</div><div class="c-pct">100.0%</div><div class="c-vals"><div>Projetado: <strong>R$&nbsp;261.110,44</strong></div><div>Esperado: <strong>R$&nbsp;261.110,44</strong></div></div><div class="c-bar-bg"><div class="c-bar-fill" style="width:100.0%;background:#BDC3C7"></div></div></div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-hd"><h2>Detalhamento por Parceiro</h2></div>
+    <div class="tbl-wrap">
+      <table id="tbl">
+        <thead>
+          <tr>
+            <th>Parceiro</th><th>Fat. Mês Anterior</th><th id="th-projetado">Projetado (Mai/26)</th>
+            <th id="th-esperado">Esperado (Mai/26)</th><th>Atingimento</th><th>Participação</th><th>Origem</th>
+          </tr>
+        </thead>
+        <tbody><tr><td><strong>Agibank</strong></td><td>R$&nbsp;701.378,46</td><td>R$&nbsp;444.421,30</td><td>R$&nbsp;699.867,43</td><td><span class="badge down">63.5%</span></td><td>23.3%</td><td><span class="badge info">Volume</span></td></tr><tr><td><strong>Bradesco CPI</strong></td><td>R$&nbsp;451.571,57</td><td>R$&nbsp;436.342,04</td><td>R$&nbsp;440.833,57</td><td><span class="badge down">99.0%</span></td><td>22.9%</td><td><span class="badge info">Volume</span></td></tr><tr><td><strong>Bradesco Digitação</strong></td><td>R$&nbsp;18.599,72</td><td>R$&nbsp;16.896,64</td><td>R$&nbsp;12.170,52</td><td><span class="badge up">138.8%</span></td><td>0.9%</td><td><span class="badge info">Volume</span></td></tr><tr><td><strong>Bradesco Esteira Única</strong></td><td>R$&nbsp;510.119,07</td><td>R$&nbsp;424.300,92</td><td>R$&nbsp;509.000,00</td><td><span class="badge down">83.4%</span></td><td>22.3%</td><td><span class="badge info">Volume</span></td></tr><tr><td><strong>Bradesco Obrigações de Fazer</strong></td><td>R$&nbsp;105.358,39</td><td>R$&nbsp;105.358,39</td><td>R$&nbsp;105.358,39</td><td><span class="badge up">100.0%</span></td><td>5.5%</td><td><span class="badge neu">Manual</span></td></tr><tr><td><strong>Eagle</strong></td><td>R$&nbsp;14.763,00</td><td>R$&nbsp;12.442,50</td><td>R$&nbsp;14.430,00</td><td><span class="badge down">86.2%</span></td><td>0.7%</td><td><span class="badge info">Volume</span></td></tr><tr><td><strong>Zurich</strong></td><td>R$&nbsp;62.401,52</td><td>R$&nbsp;39.247,75</td><td>R$&nbsp;29.143,69</td><td><span class="badge up">134.7%</span></td><td>2.1%</td><td><span class="badge info">Volume</span></td></tr><tr><td><strong>CWT</strong></td><td>R$&nbsp;66.538,01</td><td>R$&nbsp;65.614,72</td><td>R$&nbsp;76.046,58</td><td><span class="badge down">86.3%</span></td><td>3.4%</td><td><span class="badge neu">Manual</span></td></tr><tr><td><strong>Bradesco Contratos e Pacotes</strong></td><td>R$&nbsp;103.991,44</td><td>R$&nbsp;96.024,98</td><td>R$&nbsp;122.839,45</td><td><span class="badge down">78.2%</span></td><td>5.0%</td><td><span class="badge neu">Manual</span></td></tr><tr><td><strong>GSI Law</strong></td><td>R$&nbsp;1.000,00</td><td>R$&nbsp;1.000,00</td><td>R$&nbsp;1.000,00</td><td><span class="badge up">100.0%</span></td><td>0.1%</td><td><span class="badge neu">Manual</span></td></tr><tr><td><strong>Hoepers</strong></td><td>R$&nbsp;3.551,60</td><td>R$&nbsp;3.551,60</td><td>R$&nbsp;3.551,60</td><td><span class="badge up">100.0%</span></td><td>0.2%</td><td><span class="badge neu">Manual</span></td></tr><tr><td><strong>Zarro</strong></td><td>R$&nbsp;585,00</td><td>R$&nbsp;585,00</td><td>R$&nbsp;585,00</td><td><span class="badge up">100.0%</span></td><td>0.0%</td><td><span class="badge neu">Manual</span></td></tr><tr><td><strong>Demais Clientes</strong></td><td>R$&nbsp;434.221,66</td><td>R$&nbsp;261.110,44</td><td>R$&nbsp;261.110,44</td><td><span class="badge up">100.0%</span></td><td>13.7%</td><td><span class="badge neu">Manual</span></td></tr></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:24px">
+    <div class="card-hd"><h2>Expectativa de Faturamento Anual</h2></div>
+    <div class="tbl-wrap">
+      <table style="width:100%;border-collapse:collapse;font-size:.88rem">
+        <thead>
+          <tr>
+            <th style="background:var(--blue-dark);color:#ECEFF3;padding:10px 12px;text-align:left;font-size:.73rem;text-transform:uppercase;letter-spacing:.4px;border-radius:8px 0 0 0">Parceiro</th>
+            <th style="background:var(--blue-mid);color:#ECEFF3;padding:10px 10px;text-align:right;font-size:.73rem;letter-spacing:.3px">Jan</th><th style="background:var(--blue-mid);color:#ECEFF3;padding:10px 10px;text-align:right;font-size:.73rem;letter-spacing:.3px">Fev</th><th style="background:var(--blue-mid);color:#ECEFF3;padding:10px 10px;text-align:right;font-size:.73rem;letter-spacing:.3px">Mar</th><th style="background:var(--blue-mid);color:#ECEFF3;padding:10px 10px;text-align:right;font-size:.73rem;letter-spacing:.3px">Abr</th><th style="background:var(--blue-mid);color:#ECEFF3;padding:10px 10px;text-align:right;font-size:.73rem;letter-spacing:.3px">Mai</th><th style="background:var(--blue-mid);color:#ECEFF3;padding:10px 10px;text-align:right;font-size:.73rem;letter-spacing:.3px">Jun</th><th style="background:var(--blue-mid);color:#ECEFF3;padding:10px 10px;text-align:right;font-size:.73rem;letter-spacing:.3px">Jul</th><th style="background:var(--blue-mid);color:#ECEFF3;padding:10px 10px;text-align:right;font-size:.73rem;letter-spacing:.3px">Ago</th><th style="background:var(--blue-mid);color:#ECEFF3;padding:10px 10px;text-align:right;font-size:.73rem;letter-spacing:.3px">Set</th><th style="background:var(--blue-mid);color:#ECEFF3;padding:10px 10px;text-align:right;font-size:.73rem;letter-spacing:.3px">Out</th><th style="background:var(--blue-mid);color:#ECEFF3;padding:10px 10px;text-align:right;font-size:.73rem;letter-spacing:.3px">Nov</th><th style="background:var(--blue-mid);color:#ECEFF3;padding:10px 10px;text-align:right;font-size:.73rem;letter-spacing:.3px">Dez</th>
+          </tr>
+        </thead>
+        <tbody>
+<tr style="background:#F7FAFA"><td style="padding:8px 12px;font-size:.82rem"><strong>Bradesco CPI</strong></td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;468.597,67</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;439.190,11</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;440.833,57</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;440.833,57</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;440.833,57</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;440.833,57</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;440.833,57</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;440.833,57</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;440.833,57</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;440.833,57</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;440.833,57</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;440.833,57</td></tr>
+<tr><td style="padding:8px 12px;font-size:.82rem"><strong>Bradesco Digitação</strong></td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;19.336,29</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;18.309,82</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;15.025,34</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;13.522,81</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;12.170,53</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;10.953,47</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;9.858,13</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;8.872,31</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;7.985,08</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;7.186,57</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;6.467,92</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;5.821,12</td></tr>
+<tr style="background:#F7FAFA"><td style="padding:8px 12px;font-size:.82rem"><strong>Bradesco Esteira Única</strong></td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;527.943,01</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;466.140,75</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;401.985,31</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;509.000,00</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;509.000,00</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;509.000,00</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;509.000,00</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;509.000,00</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;509.000,00</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;509.000,00</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;509.000,00</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;509.000,00</td></tr>
+<tr><td style="padding:8px 12px;font-size:.82rem"><strong>Bradesco Obrigações de Fazer</strong></td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;105.358,39</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;105.358,39</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;105.358,39</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;105.358,39</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;105.358,39</td><td style="text-align:right;font-size:.78rem;padding:8px 10px"><span style="color:var(--muted)">—</span></td><td style="text-align:right;font-size:.78rem;padding:8px 10px"><span style="color:var(--muted)">—</span></td><td style="text-align:right;font-size:.78rem;padding:8px 10px"><span style="color:var(--muted)">—</span></td><td style="text-align:right;font-size:.78rem;padding:8px 10px"><span style="color:var(--muted)">—</span></td><td style="text-align:right;font-size:.78rem;padding:8px 10px"><span style="color:var(--muted)">—</span></td><td style="text-align:right;font-size:.78rem;padding:8px 10px"><span style="color:var(--muted)">—</span></td><td style="text-align:right;font-size:.78rem;padding:8px 10px"><span style="color:var(--muted)">—</span></td></tr>
+<tr style="background:#F7FAFA"><td style="padding:8px 12px;font-size:.82rem"><strong>Agibank</strong></td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;510.714,32</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;471.730,24</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;613.487,18</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;699.867,43</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;699.867,43</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;699.867,43</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;699.867,43</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;699.867,43</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;699.867,43</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;699.867,43</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;699.867,43</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;699.867,43</td></tr>
+<tr><td style="padding:8px 12px;font-size:.82rem"><strong>Eagle</strong></td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;10.583,50</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;11.729,00</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;14.430,00</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;14.430,00</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;14.430,00</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;14.430,00</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;14.430,00</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;14.430,00</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;14.430,00</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;14.430,00</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;14.430,00</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;14.430,00</td></tr>
+<tr style="background:#F7FAFA"><td style="padding:8px 12px;font-size:.82rem"><strong>Zurich</strong></td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;34.365,57</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;29.143,69</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;32.123,51</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;62.000,00</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;29.143,69</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;29.143,69</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;29.143,69</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;29.143,69</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;29.143,69</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;29.143,69</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;29.143,69</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;29.143,69</td></tr>
+<tr><td style="padding:8px 12px;font-size:.82rem"><strong>CWT</strong></td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;140.078,48</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;74.819,70</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;76.046,58</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;76.046,58</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;76.046,58</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;76.046,58</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;76.046,58</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;76.046,58</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;76.046,58</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;76.046,58</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;76.046,58</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;76.046,58</td></tr>
+<tr style="background:#F7FAFA"><td style="padding:8px 12px;font-size:.82rem"><strong>Bradesco Contratos e Pacotes</strong></td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;355.445,84</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;182.952,92</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;102.445,84</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;172.842,69</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;278.339,45</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;128.339,45</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;128.339,45</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;128.339,45</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;128.339,45</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;128.339,45</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;128.339,45</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;128.339,45</td></tr>
+<tr><td style="padding:8px 12px;font-size:.82rem"><strong>GSI Law</strong></td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;2.000,00</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;1.000,00</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;1.000,00</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;1.000,00</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;1.000,00</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;1.000,00</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;1.000,00</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;1.000,00</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;1.000,00</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;1.000,00</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;1.000,00</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;1.000,00</td></tr>
+<tr style="background:#F7FAFA"><td style="padding:8px 12px;font-size:.82rem"><strong>Hoepers</strong></td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;2.121,60</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;2.074,80</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;3.213,60</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;3.551,60</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;3.551,60</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;3.551,60</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;3.551,60</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;3.551,60</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;3.551,60</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;3.551,60</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;3.551,60</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;3.551,60</td></tr>
+<tr><td style="padding:8px 12px;font-size:.82rem"><strong>Zarro</strong></td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;585,00</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;585,00</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;585,00</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;585,00</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;585,00</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;585,00</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;585,00</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;585,00</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;585,00</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;585,00</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;585,00</td><td style="text-align:right;font-size:.78rem;padding:8px 10px">R$&nbsp;585,00</td></tr>
+<tr style="background:var(--blue-dark)"><td style="padding:8px 12px;font-size:.82rem;font-weight:800;color:#ECEFF3">TOTAL</td><td style="text-align:right;font-size:.78rem;padding:8px 10px;font-weight:700;color:#ECEFF3">R$&nbsp;2.177.129,67</td><td style="text-align:right;font-size:.78rem;padding:8px 10px;font-weight:700;color:#ECEFF3">R$&nbsp;1.803.034,42</td><td style="text-align:right;font-size:.78rem;padding:8px 10px;font-weight:700;color:#ECEFF3">R$&nbsp;1.806.534,32</td><td style="text-align:right;font-size:.78rem;padding:8px 10px;font-weight:700;color:#ECEFF3">R$&nbsp;2.099.038,07</td><td style="text-align:right;font-size:.78rem;padding:8px 10px;font-weight:700;color:#ECEFF3">R$&nbsp;2.170.326,24</td><td style="text-align:right;font-size:.78rem;padding:8px 10px;font-weight:700;color:#ECEFF3">R$&nbsp;1.913.750,79</td><td style="text-align:right;font-size:.78rem;padding:8px 10px;font-weight:700;color:#ECEFF3">R$&nbsp;1.912.655,45</td><td style="text-align:right;font-size:.78rem;padding:8px 10px;font-weight:700;color:#ECEFF3">R$&nbsp;1.911.669,63</td><td style="text-align:right;font-size:.78rem;padding:8px 10px;font-weight:700;color:#ECEFF3">R$&nbsp;1.910.782,40</td><td style="text-align:right;font-size:.78rem;padding:8px 10px;font-weight:700;color:#ECEFF3">R$&nbsp;1.909.983,89</td><td style="text-align:right;font-size:.78rem;padding:8px 10px;font-weight:700;color:#ECEFF3">R$&nbsp;1.909.265,24</td><td style="text-align:right;font-size:.78rem;padding:8px 10px;font-weight:700;color:#ECEFF3">R$&nbsp;1.908.618,44</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<!-- MODAL EDITAR DADOS -->
+<div class="modal-overlay" id="ov">
+  <div class="modal">
+    <div class="modal-hd">
+      <h3>Editar Dados do Dashboard</h3>
+      <button class="btn btn-ghost btn-sm" onclick="closeModal('ov')">Fechar</button>
+    </div>
+    <div class="modal-bd">
+      <div class="tabs">
+        <button class="tab active" onclick="switchTab(0,this)">Consolidado</button>
+        <button class="tab" onclick="switchTab(1,this)">Parceiros</button>
+        <button class="tab" onclick="switchTab(2,this)">Histórico</button>
+        <button class="tab" onclick="switchTab(3,this)">Feriados</button>
+
+      </div>
+      <div class="tab-pane active" id="tp0">
+        <div class="frm-grid">
+          <div><label for="f3">Média 12 Meses</label><input type="number" id="f3" step="0.01"></div>
+          <div><label for="f4">Expectativa de Faturamento</label><input type="number" id="f4" step="0.01"></div>
+        </div>
+      </div>
+      <div class="tab-pane" id="tp1">
+        <div class="alert-info">Os valores "Projetado" dos clientes com volume diário são calculados automaticamente pelo motor de projeção. Para clientes mensais fechados, preencha o valor manualmente.</div>
+        <div id="parceiros-form"></div>
+        <button class="btn btn-blue btn-sm" onclick="addParceiro()" style="margin-top:8px">+ Adicionar Parceiro</button>
+      </div>
+      <div class="tab-pane" id="tp2">
+        <div id="historico-form"></div>
+        <button class="btn btn-blue btn-sm" onclick="addHistorico()" style="margin-top:8px">+ Adicionar Mês</button>
+      </div>
+      <div class="tab-pane" id="tp3">
+        <div class="alert-info">Configure os feriados nacionais e pontos facultativos. O cálculo considera segunda a sexta, excluindo as datas abaixo.</div>
+        <div id="feriados-form"></div>
+        <button class="btn btn-blue btn-sm" onclick="addFeriado()" style="margin-top:8px">+ Adicionar Feriado</button>
+      </div>
+
+    </div>
+    <div class="modal-ft">
+      <button class="btn btn-blue" onclick="saveData()">Salvar</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL TARIFAS -->
+<div class="modal-overlay" id="ov-tarifas">
+  <div class="modal" style="max-width:800px">
+    <div class="modal-hd">
+      <h3>Tabela de Tarifas por Cliente</h3>
+      <button class="btn btn-ghost btn-sm" onclick="closeModal('ov-tarifas')">Fechar</button>
+    </div>
+    <div class="modal-bd" id="tarifas-form"></div>
+    <div class="modal-ft">
+      <button class="btn btn-blue" onclick="saveTarifas()">Salvar Tarifas</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL VOLUMES -->
+<div class="modal-overlay" id="ov-volumes">
+  <div class="modal" style="max-width:1000px">
+    <div class="modal-hd">
+      <h3>Registro de Volume Diário / Mensal</h3>
+      <button class="btn btn-ghost btn-sm" onclick="closeModal('ov-volumes')">Fechar</button>
+    </div>
+    <div class="modal-bd">
+      <div class="card" style="margin-bottom:16px">
+        <div class="card-hd"><h2>Novo Registro</h2></div>
+        <div class="vol-form-grid">
+          <div>
+            <label>Cliente</label>
+            <select id="vol-cliente" onchange="onVolClienteChange()">
+              <option value="">Selecione...</option>
+            </select>
+          </div>
+          <div id="vol-grupo-linha">
+            <label>Linha de Serviço</label>
+            <select id="vol-linha"><option value="">Selecione o cliente...</option></select>
+          </div>
+          <div id="vol-grupo-data">
+            <label>Data (diário)</label>
+            <input type="date" id="vol-data">
+          </div>
+          <div id="vol-grupo-mes" class="hidden">
+            <label>Mês (mensal)</label>
+            <input type="month" id="vol-mes">
+          </div>
+          <div>
+            <label>Volume</label>
+            <input type="number" id="vol-volume" min="0" step="0.01" placeholder="0">
+          </div>
+        </div>
+        <div id="vol-preview" class="alert-info hidden"></div>
+        <div class="vol-actions">
+          <button class="btn btn-green" onclick="adicionarVolume()">Adicionar / Atualizar</button>
+          <button class="btn btn-blue btn-sm" onclick="limparVolume()">Limpar</button>
+        </div>
+        <div style="font-size:.75rem;color:var(--muted);margin-top:4px">Clientes mensais fechados (CWT, GSI Law, Hoepers, Zarro, Demais Clientes, Bradesco Obrigações de Fazer, Bradesco Contratos e Pacotes): insira o valor total direto no campo volume.</div>
+      </div>
+
+      <div class="card" style="margin-bottom:16px">
+        <div class="card-hd"><h2>Última Data Preenchida por Cliente</h2></div>
+        <div id="vol-ultima-data" style="display:flex;flex-wrap:wrap;gap:8px"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-hd">
+          <h2>Base de Volumes Registrados</h2>
+          <div style="display:flex;gap:8px">
+            <button class="btn btn-blue btn-sm" onclick="exportarVolumesCSV()">Exportar CSV</button>
+            <button class="btn btn-red btn-sm" onclick="apagarBaseVolumes()">Limpar Base</button>
+          </div>
+        </div>
+        <div class="vol-tabela-wrap">
+          <table class="vol-tabela" style="width:100%;border-collapse:collapse">
+            <thead>
+              <tr>
+                <th>Cliente</th><th>Linha</th><th>Tipo</th><th>Data/Mês</th>
+                <th>Volume</th><th>Valor Calc.</th><th></th>
+              </tr>
+            </thead>
+            <tbody id="vol-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<!-- MINI-MODAL: NOVA LINHA DE TARIFA -->
+<div class="modal-overlay" id="ov-nova-linha">
+  <div class="modal" style="max-width:480px">
+    <div class="modal-hd">
+      <h3>Adicionar Linha de Tarifa</h3>
+      <button class="btn btn-ghost btn-sm" onclick="closeModal('ov-nova-linha')">Fechar</button>
+    </div>
+    <div class="modal-bd" style="display:flex;flex-direction:column;gap:14px">
+      <div>
+        <label style="font-size:.78rem;color:var(--muted);display:block;margin-bottom:4px">Cliente</label>
+        <select id="nl-cliente" style="width:100%;padding:8px 10px;border-radius:8px;border:1.5px solid #C5DDD9;font-size:.85rem;font-family:inherit">
+          <option value="">Selecione o cliente...</option>
+        </select>
+      </div>
+      <div>
+        <label style="font-size:.78rem;color:var(--muted);display:block;margin-bottom:4px">Nome da linha</label>
+        <input type="text" id="nl-nome" placeholder="Ex: Ajuste Contratual, Reembolso, Fee Extra..." style="width:100%;padding:8px 10px;border-radius:8px;border:1.5px solid #C5DDD9;font-size:.85rem">
+      </div>
+      <div>
+        <label style="font-size:.78rem;color:var(--muted);display:block;margin-bottom:4px">Valor (R$) — negativo para desconto</label>
+        <input type="number" id="nl-valor" step="0.01" placeholder="Ex: 5000 ou -1200" style="width:100%;padding:8px 10px;border-radius:8px;border:1.5px solid #C5DDD9;font-size:.85rem">
+      </div>
+      <div id="nl-preview" style="font-size:.78rem;color:var(--muted);min-height:18px"></div>
+    </div>
+    <div class="modal-ft">
+      <button class="btn btn-blue btn-sm" onclick="closeModal('ov-nova-linha')">Cancelar</button>
+      <button class="btn btn-green" onclick="confirmarNovaLinha()">Adicionar Linha</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// @@SNAPSHOT_DATA_START@@
+const SNAPSHOT_D = null;
+const SNAPSHOT_TARIFAS = null;
+const SNAPSHOT_VOLUMES = null;
+// @@SNAPSHOT_DATA_END@@
+
+const TARIFAS_DEFAULT = {
+  "Agibank":{"tipo_cliente":"diario","linhas":[{"nome":"Linha de Captura","tarifa":14.77,"tipo":"unitario"},{"nome":"Análise e Cadastro","tarifa":5.28,"tipo":"unitario"},{"nome":"Subsídios","tarifa":33,"tipo":"unitario"},{"nome":"Contratos","tarifa":1.47,"tipo":"unitario"},{"nome":"Ofícios","tarifa":52000,"tipo":"fixo"}]},
+  "Bradesco CPI":{"tipo_cliente":"diario","linhas":[{"nome":"Apoio ADM","tarifa":7248.95,"tipo":"fixo"},{"nome":"Apoio ADM Urgente","tarifa":7577.42,"tipo":"fixo"},{"nome":"Bobina Eletrônica","tarifa":1.82,"tipo":"unitario"},{"nome":"Carteira de Cobrança","tarifa":1.82,"tipo":"unitario"},{"nome":"TED/PAGFOR/NATIVO","tarifa":1.82,"tipo":"unitario"},{"nome":"Cheque","tarifa":1.82,"tipo":"unitario"},{"nome":"Armazenagem Imagem","tarifa":6.91,"tipo":"unitario"}]},
+  "Bradesco Digitação":{"tipo_cliente":"diario","linhas":[{"nome":"Custódia DN - Tipo A","tarifa":0.34,"tipo":"unitario"},{"nome":"Custódia SB - Tipo B","tarifa":0.26,"tipo":"unitario"},{"nome":"Custódia Tipo D","tarifa":0.14,"tipo":"unitario"},{"nome":"Complementação","tarifa":0.28,"tipo":"unitario"},{"nome":"Complem. Dinâmico","tarifa":0.31,"tipo":"unitario"},{"nome":"Capitalização","tarifa":0.47,"tipo":"unitario"}]},
+  "Bradesco Esteira Única":{"tipo_cliente":"diario","linhas":[{"nome":"Cadastro Judicial","tarifa":23.85,"tipo":"unitario"},{"nome":"Subsídios Ações Cíveis","tarifa":1.77,"tipo":"unitario"},{"nome":"Subsídios Complementação","tarifa":6.29,"tipo":"unitario"},{"nome":"Captura de Iniciais","tarifa":8.48,"tipo":"unitario"},{"nome":"Cadastro Simples","tarifa":2.38,"tipo":"unitario"},{"nome":"Complementação BPO","tarifa":2.38,"tipo":"unitario"},{"nome":"Reanálise","tarifa":2.38,"tipo":"unitario"}]},
+  "Eagle":{"tipo_cliente":"diario","linhas":[{"nome":"Cadastro Judicial","tarifa":5,"tipo":"unitario"},{"nome":"Captura de Iniciais","tarifa":13.5,"tipo":"unitario"}]},
+  "Zurich":{"tipo_cliente":"diario","linhas":[{"nome":"Cadastro Benner","tarifa":18.52,"tipo":"unitario"},{"nome":"Cadastro Sinjud","tarifa":20.47,"tipo":"unitario"},{"nome":"Tratativa Completa","tarifa":82.37,"tipo":"unitario"},{"nome":"Intimação","tarifa":8.79,"tipo":"unitario"}]},
+  "Bradesco Contratos e Pacotes":{"tipo_cliente":"mensal_fechado","linhas":[]},
+  "Bradesco Obrigações de Fazer":{"tipo_cliente":"mensal_fechado","linhas":[]},
+  "CWT":{"tipo_cliente":"mensal_fechado","linhas":[]},
+  "GSI Law":{"tipo_cliente":"mensal_fechado","linhas":[]},
+  "Hoepers":{"tipo_cliente":"mensal_fechado","linhas":[]},
+  "Zarro":{"tipo_cliente":"mensal_fechado","linhas":[]},
+  "Demais Clientes":{"tipo_cliente":"mensal_fechado","linhas":[]}
+};
+
+const FERIADOS_DEFAULT = ["2026-01-01","2026-02-16","2026-02-17","2026-04-03","2026-04-21","2026-05-01","2026-06-04","2026-09-07","2026-10-12","2026-11-02","2026-11-15","2026-11-20","2026-12-25"];
+
+const COR = {
+  "Agibank":"#00A896","Bradesco CPI":"#023631","Bradesco Digitação":"#075056",
+  "Bradesco Esteira Única":"#3a9c98","Bradesco Obrigações de Fazer":"#2A7C79",
+  "Eagle":"#E67E22","Zurich":"#C0392B","CWT":"#3498DB",
+  "Bradesco Contratos e Pacotes":"#9B59B6","GSI Law":"#F1C40F",
+  "Hoepers":"#1ABC9C","Zarro":"#E74C3C","Demais Clientes":"#BDC3C7"
+};
+
+const DEFAULT = {
+  consolidado:{media_12_meses:1956659,expectativa_faturamento:2380549.41},
+  parceiros:[
+    {nome:"Agibank",faturamento_anterior:701378.46,valor:469229.52,esperado:699867.43,origem:"manual"},
+    {nome:"Bradesco CPI",faturamento_anterior:451571.57,valor:437544.44,esperado:440833.57,origem:"manual"},
+    {nome:"Bradesco Digitação",faturamento_anterior:18599.72,valor:15807.46,esperado:12170.52,origem:"manual"},
+    {nome:"Bradesco Esteira Única",faturamento_anterior:510119.07,valor:484188.79,esperado:509000,origem:"manual"},
+    {nome:"Bradesco Obrigações de Fazer",faturamento_anterior:105358.39,valor:105358.39,esperado:105358.39,origem:"manual"},
+    {nome:"Eagle",faturamento_anterior:14763,valor:16042.14,esperado:14430,origem:"manual"},
+    {nome:"Zurich",faturamento_anterior:62401.52,valor:36988.69,esperado:29143.69,origem:"manual"},
+    {nome:"CWT",faturamento_anterior:66538.01,valor:65614.72,esperado:76046.58,origem:"manual"},
+    {nome:"Bradesco Contratos e Pacotes",faturamento_anterior:103991.44,valor:96024.98,esperado:122839.45,origem:"manual"},
+    {nome:"GSI Law",faturamento_anterior:1000,valor:1000,esperado:1000,origem:"manual"},
+    {nome:"Hoepers",faturamento_anterior:3551.6,valor:3551.6,esperado:3551.6,origem:"manual"},
+    {nome:"Zarro",faturamento_anterior:585,valor:585,esperado:585,origem:"manual"},
+    {nome:"Demais Clientes",faturamento_anterior:434221.66,valor:261110.44,esperado:261110.44,origem:"manual"}
+  ],
+  historico_mensal:[
+    {mes:"2025-04-01",valor:2587430.11},{mes:"2025-05-01",valor:2601327.44},
+    {mes:"2025-06-01",valor:2592572.14},{mes:"2025-07-01",valor:3246614.64},
+    {mes:"2025-08-01",valor:2469275.32},{mes:"2025-09-01",valor:2592580.77},
+    {mes:"2025-10-01",valor:2519235.32},{mes:"2025-11-01",valor:2489492.86},
+    {mes:"2025-12-01",valor:2496301.59},{mes:"2026-01-01",valor:2095697.02},
+    {mes:"2026-02-01",valor:2126074.23},{mes:"2026-03-01",valor:2316095.53}
+  ],
+  feriados:FERIADOS_DEFAULT
+};
+
+// ============================================================
+// DIAS ÚTEIS
+// ============================================================
+function isDiaUtil(dateStr,feriados){
+  var d=new Date(dateStr+"T12:00:00"),dow=d.getDay();
+  if(dow===0||dow===6)return false;
+  return !feriados.includes(dateStr);
+}
+function getDiasUteisDoMes(ano,mes,feriados){
+  var dias=[],total=new Date(ano,mes,0).getDate();
+  for(var d=1;d<=total;d++){
+    var str=ano+"-"+String(mes).padStart(2,"0")+"-"+String(d).padStart(2,"0");
+    if(isDiaUtil(str,feriados))dias.push(str);
+  }
+  return dias;
+}
+function getDiasUteisPassados(ano,mes,feriados,hoje){
+  return getDiasUteisDoMes(ano,mes,feriados).filter(function(d){return d<=hoje;});
+}
+
+// ============================================================
+// MOTOR DE CÁLCULO
+// ============================================================
+function calcularFaturamentoPorVolume(volumes,tarifas){
+  var avulsos={},normais=[];
+  volumes.forEach(function(reg){
+    if(reg.avulso){
+      if(!avulsos[reg.cliente])avulsos[reg.cliente]=0;
+      avulsos[reg.cliente]+=(reg.volume||0);
+    }else{
+      normais.push(reg);
+    }
+  });
+  var resultado={};
+  var feesContados={}; // controla fees fixos já contados (uma vez por linha por mês)
+  normais.forEach(function(reg){
+    if(!resultado[reg.cliente])resultado[reg.cliente]=0;
+    var conf=tarifas[reg.cliente];
+    if(!conf)return;
+    if(conf.tipo_cliente==="mensal_fechado"){
+      resultado[reg.cliente]=reg.volume||0;
+      return;
+    }
+    var lc=conf.linhas.find(function(l){return l.nome===reg.linha;});
+    if(!lc)return;
+    if(lc.tipo==="fixo"){
+      // Ofícios: fee fixo mensal (1 = R$ 52.000, conta uma vez)
+      if(reg.linha==="Ofícios"){
+        var chave=reg.cliente+"||Ofícios";
+        if(!feesContados[chave]){feesContados[chave]=true;resultado[reg.cliente]+=lc.tarifa;}
+      } else {
+        // Demais Fee Fixo/Mês: volume × tarifa (ex: 60 Apoios ADM × R$ 7.248,95)
+        resultado[reg.cliente]+=(reg.volume||0)*lc.tarifa;
+      }
+    }
+    else{resultado[reg.cliente]+=(reg.volume||0)*lc.tarifa;}
+  });
+  Object.keys(avulsos).forEach(function(c){
+    if(!resultado[c])resultado[c]=0;
+    resultado[c]+=avulsos[c];
+  });
+  return resultado;
+}
+
+function calcularValorRegistro(r){
+  if(r.avulso)return r.volume||0;
+  var conf=TARIFAS[r.cliente];
+  if(!conf)return 0;
+  if(conf.tipo_cliente==="mensal_fechado")return r.volume||0;
+  var lc=conf.linhas.find(function(l){return l.nome===r.linha;});
+  if(!lc)return 0;
+  return lc.tipo==="fixo"?lc.tarifa:(r.volume||0)*lc.tarifa;
+}
+
+// ============================================================
+// ESTADO GLOBAL
+// ============================================================
+var D,TARIFAS,VOLUMES_BASE,chartH=null,chartP=null;
+
+async function loadData(){
+  try {
+    var res = await fetch('/api/data');
+    if (!res.ok) throw new Error('Erro na API');
+    var json = await res.json();
+    D = json.d || JSON.parse(JSON.stringify(DEFAULT));
+    TARIFAS = json.tarifas || JSON.parse(JSON.stringify(TARIFAS_DEFAULT));
+    VOLUMES_BASE = json.volumes || [];
+  } catch(e) {
+    D = JSON.parse(JSON.stringify(DEFAULT));
+    TARIFAS = JSON.parse(JSON.stringify(TARIFAS_DEFAULT));
+    VOLUMES_BASE = [];
+  }
+  if(!D.historico_mensal)D.historico_mensal=[];
+  D.historico_mensal.sort(function(a,b){return new Date(a.mes)-new Date(b.mes);});
+  if(!D.feriados)D.feriados=FERIADOS_DEFAULT.slice();
+}
+
+
+async function saveAll(){
+  try {
+    var res = await fetch('/api/data', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({d: D, tarifas: TARIFAS, volumes: VOLUMES_BASE})
+    });
+    if (!res.ok) throw new Error('Erro ao salvar');
+  } catch(e) {
+    toast('Erro ao salvar dados!', 'err');
+    throw e;
+  }
+}
+
+function salvarComoHTML(){
+  var html=document.documentElement.outerHTML;
+  var novoBloco="// @@SNAPSHOT_DATA_START@@\n"+
+    "const SNAPSHOT_D = "+JSON.stringify(D)+";\n"+
+    "const SNAPSHOT_TARIFAS = "+JSON.stringify(TARIFAS)+";\n"+
+    "const SNAPSHOT_VOLUMES = "+JSON.stringify(VOLUMES_BASE)+";\n"+
+    "// @@SNAPSHOT_DATA_END@@";
+  var re=/\/\/ @@SNAPSHOT_DATA_START@@[\s\S]*?\/\/ @@SNAPSHOT_DATA_END@@/;
+  html=html.replace(re,novoBloco);
+  var blob=new Blob([html],{type:"text/html;charset=utf-8"});
+  var a=document.createElement("a");
+  a.href=URL.createObjectURL(blob);
+  var nd=new Date();
+  var stamp=nd.getFullYear()+"-"+String(nd.getMonth()+1).padStart(2,"0")+"-"+String(nd.getDate()).padStart(2,"0");
+  a.download="Dashboard_Faturamentos_"+stamp+".html";
+  document.body.appendChild(a);a.click();document.body.removeChild(a);
+  URL.revokeObjectURL(a.href);
+  toast("HTML salvo com dados embutidos!","ok");
+}
+
+// ============================================================
+// PROJEÇÃO
+// ============================================================
+function calcularEAtualizarProjecao(){
+  var hoje=new Date().toISOString().slice(0,10);
+  var anoAtual=new Date().getFullYear();
+  var mesAtual=new Date().getMonth()+1;
+  var feriados=D.feriados||[];
+  var duTodos=getDiasUteisDoMes(anoAtual,mesAtual,feriados);
+  var duPassados=getDiasUteisPassados(anoAtual,mesAtual,feriados,hoje);
+  var duTotal=duTodos.length,duP=duPassados.length;
+  var mesStr=anoAtual+"-"+String(mesAtual).padStart(2,"0");
+  var volumesMes=VOLUMES_BASE.filter(function(v){
+    if(v.tipo==="diario")return v.data&&v.data.startsWith(mesStr);
+    if(v.tipo==="mensal")return v.mes===mesStr;
+    return false;
+  });
+  // Separa avulsos dos volumes normais antes de projetar
+  var avulsosPorCliente={};
+  volumesMes.forEach(function(v){
+    if(v.avulso){
+      if(!avulsosPorCliente[v.cliente])avulsosPorCliente[v.cliente]=0;
+      avulsosPorCliente[v.cliente]+=(v.volume||0);
+    }
+  });
+  var volumesSemAvulso=volumesMes.filter(function(v){return!v.avulso;});
+  var fatAcumulado=calcularFaturamentoPorVolume(volumesSemAvulso,TARIFAS);
+  var totalProjecao=0;
+  Object.keys(fatAcumulado).forEach(function(cliente){
+    var conf=TARIFAS[cliente];
+    if(conf&&conf.tipo_cliente==="mensal_fechado"){totalProjecao+=fatAcumulado[cliente];}
+    else{totalProjecao+=duP>0?(fatAcumulado[cliente]/duP)*duTotal:0;}
+  });
+  // Soma avulsos fixos por cima (sem extrapolar por dias úteis)
+  Object.keys(avulsosPorCliente).forEach(function(c){
+    totalProjecao+=avulsosPorCliente[c];
+  });
+  return{totalProjecao:totalProjecao,fatAcumulado:fatAcumulado,avulsosPorCliente:avulsosPorCliente,duP:duP,duTotal:duTotal};
+}
+
+function aplicarProjecao(){
+  var r=calcularEAtualizarProjecao();
+  D.parceiros.forEach(function(p,i){
+    var conf=TARIFAS[p.nome];
+    if(!conf)return;
+    var acum=r.fatAcumulado[p.nome]||0;
+    var avulso=r.avulsosPorCliente[p.nome]||0;
+    // Só atualiza se houver volume OU avulso registrado
+    if(acum===0&&avulso===0)return;
+    var valorProjetado=0;
+    if(conf.tipo_cliente==="mensal_fechado"){
+      valorProjetado=acum;
+    }else{
+      valorProjetado=r.duP>0?(acum/r.duP)*r.duTotal:0;
+    }
+    // Avulso soma fixo sobre o valor projetado (sem extrapolar)
+    D.parceiros[i].valor=valorProjetado+avulso;
+    D.parceiros[i].origem="volume";
+  });
+  saveAll().then(function(){ render();
+  toast("Projeção aplicada ao dashboard!","ok"); });
+}
+
+// ============================================================
+// FORMATAÇÃO
+// ============================================================
+function R(v){return(v||0).toLocaleString("pt-BR",{style:"currency",currency:"BRL"});}
+function P(v){return((v||0)*100).toFixed(1)+"%";}
+
+// ============================================================
+// RENDER
+// ============================================================
+function renderKPIs(){
+  var total=D.parceiros.reduce(function(s,p){return s+(p.valor||0);},0);
+  document.getElementById("kpi-atual").textContent=R(total);
+  document.getElementById("kpi-media").textContent=R(D.consolidado.media_12_meses);
+  document.getElementById("kpi-expectativa").textContent=R(D.consolidado.expectativa_faturamento);
+  var exp=D.consolidado.expectativa_faturamento;
+  if(exp){
+    var diff=(total-exp)/exp;
+    document.getElementById("kpi-vs-media").textContent=(diff>=0?"+":"")+P(diff)+" vs expectativa";
+    document.getElementById("kpi-vs-media").className="dlt "+(diff>=0?"up":"down");
+  }
+  var anoAtualK=new Date().getFullYear();
+  var mesAtualK=new Date().getMonth()+1;
+  var anoAntK=mesAtualK===1?anoAtualK-1:anoAtualK;
+  var mesAntK=mesAtualK===1?12:mesAtualK-1;
+  var mesAntStr=anoAntK+"-"+String(mesAntK).padStart(2,"0");
+  var mesesPT=["Jan","Fev","Mar","Abr","Mai","Jun","Jul","Ago","Set","Out","Nov","Dez"];
+  var labelAnt=mesesPT[mesAntK-1]+"/"+String(anoAntK).slice(2);
+  var hAnt=D.historico_mensal.find(function(h){return h.mes.startsWith(mesAntStr);});
+  if(hAnt&&hAnt.valor>0){
+    var diff2=(total-hAnt.valor)/hAnt.valor;
+    document.getElementById("kpi-vs-ano").textContent=(diff2>=0?"+":"")+P(diff2)+" vs "+labelAnt;
+    document.getElementById("kpi-vs-ano").className="dlt "+(diff2>=0?"up":"down");
+  }else{document.getElementById("kpi-vs-ano").textContent="—";}
+}
+
+function renderComparativos(){
+  var el=document.getElementById("comp-grid");el.innerHTML="";
+  D.parceiros.forEach(function(p){
+    var ating=p.esperado>0?p.valor/p.esperado:null;
+    var cls=ating==null?"crit":ating>=1?"ok":ating>=0.8?"warn":"crit";
+    var barPct=ating!=null?Math.min(ating,1.3):0;
+    el.innerHTML+='<div class="comp-card '+cls+'"><div class="c-nome">'+p.nome+'</div>'+
+      '<div class="c-pct">'+(ating!=null?P(ating):"—")+'</div>'+
+      '<div class="c-vals"><div>Projetado: <strong>'+R(p.valor)+'</strong></div>'+
+      '<div>Esperado: <strong>'+(p.esperado?R(p.esperado):"—")+'</strong></div></div>'+
+      '<div class="c-bar-bg"><div class="c-bar-fill" style="width:'+(barPct*100).toFixed(1)+'%;background:'+(COR[p.nome]||"#075056")+'"></div></div></div>';
+  });
+}
+
+function renderChartH(){
+  var ctx=document.getElementById("chart-h").getContext("2d");
+  if(chartH)chartH.destroy();
+  var sorted=[...D.historico_mensal].sort(function(a,b){return new Date(a.mes)-new Date(b.mes);});
+  var mesAtual=new Date().toISOString().slice(0,7);
+  var total=D.parceiros.reduce(function(s,p){return s+(p.valor||0);},0);
+  chartH=new Chart(ctx,{
+    type:"bar",
+    data:{
+      labels:sorted.map(function(h){return new Date(h.mes+"T12:00:00").toLocaleDateString("pt-BR",{month:"short",year:"2-digit"});}),
+      datasets:[{data:sorted.map(function(h){return h.mes.slice(0,7)===mesAtual?total:h.valor;}),
+        backgroundColor:sorted.map(function(h){return h.mes.slice(0,7)===mesAtual?"rgba(42,124,121,0.9)":"rgba(7,80,86,0.85)";}),
+        borderRadius:6,maxBarThickness:40}]
+    },
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:function(c){return R(c.parsed.y);}}}},
+      scales:{x:{grid:{display:false}},y:{grid:{color:"rgba(1,40,36,0.08)"},ticks:{callback:function(v){return"R$ "+(v/1e6).toFixed(1)+"M";}}}}}
+  });
+}
+
+function renderChartP(){
+  var ctx=document.getElementById("chart-p").getContext("2d");
+  if(chartP)chartP.destroy();
+  chartP=new Chart(ctx,{
+    type:"doughnut",
+    data:{labels:D.parceiros.map(function(p){return p.nome;}),
+      datasets:[{data:D.parceiros.map(function(p){return p.valor;}),
+        backgroundColor:D.parceiros.map(function(p){return COR[p.nome]||"#075056";}),borderWidth:1}]},
+    options:{responsive:true,maintainAspectRatio:false,cutout:"60%",
+      plugins:{legend:{position:"right",labels:{boxWidth:14}},
+        tooltip:{callbacks:{label:function(c){var t=c.dataset.data.reduce(function(a,b){return a+b;},0);
+          return c.label+": "+R(c.parsed)+" ("+P(t?c.parsed/t:0)+")";}}}}
+    }
+  });
+}
+
+function renderBars(){
+  var el=document.getElementById("progress-bars");el.innerHTML="";
+  var total=D.parceiros.reduce(function(s,p){return s+(p.valor||0);},0);
+  D.parceiros.forEach(function(p){
+    var part=total?p.valor/total:0;
+    el.innerHTML+='<div class="prog-row"><div class="prog-head"><span><strong>'+p.nome+'</strong></span>'+
+      '<span>'+R(p.valor)+' &bull; '+P(part)+'</span></div>'+
+      '<div class="prog"><div class="prog-bar" style="width:'+(part*100).toFixed(1)+'%;background:'+(COR[p.nome]||"#075056")+'"></div></div></div>';
+  });
+}
+
+function renderTable(){
+  var tb=document.querySelector("#tbl tbody");tb.innerHTML="";
+  var total=D.parceiros.reduce(function(s,p){return s+(p.valor||0);},0);
+  D.parceiros.forEach(function(p){
+    var part=total?p.valor/total:0;
+    var ating=p.esperado>0?p.valor/p.esperado:null;
+    var cls=ating==null?"neu":ating>=1?"up":"down";
+    var ob=p.origem==="volume"?"<span class='badge info'>Volume</span>":"<span class='badge neu'>Manual</span>";
+    tb.innerHTML+="<tr><td><strong>"+p.nome+"</strong></td><td>"+R(p.faturamento_anterior)+"</td>"+
+      "<td>"+R(p.valor)+"</td><td>"+(p.esperado?R(p.esperado):"—")+"</td>"+
+      "<td><span class='badge "+cls+"'>"+(ating!=null?P(ating):"—")+"</span></td>"+
+      "<td>"+P(part)+"</td><td>"+ob+"</td></tr>";
+  });
+}
+
+function render(){
+  renderKPIs();renderComparativos();renderChartH();renderChartP();renderBars();renderTable();
+  calcularEAtualizarProjecao();
+  // Atualizar labels com mês atual dinamicamente
+  var _mesesPT=["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
+  var _mesesCurto=["Jan","Fev","Mar","Abr","Mai","Jun","Jul","Ago","Set","Out","Nov","Dez"];
+  var _now=new Date();
+  var _m=_now.getMonth()+1;
+  var _a=_now.getFullYear();
+  var _label=_mesesCurto[_m-1]+"/"+String(_a).slice(2);
+  var _labelLong=_mesesPT[_m-1]+"/"+_a;
+  var el;
+  el=document.getElementById("lbl-mes-atual");   if(el) el.textContent="Previsão Mês Atual ("+_label+")";
+  el=document.getElementById("lbl-mes-comp");    if(el) el.textContent=_labelLong;
+  el=document.getElementById("th-projetado");    if(el) el.textContent="Projetado ("+_label+")";
+  el=document.getElementById("th-esperado");     if(el) el.textContent="Esperado ("+_label+")";
+  document.getElementById("last-update").textContent="Atualizado: "+new Date().toLocaleString("pt-BR");
+}
+
+// ============================================================
+// MODAL EDITAR DADOS
+// ============================================================
+function openModal(){
+  document.getElementById("f3").value=D.consolidado.media_12_meses;
+  document.getElementById("f4").value=D.consolidado.expectativa_faturamento;
+  renderParceirosFrm();renderHistoricoFrm();renderFeriadosFrm();
+  document.getElementById("od-url").value=GS_CONFIG.sheetId||"";
+  document.getElementById("od-intervalo").value=GS_CONFIG.intervaloMinutos||5;
+  document.getElementById("ov").classList.add("open");
+}
+function switchTab(n,el){
+  document.querySelectorAll(".tab").forEach(function(t){t.classList.remove("active");});
+  document.querySelectorAll(".tab-pane").forEach(function(p){p.classList.remove("active");});
+  el.classList.add("active");
+  document.getElementById("tp"+n).classList.add("active");
+}
+function renderParceirosFrm(){
+  var el=document.getElementById("parceiros-form");
+  el.innerHTML='<div class="prow-frm" style="font-weight:700;font-size:.75rem;color:var(--muted);margin-bottom:8px"><span>Nome</span><span>Fat. Anterior</span><span>Projetado</span><span>Esperado</span><span></span></div>';
+  D.parceiros.forEach(function(p,i){
+    el.innerHTML+='<div class="prow-frm" id="pr-'+i+'">'+
+      '<input type="text" id="pn-'+i+'" value="'+p.nome+'" placeholder="Nome"/>'+
+      '<input type="number" id="pfa-'+i+'" value="'+(p.faturamento_anterior||0)+'" step="0.01"/>'+
+      '<input type="number" id="pv-'+i+'" value="'+p.valor+'" step="0.01"/>'+
+      '<input type="number" id="pe-'+i+'" value="'+(p.esperado||0)+'" step="0.01"/>'+
+      '<button class="btn btn-red btn-sm" onclick="removeParceiro('+i+')">X</button></div>';
+  });
+}
+function addParceiro(){D.parceiros.push({nome:"Novo Parceiro",faturamento_anterior:0,valor:0,esperado:0,origem:"manual"});renderParceirosFrm();}
+function removeParceiro(i){D.parceiros.splice(i,1);renderParceirosFrm();}
+function renderHistoricoFrm(){
+  var el=document.getElementById("historico-form");el.innerHTML="";
+  D.historico_mensal.forEach(function(h,i){
+    el.innerHTML+='<div class="hrow" id="hr-'+i+'">'+
+      '<input type="text" id="hm-'+i+'" value="'+h.mes+'" placeholder="Ex: 2026-05-01"/>'+
+      '<input type="number" id="hv-'+i+'" value="'+h.valor+'" step="0.01"/>'+
+      '<button class="btn btn-red btn-sm" onclick="removeHistorico('+i+')">X</button></div>';
+  });
+}
+function addHistorico(){D.historico_mensal.push({mes:"",valor:0});renderHistoricoFrm();}
+function removeHistorico(i){D.historico_mensal.splice(i,1);renderHistoricoFrm();}
+function renderFeriadosFrm(){
+  var el=document.getElementById("feriados-form");el.innerHTML="";
+  (D.feriados||[]).forEach(function(f,i){
+    el.innerHTML+='<div class="feriado-row" id="fr-'+i+'">'+
+      '<input type="date" id="fd-'+i+'" value="'+f+'"/>'+
+      '<button class="btn btn-red btn-sm" onclick="removeFeriado('+i+')">X</button></div>';
+  });
+}
+function addFeriado(){if(!D.feriados)D.feriados=[];D.feriados.push("");renderFeriadosFrm();}
+function removeFeriado(i){D.feriados.splice(i,1);renderFeriadosFrm();}
+function saveData(){
+  D.consolidado.media_12_meses=+document.getElementById("f3").value||0;
+  D.consolidado.expectativa_faturamento=+document.getElementById("f4").value||0;
+  D.parceiros=D.parceiros.map(function(p,i){
+    var v=+document.getElementById("pv-"+i).value||0;
+    var e=+document.getElementById("pe-"+i).value||0;
+    return{nome:document.getElementById("pn-"+i).value||p.nome,
+      faturamento_anterior:+document.getElementById("pfa-"+i).value||0,
+      valor:v,esperado:e,origem:p.origem||"manual",delta:e>0?(v-e)/e:null};
+  });
+  D.historico_mensal=D.historico_mensal.map(function(h,i){
+    return{mes:document.getElementById("hm-"+i).value||h.mes,
+      valor:+document.getElementById("hv-"+i).value||0};
+  }).filter(function(h){return h.mes;});
+  D.historico_mensal.sort(function(a,b){return new Date(a.mes)-new Date(b.mes);});
+  D.feriados=(D.feriados||[]).map(function(f,i){return document.getElementById("fd-"+i).value||f;}).filter(Boolean);
+  saveAll().then(function(){ toast("Dados salvos!","ok"); closeModal("ov"); render(); });
+}
+
+// ============================================================
+// MODAL TARIFAS
+// ============================================================
+function sanitizeId(s){return s.replace(/[^a-zA-Z0-9]/g,"_");}
+function openModalTarifas(){renderTarifasForm();document.getElementById("ov-tarifas").classList.add("open");}
+function renderTarifasForm(){
+  var el=document.getElementById("tarifas-form");
+  el.innerHTML="";
+  Object.keys(TARIFAS).forEach(function(cliente){
+    var conf=TARIFAS[cliente];
+    var sid=sanitizeId(cliente);
+    if(conf.tipo_cliente==="mensal_fechado"){
+      var sec=document.createElement("div");
+      sec.className="tarifa-section";
+      sec.innerHTML='<h4>'+cliente+' <span class="tarifa-tipo-badge fixo" style="margin-left:8px">Mensal Fechado</span></h4>'+
+        '<div style="font-size:.78rem;color:var(--muted);padding:4px 8px">Valor inserido manualmente nos volumes.</div>';
+      el.appendChild(sec);
+      return;
+    }
+    var sec=document.createElement("div");
+    sec.className="tarifa-section";
+    sec.id="ts-"+sid;
+
+    // Cabeçalho com botão + Linha
+    var h4=document.createElement("h4");
+    h4.textContent=cliente;
+    var btnAdd=document.createElement("button");
+    btnAdd.className="btn btn-blue btn-sm";
+    btnAdd.style.cssText="margin-left:8px;font-size:.72rem";
+    btnAdd.textContent="+ Linha";
+    btnAdd.addEventListener("click",function(){abrirNovaLinha(cliente);});
+    h4.appendChild(btnAdd);
+    sec.appendChild(h4);
+
+    // Linhas de tarifa
+    conf.linhas.forEach(function(l,i){
+      var row=document.createElement("div");
+      row.className="tarifa-row";
+      row.style.gridTemplateColumns="1fr auto auto auto";
+      row.id="tr-"+sid+"-"+i;
+
+      var inpNome=document.createElement("input");
+      inpNome.type="text";inpNome.id="tln-"+sid+"-"+i;inpNome.value=l.nome;
+      var inpVal=document.createElement("input");
+      inpVal.type="number";inpVal.id="tlv-"+sid+"-"+i;inpVal.value=l.tarifa;inpVal.step="0.01";
+
+      var badge=document.createElement("span");
+      badge.className="tarifa-tipo-badge "+(l.tipo||"unitario");
+      badge.textContent=l.tipo==="fixo"?"Fee Fixo/Mês":"Por Unidade";
+
+      row.appendChild(inpNome);
+      row.appendChild(inpVal);
+      row.appendChild(badge);
+
+      if(l.permanente===false){
+        var btnRem=document.createElement("button");
+        btnRem.className="btn btn-red btn-sm";
+        btnRem.textContent="X";
+        (function(c,idx){
+          btnRem.addEventListener("click",function(){removerLinhaTarifa(sanitizeId(c),idx,c);});
+        })(cliente,i);
+        row.appendChild(btnRem);
+      } else {
+        var spacer=document.createElement("span");
+        spacer.style.cssText="width:42px;display:inline-block";
+        row.appendChild(spacer);
+      }
+      sec.appendChild(row);
+    });
+    el.appendChild(sec);
+  });
+}
+function saveTarifas(){
+  Object.keys(TARIFAS).forEach(function(cliente){
+    var conf=TARIFAS[cliente];
+    if(conf.tipo_cliente==="mensal_fechado")return;
+    conf.linhas.forEach(function(l,i){
+      var ne=document.getElementById("tln-"+sanitizeId(cliente)+"-"+i);
+      var ve=document.getElementById("tlv-"+sanitizeId(cliente)+"-"+i);
+      if(ne)l.nome=ne.value;
+      if(ve)l.tarifa=ve.value!==""?parseFloat(ve.value):l.tarifa;
+    });
+  });
+  saveAll().then(function(){ toast("Tarifas salvas!","ok"); closeModal("ov-tarifas"); calcularEAtualizarProjecao(); });
+}
+
+function abrirNovaLinha(clientePreSelecionado){
+  // Popula o select de clientes diários
+  var sel=document.getElementById("nl-cliente");
+  sel.innerHTML='<option value="">Selecione o cliente...</option>';
+  Object.keys(TARIFAS).forEach(function(c){
+    if(TARIFAS[c].tipo_cliente==="mensal_fechado")return;
+    var opt=document.createElement("option");
+    opt.value=c;opt.textContent=c;
+    if(c===clientePreSelecionado)opt.selected=true;
+    sel.appendChild(opt);
+  });
+  document.getElementById("nl-nome").value="";
+  document.getElementById("nl-valor").value="";
+  document.getElementById("nl-preview").textContent="";
+  sel.onchange=function(){
+    var v=parseFloat(document.getElementById("nl-valor").value)||0;
+    atualizarPreviewNovaLinha(sel.value,v);
+  };
+  document.getElementById("nl-valor").oninput=function(){
+    var v=parseFloat(this.value);
+    atualizarPreviewNovaLinha(sel.value,isNaN(v)?0:v);
+  };
+  document.getElementById("ov-nova-linha").classList.add("open");
+}
+
+function atualizarPreviewNovaLinha(cliente,valor){
+  var prev=document.getElementById("nl-preview");
+  if(!cliente){prev.textContent="";return;}
+  if(valor===0){prev.textContent="";return;}
+  prev.textContent=valor>0
+    ?"Esta linha somará "+valor.toLocaleString("pt-BR",{style:"currency",currency:"BRL"})+" ao faturamento de "+cliente+" todo mês que for ativada nos volumes."
+    :"Esta linha subtrairá "+Math.abs(valor).toLocaleString("pt-BR",{style:"currency",currency:"BRL"})+" do faturamento de "+cliente+".";
+}
+
+function confirmarNovaLinha(){
+  var cliente=document.getElementById("nl-cliente").value;
+  var nome=document.getElementById("nl-nome").value.trim();
+  var valorStr=document.getElementById("nl-valor").value;
+  var valor=valorStr!==""?parseFloat(valorStr):null;
+  if(!cliente){toast("Selecione o cliente.","err");return;}
+  if(!nome){toast("Informe o nome da linha.","err");return;}
+  if(valor===null||isNaN(valor)){toast("Informe o valor.","err");return;}
+  // Adiciona com flag permanente=false para permitir remoção
+  TARIFAS[cliente].linhas.push({nome:nome,tarifa:valor,tipo:"fixo",permanente:false});
+  saveAll().then(function(){
+    toast("Linha \""+nome+"\" adicionada a "+cliente+"!","ok");
+    closeModal("ov-nova-linha");
+    renderTarifasForm();
+  }); // re-renderiza o form de tarifas com a nova linha
+}
+
+function removerLinhaTarifa(clienteId,idx,clienteNome){
+  if(!confirm("Remover a linha \""+TARIFAS[clienteNome].linhas[idx].nome+"\" de "+clienteNome+"?"))return;
+  TARIFAS[clienteNome].linhas.splice(idx,1);
+  saveAll().then(function(){
+    renderTarifasForm();
+    toast("Linha removida.","ok");
+  });
+}
+
+// ============================================================
+// MODAL VOLUMES
+// ============================================================
+function openModalVolumes(){
+  renderVolClienteSelect();renderVolTabela();renderUltimaData();
+  document.getElementById("ov-volumes").classList.add("open");
+}
+function renderVolClienteSelect(){
+  var sel=document.getElementById("vol-cliente");
+  sel.innerHTML='<option value="">Selecione...</option>';
+  Object.keys(TARIFAS).forEach(function(c){
+    var opt=document.createElement("option");opt.value=c;opt.textContent=c;sel.appendChild(opt);
+  });
+}
+function onVolClienteChange(){
+  var cliente=document.getElementById("vol-cliente").value;
+  var conf=cliente?TARIFAS[cliente]:null;
+  var grupoLinha=document.getElementById("vol-grupo-linha");
+  var grupoData=document.getElementById("vol-grupo-data");
+  var grupoMes=document.getElementById("vol-grupo-mes");
+  var selLinha=document.getElementById("vol-linha");
+  var preview=document.getElementById("vol-preview");
+  preview.classList.add("hidden");
+  if(!conf){
+    grupoLinha.classList.remove("hidden");grupoData.classList.remove("hidden");
+    grupoMes.classList.add("hidden");
+    selLinha.innerHTML='<option value="">Selecione o cliente...</option>';return;
+  }
+  if(conf.tipo_cliente==="mensal_fechado"){
+    grupoLinha.classList.add("hidden");grupoData.classList.add("hidden");
+    grupoMes.classList.remove("hidden");selLinha.innerHTML="";
+    preview.textContent="Cliente mensal fechado: insira o valor total em reais no campo Volume.";
+    preview.classList.remove("hidden");return;
+  }
+  grupoLinha.classList.remove("hidden");grupoData.classList.remove("hidden");
+  grupoMes.classList.add("hidden");
+  selLinha.innerHTML='<option value="">Selecione...</option>';
+  conf.linhas.forEach(function(l){
+    var opt=document.createElement("option");opt.value=l.nome;
+    opt.textContent=l.nome+(l.tipo==="fixo"?" [Fee fixo: "+R(l.tarifa)+"]":" ["+R(l.tarifa)+"/un]");
+    selLinha.appendChild(opt);
+  });
+  selLinha.onchange=function(){
+    var linha=conf.linhas.find(function(l){return l.nome===selLinha.value;});
+    if(linha){
+      preview.textContent=linha.tipo==="fixo"
+        ?"Fee fixo mensal: "+R(linha.tarifa)+" (independe do volume)"
+        :"Tarifa: "+R(linha.tarifa)+" por unidade — preencha o volume abaixo";
+      preview.classList.remove("hidden");
+    }else{preview.classList.add("hidden");}
+  };
+}
+
+function adicionarVolume(){
+  var cliente=document.getElementById("vol-cliente").value;
+  if(!cliente){toast("Selecione o cliente.","err");return;}
+  var conf=TARIFAS[cliente];
+  var tipo,linha="",data="",mes="",volume=0;
+
+  if(conf.tipo_cliente==="mensal_fechado"){
+    tipo="mensal";mes=document.getElementById("vol-mes").value;
+    if(!mes){toast("Informe o mês.","err");return;}
+    volume=parseFloat(document.getElementById("vol-volume").value)||0;
+  }else{
+    tipo="diario";linha=document.getElementById("vol-linha").value;
+    data=document.getElementById("vol-data").value;
+    if(!linha){toast("Selecione a linha de serviço.","err");return;}
+    if(!data){toast("Informe a data.","err");return;}
+    volume=parseFloat(document.getElementById("vol-volume").value)||0;
+  }
+  VOLUMES_BASE=VOLUMES_BASE.filter(function(r){
+    if(r.cliente!==cliente)return true;
+    if(r.avulso)return true;
+    if(tipo==="diario")return!(r.data===data&&r.linha===linha);
+    return!(r.mes===mes);
+  });
+  VOLUMES_BASE.push({cliente:cliente,tipo:tipo,linha:linha,data:data,mes:mes,volume:volume});
+
+  saveAll().then(function(){ renderVolTabela();renderUltimaData();calcularEAtualizarProjecao();
+    toast("Volume salvo!","ok"); });
+}
+function limparVolume(){
+  document.getElementById("vol-cliente").value="";onVolClienteChange();
+  document.getElementById("vol-data").value="";document.getElementById("vol-mes").value="";
+  document.getElementById("vol-volume").value="";
+
+}
+function renderUltimaData(){
+  var el=document.getElementById("vol-ultima-data");
+  if(!el)return;el.innerHTML="";
+  var mapa={};
+  VOLUMES_BASE.forEach(function(r){
+    if(r.avulso)return;
+    var ref=r.tipo==="diario"?r.data:r.mes;
+    if(!ref)return;
+    if(!mapa[r.cliente]||ref>mapa[r.cliente].ref)mapa[r.cliente]={ref,tipo:r.tipo};
+  });
+  var clientes=Object.keys(mapa).sort();
+  if(!clientes.length){
+    el.innerHTML='<div style="font-size:.78rem;color:var(--muted)">Nenhum registro encontrado ainda.</div>';return;
+  }
+  clientes.forEach(function(c){
+    var info=mapa[c];
+    var labelData=info.tipo==="diario"
+      ?new Date(info.ref+"T12:00:00").toLocaleDateString("pt-BR")
+      :info.ref.slice(0,7).split("-").reverse().join("/");
+    var pill=document.createElement("div");
+    pill.style.cssText="background:var(--blue-light);border-radius:8px;padding:7px 12px;font-size:.78rem;border-left:3px solid var(--blue-mid)";
+    pill.innerHTML='<div style="font-weight:700;color:var(--blue-dark);font-size:.72rem;text-transform:uppercase;letter-spacing:.4px;margin-bottom:2px">'+c+'</div>'+
+      '<div style="color:var(--blue-mid);font-weight:700">'+labelData+'</div>'+
+      '<div style="color:var(--muted);font-size:.7rem">'+(info.tipo==="diario"?"Último dia preenchido":"Mês preenchido")+'</div>';
+    el.appendChild(pill);
+  });
+}
+function renderVolTabela(){
+  var tb=document.getElementById("vol-tbody");tb.innerHTML="";
+  renderUltimaData();
+  if(!VOLUMES_BASE.length){
+    tb.innerHTML='<tr><td colspan="7" style="text-align:center;color:var(--muted);padding:16px">Nenhum volume registrado.</td></tr>';return;
+  }
+  VOLUMES_BASE.forEach(function(r,idx){
+    var valorCalc=calcularValorRegistro(r);
+    var tipoLabel=r.avulso
+      ?'<span style="background:rgba(230,126,34,.15);color:#9a5f0a;padding:2px 8px;border-radius:999px;font-size:.72rem;font-weight:700">Avulso</span>'
+      :(r.tipo==="diario"?'<span class="tag-diario">Diário</span>':'<span class="tag-mensal">Mensal</span>');
+    tb.innerHTML+="<tr><td><strong>"+r.cliente+"</strong></td><td>"+(r.linha||"—")+"</td>"+
+      "<td>"+tipoLabel+"</td><td>"+(r.tipo==="diario"?r.data:r.mes)+"</td>"+
+      '<td style="text-align:right">'+((r.volume||0).toLocaleString("pt-BR",{minimumFractionDigits:2}))+'</td>'+
+      '<td style="text-align:right;font-weight:700;color:var(--blue-mid)">'+R(valorCalc)+'</td>'+
+      '<td><button class="btn btn-red btn-sm" onclick="removerVolume('+idx+')">X</button></td></tr>';
+  });
+}
+function removerVolume(idx){
+  VOLUMES_BASE.splice(idx,1);saveAll().then(function(){ renderVolTabela();renderUltimaData();calcularEAtualizarProjecao();
+  toast("Registro removido.","ok"); });
+}
+function apagarBaseVolumes(){
+  if(!confirm("Apagar toda a base de volumes?"))return;
+  VOLUMES_BASE=[];saveAll().then(function(){ renderVolTabela();renderUltimaData();calcularEAtualizarProjecao();
+  toast("Base apagada.","ok"); });
+}
+function exportarVolumesCSV(){
+  if(!VOLUMES_BASE.length){toast("Sem volumes para exportar.","err");return;}
+  var csv="Cliente;Linha;Tipo;Data/Mês;Volume;Valor Calculado\n";
+  VOLUMES_BASE.forEach(function(r){
+    var vc=calcularValorRegistro(r);
+    var tipo=r.avulso?"Avulso":(r.tipo==="diario"?"Diário":"Mensal");
+    csv+=r.cliente+";"+(r.linha||"")+";"+tipo+";"+(r.tipo==="diario"?r.data:r.mes)+";"+
+      (r.volume||0)+";"+vc.toFixed(2)+"\n";
+  });
+  var blob=new Blob(["\uFEFF"+csv],{type:"text/csv;charset=utf-8"});
+  var a=document.createElement("a");a.href=URL.createObjectURL(blob);
+  a.download="volumes_"+new Date().toLocaleDateString("pt-BR").replace(/\//g,"-")+".csv";
+  document.body.appendChild(a);a.click();document.body.removeChild(a);
+  toast("CSV exportado!","ok");
+}
+
+// ============================================================
+// EXPORT CSV DASHBOARD (com seção de volumes)
+// ============================================================
+function exportCSV(){
+  var rows=[
+    ["CONSOLIDADO"],["Indicador","Valor"],
+    ["Previsão Mês Atual",D.parceiros.reduce(function(s,p){return s+(p.valor||0);},0)],
+    ["Média 12 Meses",D.consolidado.media_12_meses],
+    ["Expectativa",D.consolidado.expectativa_faturamento],
+    [],["PARCEIROS"],
+    ["Parceiro","Fat. Anterior","Projetado","Esperado","Atingimento %","Origem"]
+  ];
+  D.parceiros.forEach(function(p){
+    var a=p.esperado>0?p.valor/p.esperado:null;
+    rows.push([p.nome,p.faturamento_anterior,p.valor,p.esperado,a!=null?(a*100).toFixed(1)+"%":"",p.origem||"manual"]);
+  });
+  rows.push([],["HISTÓRICO MENSAL"],["Mês","Valor"]);
+  D.historico_mensal.forEach(function(h){rows.push([h.mes,h.valor]);});
+  if(VOLUMES_BASE&&VOLUMES_BASE.length){
+    rows.push([]);
+    rows.push(["VOLUMES DIÁRIOS E MENSAIS"]);
+    rows.push(["Cliente","Linha de Serviço","Tipo","Data/Mês","Volume","Valor Calculado (R$)","Avulso"]);
+    var sorted=VOLUMES_BASE.slice().sort(function(a,b){
+      if(a.cliente!==b.cliente)return a.cliente.localeCompare(b.cliente);
+      var dA=a.data||a.mes||"",dB=b.data||b.mes||"";
+      return dA.localeCompare(dB);
+    });
+    sorted.forEach(function(r){
+      var vc=calcularValorRegistro(r);
+      var tipo=r.avulso?"Avulso":(r.tipo==="diario"?"Diário":"Mensal");
+      rows.push([r.cliente,r.linha||"",tipo,(r.tipo==="diario"?r.data:r.mes)||"",
+        r.volume!=null?r.volume:"",vc.toFixed(2),r.avulso?"Sim":"Não"]);
+    });
+  }
+  var csv=rows.map(function(r){return r.join(";");}).join("\n");
+  var blob=new Blob(["\uFEFF"+csv],{type:"text/csv;charset=utf-8"});
+  var a=document.createElement("a");a.href=URL.createObjectURL(blob);
+  a.download="Dashboard_"+new Date().toLocaleDateString("pt-BR").replace(/\//g,"-")+".csv";
+  document.body.appendChild(a);a.click();document.body.removeChild(a);
+  URL.revokeObjectURL(a.href);
+  toast("CSV exportado!","ok");
+}
+
+// ============================================================
+// HELPERS
+// ============================================================
+function closeModal(id){document.getElementById(id).classList.remove("open");}
+function toast(msg,type){
+  var t=document.getElementById("toast");
+  t.textContent=msg;t.className="toast "+(type||"")+" show";
+  setTimeout(function(){t.classList.remove("show");},3200);
+}
+["ov","ov-tarifas","ov-volumes","ov-nova-linha"].forEach(function(id){
+  document.getElementById(id).addEventListener("click",function(e){if(e.target===e.currentTarget)closeModal(id);});
+});
+
+// ============================================================
+// INTEGRAÇÃO GOOGLE SHEETS
+// ============================================================
+var GS_CONFIG = { sheetId: "https://docs.google.com/spreadsheets/d/e/2PACX-1vRyIemtd7uDSFQLUxmNOSR3fz8xOIk73ILhYD9DxA-B7c30Gk7kOFOsJPxWMtFpv36KgUhXYO-nUq8F/pub?gid=949300135&single=true&output=csv", intervaloMinutos: 5 };
+var _refreshTimer = null;
+var _ultimaAtualizacaoGS = null;
+
+function urlGoogleSheets(sheetId) {
+  // Sempre usa a URL publicada diretamente — nunca o fallback gviz
+  if (sheetId.indexOf("http") === 0) return sheetId;
+  // Se passaram só o ID, monta a URL publicada correta
+  return "https://docs.google.com/spreadsheets/d/e/" + sheetId + "/pub?single=true&output=csv";
+}
+
+function parsearCSVSheets(csvText) {
+  var linhas = csvText.split("\n").map(function(l){ return l.replace(/\r/g,""); });
+  if (linhas.length < 2) return [];
+  // Encontrar a linha de cabeçalho real (que contém "Cliente")
+  var headerIdx = 0;
+  for (var h = 0; h < linhas.length; h++) {
+    if (linhas[h].indexOf('"Cliente"') >= 0 || linhas[h].indexOf('Cliente') === 0) {
+      headerIdx = h; break;
+    }
+  }
+  var registros = [];
+  for (var i = headerIdx + 1; i < linhas.length; i++) {
+    // Google Sheets CSV usa virgula e envolve campos com aspas quando necessario
+    var cols = [];
+    var cur = "", inQ = false;
+    for (var j = 0; j < linhas[i].length; j++) {
+      var ch = linhas[i][j];
+      if (ch === '"' ) { inQ = !inQ; }
+      else if (ch === "," && !inQ) { cols.push(cur.trim()); cur = ""; }
+      else { cur += ch; }
+    }
+    cols.push(cur.trim());
+    if (cols.length < 6) continue;
+    var cliente = cols[0], linha = cols[1], tipo = cols[2];
+    var colD = (cols[3]||"").trim();
+    var colE = (cols[4]||"").trim();
+    var colF = (cols[5]||"").trim();
+    if (!cliente || cliente === "Cliente" || cliente === "") continue;
+
+    // Detecta data no formato DD/MM/AAAA ou AAAA-MM-DD
+    function ehData(s){ return s && (s.match(/^\d{2}\/\d{2}\/\d{4}$/) || s.match(/^\d{4}-\d{2}(-\d{2})?$/)); }
+    // Detecta mês no formato AAAA-MM
+    function ehMes(s){ return s && s.match(/^\d{4}-\d{2}$/); }
+    // Normaliza data para AAAA-MM-DD
+    function normData(s){
+      if(!s)return "";
+      if(s.indexOf("/")>=0){var p=s.split("/");if(p.length===3)return p[2]+"-"+p[1]+"-"+p[0];}
+      return s;
+    }
+
+    var data="", mes="", volume=0;
+
+    // Estratégia: procurar data/mês e volume em D, E, F independente de ordem
+    var candidatos = [colD, colE, colF];
+    var volumeStr = "";
+    for(var k=0;k<candidatos.length;k++){
+      var v = candidatos[k];
+      if(!v) continue;
+      if(ehData(v) && !data){ data = normData(v); continue; }
+      if(ehMes(v) && !mes){ mes = v; continue; }
+      // Se não é data nem mês, tenta como volume
+      // Remove ponto de milhar (ex: 1.032 -> 1032) e converte vírgula decimal
+      var vNum = v.replace(/\.(\d{3})/g, "$1").replace(",",".");
+      var num = parseFloat(vNum);
+      if(!isNaN(num) && num > 0 && !volumeStr){ volumeStr = v; volume = num; }
+    }
+
+    var tipoInterno = (tipo === "Mensal Fechado") ? "mensal" : "diario";
+    // Só registra se tem volume > 0
+    if(volume <= 0) continue;
+    registros.push({ cliente:cliente, tipo:tipoInterno, linha:linha,
+      data:data, mes:mes, volume:volume, avulso:false, origem_sheets:true });
+  }
+  return registros;
+}
+
+function atualizarDoSheets(silencioso) {
+  if (!GS_CONFIG.sheetId) {
+    if (!silencioso) toast("Configure o ID da planilha em Editar Dados > Google Sheets.", "err");
+    return;
+  }
+  var url = urlGoogleSheets(GS_CONFIG.sheetId);
+  if (!silencioso) toast("Buscando dados do Google Sheets...", "");
+  fetch(url)
+    .then(function(r){ if (!r.ok) throw new Error("HTTP "+r.status); return r.text(); })
+    .then(function(csv){
+      var registros = parsearCSVSheets(csv);
+      if (!registros.length) { if (!silencioso) toast("Sem dados na planilha.", "err"); return; }
+      var locais = VOLUMES_BASE.filter(function(v){ return !v.origem_sheets; });
+      VOLUMES_BASE = locais.concat(registros);
+      saveAll(); render();
+      _ultimaAtualizacaoGS = new Date();
+      atualizarStatusSheets();
+      if (!silencioso) toast("Google Sheets atualizado!", "ok");
+    })
+    .catch(function(e){ if (!silencioso) toast("Erro Sheets: "+e.message, "err"); });
+}
+
+function atualizarStatusSheets() {
+  var el = document.getElementById("onedrive-status");
+  if (!el) return;
+  if (!GS_CONFIG.sheetId) {
+    el.textContent = "Sheets: não configurado";
+    el.style.color = "rgba(255,255,255,.35)"; return;
+  }
+  if (_ultimaAtualizacaoGS) {
+    el.textContent = "Sheets: " + _ultimaAtualizacaoGS.toLocaleTimeString("pt-BR");
+    el.style.color = "rgba(200,237,234,.8)";
+  } else { el.textContent = "Sheets: aguardando..."; el.style.color = "rgba(255,255,255,.5)"; }
+}
+
+function iniciarRefreshAutomatico() {
+  if (_refreshTimer) clearInterval(_refreshTimer);
+  if (!GS_CONFIG.sheetId) return;
+  var ms = (GS_CONFIG.intervaloMinutos || 5) * 60000;
+  _refreshTimer = setInterval(function(){ atualizarDoSheets(true); }, ms);
+}
+
+function salvarConfigSheets() {
+  var raw = (document.getElementById("od-url").value||"").trim();
+  // Aceita ID direto ou URL completa do Google Sheets
+  var id = raw;
+  var m = raw.match(/\/spreadsheets\/d\/([a-zA-Z0-9_-]+)/);
+  if (m) id = m[1];
+  GS_CONFIG.sheetId = id;
+  GS_CONFIG.intervaloMinutos = parseInt(document.getElementById("od-intervalo").value)||5;
+  localStorage.setItem("fat2026_sheets", JSON.stringify(GS_CONFIG));
+  iniciarRefreshAutomatico();
+  atualizarStatusSheets();
+  var st = document.getElementById("od-config-status");
+  if (GS_CONFIG.sheetId) {
+    st.textContent = "Salvo. Testando conexão..."; st.style.color = "var(--blue-mid)";
+    atualizarDoSheets(false);
+  } else { st.textContent = "Integração desativada."; st.style.color = "var(--muted)"; }
+}
+
+// ============================================================
+// INIT
+// ============================================================
+// Limpar config antiga do localStorage que pode ter URL desatualizada
+(function(){
+  var s = localStorage.getItem("fat2026_sheets");
+  if (s) {
+    try {
+      var od = JSON.parse(s);
+      // Se a URL salva não é a URL publicada correta, remove
+      if (od.sheetId && od.sheetId.indexOf("gviz") >= 0) {
+        localStorage.removeItem("fat2026_sheets");
+      }
+    } catch(e) {}
+  }
+})();
+loadData().then(function(){ render(); });
+</script>
+
+
+</body></html>
