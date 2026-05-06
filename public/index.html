@@ -368,28 +368,28 @@ tbody tr:nth-child(even){background:#F7FAFA}
     </div>
     <div class="modal-bd">
 
-      <!-- Navegacao de mes + seletor de data -->
+      <!-- Navegacao por semana -->
       <div class="sheet-nav">
-        <button class="sheet-nav-btn" onclick="navMes(-1)">&#8592; Anterior</button>
-        <span class="sheet-month-label" id="vol-mes-label">---</span>
-        <button class="sheet-nav-btn" onclick="navMes(1)">Proximo &#8594;</button>
-        <div class="sheet-date-wrap">
-          <label>Data (diarios):</label>
-          <input type="date" id="vol-data-sheet" class="sheet-date-pick" onchange="onDataSheetChange()">
-        </div>
-        <button class="btn btn-green btn-sm" onclick="salvarTodosVolumes()" style="margin-left:8px">Salvar Todos</button>
+        <button class="sheet-nav-btn" onclick="navSemana(-1)">&#8592; Semana Anterior</button>
+        <span class="sheet-month-label" id="vol-semana-label">---</span>
+        <button class="sheet-nav-btn" onclick="navSemana(1)">Proxima Semana &#8594;</button>
+        <button class="btn btn-green btn-sm" onclick="salvarTodosVolumes()" style="margin-left:auto">Salvar Todos</button>
       </div>
 
-      <!-- Tabela spreadsheet -->
-      <div class="vol-tabela-wrap" style="max-height:400px;overflow-y:auto;margin-bottom:16px;border:1px solid #D5E4E1;border-radius:10px">
-        <table class="sheet-table">
+      <!-- Tabela spreadsheet semanal -->
+      <div class="vol-tabela-wrap" style="max-height:440px;overflow:auto;margin-bottom:16px;border:1px solid #D5E4E1;border-radius:10px">
+        <table class="sheet-table" style="min-width:900px">
           <thead>
             <tr>
-              <th style="min-width:150px">Cliente</th>
-              <th style="min-width:160px">Linha de Servico</th>
-              <th>Tarifa</th>
-              <th style="min-width:100px;text-align:right">Volume</th>
-              <th style="min-width:120px;text-align:right">Valor Calc.</th>
+              <th style="min-width:140px">Cliente</th>
+              <th style="min-width:150px">Linha de Servico</th>
+              <th style="min-width:100px">Tarifa</th>
+              <th id="th-seg" style="min-width:82px;text-align:center">Seg</th>
+              <th id="th-ter" style="min-width:82px;text-align:center">Ter</th>
+              <th id="th-qua" style="min-width:82px;text-align:center">Qua</th>
+              <th id="th-qui" style="min-width:82px;text-align:center">Qui</th>
+              <th id="th-sex" style="min-width:82px;text-align:center">Sex</th>
+              <th style="min-width:110px;text-align:right">Total Semana</th>
             </tr>
           </thead>
           <tbody id="vol-sheet-tbody"></tbody>
@@ -681,7 +681,7 @@ function calcularValorRegistro(r){
   if(conf.tipo_cliente==="mensal_fechado")return r.volume||0;
   var lc=conf.linhas.find(function(l){return l.nome===r.linha;});
   if(!lc)return 0;
-  return lc.tipo==="fixo"?lc.tarifa:(r.volume||0)*lc.tarifa;
+  return (r.volume||0)*lc.tarifa;
 }
 
 // ============================================================
@@ -967,9 +967,38 @@ function renderTable(){
   });
 }
 
+function verificarFechamentoMes(){
+  var hoje = new Date();
+  var mesAtualNum = hoje.getMonth()+1; // 1-12
+  var anoAtual = hoje.getFullYear();
+  var mesPrevNum = mesAtualNum===1 ? 12 : mesAtualNum-1;
+  var anoPrev = mesAtualNum===1 ? anoAtual-1 : anoAtual;
+  var mesPrevStr = anoPrev+'-'+String(mesPrevNum).padStart(2,'0');
+  var jaExiste = D.historico_mensal.find(function(h){ return h.mes.startsWith(mesPrevStr); });
+  if(jaExiste) return false;
+  var volumesMes = VOLUMES_BASE.filter(function(v){
+    if(v.avulso) return false;
+    if(v.tipo==='diario') return v.data && v.data.startsWith(mesPrevStr);
+    if(v.tipo==='mensal') return v.mes===mesPrevStr;
+    return false;
+  });
+  if(!volumesMes.length) return false;
+  var fat = calcularFaturamentoPorVolume(volumesMes, TARIFAS);
+  var total = Object.keys(fat).reduce(function(s,k){ return s+fat[k]; }, 0);
+  // soma avulsos do mes
+  VOLUMES_BASE.filter(function(v){ return v.avulso && v.data && v.data.startsWith(mesPrevStr); })
+    .forEach(function(v){ total += v.volume||0; });
+  if(total<=0) return false;
+  D.historico_mensal.push({mes:mesPrevStr+'-01', valor:total});
+  D.historico_mensal.sort(function(a,b){ return new Date(a.mes)-new Date(b.mes); });
+  return true;
+}
+
 function render(){
+  var fechou = verificarFechamentoMes();
   renderKPIs();renderComparativos();renderChartH();renderChartP();renderBars();renderTable();
   calcularEAtualizarProjecao();
+  if(fechou) saveAll().catch(function(){});
   // Atualizar labels com mês atual dinamicamente
   var _mesesPT=["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
   var _mesesCurto=["Jan","Fev","Mar","Abr","Mai","Jun","Jul","Ago","Set","Out","Nov","Dez"];
@@ -1254,74 +1283,70 @@ function removerLinhaTarifa(clienteId,idx,clienteNome){
 // MODAL VOLUMES — SPREADSHEET
 // ============================================================
 var volMesAtual = new Date().toISOString().slice(0,7);
-var volDataAtual = new Date().toISOString().slice(0,10);
+var volSemanaInicio = '';
+
+function getMondayOfWeek(dateStr){
+  var d = new Date(dateStr+"T12:00:00");
+  var dow = d.getDay();
+  var diff = dow===0 ? -6 : 1-dow;
+  d.setDate(d.getDate()+diff);
+  return d.toISOString().slice(0,10);
+}
+function getWeekDays(mondayStr){
+  var days=[], d=new Date(mondayStr+"T12:00:00");
+  for(var i=0;i<5;i++){ days.push(d.toISOString().slice(0,10)); d.setDate(d.getDate()+1); }
+  return days;
+}
 
 function openModalVolumes(){
-  var now = new Date();
-  volMesAtual = now.toISOString().slice(0,7);
-  volDataAtual = now.toISOString().slice(0,10);
+  var today = new Date().toISOString().slice(0,10);
+  volSemanaInicio = getMondayOfWeek(today);
+  volMesAtual = volSemanaInicio.slice(0,7);
   renderVolSheet();
   renderVolTabela();
   document.getElementById("ov-volumes").classList.add("open");
 }
 
-function renderVolSheet(){
-  var meses=["Janeiro","Fevereiro","Marco","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
-  var p = volMesAtual.split("-");
-  var ano = parseInt(p[0]), mes = parseInt(p[1]);
-  document.getElementById('vol-mes-label').textContent = meses[mes-1] + " / " + ano;
-  var dateInp = document.getElementById('vol-data-sheet');
-  if(dateInp){
-    dateInp.value = volDataAtual;
-    var lastDay = new Date(ano, mes, 0).getDate();
-    dateInp.min = volMesAtual + "-01";
-    dateInp.max = volMesAtual + "-" + String(lastDay).padStart(2,"0");
-  }
-  renderVolSheetTabela();
-  renderUltimaData();
-}
-
-function navMes(dir){
-  var p = volMesAtual.split("-");
-  var ano = parseInt(p[0]), mes = parseInt(p[1]);
-  mes += dir;
-  if(mes < 1){ mes = 12; ano--; }
-  if(mes > 12){ mes = 1; ano++; }
-  volMesAtual = ano + "-" + String(mes).padStart(2,"0");
-  var now = new Date();
-  var nowMes = now.toISOString().slice(0,7);
-  volDataAtual = volMesAtual === nowMes ? now.toISOString().slice(0,10) : volMesAtual + "-01";
+function navSemana(dir){
+  var d = new Date(volSemanaInicio+"T12:00:00");
+  d.setDate(d.getDate()+dir*7);
+  volSemanaInicio = d.toISOString().slice(0,10);
+  volMesAtual = volSemanaInicio.slice(0,7);
   renderVolSheet();
 }
 
-function onDataSheetChange(){
-  var v = document.getElementById('vol-data-sheet').value;
-  if(!v) return;
-  volDataAtual = v;
-  var newMes = v.slice(0,7);
-  if(newMes !== volMesAtual){
-    volMesAtual = newMes;
-    renderVolSheet();
-  } else {
-    renderVolSheetTabela();
-  }
+function renderVolSheet(){
+  var dias = getWeekDays(volSemanaInicio);
+  var diasNomes = ['Seg','Ter','Qua','Qui','Sex'];
+  var mesesAbrev = ["Jan","Fev","Mar","Abr","Mai","Jun","Jul","Ago","Set","Out","Nov","Dez"];
+  var d0 = new Date(dias[0]+"T12:00:00");
+  var d4 = new Date(dias[4]+"T12:00:00");
+  var label = diasNomes[0]+' '+String(d0.getDate()).padStart(2,'0')
+    +' — '+diasNomes[4]+' '+String(d4.getDate()).padStart(2,'0')
+    +'/'+mesesAbrev[d4.getMonth()]+'/'+d4.getFullYear();
+  document.getElementById('vol-semana-label').textContent = label;
+  var thIds = ['th-seg','th-ter','th-qua','th-qui','th-sex'];
+  thIds.forEach(function(id,i){
+    var el = document.getElementById(id);
+    if(!el) return;
+    var dd = new Date(dias[i]+"T12:00:00");
+    el.textContent = diasNomes[i]+' '+String(dd.getDate()).padStart(2,'0')+'/'+String(dd.getMonth()+1).padStart(2,'0');
+  });
+  renderVolSheetTabela();
+  renderUltimaData();
 }
 
 function renderVolSheetTabela(){
   var tbody = document.getElementById('vol-sheet-tbody');
   tbody.innerHTML = '';
+  var dias = getWeekDays(volSemanaInicio);
   var idxRow = 0;
   var clientesDiarios = Object.keys(TARIFAS).filter(function(c){ return TARIFAS[c].tipo_cliente==='diario'; });
   clientesDiarios.forEach(function(cliente, ci){
     var conf = TARIFAS[cliente];
     if(!conf.linhas || !conf.linhas.length) return;
     conf.linhas.forEach(function(linha, li){
-      var existente = VOLUMES_BASE.find(function(v){
-        return v.cliente===cliente && v.linha===linha.nome && v.tipo==='diario' && v.data===volDataAtual && !v.avulso;
-      });
-      var val = existente ? existente.volume : '';
-      var inputId = 'si-'+idxRow, calcId = 'sc-'+idxRow;
-      idxRow++;
+      var calcId = 'sc-'+idxRow; idxRow++;
       var tr = document.createElement('tr');
       if(ci%2===0) tr.style.background='#F7FAFA';
       if(li===0){
@@ -1331,50 +1356,59 @@ function renderVolSheetTabela(){
         tdC.style.cssText = 'border-right:2px solid var(--blue-light);background:rgba(7,80,86,.03)!important;vertical-align:top;padding-top:10px';
         tr.appendChild(tdC);
       }
-      var tdL = document.createElement('td');
-      tdL.textContent = linha.nome;
+      var tdL = document.createElement('td'); tdL.textContent = linha.nome;
       var tdT = document.createElement('td');
       tdT.style.cssText = 'font-size:.74rem;color:var(--muted);white-space:nowrap';
       tdT.textContent = linha.tipo==='fixo' ? 'Fee: '+R(linha.tarifa) : R(linha.tarifa)+'/un';
-      var tdV = document.createElement('td');
-      var inp = document.createElement('input');
-      inp.type='number'; inp.min='0'; inp.step='1'; inp.className='sheet-input';
-      inp.placeholder = linha.tipo==='fixo' ? '1' : '0';
-      inp.id = inputId; inp.value = val!==''?val:'';
-      inp.dataset.cliente=cliente; inp.dataset.linha=linha.nome; inp.dataset.tipo='diario';
-      inp.dataset.tarifa=linha.tarifa; inp.dataset.tipoTarifa=linha.tipo; inp.dataset.calcId=calcId;
-      if(val!=='') inp.classList.add('filled');
-      if(existente && existente.preenchidoPor){
-        var sp=document.createElement('div'); sp.className='preenchido-por'; sp.textContent=existente.preenchidoPor;
-        tdV.appendChild(inp); tdV.appendChild(sp);
-      } else { tdV.appendChild(inp); }
-      var tdCalc = document.createElement('td');
-      tdCalc.id = calcId;
-      tdCalc.style.cssText = 'text-align:right;font-weight:700;color:var(--blue-mid);font-size:.81rem';
-      var vc = val!=='' ? _calcSheetVal(linha.tipo, parseFloat(val)||0, parseFloat(linha.tarifa)||0) : 0;
-      tdCalc.textContent = vc>0 ? R(vc) : '—';
-      tr.appendChild(tdL); tr.appendChild(tdT); tr.appendChild(tdV); tr.appendChild(tdCalc);
+      tr.appendChild(tdL); tr.appendChild(tdT);
+      var totalSemana = 0;
+      // 5 colunas de dias
+      dias.forEach(function(dia){
+        var existente = VOLUMES_BASE.find(function(v){
+          return v.cliente===cliente && v.linha===linha.nome && v.tipo==='diario' && v.data===dia && !v.avulso;
+        });
+        var val = existente ? existente.volume : '';
+        var tdV = document.createElement('td'); tdV.style.cssText='text-align:center;padding:4px 3px';
+        var inp = document.createElement('input');
+        inp.type='number'; inp.min='0'; inp.step='1'; inp.className='sheet-input';
+        inp.style.cssText='width:72px;min-width:60px;text-align:center';
+        inp.placeholder='0'; inp.value=val!==''?val:'';
+        inp.dataset.cliente=cliente; inp.dataset.linha=linha.nome; inp.dataset.tipo='diario';
+        inp.dataset.data=dia; inp.dataset.tarifa=linha.tarifa; inp.dataset.tipoTarifa=linha.tipo;
+        inp.dataset.calcId=calcId;
+        if(val!=='') inp.classList.add('filled');
+        if(existente && existente.preenchidoPor){
+          var sp=document.createElement('div'); sp.className='preenchido-por'; sp.textContent=existente.preenchidoPor;
+          tdV.appendChild(inp); tdV.appendChild(sp);
+        } else { tdV.appendChild(inp); }
+        tr.appendChild(tdV);
+        if(val!=='') totalSemana += _calcSheetVal(linha.tipo, parseFloat(val)||0, linha.tarifa);
+      });
+      var tdTotal = document.createElement('td'); tdTotal.id=calcId;
+      tdTotal.style.cssText='text-align:right;font-weight:700;color:var(--blue-mid);font-size:.81rem;white-space:nowrap';
+      tdTotal.textContent = totalSemana>0 ? R(totalSemana) : '—';
+      tr.appendChild(tdTotal);
       tbody.appendChild(tr);
     });
   });
   // Separador clientes mensais
   var trSep = document.createElement('tr'); trSep.className='sheet-section-row';
-  trSep.innerHTML = '<td colspan="5">Clientes Mensais Fechados — '+volMesAtual.split("-").reverse().join("/")+'</td>';
+  trSep.innerHTML = '<td colspan="9">Clientes Mensais Fechados — '+volMesAtual.split("-").reverse().join("/")+'</td>';
   tbody.appendChild(trSep);
   var clientesMensais = Object.keys(TARIFAS).filter(function(c){ return TARIFAS[c].tipo_cliente==='mensal_fechado'; });
   clientesMensais.forEach(function(cliente){
     var existente = VOLUMES_BASE.find(function(v){ return v.cliente===cliente && v.tipo==='mensal' && v.mes===volMesAtual && !v.avulso; });
     var val = existente ? existente.volume : '';
-    var inputId = 'si-'+idxRow, calcId = 'sc-'+idxRow; idxRow++;
+    var calcId = 'sc-'+idxRow; idxRow++;
     var tr = document.createElement('tr');
-    var tdC = document.createElement('td'); tdC.colSpan=2;
+    var tdC = document.createElement('td'); tdC.colSpan=3;
     tdC.innerHTML = '<strong style="color:var(--blue-dark);font-size:.82rem">'+cliente+'</strong>';
-    var tdT = document.createElement('td'); tdT.style.cssText='font-size:.74rem;color:var(--muted)'; tdT.textContent='Valor R$';
-    var tdV = document.createElement('td');
+    var tdT = document.createElement('td'); tdT.style.cssText='font-size:.74rem;color:var(--muted)'; tdT.textContent='Valor Mensal R$';
+    var tdV = document.createElement('td'); tdV.colSpan=4;
     var inp = document.createElement('input');
     inp.type='number'; inp.min='0'; inp.step='0.01'; inp.className='sheet-input';
-    inp.placeholder='0,00'; inp.id=inputId; inp.value=val!==''?val:'';
-    inp.dataset.cliente=cliente; inp.dataset.tipo='mensal'; inp.dataset.calcId=calcId;
+    inp.placeholder='0,00'; inp.value=val!==''?val:'';
+    inp.dataset.cliente=cliente; inp.dataset.tipo='mensal'; inp.dataset.mes=volMesAtual; inp.dataset.calcId=calcId;
     if(val!=='') inp.classList.add('filled');
     if(existente && existente.preenchidoPor){
       var sp=document.createElement('div'); sp.className='preenchido-por'; sp.textContent=existente.preenchidoPor;
@@ -1391,13 +1425,18 @@ function renderVolSheetTabela(){
     inp.addEventListener('input', function(){
       var v = parseFloat(this.value)||0;
       if(v>0) this.classList.add('filled'); else this.classList.remove('filled');
-      var calcEl = document.getElementById(this.dataset.calcId);
+      var calcId = this.dataset.calcId;
+      var calcEl = document.getElementById(calcId);
       if(!calcEl) return;
       if(this.dataset.tipo==='mensal'){
         calcEl.textContent = v>0 ? R(v) : '—';
       } else {
-        var calc = _calcSheetVal(this.dataset.tipoTarifa, v, parseFloat(this.dataset.tarifa)||0);
-        calcEl.textContent = calc>0 ? R(calc) : '—';
+        var total = 0;
+        document.querySelectorAll('#vol-sheet-tbody .sheet-input[data-calc-id="'+calcId+'"]').forEach(function(el){
+          var vv = parseFloat(el.value)||0;
+          if(vv>0) total += _calcSheetVal(el.dataset.tipoTarifa, vv, parseFloat(el.dataset.tarifa)||0);
+        });
+        calcEl.textContent = total>0 ? R(total) : '—';
       }
     });
   });
@@ -1405,7 +1444,7 @@ function renderVolSheetTabela(){
 
 function _calcSheetVal(tipoTarifa, volume, tarifa){
   if(!volume || volume<=0) return 0;
-  return tipoTarifa==='fixo' ? tarifa : volume * tarifa;
+  return volume * tarifa;
 }
 
 function salvarTodosVolumes(){
@@ -1413,27 +1452,41 @@ function salvarTodosVolumes(){
   var changed = 0;
   var quem = CURRENT_USER ? CURRENT_USER.nome : 'Sistema';
   var agora = new Date().toISOString();
+  // Coleta pares unicos (cliente+linha+dia ou cliente+mes) para limpar antes de inserir
+  var paresDiarios = {};
+  var paresMensais = {};
   inputs.forEach(function(inp){
-    var cliente = inp.dataset.cliente;
-    var tipo = inp.dataset.tipo;
-    var linha = inp.dataset.linha || '';
-    var volume = inp.value!=='' ? parseFloat(inp.value) : null;
-    if(tipo==='diario'){
-      VOLUMES_BASE = VOLUMES_BASE.filter(function(v){
-        return !(v.cliente===cliente && v.linha===linha && v.tipo==='diario' && v.data===volDataAtual && !v.avulso);
-      });
-      if(volume!==null && volume>0){
-        VOLUMES_BASE.push({cliente:cliente,tipo:'diario',linha:linha,data:volDataAtual,mes:'',volume:volume,preenchidoPor:quem,preenchidoEm:agora});
-        changed++;
-      }
+    if(inp.dataset.tipo==='diario'){
+      var chave = inp.dataset.cliente+'||'+inp.dataset.linha+'||'+inp.dataset.data;
+      paresDiarios[chave] = {cliente:inp.dataset.cliente, linha:inp.dataset.linha, dia:inp.dataset.data};
     } else {
-      VOLUMES_BASE = VOLUMES_BASE.filter(function(v){
-        return !(v.cliente===cliente && v.tipo==='mensal' && v.mes===volMesAtual && !v.avulso);
-      });
-      if(volume!==null && volume>0){
-        VOLUMES_BASE.push({cliente:cliente,tipo:'mensal',linha:'',data:'',mes:volMesAtual,volume:volume,preenchidoPor:quem,preenchidoEm:agora});
-        changed++;
-      }
+      var mc = inp.dataset.cliente+'||'+(inp.dataset.mes||volMesAtual);
+      paresMensais[mc] = {cliente:inp.dataset.cliente, mes:inp.dataset.mes||volMesAtual};
+    }
+  });
+  // Remove registros existentes para os pares desta semana
+  Object.values(paresDiarios).forEach(function(p){
+    VOLUMES_BASE = VOLUMES_BASE.filter(function(v){
+      return !(v.cliente===p.cliente && v.linha===p.linha && v.tipo==='diario' && v.data===p.dia && !v.avulso);
+    });
+  });
+  Object.values(paresMensais).forEach(function(p){
+    VOLUMES_BASE = VOLUMES_BASE.filter(function(v){
+      return !(v.cliente===p.cliente && v.tipo==='mensal' && v.mes===p.mes && !v.avulso);
+    });
+  });
+  // Insere os novos valores
+  inputs.forEach(function(inp){
+    var volume = inp.value!=='' ? parseFloat(inp.value) : null;
+    if(volume===null || volume<=0) return;
+    if(inp.dataset.tipo==='diario'){
+      VOLUMES_BASE.push({cliente:inp.dataset.cliente,tipo:'diario',linha:inp.dataset.linha,
+        data:inp.dataset.data,mes:'',volume:volume,preenchidoPor:quem,preenchidoEm:agora});
+      changed++;
+    } else {
+      VOLUMES_BASE.push({cliente:inp.dataset.cliente,tipo:'mensal',linha:'',data:'',
+        mes:inp.dataset.mes||volMesAtual,volume:volume,preenchidoPor:quem,preenchidoEm:agora});
+      changed++;
     }
   });
   saveAll().then(function(){
