@@ -142,6 +142,10 @@ tbody tr:nth-child(even){background:#F7FAFA}
 .login-error{background:rgba(192,57,43,.1);border:1px solid rgba(192,57,43,.3);border-radius:8px;padding:9px 12px;font-size:.8rem;color:var(--red);margin-bottom:12px;display:none;text-align:left}
 .login-error.show{display:block}
 .user-badge{font-size:.75rem;background:rgba(255,255,255,.14);padding:4px 12px;border-radius:999px;color:rgba(255,255,255,.88);white-space:nowrap;max-width:200px;overflow:hidden;text-overflow:ellipsis}
+.sync-dot{display:inline-flex;align-items:center;gap:5px;font-size:.72rem;padding:3px 10px;border-radius:999px;white-space:nowrap;font-weight:600}
+.sync-dot.ok{background:rgba(42,200,120,.18);color:#5effa0}
+.sync-dot.err{background:rgba(230,80,60,.22);color:#ffb3aa;cursor:pointer}
+.sync-dot.loading{background:rgba(255,255,255,.1);color:rgba(255,255,255,.6)}
 /* ========== PERFIL BADGES ========== */
 .perfil-admin{background:rgba(230,126,34,.15);color:#9a5f0a;padding:2px 8px;border-radius:999px;font-size:.72rem;font-weight:700}
 .perfil-usuario{background:rgba(7,80,86,.12);color:#075056;padding:2px 8px;border-radius:999px;font-size:.72rem;font-weight:700}
@@ -197,7 +201,8 @@ tbody tr:nth-child(even){background:#F7FAFA}
   </div>
   <div class="topbar-actions">
     <span id="user-badge" class="user-badge"></span>
-    <button class="btn btn-ghost btn-sm" onclick="loadData().then(function(){render();toast('Dados atualizados!','ok');})" title="Recarregar dados">&#8635; Recarregar</button>
+    <span id="sync-dot" class="sync-dot loading" title="Status de sincronizacao com a nuvem">&#9679; ...</span>
+    <button class="btn btn-ghost btn-sm" onclick="recarregarDados()" title="Recarregar dados do servidor">&#8635; Recarregar</button>
     <button id="btn-vol" class="btn btn-ghost" onclick="openModalVolumes()">+ Volume</button>
     <button id="btn-tarifas" class="btn btn-ghost" onclick="openModalTarifas()">Tarifas</button>
     <button id="btn-edit" class="btn btn-ghost" onclick="openModal()">Editar Dados</button>
@@ -575,10 +580,12 @@ function doLogin(){
   loadData().then(function(){
     var user = USERS.find(function(u){ return u.login===login && u.senha===senha; });
     if(!user){ errEl.textContent='Usuario ou senha incorretos.'; errEl.classList.add('show'); restoreBtn(); return; }
+    if(!_apiOnline) errEl.textContent='Atencao: servidor offline. Usando dados locais.'; // aviso nao bloqueante
     enterApp(user);
-  }).catch(function(){
+  }).catch(function(e){
+    // loadData nao rejeita mais (trata internamente), mas fica aqui como seguranca
     var user = USERS.find(function(u){ return u.login===login && u.senha===senha; });
-    if(!user){ errEl.textContent='Usuario ou senha incorretos.'; errEl.classList.add('show'); restoreBtn(); return; }
+    if(!user){ errEl.textContent='Servidor indisponivel e usuario nao encontrado localmente.'; errEl.classList.add('show'); restoreBtn(); return; }
     enterApp(user);
   });
 }
@@ -707,16 +714,47 @@ function lsSave(payload){
   try{localStorage.setItem(LS_KEY,JSON.stringify(payload));}catch(_){}
 }
 
-async function loadData(){
+var _apiOnline = null; // null=desconhecido, true=ok, false=offline
+
+function _setSyncDot(state, msg){
+  var el = document.getElementById('sync-dot');
+  if(!el) return;
+  el.className = 'sync-dot ' + state;
+  var icons = {ok:'&#9679;', err:'&#9888;', loading:'&#9679;'};
+  el.innerHTML = (icons[state]||'&#9679;') + ' ' + msg;
+  if(state==='err') el.onclick = function(){ recarregarDados(); };
+  else el.onclick = null;
+}
+
+async function _fetchWithTimeout(url, opts, ms){
+  ms = ms || 8000;
+  var ctrl = new AbortController();
+  var tid = setTimeout(function(){ ctrl.abort(); }, ms);
   try {
-    var res = await fetch('/api/data');
-    if (!res.ok) throw new Error('Erro na API');
+    var r = await fetch(url, Object.assign({}, opts||{}, {signal: ctrl.signal}));
+    clearTimeout(tid);
+    return r;
+  } catch(e) {
+    clearTimeout(tid);
+    throw e;
+  }
+}
+
+async function loadData(){
+  _setSyncDot('loading', 'Sincronizando...');
+  try {
+    var res = await _fetchWithTimeout('/api/data', {}, 8000);
+    if (!res.ok) throw new Error('API retornou status ' + res.status);
     var json = await res.json();
     D = json.d || JSON.parse(JSON.stringify(DEFAULT));
     TARIFAS = json.tarifas || JSON.parse(JSON.stringify(TARIFAS_DEFAULT));
     VOLUMES_BASE = json.volumes || [];
     USERS = json.users || JSON.parse(JSON.stringify(USERS_DEFAULT));
+    lsSave({d:D, tarifas:TARIFAS, volumes:VOLUMES_BASE, users:USERS});
+    _apiOnline = true;
+    _setSyncDot('ok', 'Sincronizado');
   } catch(e) {
+    _apiOnline = false;
     var local = lsLoad();
     if(local){
       D = local.d || JSON.parse(JSON.stringify(DEFAULT));
@@ -729,26 +767,37 @@ async function loadData(){
       VOLUMES_BASE = [];
       USERS = JSON.parse(JSON.stringify(USERS_DEFAULT));
     }
+    _setSyncDot('err', 'Offline - clique para tentar');
+    console.warn('[loadData] API indisponivel:', e.message);
   }
   if(!D.historico_mensal)D.historico_mensal=[];
   D.historico_mensal.sort(function(a,b){return new Date(a.mes)-new Date(b.mes);});
   if(!D.feriados)D.feriados=FERIADOS_DEFAULT.slice();
 }
 
+function recarregarDados(){
+  loadData().then(function(){ try{render();}catch(e){} toast('Dados atualizados!','ok'); });
+}
+
 
 async function saveAll(){
   var payload = {d: D, tarifas: TARIFAS, volumes: VOLUMES_BASE, users: USERS};
   lsSave(payload);
+  _setSyncDot('loading', 'Salvando...');
   try {
-    var res = await fetch('/api/data', {
+    var res = await _fetchWithTimeout('/api/data', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(payload)
-    });
-    if (!res.ok) throw new Error('Erro ao salvar na API (status '+res.status+')');
+    }, 12000);
+    if (!res.ok) throw new Error('Status ' + res.status);
+    _apiOnline = true;
+    _setSyncDot('ok', 'Sincronizado');
   } catch(e) {
-    toast('Dados salvos localmente (API indisponivel)', 'err');
-    console.warn('[saveAll] API indisponivel, dados no localStorage:', e.message);
+    _apiOnline = false;
+    _setSyncDot('err', 'Offline - clique para tentar');
+    toast('ATENCAO: dados salvos localmente. Verifique a conexao com o servidor.', 'err');
+    console.warn('[saveAll] API indisponivel:', e.message);
   }
 }
 
@@ -1664,6 +1713,17 @@ function toast(msg,type){
 // INIT
 // ============================================================
 authInit();
+
+// Recarrega dados automaticamente quando o usuario volta para a aba
+// (garante que todos vejam a versao mais recente salva por outro usuario)
+var _lastFocusReload = 0;
+window.addEventListener('focus', function(){
+  if(!CURRENT_USER) return;
+  var now = Date.now();
+  if(now - _lastFocusReload < 30000) return; // no maximo 1x a cada 30s
+  _lastFocusReload = now;
+  loadData().then(function(){ try{ render(); }catch(e){} });
+});
 </script>
 
 
