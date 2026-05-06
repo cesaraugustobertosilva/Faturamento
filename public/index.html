@@ -1297,9 +1297,13 @@ function navMes(dir){
 
 function onDataSheetChange(){
   var v = document.getElementById('vol-data-sheet').value;
-  if(v){
-    volDataAtual = v;
-    volMesAtual = v.slice(0,7);
+  if(!v) return;
+  volDataAtual = v;
+  var newMes = v.slice(0,7);
+  if(newMes !== volMesAtual){
+    volMesAtual = newMes;
+    renderVolSheet();
+  } else {
     renderVolSheetTabela();
   }
 }
