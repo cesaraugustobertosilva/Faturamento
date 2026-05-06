@@ -744,7 +744,11 @@ async function loadData(){
   _setSyncDot('loading', 'Sincronizando...');
   try {
     var res = await _fetchWithTimeout('/api/data', {}, 8000);
-    if (!res.ok) throw new Error('API retornou status ' + res.status);
+    if (!res.ok) {
+      var errBody = '';
+      try { errBody = (await res.json()).error || ''; } catch(_){}
+      throw new Error('HTTP ' + res.status + (errBody ? ': ' + errBody : ''));
+    }
     var json = await res.json();
     D = json.d || JSON.parse(JSON.stringify(DEFAULT));
     TARIFAS = json.tarifas || JSON.parse(JSON.stringify(TARIFAS_DEFAULT));
@@ -767,7 +771,8 @@ async function loadData(){
       VOLUMES_BASE = [];
       USERS = JSON.parse(JSON.stringify(USERS_DEFAULT));
     }
-    _setSyncDot('err', 'Offline - clique para tentar');
+    var msg = e.message || 'erro desconhecido';
+    _setSyncDot('err', 'Erro: ' + msg.slice(0, 60));
     console.warn('[loadData] API indisponivel:', e.message);
   }
   if(!D.historico_mensal)D.historico_mensal=[];
