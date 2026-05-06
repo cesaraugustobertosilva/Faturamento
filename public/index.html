@@ -406,7 +406,11 @@ tbody tr:nth-child(even){background:#F7FAFA}
       <div class="card">
         <div class="card-hd">
           <h2>Todos os Registros</h2>
-          <div style="display:flex;gap:8px">
+          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+            <label style="font-size:.75rem;color:var(--muted);font-weight:600">De:</label>
+            <input type="date" id="exp-de" class="sheet-date-pick" style="padding:4px 8px;font-size:.78rem">
+            <label style="font-size:.75rem;color:var(--muted);font-weight:600">Ate:</label>
+            <input type="date" id="exp-ate" class="sheet-date-pick" style="padding:4px 8px;font-size:.78rem">
             <button class="btn btn-blue btn-sm" onclick="exportarVolumesCSV()">Exportar CSV</button>
             <button class="btn btn-red btn-sm" onclick="apagarBaseVolumes()">Limpar Base</button>
           </div>
@@ -1302,6 +1306,13 @@ function openModalVolumes(){
   var today = new Date().toISOString().slice(0,10);
   volSemanaInicio = getMondayOfWeek(today);
   volMesAtual = volSemanaInicio.slice(0,7);
+  // Pre-preenche faixa de exportacao com o mes atual
+  var ano = today.slice(0,4), mes = today.slice(5,7);
+  var ultimoDia = new Date(parseInt(ano), parseInt(mes), 0).getDate();
+  var deEl = document.getElementById('exp-de');
+  var ateEl = document.getElementById('exp-ate');
+  if(deEl && !deEl.value) deEl.value = ano+'-'+mes+'-01';
+  if(ateEl && !ateEl.value) ateEl.value = ano+'-'+mes+'-'+String(ultimoDia).padStart(2,'0');
   renderVolSheet();
   renderVolTabela();
   document.getElementById("ov-volumes").classList.add("open");
@@ -1551,18 +1562,45 @@ function apagarBaseVolumes(){
 }
 function exportarVolumesCSV(){
   if(!VOLUMES_BASE.length){toast("Sem volumes para exportar.","err");return;}
-  var csv="Cliente;Linha;Tipo;Data/Mês;Volume;Valor Calculado\n";
-  VOLUMES_BASE.forEach(function(r){
-    var vc=calcularValorRegistro(r);
-    var tipo=r.avulso?"Avulso":(r.tipo==="diario"?"Diário":"Mensal");
-    csv+=r.cliente+";"+(r.linha||"")+";"+tipo+";"+(r.tipo==="diario"?r.data:r.mes)+";"+
-      (r.volume||0)+";"+vc.toFixed(2)+"\n";
+  var de  = (document.getElementById('exp-de')  || {}).value || '';
+  var ate = (document.getElementById('exp-ate') || {}).value || '';
+  var registros = VOLUMES_BASE.filter(function(r){
+    var ref = r.tipo==='diario' ? r.data : (r.mes ? r.mes+'-01' : '');
+    if(!ref) return true;
+    if(de  && ref < de)  return false;
+    if(ate && ref > ate) return false;
+    return true;
   });
+  if(!registros.length){toast("Nenhum registro na faixa selecionada.","err");return;}
+  var mapa = {};
+  registros.forEach(function(r){
+    var chave = r.cliente+'||'+(r.linha||'')+'||'+(r.avulso?'Avulso':r.tipo);
+    if(!mapa[chave]) mapa[chave] = {
+      cliente:r.cliente, linha:r.linha||'',
+      tipo:r.avulso?'Avulso':r.tipo==='diario'?'Diario':'Mensal',
+      volume:0, valor:0
+    };
+    mapa[chave].volume += (r.volume||0);
+    mapa[chave].valor  += calcularValorRegistro(r);
+  });
+  var linhas = Object.values(mapa).sort(function(a,b){
+    return a.cliente.localeCompare(b.cliente) || a.linha.localeCompare(b.linha);
+  });
+  var periodo = (de||'inicio')+' a '+(ate||'fim');
+  var total = linhas.reduce(function(s,l){return s+l.valor;},0);
+  var csv = "Periodo;"+periodo+"\n\n";
+  csv += "Cliente;Linha de Servico;Tipo;Volume Acumulado;Valor Total (R$)\n";
+  linhas.forEach(function(l){
+    csv += l.cliente+";"+l.linha+";"+l.tipo+";"+l.volume+";"+l.valor.toFixed(2)+"\n";
+  });
+  csv += "\nTOTAL;;;;"+total.toFixed(2)+"\n";
+  var sufixo = de ? de.slice(0,7).replace('-','') : new Date().toLocaleDateString("pt-BR").replace(/\//g,"-");
   var blob=new Blob(["\uFEFF"+csv],{type:"text/csv;charset=utf-8"});
   var a=document.createElement("a");a.href=URL.createObjectURL(blob);
-  a.download="volumes_"+new Date().toLocaleDateString("pt-BR").replace(/\//g,"-")+".csv";
+  a.download="volumes_"+sufixo+".csv";
   document.body.appendChild(a);a.click();document.body.removeChild(a);
-  toast("CSV exportado!","ok");
+  URL.revokeObjectURL(a.href);
+  toast("CSV exportado! ("+linhas.length+" linhas, "+registros.length+" registros)","ok");
 }
 
 // ============================================================
