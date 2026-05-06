@@ -186,7 +186,7 @@ tbody tr:nth-child(even){background:#F7FAFA}
       <input type="password" id="l-senha" autocomplete="current-password" placeholder="senha"
              onkeydown="if(event.key==='Enter')doLogin()">
     </div>
-    <button class="btn btn-blue" style="width:100%;padding:11px;font-size:.9rem;margin-top:6px" onclick="doLogin()">Entrar</button>
+    <button id="btn-login" class="btn btn-blue" style="width:100%;padding:11px;font-size:.9rem;margin-top:6px" onclick="doLogin()">Entrar</button>
   </div>
 </div>
 
@@ -545,7 +545,7 @@ function authInit(){
   if(CURRENT_USER){
     document.getElementById('login-screen').style.display = 'none';
     applyRole();
-    loadData().then(function(){ render(); });
+    loadData().then(function(){ try{ render(); }catch(e){ console.error('render error:', e); } });
   } else {
     document.getElementById('login-screen').style.display = 'flex';
   }
@@ -555,30 +555,27 @@ function doLogin(){
   var login = document.getElementById('l-login').value.trim();
   var senha = document.getElementById('l-senha').value;
   var errEl = document.getElementById('login-error');
+  var btnEl = document.getElementById('btn-login');
   errEl.classList.remove('show');
   if(!login||!senha){ errEl.textContent='Preencha usuario e senha.'; errEl.classList.add('show'); return; }
-  // Carrega dados (incluindo USERS atualizados da API) e entao valida
+  btnEl.disabled = true; btnEl.textContent = 'Aguarde...';
+  function restoreBtn(){ btnEl.disabled = false; btnEl.textContent = 'Entrar'; }
+  function enterApp(user){
+    CURRENT_USER = user;
+    sessionStorage.setItem('fat_user', JSON.stringify(user));
+    document.getElementById('login-screen').style.display = 'none';
+    restoreBtn();
+    applyRole();
+    try{ render(); }catch(e){ console.error('render error:', e); }
+  }
   loadData().then(function(){
     var user = USERS.find(function(u){ return u.login===login && u.senha===senha; });
-    if(!user){
-      errEl.textContent = 'Usuario ou senha incorretos.';
-      errEl.classList.add('show');
-      return;
-    }
-    CURRENT_USER = user;
-    sessionStorage.setItem('fat_user', JSON.stringify(user));
-    document.getElementById('login-screen').style.display = 'none';
-    applyRole();
-    render();
+    if(!user){ errEl.textContent='Usuario ou senha incorretos.'; errEl.classList.add('show'); restoreBtn(); return; }
+    enterApp(user);
   }).catch(function(){
-    // API falhou - tenta validar com USERS ja carregados (localStorage/default)
     var user = USERS.find(function(u){ return u.login===login && u.senha===senha; });
-    if(!user){ errEl.textContent='Usuario ou senha incorretos.'; errEl.classList.add('show'); return; }
-    CURRENT_USER = user;
-    sessionStorage.setItem('fat_user', JSON.stringify(user));
-    document.getElementById('login-screen').style.display = 'none';
-    applyRole();
-    render();
+    if(!user){ errEl.textContent='Usuario ou senha incorretos.'; errEl.classList.add('show'); restoreBtn(); return; }
+    enterApp(user);
   });
 }
 
@@ -884,6 +881,7 @@ function renderComparativos(){
 }
 
 function renderChartH(){
+  if(typeof Chart==='undefined') return;
   var ctx=document.getElementById("chart-h").getContext("2d");
   if(chartH)chartH.destroy();
   var sorted=[...D.historico_mensal].sort(function(a,b){return new Date(a.mes)-new Date(b.mes);});
@@ -927,6 +925,7 @@ function renderChartH(){
 }
 
 function renderChartP(){
+  if(typeof Chart==='undefined') return;
   var ctx=document.getElementById("chart-p").getContext("2d");
   if(chartP)chartP.destroy();
   chartP=new Chart(ctx,{
