@@ -130,21 +130,80 @@ tbody tr:nth-child(even){background:#F7FAFA}
 .toast.ok{background:#1E8449}
 .toast.err{background:var(--red)}
 .alert-info{background:rgba(7,80,86,.08);border:1px solid rgba(7,80,86,.2);border-radius:8px;padding:10px 14px;font-size:.8rem;color:var(--blue-mid);margin-bottom:14px}
+/* ========== LOGIN ========== */
+.login-screen{position:fixed;inset:0;background:var(--blue-dark);display:flex;align-items:center;justify-content:center;z-index:9999}
+.login-box{background:#fff;border-radius:16px;padding:42px 40px;width:390px;box-shadow:0 24px 64px rgba(0,0,0,.5);text-align:center}
+.login-logo{font-size:1.4rem;font-weight:800;color:var(--blue-dark);letter-spacing:-.3px;margin-bottom:4px}
+.login-sub{font-size:.82rem;color:var(--muted);margin-bottom:24px;padding-bottom:20px;border-bottom:1px solid #E2E7EB}
+.login-field{margin-bottom:14px;text-align:left}
+.login-field label{display:block;font-size:.74rem;font-weight:700;color:var(--muted);margin-bottom:4px;text-transform:uppercase;letter-spacing:.5px}
+.login-field input{width:100%;padding:10px 12px;border-radius:8px;border:1.5px solid #C5DDD9;font-size:.9rem;font-family:inherit;outline:none;transition:.15s}
+.login-field input:focus{border-color:var(--green)}
+.login-error{background:rgba(192,57,43,.1);border:1px solid rgba(192,57,43,.3);border-radius:8px;padding:9px 12px;font-size:.8rem;color:var(--red);margin-bottom:12px;display:none;text-align:left}
+.login-error.show{display:block}
+.user-badge{font-size:.75rem;background:rgba(255,255,255,.14);padding:4px 12px;border-radius:999px;color:rgba(255,255,255,.88);white-space:nowrap;max-width:200px;overflow:hidden;text-overflow:ellipsis}
+/* ========== PERFIL BADGES ========== */
+.perfil-admin{background:rgba(230,126,34,.15);color:#9a5f0a;padding:2px 8px;border-radius:999px;font-size:.72rem;font-weight:700}
+.perfil-usuario{background:rgba(7,80,86,.12);color:#075056;padding:2px 8px;border-radius:999px;font-size:.72rem;font-weight:700}
+.perfil-executivo{background:rgba(42,124,121,.15);color:#1E8449;padding:2px 8px;border-radius:999px;font-size:.72rem;font-weight:700}
+/* ========== SPREADSHEET VOLUMES ========== */
+.sheet-nav{display:flex;align-items:center;gap:8px;padding:8px 0 14px;flex-wrap:wrap}
+.sheet-nav-btn{background:transparent;border:1.5px solid #C5DDD9;border-radius:8px;padding:5px 14px;cursor:pointer;font-size:.88rem;font-family:inherit;color:var(--text);transition:.15s}
+.sheet-nav-btn:hover{background:var(--blue-light);border-color:var(--green)}
+.sheet-month-label{font-weight:700;color:var(--blue-dark);font-size:.95rem;min-width:150px;text-align:center;padding:5px 12px;background:var(--blue-light);border-radius:8px}
+.sheet-date-wrap{display:flex;align-items:center;gap:6px;margin-left:4px}
+.sheet-date-wrap label{font-size:.76rem;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.4px}
+.sheet-date-pick{padding:6px 10px;border-radius:8px;border:1.5px solid #C5DDD9;font-size:.83rem;font-family:inherit;outline:none;transition:.15s}
+.sheet-date-pick:focus{border-color:var(--green)}
+.sheet-table{width:100%;border-collapse:collapse}
+.sheet-table th{background:var(--blue-dark);color:#ECEFF3;padding:9px 12px;font-size:.71rem;text-transform:uppercase;letter-spacing:.4px;text-align:left}
+.sheet-table td{padding:5px 10px;border-bottom:1px solid #E2E7EB;font-size:.83rem;vertical-align:middle}
+.sheet-input{width:100%;min-width:80px;padding:5px 8px;border:1.5px solid #C5DDD9;border-radius:6px;font-size:.84rem;font-family:inherit;text-align:right;transition:.15s;box-sizing:border-box}
+.sheet-input:focus{border-color:var(--green);outline:none;background:#F0FDFC}
+.sheet-input.filled{background:rgba(42,124,121,.08);border-color:var(--green)}
+.sheet-section-row td{font-weight:700;color:var(--blue-dark)!important;background:var(--blue-light)!important;font-size:.75rem;text-transform:uppercase;letter-spacing:.5px;padding:7px 12px}
+.preenchido-por{font-size:.66rem;color:var(--muted);font-style:italic;margin-top:2px}
+/* ========== USUARIOS FORM ========== */
+.usr-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr auto;gap:6px;margin-bottom:6px;align-items:center}
+.usr-grid input,.usr-grid select{padding:6px 8px;border-radius:8px;border:1.5px solid #C5DDD9;font-size:.82rem;font-family:inherit}
 </style>
 </head>
 <body>
+
+<!-- TELA DE LOGIN -->
+<div id="login-screen" class="login-screen">
+  <div class="login-box">
+    <div class="login-logo">Dashboard Faturamentos</div>
+    <div class="login-sub">Acesso restrito — 2026</div>
+    <div id="login-error" class="login-error"></div>
+    <div class="login-field">
+      <label>Usuario</label>
+      <input type="text" id="l-login" autocomplete="username" placeholder="login"
+             onkeydown="if(event.key==='Enter')document.getElementById('l-senha').focus()">
+    </div>
+    <div class="login-field">
+      <label>Senha</label>
+      <input type="password" id="l-senha" autocomplete="current-password" placeholder="senha"
+             onkeydown="if(event.key==='Enter')doLogin()">
+    </div>
+    <button class="btn btn-blue" style="width:100%;padding:11px;font-size:.9rem;margin-top:6px" onclick="doLogin()">Entrar</button>
+  </div>
+</div>
+
 <div class="topbar">
   <div>
     <h1>Dashboard Faturamentos 2026</h1>
     <small id="last-update">Atualizado: 04/05/2026, 15:18:43</small>
   </div>
   <div class="topbar-actions">
-    <button class="btn btn-ghost btn-sm" onclick="loadData().then(function(){render();toast('Dados atualizados!','ok');})" title="Recarregar dados">↻ Recarregar</button>
-    <button class="btn btn-ghost" onclick="openModalVolumes()">+ Volume Diário</button>
-    <button class="btn btn-ghost" onclick="openModalTarifas()">Tarifas</button>
-    <button class="btn btn-ghost" onclick="openModal()">Editar Dados</button>
-    <button class="btn btn-blue" onclick="exportCSV()">Exportar CSV</button>
-    <button class="btn btn-green" onclick="salvarComoHTML()" title="Salva o HTML com todos os dados embutidos para compartilhar">Salvar HTML</button>
+    <span id="user-badge" class="user-badge"></span>
+    <button class="btn btn-ghost btn-sm" onclick="loadData().then(function(){render();toast('Dados atualizados!','ok');})" title="Recarregar dados">&#8635; Recarregar</button>
+    <button id="btn-vol" class="btn btn-ghost" onclick="openModalVolumes()">+ Volume</button>
+    <button id="btn-tarifas" class="btn btn-ghost" onclick="openModalTarifas()">Tarifas</button>
+    <button id="btn-edit" class="btn btn-ghost" onclick="openModal()">Editar Dados</button>
+    <button id="btn-csv" class="btn btn-blue" onclick="exportCSV()">Exportar CSV</button>
+    <button id="btn-html" class="btn btn-green" onclick="salvarComoHTML()" title="Salva o HTML com todos os dados embutidos">Salvar HTML</button>
+    <button class="btn btn-red btn-sm" onclick="doLogout()">Sair</button>
   </div>
 </div>
 
@@ -154,7 +213,7 @@ tbody tr:nth-child(even){background:#F7FAFA}
       <div class="lbl" id="lbl-mes-atual">Previsão Mês Atual (Mai/26)</div>
       <div class="val" id="kpi-atual">R$&nbsp;1.906.896,28</div>
       <div class="dlt down" id="kpi-vs-media">-19.9% vs expectativa</div>
-      <button class="btn btn-green btn-sm" style="margin-top:10px;font-size:.74rem;width:100%" onclick="aplicarProjecao()">Aplicar projeção por volumes</button>
+      <button id="btn-projecao" class="btn btn-green btn-sm" style="margin-top:10px;font-size:.74rem;width:100%" onclick="aplicarProjecao()">Aplicar projecao por volumes</button>
     </div>
     <div class="kpi">
       <div class="lbl">Média Últimos 12 Meses</div>
@@ -247,9 +306,9 @@ tbody tr:nth-child(even){background:#F7FAFA}
       <div class="tabs">
         <button class="tab active" onclick="switchTab(0,this)">Consolidado</button>
         <button class="tab" onclick="switchTab(1,this)">Parceiros</button>
-        <button class="tab" onclick="switchTab(2,this)">Histórico</button>
+        <button class="tab" onclick="switchTab(2,this)">Historico</button>
         <button class="tab" onclick="switchTab(3,this)">Feriados</button>
-
+        <button class="tab" id="tab-usuarios" onclick="switchTab(4,this)" style="display:none">Usuarios</button>
       </div>
       <div class="tab-pane active" id="tp0">
         <div class="frm-grid">
@@ -267,11 +326,18 @@ tbody tr:nth-child(even){background:#F7FAFA}
         <button class="btn btn-blue btn-sm" onclick="addHistorico()" style="margin-top:8px">+ Adicionar Mês</button>
       </div>
       <div class="tab-pane" id="tp3">
-        <div class="alert-info">Configure os feriados nacionais e pontos facultativos. O cálculo considera segunda a sexta, excluindo as datas abaixo.</div>
+        <div class="alert-info">Configure os feriados nacionais e pontos facultativos. O calculo considera segunda a sexta, excluindo as datas abaixo.</div>
         <div id="feriados-form"></div>
         <button class="btn btn-blue btn-sm" onclick="addFeriado()" style="margin-top:8px">+ Adicionar Feriado</button>
       </div>
-
+      <div class="tab-pane" id="tp4">
+        <div class="alert-info">Gerencie os usuarios e seus perfis de acesso. <strong>Admin</strong>: acesso total. <strong>Usuario</strong>: apenas registro de volumes. <strong>Executivo</strong>: visualizacao somente.</div>
+        <div class="usr-grid" style="font-weight:700;font-size:.73rem;color:var(--muted);margin-bottom:8px">
+          <span>Nome</span><span>Login</span><span>Senha</span><span>Perfil</span><span></span>
+        </div>
+        <div id="usuarios-form"></div>
+        <button class="btn btn-blue btn-sm" onclick="addUsuario()" style="margin-top:8px">+ Adicionar Usuario</button>
+      </div>
     </div>
     <div class="modal-ft">
       <button class="btn btn-blue" onclick="saveData()">Salvar</button>
@@ -295,54 +361,51 @@ tbody tr:nth-child(even){background:#F7FAFA}
 
 <!-- MODAL VOLUMES -->
 <div class="modal-overlay" id="ov-volumes">
-  <div class="modal" style="max-width:1000px">
+  <div class="modal" style="max-width:1100px">
     <div class="modal-hd">
-      <h3>Registro de Volume Diário / Mensal</h3>
+      <h3>Registro de Volumes</h3>
       <button class="btn btn-ghost btn-sm" onclick="closeModal('ov-volumes')">Fechar</button>
     </div>
     <div class="modal-bd">
-      <div class="card" style="margin-bottom:16px">
-        <div class="card-hd"><h2>Novo Registro</h2></div>
-        <div class="vol-form-grid">
-          <div>
-            <label>Cliente</label>
-            <select id="vol-cliente" onchange="onVolClienteChange()">
-              <option value="">Selecione...</option>
-            </select>
-          </div>
-          <div id="vol-grupo-linha">
-            <label>Linha de Serviço</label>
-            <select id="vol-linha"><option value="">Selecione o cliente...</option></select>
-          </div>
-          <div id="vol-grupo-data">
-            <label>Data (diário)</label>
-            <input type="date" id="vol-data">
-          </div>
-          <div id="vol-grupo-mes" class="hidden">
-            <label>Mês (mensal)</label>
-            <input type="month" id="vol-mes">
-          </div>
-          <div>
-            <label>Volume</label>
-            <input type="number" id="vol-volume" min="0" step="0.01" placeholder="0">
-          </div>
+
+      <!-- Navegacao de mes + seletor de data -->
+      <div class="sheet-nav">
+        <button class="sheet-nav-btn" onclick="navMes(-1)">&#8592; Anterior</button>
+        <span class="sheet-month-label" id="vol-mes-label">---</span>
+        <button class="sheet-nav-btn" onclick="navMes(1)">Proximo &#8594;</button>
+        <div class="sheet-date-wrap">
+          <label>Data (diarios):</label>
+          <input type="date" id="vol-data-sheet" class="sheet-date-pick" onchange="onDataSheetChange()">
         </div>
-        <div id="vol-preview" class="alert-info hidden"></div>
-        <div class="vol-actions">
-          <button class="btn btn-green" onclick="adicionarVolume()">Adicionar / Atualizar</button>
-          <button class="btn btn-blue btn-sm" onclick="limparVolume()">Limpar</button>
-        </div>
-        <div style="font-size:.75rem;color:var(--muted);margin-top:4px">Clientes mensais fechados (CWT, GSI Law, Hoepers, Zarro, Demais Clientes, Bradesco Obrigações de Fazer, Bradesco Contratos e Pacotes): insira o valor total direto no campo volume.</div>
+        <button class="btn btn-green btn-sm" onclick="salvarTodosVolumes()" style="margin-left:8px">Salvar Todos</button>
       </div>
 
-      <div class="card" style="margin-bottom:16px">
-        <div class="card-hd"><h2>Última Data Preenchida por Cliente</h2></div>
+      <!-- Tabela spreadsheet -->
+      <div class="vol-tabela-wrap" style="max-height:400px;overflow-y:auto;margin-bottom:16px;border:1px solid #D5E4E1;border-radius:10px">
+        <table class="sheet-table">
+          <thead>
+            <tr>
+              <th style="min-width:150px">Cliente</th>
+              <th style="min-width:160px">Linha de Servico</th>
+              <th>Tarifa</th>
+              <th style="min-width:100px;text-align:right">Volume</th>
+              <th style="min-width:120px;text-align:right">Valor Calc.</th>
+            </tr>
+          </thead>
+          <tbody id="vol-sheet-tbody"></tbody>
+        </table>
+      </div>
+
+      <!-- Ultima data preenchida -->
+      <div class="card" style="margin-bottom:14px">
+        <div class="card-hd"><h2>Ultima Data Preenchida por Cliente</h2></div>
         <div id="vol-ultima-data" style="display:flex;flex-wrap:wrap;gap:8px"></div>
       </div>
 
+      <!-- Historico de registros -->
       <div class="card">
         <div class="card-hd">
-          <h2>Base de Volumes Registrados</h2>
+          <h2>Todos os Registros</h2>
           <div style="display:flex;gap:8px">
             <button class="btn btn-blue btn-sm" onclick="exportarVolumesCSV()">Exportar CSV</button>
             <button class="btn btn-red btn-sm" onclick="apagarBaseVolumes()">Limpar Base</button>
@@ -352,14 +415,15 @@ tbody tr:nth-child(even){background:#F7FAFA}
           <table class="vol-tabela" style="width:100%;border-collapse:collapse">
             <thead>
               <tr>
-                <th>Cliente</th><th>Linha</th><th>Tipo</th><th>Data/Mês</th>
-                <th>Volume</th><th>Valor Calc.</th><th></th>
+                <th>Cliente</th><th>Linha</th><th>Tipo</th><th>Data/Mes</th>
+                <th>Volume</th><th>Valor Calc.</th><th>Preenchido por</th><th></th>
               </tr>
             </thead>
             <tbody id="vol-tbody"></tbody>
           </table>
         </div>
       </div>
+
     </div>
   </div>
 </div>
@@ -459,6 +523,97 @@ const DEFAULT = {
 };
 
 // ============================================================
+// AUTENTICACAO
+// ============================================================
+var USERS_DEFAULT = [
+  {id:1, nome:"Administrador", login:"admin", senha:"admin123", perfil:"admin"},
+  {id:2, nome:"Usuario Padrao", login:"usuario", senha:"usuario123", perfil:"usuario"},
+  {id:3, nome:"Executivo", login:"executivo", senha:"exec123", perfil:"executivo"}
+];
+var USERS = JSON.parse(JSON.stringify(USERS_DEFAULT));
+var CURRENT_USER = null;
+
+function authInit(){
+  // Tenta recuperar usuario da sessao
+  try{
+    var sess = sessionStorage.getItem('fat_user');
+    if(sess) CURRENT_USER = JSON.parse(sess);
+  }catch(_){}
+  // Pre-carrega USERS do localStorage (para login funcionar offline)
+  var local = lsLoad();
+  if(local && local.users) USERS = local.users;
+  if(CURRENT_USER){
+    document.getElementById('login-screen').style.display = 'none';
+    applyRole();
+    loadData().then(function(){ render(); });
+  } else {
+    document.getElementById('login-screen').style.display = 'flex';
+  }
+}
+
+function doLogin(){
+  var login = document.getElementById('l-login').value.trim();
+  var senha = document.getElementById('l-senha').value;
+  var errEl = document.getElementById('login-error');
+  errEl.classList.remove('show');
+  if(!login||!senha){ errEl.textContent='Preencha usuario e senha.'; errEl.classList.add('show'); return; }
+  // Carrega dados (incluindo USERS atualizados da API) e entao valida
+  loadData().then(function(){
+    var user = USERS.find(function(u){ return u.login===login && u.senha===senha; });
+    if(!user){
+      errEl.textContent = 'Usuario ou senha incorretos.';
+      errEl.classList.add('show');
+      return;
+    }
+    CURRENT_USER = user;
+    sessionStorage.setItem('fat_user', JSON.stringify(user));
+    document.getElementById('login-screen').style.display = 'none';
+    applyRole();
+    render();
+  }).catch(function(){
+    // API falhou - tenta validar com USERS ja carregados (localStorage/default)
+    var user = USERS.find(function(u){ return u.login===login && u.senha===senha; });
+    if(!user){ errEl.textContent='Usuario ou senha incorretos.'; errEl.classList.add('show'); return; }
+    CURRENT_USER = user;
+    sessionStorage.setItem('fat_user', JSON.stringify(user));
+    document.getElementById('login-screen').style.display = 'none';
+    applyRole();
+    render();
+  });
+}
+
+function doLogout(){
+  sessionStorage.removeItem('fat_user');
+  CURRENT_USER = null;
+  document.getElementById('login-screen').style.display = 'flex';
+  document.getElementById('l-login').value = '';
+  document.getElementById('l-senha').value = '';
+  document.getElementById('login-error').classList.remove('show');
+}
+
+function applyRole(){
+  if(!CURRENT_USER) return;
+  var perfil = CURRENT_USER.perfil;
+  var perfilLabels = {admin:'Admin', usuario:'Usuario', executivo:'Executivo'};
+  document.getElementById('user-badge').textContent = CURRENT_USER.nome + ' — ' + (perfilLabels[perfil]||perfil);
+  var isAdmin = perfil === 'admin';
+  var isUsuario = perfil === 'usuario';
+  var isExecutivo = perfil === 'executivo';
+  // Botoes da topbar
+  _show('btn-vol',        isAdmin || isUsuario);
+  _show('btn-tarifas',    isAdmin);
+  _show('btn-edit',       isAdmin);
+  _show('btn-csv',        isAdmin);
+  _show('btn-html',       isAdmin);
+  _show('btn-projecao',   isAdmin || isUsuario);
+}
+
+function _show(id, visible){
+  var el = document.getElementById(id);
+  if(el) el.style.display = visible ? '' : 'none';
+}
+
+// ============================================================
 // DIAS ÚTEIS
 // ============================================================
 function isDiaUtil(dateStr,feriados){
@@ -536,6 +691,7 @@ function calcularValorRegistro(r){
 // ESTADO GLOBAL
 // ============================================================
 var D,TARIFAS,VOLUMES_BASE,chartH=null,chartP=null;
+// USERS e CURRENT_USER declarados na secao de autenticacao acima
 
 var LS_KEY = 'faturamento_data';
 
@@ -558,16 +714,19 @@ async function loadData(){
     D = json.d || JSON.parse(JSON.stringify(DEFAULT));
     TARIFAS = json.tarifas || JSON.parse(JSON.stringify(TARIFAS_DEFAULT));
     VOLUMES_BASE = json.volumes || [];
+    USERS = json.users || JSON.parse(JSON.stringify(USERS_DEFAULT));
   } catch(e) {
     var local = lsLoad();
     if(local){
       D = local.d || JSON.parse(JSON.stringify(DEFAULT));
       TARIFAS = local.tarifas || JSON.parse(JSON.stringify(TARIFAS_DEFAULT));
       VOLUMES_BASE = local.volumes || [];
+      USERS = local.users || JSON.parse(JSON.stringify(USERS_DEFAULT));
     } else {
       D = JSON.parse(JSON.stringify(DEFAULT));
       TARIFAS = JSON.parse(JSON.stringify(TARIFAS_DEFAULT));
       VOLUMES_BASE = [];
+      USERS = JSON.parse(JSON.stringify(USERS_DEFAULT));
     }
   }
   if(!D.historico_mensal)D.historico_mensal=[];
@@ -577,7 +736,7 @@ async function loadData(){
 
 
 async function saveAll(){
-  var payload = {d: D, tarifas: TARIFAS, volumes: VOLUMES_BASE};
+  var payload = {d: D, tarifas: TARIFAS, volumes: VOLUMES_BASE, users: USERS};
   lsSave(payload);
   try {
     var res = await fetch('/api/data', {
@@ -730,16 +889,39 @@ function renderChartH(){
   var sorted=[...D.historico_mensal].sort(function(a,b){return new Date(a.mes)-new Date(b.mes);});
   var mesAtual=new Date().toISOString().slice(0,7);
   var total=D.parceiros.reduce(function(s,p){return s+(p.valor||0);},0);
+  var valores=sorted.map(function(h){return h.mes.slice(0,7)===mesAtual?total:h.valor;});
+  var media=valores.length?valores.reduce(function(a,b){return a+b;},0)/valores.length:0;
   chartH=new Chart(ctx,{
     type:"bar",
     data:{
       labels:sorted.map(function(h){return new Date(h.mes+"T12:00:00").toLocaleDateString("pt-BR",{month:"short",year:"2-digit"});}),
-      datasets:[{data:sorted.map(function(h){return h.mes.slice(0,7)===mesAtual?total:h.valor;}),
-        backgroundColor:sorted.map(function(h){return h.mes.slice(0,7)===mesAtual?"rgba(42,124,121,0.9)":"rgba(7,80,86,0.85)";}),
-        borderRadius:6,maxBarThickness:40}]
+      datasets:[
+        {
+          type:"bar",
+          label:"Faturamento",
+          data:valores,
+          backgroundColor:sorted.map(function(h){return h.mes.slice(0,7)===mesAtual?"rgba(42,124,121,0.9)":"rgba(7,80,86,0.85)";}),
+          borderRadius:6,maxBarThickness:40,order:2
+        },
+        {
+          type:"line",
+          label:"Media: "+R(media),
+          data:valores.map(function(){return media;}),
+          borderColor:"rgba(192,57,43,0.85)",
+          backgroundColor:"transparent",
+          borderWidth:2,
+          borderDash:[6,4],
+          pointRadius:0,
+          tension:0,
+          order:1
+        }
+      ]
     },
     options:{responsive:true,maintainAspectRatio:false,
-      plugins:{legend:{display:false},tooltip:{callbacks:{label:function(c){return R(c.parsed.y);}}}},
+      plugins:{
+        legend:{display:true,position:"top",labels:{boxWidth:14,font:{size:11},padding:16}},
+        tooltip:{callbacks:{label:function(c){return c.dataset.label.split(":")[0]+": "+R(c.parsed.y);}}}
+      },
       scales:{x:{grid:{display:false}},y:{grid:{color:"rgba(1,40,36,0.08)"},ticks:{callback:function(v){return"R$ "+(v/1e6).toFixed(1)+"M";}}}}}
   });
 }
@@ -812,6 +994,11 @@ function openModal(){
   document.getElementById("f3").value=D.consolidado.media_12_meses;
   document.getElementById("f4").value=D.consolidado.expectativa_faturamento;
   renderParceirosFrm();renderHistoricoFrm();renderFeriadosFrm();
+  var isAdmin = CURRENT_USER && CURRENT_USER.perfil==='admin';
+  var tabU = document.getElementById('tab-usuarios');
+  var tpU  = document.getElementById('tp4');
+  if(tabU) tabU.style.display = isAdmin ? '' : 'none';
+  if(isAdmin) renderUsuariosForm();
   document.getElementById("ov").classList.add("open");
 }
 function switchTab(n,el){
@@ -871,7 +1058,51 @@ function saveData(){
   }).filter(function(h){return h.mes;});
   D.historico_mensal.sort(function(a,b){return new Date(a.mes)-new Date(b.mes);});
   D.feriados=(D.feriados||[]).map(function(f,i){return document.getElementById("fd-"+i).value||f;}).filter(Boolean);
+  if(CURRENT_USER && CURRENT_USER.perfil==='admin'){
+    USERS = USERS.map(function(u,i){
+      return{
+        id:u.id,
+        nome:(document.getElementById('un-'+i)||{}).value||u.nome,
+        login:(document.getElementById('ul-'+i)||{}).value||u.login,
+        senha:(document.getElementById('us-'+i)||{}).value||u.senha,
+        perfil:(document.getElementById('up-'+i)||{}).value||u.perfil
+      };
+    });
+  }
   saveAll().then(function(){ toast("Dados salvos!","ok"); closeModal("ov"); render(); });
+}
+
+// ============================================================
+// GESTAO DE USUARIOS (admin only)
+// ============================================================
+function renderUsuariosForm(){
+  var el = document.getElementById('usuarios-form');
+  if(!el) return;
+  el.innerHTML = '';
+  USERS.forEach(function(u, i){
+    var row = document.createElement('div');
+    row.className = 'usr-grid';
+    row.id = 'ur-'+i;
+    row.innerHTML =
+      '<input type="text"     id="un-'+i+'" value="'+u.nome+'"  placeholder="Nome"/>'+
+      '<input type="text"     id="ul-'+i+'" value="'+u.login+'" placeholder="Login"/>'+
+      '<input type="password" id="us-'+i+'" value="'+u.senha+'" placeholder="Senha"/>'+
+      '<select id="up-'+i+'">'+
+        '<option value="admin"'+(u.perfil==='admin'?' selected':'')+'>Admin</option>'+
+        '<option value="usuario"'+(u.perfil==='usuario'?' selected':'')+'>Usuario</option>'+
+        '<option value="executivo"'+(u.perfil==='executivo'?' selected':'')+'>Executivo</option>'+
+      '</select>'+
+      '<button class="btn btn-red btn-sm" onclick="removeUsuario('+i+')">X</button>';
+    el.appendChild(row);
+  });
+}
+function addUsuario(){
+  USERS.push({id:Date.now(),nome:'Novo',login:'novo'+Date.now(),senha:'123456',perfil:'usuario'});
+  renderUsuariosForm();
+}
+function removeUsuario(i){
+  if(CURRENT_USER && USERS[i] && USERS[i].id===CURRENT_USER.id){ toast('Nao pode remover o usuario atual.','err'); return; }
+  USERS.splice(i,1); renderUsuariosForm();
 }
 
 // ============================================================
@@ -1021,91 +1252,191 @@ function removerLinhaTarifa(clienteId,idx,clienteNome){
 }
 
 // ============================================================
-// MODAL VOLUMES
+// MODAL VOLUMES — SPREADSHEET
 // ============================================================
+var volMesAtual = new Date().toISOString().slice(0,7);
+var volDataAtual = new Date().toISOString().slice(0,10);
+
 function openModalVolumes(){
-  renderVolClienteSelect();renderVolTabela();renderUltimaData();
+  var now = new Date();
+  volMesAtual = now.toISOString().slice(0,7);
+  volDataAtual = now.toISOString().slice(0,10);
+  renderVolSheet();
+  renderVolTabela();
   document.getElementById("ov-volumes").classList.add("open");
 }
-function renderVolClienteSelect(){
-  var sel=document.getElementById("vol-cliente");
-  sel.innerHTML='<option value="">Selecione...</option>';
-  Object.keys(TARIFAS).forEach(function(c){
-    var opt=document.createElement("option");opt.value=c;opt.textContent=c;sel.appendChild(opt);
-  });
-}
-function onVolClienteChange(){
-  var cliente=document.getElementById("vol-cliente").value;
-  var conf=cliente?TARIFAS[cliente]:null;
-  var grupoLinha=document.getElementById("vol-grupo-linha");
-  var grupoData=document.getElementById("vol-grupo-data");
-  var grupoMes=document.getElementById("vol-grupo-mes");
-  var selLinha=document.getElementById("vol-linha");
-  var preview=document.getElementById("vol-preview");
-  preview.classList.add("hidden");
-  if(!conf){
-    grupoLinha.classList.remove("hidden");grupoData.classList.remove("hidden");
-    grupoMes.classList.add("hidden");
-    selLinha.innerHTML='<option value="">Selecione o cliente...</option>';return;
+
+function renderVolSheet(){
+  var meses=["Janeiro","Fevereiro","Marco","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
+  var p = volMesAtual.split("-");
+  var ano = parseInt(p[0]), mes = parseInt(p[1]);
+  document.getElementById('vol-mes-label').textContent = meses[mes-1] + " / " + ano;
+  var dateInp = document.getElementById('vol-data-sheet');
+  if(dateInp){
+    dateInp.value = volDataAtual;
+    var lastDay = new Date(ano, mes, 0).getDate();
+    dateInp.min = volMesAtual + "-01";
+    dateInp.max = volMesAtual + "-" + String(lastDay).padStart(2,"0");
   }
-  if(conf.tipo_cliente==="mensal_fechado"){
-    grupoLinha.classList.add("hidden");grupoData.classList.add("hidden");
-    grupoMes.classList.remove("hidden");selLinha.innerHTML="";
-    preview.textContent="Cliente mensal fechado: insira o valor total em reais no campo Volume.";
-    preview.classList.remove("hidden");return;
-  }
-  grupoLinha.classList.remove("hidden");grupoData.classList.remove("hidden");
-  grupoMes.classList.add("hidden");
-  selLinha.innerHTML='<option value="">Selecione...</option>';
-  conf.linhas.forEach(function(l){
-    var opt=document.createElement("option");opt.value=l.nome;
-    opt.textContent=l.nome+(l.tipo==="fixo"?" [Fee fixo: "+R(l.tarifa)+"]":" ["+R(l.tarifa)+"/un]");
-    selLinha.appendChild(opt);
-  });
-  selLinha.onchange=function(){
-    var linha=conf.linhas.find(function(l){return l.nome===selLinha.value;});
-    if(linha){
-      preview.textContent=linha.tipo==="fixo"
-        ?"Fee fixo mensal: "+R(linha.tarifa)+" (independe do volume)"
-        :"Tarifa: "+R(linha.tarifa)+" por unidade — preencha o volume abaixo";
-      preview.classList.remove("hidden");
-    }else{preview.classList.add("hidden");}
-  };
+  renderVolSheetTabela();
+  renderUltimaData();
 }
 
-function adicionarVolume(){
-  var cliente=document.getElementById("vol-cliente").value;
-  if(!cliente){toast("Selecione o cliente.","err");return;}
-  var conf=TARIFAS[cliente];
-  var tipo,linha="",data="",mes="",volume=0;
-
-  if(conf.tipo_cliente==="mensal_fechado"){
-    tipo="mensal";mes=document.getElementById("vol-mes").value;
-    if(!mes){toast("Informe o mês.","err");return;}
-    volume=parseFloat(document.getElementById("vol-volume").value)||0;
-  }else{
-    tipo="diario";linha=document.getElementById("vol-linha").value;
-    data=document.getElementById("vol-data").value;
-    if(!linha){toast("Selecione a linha de serviço.","err");return;}
-    if(!data){toast("Informe a data.","err");return;}
-    volume=parseFloat(document.getElementById("vol-volume").value)||0;
-  }
-  VOLUMES_BASE=VOLUMES_BASE.filter(function(r){
-    if(r.cliente!==cliente)return true;
-    if(r.avulso)return true;
-    if(tipo==="diario")return!(r.data===data&&r.linha===linha);
-    return!(r.mes===mes);
-  });
-  VOLUMES_BASE.push({cliente:cliente,tipo:tipo,linha:linha,data:data,mes:mes,volume:volume});
-
-  saveAll().then(function(){ renderVolTabela();renderUltimaData();calcularEAtualizarProjecao();
-    toast("Volume salvo!","ok"); });
+function navMes(dir){
+  var p = volMesAtual.split("-");
+  var ano = parseInt(p[0]), mes = parseInt(p[1]);
+  mes += dir;
+  if(mes < 1){ mes = 12; ano--; }
+  if(mes > 12){ mes = 1; ano++; }
+  volMesAtual = ano + "-" + String(mes).padStart(2,"0");
+  var now = new Date();
+  var nowMes = now.toISOString().slice(0,7);
+  volDataAtual = volMesAtual === nowMes ? now.toISOString().slice(0,10) : volMesAtual + "-01";
+  renderVolSheet();
 }
-function limparVolume(){
-  document.getElementById("vol-cliente").value="";onVolClienteChange();
-  document.getElementById("vol-data").value="";document.getElementById("vol-mes").value="";
-  document.getElementById("vol-volume").value="";
 
+function onDataSheetChange(){
+  var v = document.getElementById('vol-data-sheet').value;
+  if(v){
+    volDataAtual = v;
+    volMesAtual = v.slice(0,7);
+    renderVolSheetTabela();
+  }
+}
+
+function renderVolSheetTabela(){
+  var tbody = document.getElementById('vol-sheet-tbody');
+  tbody.innerHTML = '';
+  var idxRow = 0;
+  var clientesDiarios = Object.keys(TARIFAS).filter(function(c){ return TARIFAS[c].tipo_cliente==='diario'; });
+  clientesDiarios.forEach(function(cliente, ci){
+    var conf = TARIFAS[cliente];
+    if(!conf.linhas || !conf.linhas.length) return;
+    conf.linhas.forEach(function(linha, li){
+      var existente = VOLUMES_BASE.find(function(v){
+        return v.cliente===cliente && v.linha===linha.nome && v.tipo==='diario' && v.data===volDataAtual && !v.avulso;
+      });
+      var val = existente ? existente.volume : '';
+      var inputId = 'si-'+idxRow, calcId = 'sc-'+idxRow;
+      idxRow++;
+      var tr = document.createElement('tr');
+      if(ci%2===0) tr.style.background='#F7FAFA';
+      if(li===0){
+        var tdC = document.createElement('td');
+        tdC.rowSpan = conf.linhas.length;
+        tdC.innerHTML = '<strong style="color:var(--blue-dark);font-size:.82rem">'+cliente+'</strong>';
+        tdC.style.cssText = 'border-right:2px solid var(--blue-light);background:rgba(7,80,86,.03)!important;vertical-align:top;padding-top:10px';
+        tr.appendChild(tdC);
+      }
+      var tdL = document.createElement('td');
+      tdL.textContent = linha.nome;
+      var tdT = document.createElement('td');
+      tdT.style.cssText = 'font-size:.74rem;color:var(--muted);white-space:nowrap';
+      tdT.textContent = linha.tipo==='fixo' ? 'Fee: '+R(linha.tarifa) : R(linha.tarifa)+'/un';
+      var tdV = document.createElement('td');
+      var inp = document.createElement('input');
+      inp.type='number'; inp.min='0'; inp.step='1'; inp.className='sheet-input';
+      inp.placeholder = linha.tipo==='fixo' ? '1' : '0';
+      inp.id = inputId; inp.value = val!==''?val:'';
+      inp.dataset.cliente=cliente; inp.dataset.linha=linha.nome; inp.dataset.tipo='diario';
+      inp.dataset.tarifa=linha.tarifa; inp.dataset.tipoTarifa=linha.tipo; inp.dataset.calcId=calcId;
+      if(val!=='') inp.classList.add('filled');
+      if(existente && existente.preenchidoPor){
+        var sp=document.createElement('div'); sp.className='preenchido-por'; sp.textContent=existente.preenchidoPor;
+        tdV.appendChild(inp); tdV.appendChild(sp);
+      } else { tdV.appendChild(inp); }
+      var tdCalc = document.createElement('td');
+      tdCalc.id = calcId;
+      tdCalc.style.cssText = 'text-align:right;font-weight:700;color:var(--blue-mid);font-size:.81rem';
+      var vc = val!=='' ? _calcSheetVal(linha.tipo, parseFloat(val)||0, parseFloat(linha.tarifa)||0) : 0;
+      tdCalc.textContent = vc>0 ? R(vc) : '—';
+      tr.appendChild(tdL); tr.appendChild(tdT); tr.appendChild(tdV); tr.appendChild(tdCalc);
+      tbody.appendChild(tr);
+    });
+  });
+  // Separador clientes mensais
+  var trSep = document.createElement('tr'); trSep.className='sheet-section-row';
+  trSep.innerHTML = '<td colspan="5">Clientes Mensais Fechados — '+volMesAtual.split("-").reverse().join("/")+'</td>';
+  tbody.appendChild(trSep);
+  var clientesMensais = Object.keys(TARIFAS).filter(function(c){ return TARIFAS[c].tipo_cliente==='mensal_fechado'; });
+  clientesMensais.forEach(function(cliente){
+    var existente = VOLUMES_BASE.find(function(v){ return v.cliente===cliente && v.tipo==='mensal' && v.mes===volMesAtual && !v.avulso; });
+    var val = existente ? existente.volume : '';
+    var inputId = 'si-'+idxRow, calcId = 'sc-'+idxRow; idxRow++;
+    var tr = document.createElement('tr');
+    var tdC = document.createElement('td'); tdC.colSpan=2;
+    tdC.innerHTML = '<strong style="color:var(--blue-dark);font-size:.82rem">'+cliente+'</strong>';
+    var tdT = document.createElement('td'); tdT.style.cssText='font-size:.74rem;color:var(--muted)'; tdT.textContent='Valor R$';
+    var tdV = document.createElement('td');
+    var inp = document.createElement('input');
+    inp.type='number'; inp.min='0'; inp.step='0.01'; inp.className='sheet-input';
+    inp.placeholder='0,00'; inp.id=inputId; inp.value=val!==''?val:'';
+    inp.dataset.cliente=cliente; inp.dataset.tipo='mensal'; inp.dataset.calcId=calcId;
+    if(val!=='') inp.classList.add('filled');
+    if(existente && existente.preenchidoPor){
+      var sp=document.createElement('div'); sp.className='preenchido-por'; sp.textContent=existente.preenchidoPor;
+      tdV.appendChild(inp); tdV.appendChild(sp);
+    } else { tdV.appendChild(inp); }
+    var tdCalc = document.createElement('td'); tdCalc.id=calcId;
+    tdCalc.style.cssText='text-align:right;font-weight:700;color:var(--blue-mid);font-size:.81rem';
+    tdCalc.textContent = val!=='' && parseFloat(val)>0 ? R(parseFloat(val)) : '—';
+    tr.appendChild(tdC); tr.appendChild(tdT); tr.appendChild(tdV); tr.appendChild(tdCalc);
+    tbody.appendChild(tr);
+  });
+  // Handlers de calculo em tempo real
+  document.querySelectorAll('#vol-sheet-tbody .sheet-input').forEach(function(inp){
+    inp.addEventListener('input', function(){
+      var v = parseFloat(this.value)||0;
+      if(v>0) this.classList.add('filled'); else this.classList.remove('filled');
+      var calcEl = document.getElementById(this.dataset.calcId);
+      if(!calcEl) return;
+      if(this.dataset.tipo==='mensal'){
+        calcEl.textContent = v>0 ? R(v) : '—';
+      } else {
+        var calc = _calcSheetVal(this.dataset.tipoTarifa, v, parseFloat(this.dataset.tarifa)||0);
+        calcEl.textContent = calc>0 ? R(calc) : '—';
+      }
+    });
+  });
+}
+
+function _calcSheetVal(tipoTarifa, volume, tarifa){
+  if(!volume || volume<=0) return 0;
+  return tipoTarifa==='fixo' ? tarifa : volume * tarifa;
+}
+
+function salvarTodosVolumes(){
+  var inputs = document.querySelectorAll('#vol-sheet-tbody .sheet-input');
+  var changed = 0;
+  var quem = CURRENT_USER ? CURRENT_USER.nome : 'Sistema';
+  var agora = new Date().toISOString();
+  inputs.forEach(function(inp){
+    var cliente = inp.dataset.cliente;
+    var tipo = inp.dataset.tipo;
+    var linha = inp.dataset.linha || '';
+    var volume = inp.value!=='' ? parseFloat(inp.value) : null;
+    if(tipo==='diario'){
+      VOLUMES_BASE = VOLUMES_BASE.filter(function(v){
+        return !(v.cliente===cliente && v.linha===linha && v.tipo==='diario' && v.data===volDataAtual && !v.avulso);
+      });
+      if(volume!==null && volume>0){
+        VOLUMES_BASE.push({cliente:cliente,tipo:'diario',linha:linha,data:volDataAtual,mes:'',volume:volume,preenchidoPor:quem,preenchidoEm:agora});
+        changed++;
+      }
+    } else {
+      VOLUMES_BASE = VOLUMES_BASE.filter(function(v){
+        return !(v.cliente===cliente && v.tipo==='mensal' && v.mes===volMesAtual && !v.avulso);
+      });
+      if(volume!==null && volume>0){
+        VOLUMES_BASE.push({cliente:cliente,tipo:'mensal',linha:'',data:'',mes:volMesAtual,volume:volume,preenchidoPor:quem,preenchidoEm:agora});
+        changed++;
+      }
+    }
+  });
+  saveAll().then(function(){
+    renderVolSheetTabela(); renderUltimaData(); renderVolTabela(); calcularEAtualizarProjecao();
+    toast('Volumes salvos! ('+changed+' registros)','ok');
+  });
 }
 function renderUltimaData(){
   var el=document.getElementById("vol-ultima-data");
@@ -1115,7 +1446,7 @@ function renderUltimaData(){
     if(r.avulso)return;
     var ref=r.tipo==="diario"?r.data:r.mes;
     if(!ref)return;
-    if(!mapa[r.cliente]||ref>mapa[r.cliente].ref)mapa[r.cliente]={ref,tipo:r.tipo};
+    if(!mapa[r.cliente]||ref>mapa[r.cliente].ref) mapa[r.cliente]={ref:ref,tipo:r.tipo,quem:r.preenchidoPor||''};
   });
   var clientes=Object.keys(mapa).sort();
   if(!clientes.length){
@@ -1130,35 +1461,36 @@ function renderUltimaData(){
     pill.style.cssText="background:var(--blue-light);border-radius:8px;padding:7px 12px;font-size:.78rem;border-left:3px solid var(--blue-mid)";
     pill.innerHTML='<div style="font-weight:700;color:var(--blue-dark);font-size:.72rem;text-transform:uppercase;letter-spacing:.4px;margin-bottom:2px">'+c+'</div>'+
       '<div style="color:var(--blue-mid);font-weight:700">'+labelData+'</div>'+
-      '<div style="color:var(--muted);font-size:.7rem">'+(info.tipo==="diario"?"Último dia preenchido":"Mês preenchido")+'</div>';
+      '<div style="color:var(--muted);font-size:.7rem">'+(info.tipo==="diario"?"Ultimo dia preenchido":"Mes preenchido")+(info.quem?' &bull; '+info.quem:'')+'</div>';
     el.appendChild(pill);
   });
 }
 function renderVolTabela(){
   var tb=document.getElementById("vol-tbody");tb.innerHTML="";
-  renderUltimaData();
   if(!VOLUMES_BASE.length){
-    tb.innerHTML='<tr><td colspan="7" style="text-align:center;color:var(--muted);padding:16px">Nenhum volume registrado.</td></tr>';return;
+    tb.innerHTML='<tr><td colspan="8" style="text-align:center;color:var(--muted);padding:16px">Nenhum volume registrado.</td></tr>';return;
   }
   VOLUMES_BASE.forEach(function(r,idx){
     var valorCalc=calcularValorRegistro(r);
     var tipoLabel=r.avulso
       ?'<span style="background:rgba(230,126,34,.15);color:#9a5f0a;padding:2px 8px;border-radius:999px;font-size:.72rem;font-weight:700">Avulso</span>'
-      :(r.tipo==="diario"?'<span class="tag-diario">Diário</span>':'<span class="tag-mensal">Mensal</span>');
+      :(r.tipo==="diario"?'<span class="tag-diario">Diario</span>':'<span class="tag-mensal">Mensal</span>');
+    var quem = r.preenchidoPor ? '<span class="preenchido-por" style="font-size:.78rem;font-style:italic;color:var(--muted)">'+r.preenchidoPor+'</span>' : '<span style="color:var(--muted)">—</span>';
     tb.innerHTML+="<tr><td><strong>"+r.cliente+"</strong></td><td>"+(r.linha||"—")+"</td>"+
       "<td>"+tipoLabel+"</td><td>"+(r.tipo==="diario"?r.data:r.mes)+"</td>"+
       '<td style="text-align:right">'+((r.volume||0).toLocaleString("pt-BR",{minimumFractionDigits:2}))+'</td>'+
       '<td style="text-align:right;font-weight:700;color:var(--blue-mid)">'+R(valorCalc)+'</td>'+
+      '<td>'+quem+'</td>'+
       '<td><button class="btn btn-red btn-sm" onclick="removerVolume('+idx+')">X</button></td></tr>';
   });
 }
 function removerVolume(idx){
-  VOLUMES_BASE.splice(idx,1);saveAll().then(function(){ renderVolTabela();renderUltimaData();calcularEAtualizarProjecao();
+  VOLUMES_BASE.splice(idx,1);saveAll().then(function(){ renderVolSheetTabela();renderVolTabela();renderUltimaData();calcularEAtualizarProjecao();
   toast("Registro removido.","ok"); });
 }
 function apagarBaseVolumes(){
   if(!confirm("Apagar toda a base de volumes?"))return;
-  VOLUMES_BASE=[];saveAll().then(function(){ renderVolTabela();renderUltimaData();calcularEAtualizarProjecao();
+  VOLUMES_BASE=[];saveAll().then(function(){ renderVolSheetTabela();renderVolTabela();renderUltimaData();calcularEAtualizarProjecao();
   toast("Base apagada.","ok"); });
 }
 function exportarVolumesCSV(){
@@ -1230,13 +1562,14 @@ function toast(msg,type){
   setTimeout(function(){t.classList.remove("show");},3200);
 }
 ["ov","ov-tarifas","ov-volumes","ov-nova-linha"].forEach(function(id){
-  document.getElementById(id).addEventListener("click",function(e){if(e.target===e.currentTarget)closeModal(id);});
+  var el=document.getElementById(id);
+  if(el) el.addEventListener("click",function(e){if(e.target===e.currentTarget)closeModal(id);});
 });
 
 // ============================================================
 // INIT
 // ============================================================
-loadData().then(function(){ render(); });
+authInit();
 </script>
 
 
