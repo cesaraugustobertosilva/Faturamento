@@ -1224,17 +1224,18 @@ function addParceiro(){D.parceiros.push({nome:"Novo Parceiro",faturamento_anteri
 function removeParceiro(i){D.parceiros.splice(i,1);renderParceirosFrm();}
 function renderHistoricoFrm(){
   var el=document.getElementById("historico-form");
-  el.innerHTML='<div class="hrow" style="font-weight:700;font-size:.75rem;color:var(--muted);margin-bottom:8px"><span>Mes</span><span>Faturamento Total (R$)</span><span></span></div>';
   var indices=D.historico_mensal.map(function(_,i){return i;});
   indices.sort(function(a,b){return new Date(D.historico_mensal[b].mes)-new Date(D.historico_mensal[a].mes);});
+  var html='<div class="hrow" style="font-weight:700;font-size:.75rem;color:var(--muted);margin-bottom:8px"><span>Mes</span><span>Faturamento Total (R$)</span><span></span></div>';
   indices.forEach(function(i){
     var h=D.historico_mensal[i];
     var mesVal=h.mes?h.mes.slice(0,7):'';
-    el.innerHTML+='<div class="hrow" id="hr-'+i+'">'+
+    html+='<div class="hrow" id="hr-'+i+'">'+
       '<input type="month" id="hm-'+i+'" value="'+mesVal+'"/>'+
       '<input type="number" id="hv-'+i+'" value="'+(h.valor||0)+'" step="0.01"/>'+
       '<button class="btn btn-red btn-sm" onclick="removeHistorico('+i+')">X</button></div>';
   });
+  el.innerHTML=html;
 }
 function addHistorico(){D.historico_mensal.push({mes:"",valor:0});renderHistoricoFrm();}
 function removeHistorico(i){D.historico_mensal.splice(i,1);renderHistoricoFrm();}
@@ -1252,16 +1253,22 @@ function saveData(){
   D.consolidado.media_12_meses=+document.getElementById("f3").value||0;
   D.consolidado.expectativa_faturamento=+document.getElementById("f4").value||0;
   D.parceiros=D.parceiros.map(function(p,i){
-    var v=+document.getElementById("pv-"+i).value||0;
-    var e=+document.getElementById("pe-"+i).value||0;
-    return{nome:document.getElementById("pn-"+i).value||p.nome,
-      faturamento_anterior:+document.getElementById("pfa-"+i).value||0,
+    var pnEl=document.getElementById("pn-"+i);
+    var pvEl=document.getElementById("pv-"+i);
+    var peEl=document.getElementById("pe-"+i);
+    var pfaEl=document.getElementById("pfa-"+i);
+    if(!pvEl)return p;
+    var v=+pvEl.value||0;
+    var e=+peEl.value||0;
+    return{nome:pnEl?pnEl.value||p.nome:p.nome,
+      faturamento_anterior:pfaEl?+pfaEl.value||0:p.faturamento_anterior||0,
       valor:v,esperado:e,origem:p.origem||"manual",delta:e>0?(v-e)/e:null};
   });
   D.historico_mensal=D.historico_mensal.map(function(h,i){
     var mesRaw=(document.getElementById("hm-"+i)||{}).value||h.mes||'';
     var mesVal=mesRaw.length===7?mesRaw+'-01':mesRaw;
-    return{mes:mesVal,valor:+document.getElementById("hv-"+i).value||0};
+    var hvEl=document.getElementById("hv-"+i);
+    return{mes:mesVal,valor:hvEl?+hvEl.value||0:h.valor||0};
   }).filter(function(h){return h.mes;});
   D.historico_mensal.sort(function(a,b){return new Date(a.mes)-new Date(b.mes);});
   D.feriados=(D.feriados||[]).map(function(f,i){return document.getElementById("fd-"+i).value||f;}).filter(Boolean);
