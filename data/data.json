@@ -4665,56 +4665,6 @@
       "volume": 9,
       "avulso": false,
       "origem_sheets": true
-    },
-    {
-      "cliente": "Agibank",
-      "tipo": "diario",
-      "linha": "Ofícios",
-      "data": "2026-05-04",
-      "mes": "",
-      "volume": 6,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-07T14:52:44.697Z"
-    },
-    {
-      "cliente": "Agibank",
-      "tipo": "diario",
-      "linha": "Ofícios",
-      "data": "2026-05-05",
-      "mes": "",
-      "volume": 1,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-07T14:52:44.697Z"
-    },
-    {
-      "cliente": "Agibank",
-      "tipo": "diario",
-      "linha": "Ofícios",
-      "data": "2026-05-06",
-      "mes": "",
-      "volume": 1,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-07T14:52:44.697Z"
-    },
-    {
-      "cliente": "Agibank",
-      "tipo": "diario",
-      "linha": "Ofícios",
-      "data": "2026-05-07",
-      "mes": "",
-      "volume": 1,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-07T14:52:44.697Z"
-    },
-    {
-      "cliente": "Agibank",
-      "tipo": "diario",
-      "linha": "Ofícios",
-      "data": "2026-05-08",
-      "mes": "",
-      "volume": 3,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-07T14:52:44.697Z"
     }
   ],
   "users": [
