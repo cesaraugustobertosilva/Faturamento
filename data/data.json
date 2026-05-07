@@ -4709,6 +4709,13 @@
       "login": "joao.zocarato",
       "senha": "*78$6Sof",
       "perfil": "executivo"
+    },
+    {
+      "id": 1778182657400,
+      "nome": "Novo",
+      "login": "novo1778182657400",
+      "senha": "123456",
+      "perfil": "usuario"
     }
   ]
 }
