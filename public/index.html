@@ -102,7 +102,8 @@ tbody tr:nth-child(even){background:#F7FAFA}
 .frm-grid input{padding:7px 9px;border-radius:8px;border:1.5px solid #C5DDD9;font-size:.85rem;width:100%}
 .prow-frm{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr auto;gap:6px;margin-bottom:6px;align-items:center}
 .prow-frm input{padding:6px 7px;border-radius:8px;border:1.5px solid #C5DDD9;font-size:.82rem;}
-.hrow{display:grid;grid-template-columns:1fr 1.2fr auto;gap:6px;margin-bottom:6px}
+.hrow{display:grid;grid-template-columns:1fr 1.2fr auto;gap:6px;margin-bottom:6px;align-items:center}
+.hrow input{padding:6px 7px;border-radius:8px;border:1.5px solid #C5DDD9;font-size:.82rem;width:100%}
 .tarifa-section{margin-bottom:24px}
 .tarifa-section h4{font-size:.85rem;font-weight:700;color:var(--blue-dark);padding:8px 12px;background:var(--blue-light);border-radius:8px;margin-bottom:10px}
 .tarifa-row{display:grid;grid-template-columns:1fr auto auto;gap:8px;align-items:center;margin-bottom:6px}
@@ -830,6 +831,34 @@ function salvarComoHTML(){
 // ============================================================
 // PROJEÇÃO
 // ============================================================
+function atualizarFatAnterior(){
+  var hoje = new Date();
+  var mesAtualNum = hoje.getMonth() + 1;
+  var anoAtual = hoje.getFullYear();
+  var mesPrevNum = mesAtualNum === 1 ? 12 : mesAtualNum - 1;
+  var anoPrev = mesAtualNum === 1 ? anoAtual - 1 : anoAtual;
+  var mesPrevStr = anoPrev + '-' + String(mesPrevNum).padStart(2, '0');
+  var volumesMes = VOLUMES_BASE.filter(function(v){
+    if(v.avulso) return false;
+    if(v.tipo === 'diario') return v.data && v.data.startsWith(mesPrevStr);
+    if(v.tipo === 'mensal') return v.mes && v.mes.startsWith(mesPrevStr);
+    return false;
+  });
+  if(!volumesMes.length) return;
+  var fat = calcularFaturamentoPorVolume(volumesMes, TARIFAS);
+  var avulsosPorCliente = {};
+  VOLUMES_BASE.filter(function(v){
+    return v.avulso && v.data && v.data.startsWith(mesPrevStr);
+  }).forEach(function(v){
+    if(!avulsosPorCliente[v.cliente]) avulsosPorCliente[v.cliente] = 0;
+    avulsosPorCliente[v.cliente] += (v.volume || 0);
+  });
+  D.parceiros.forEach(function(p){
+    var valor = (fat[p.nome] || 0) + (avulsosPorCliente[p.nome] || 0);
+    if(valor > 0) p.faturamento_anterior = valor;
+  });
+}
+
 function calcularEAtualizarProjecao(){
   var hoje=new Date().toISOString().slice(0,10);
   var anoAtual=new Date().getFullYear();
@@ -1054,6 +1083,7 @@ function verificarFechamentoMes(){
 }
 
 function render(){
+  atualizarFatAnterior();
   var fechou = verificarFechamentoMes();
   renderKPIs();renderComparativos();renderChartH();renderChartP();renderBars();renderTable();
   calcularEAtualizarProjecao();
@@ -1109,11 +1139,16 @@ function renderParceirosFrm(){
 function addParceiro(){D.parceiros.push({nome:"Novo Parceiro",faturamento_anterior:0,valor:0,esperado:0,origem:"manual"});renderParceirosFrm();}
 function removeParceiro(i){D.parceiros.splice(i,1);renderParceirosFrm();}
 function renderHistoricoFrm(){
-  var el=document.getElementById("historico-form");el.innerHTML="";
-  D.historico_mensal.forEach(function(h,i){
+  var el=document.getElementById("historico-form");
+  el.innerHTML='<div class="hrow" style="font-weight:700;font-size:.75rem;color:var(--muted);margin-bottom:8px"><span>Mes</span><span>Faturamento Total (R$)</span><span></span></div>';
+  var indices=D.historico_mensal.map(function(_,i){return i;});
+  indices.sort(function(a,b){return new Date(D.historico_mensal[b].mes)-new Date(D.historico_mensal[a].mes);});
+  indices.forEach(function(i){
+    var h=D.historico_mensal[i];
+    var mesVal=h.mes?h.mes.slice(0,7):'';
     el.innerHTML+='<div class="hrow" id="hr-'+i+'">'+
-      '<input type="text" id="hm-'+i+'" value="'+h.mes+'" placeholder="Ex: 2026-05-01"/>'+
-      '<input type="number" id="hv-'+i+'" value="'+h.valor+'" step="0.01"/>'+
+      '<input type="month" id="hm-'+i+'" value="'+mesVal+'"/>'+
+      '<input type="number" id="hv-'+i+'" value="'+(h.valor||0)+'" step="0.01"/>'+
       '<button class="btn btn-red btn-sm" onclick="removeHistorico('+i+')">X</button></div>';
   });
 }
@@ -1140,8 +1175,9 @@ function saveData(){
       valor:v,esperado:e,origem:p.origem||"manual",delta:e>0?(v-e)/e:null};
   });
   D.historico_mensal=D.historico_mensal.map(function(h,i){
-    return{mes:document.getElementById("hm-"+i).value||h.mes,
-      valor:+document.getElementById("hv-"+i).value||0};
+    var mesRaw=(document.getElementById("hm-"+i)||{}).value||h.mes||'';
+    var mesVal=mesRaw.length===7?mesRaw+'-01':mesRaw;
+    return{mes:mesVal,valor:+document.getElementById("hv-"+i).value||0};
   }).filter(function(h){return h.mes;});
   D.historico_mensal.sort(function(a,b){return new Date(a.mes)-new Date(b.mes);});
   D.feriados=(D.feriados||[]).map(function(f,i){return document.getElementById("fd-"+i).value||f;}).filter(Boolean);
