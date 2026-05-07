@@ -158,6 +158,10 @@
       {
         "mes": "2026-03-01",
         "valor": 2316095.53
+      },
+      {
+        "mes": "2026-04-01",
+        "valor": 1409656.6
       }
     ],
     "feriados": [
@@ -4661,6 +4665,29 @@
       "volume": 9,
       "avulso": false,
       "origem_sheets": true
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "nome": "Administrador",
+      "login": "admin",
+      "senha": "admin123",
+      "perfil": "admin"
+    },
+    {
+      "id": 2,
+      "nome": "Usuario Padrao",
+      "login": "usuario",
+      "senha": "usuario123",
+      "perfil": "usuario"
+    },
+    {
+      "id": 3,
+      "nome": "Executivo",
+      "login": "executivo",
+      "senha": "exec123",
+      "perfil": "executivo"
     }
   ]
 }
