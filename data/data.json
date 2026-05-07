@@ -4695,6 +4695,13 @@
       "login": "cesar.silva",
       "senha": "Amor0326",
       "perfil": "admin"
+    },
+    {
+      "id": 1778165008776,
+      "nome": "teste",
+      "login": "teste",
+      "senha": "123456",
+      "perfil": "usuario"
     }
   ]
 }
