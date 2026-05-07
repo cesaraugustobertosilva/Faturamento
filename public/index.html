@@ -220,7 +220,6 @@ tbody tr:nth-child(even){background:#F7FAFA}
       <div class="lbl" id="lbl-mes-atual">Previsão Mês Atual (Mai/26)</div>
       <div class="val" id="kpi-atual">R$&nbsp;1.906.896,28</div>
       <div class="dlt down" id="kpi-vs-media">-19.9% vs expectativa</div>
-      <button id="btn-projecao" class="btn btn-green btn-sm" style="margin-top:10px;font-size:.74rem;width:100%" onclick="aplicarProjecao()">Aplicar projecao por volumes</button>
     </div>
     <div class="kpi">
       <div class="lbl">Média Últimos 12 Meses</div>
@@ -617,7 +616,6 @@ function applyRole(){
   _show('btn-edit',       isAdmin);
   _show('btn-csv',        isAdmin);
   _show('btn-html',       isAdmin);
-  _show('btn-projecao',   isAdmin || isUsuario);
 }
 
 function _show(id, visible){
@@ -1683,8 +1681,20 @@ function salvarTodosVolumes(){
     }
   });
   saveAll().then(function(){
-    renderVolSheetTabela(); renderUltimaData(); renderVolTabela(); calcularEAtualizarProjecao();
-    toast('Volumes salvos! ('+changed+' registros)','ok');
+    var r=calcularEAtualizarProjecao();
+    D.parceiros.forEach(function(p,i){
+      var conf=TARIFAS[p.nome];
+      if(!conf)return;
+      var acum=r.fatAcumulado[p.nome]||0;
+      var avulso=r.avulsosPorCliente[p.nome]||0;
+      if(acum===0&&avulso===0)return;
+      var valorProjetado=conf.tipo_cliente==="mensal_fechado"?acum:(r.duP>0?(acum/r.duP)*r.duTotal:0);
+      D.parceiros[i].valor=valorProjetado+avulso;
+      D.parceiros[i].origem="volume";
+    });
+    saveAll().then(function(){ render(); });
+    renderVolSheetTabela(); renderUltimaData(); renderVolTabela();
+    toast('Volumes salvos e projecao atualizada! ('+changed+' registros)','ok');
   });
 }
 function renderUltimaData(){
