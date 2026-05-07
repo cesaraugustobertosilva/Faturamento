@@ -64,9 +64,9 @@
       {
         "nome": "CWT",
         "faturamento_anterior": 66538.01,
-        "valor": 65614.72,
+        "valor": 120000,
         "esperado": 76046.58,
-        "origem": "manual",
+        "origem": "volume",
         "delta": -0.13717724058070724
       },
       {
