@@ -4678,7 +4678,37 @@
       "mes": "",
       "volume": 1,
       "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-07T20:34:04.576Z"
+      "preenchidoEm": "2026-05-07T20:35:59.527Z"
+    },
+    {
+      "cliente": "Agibank",
+      "tipo": "diario",
+      "linha": "Ofícios",
+      "data": "2026-05-05",
+      "mes": "",
+      "volume": 1,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-07T20:35:59.527Z"
+    },
+    {
+      "cliente": "Agibank",
+      "tipo": "diario",
+      "linha": "Ofícios",
+      "data": "2026-05-06",
+      "mes": "",
+      "volume": 1,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-07T20:35:59.527Z"
+    },
+    {
+      "cliente": "Agibank",
+      "tipo": "diario",
+      "linha": "Ofícios",
+      "data": "2026-05-07",
+      "mes": "",
+      "volume": 8,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-07T20:35:59.527Z"
     }
   ],
   "users": [
