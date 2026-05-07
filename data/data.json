@@ -7,11 +7,11 @@
     "parceiros": [
       {
         "nome": "Agibank",
-        "faturamento_anterior": 444421.3000000001,
+        "faturamento_anterior": 602028.44,
         "valor": 260000,
         "esperado": 699867.43,
         "origem": "volume",
-        "delta": -1
+        "delta": -0.6285010719815894
       },
       {
         "nome": "Bradesco CPI",
@@ -19,7 +19,7 @@
         "valor": 2174685,
         "esperado": 440833.57,
         "origem": "volume",
-        "delta": -0.013527939807306433
+        "delta": 3.933120224941127
       },
       {
         "nome": "Bradesco Digitação",
