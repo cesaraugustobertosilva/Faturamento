@@ -7,7 +7,7 @@
     "parceiros": [
       {
         "nome": "Agibank",
-        "faturamento_anterior": 602028.44,
+        "faturamento_anterior": 444421.3000000001,
         "valor": 260000,
         "esperado": 699867.43,
         "origem": "volume",
@@ -4674,17 +4674,7 @@
       "mes": "",
       "volume": 1,
       "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-07T20:31:49.744Z"
-    },
-    {
-      "cliente": "Bradesco CPI",
-      "tipo": "diario",
-      "linha": "Apoio ADM",
-      "data": "2026-05-04",
-      "mes": "",
-      "volume": 60,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-07T20:31:49.744Z"
+      "preenchidoEm": "2026-05-07T20:33:54.738Z"
     }
   ],
   "users": [
