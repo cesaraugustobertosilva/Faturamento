@@ -7,7 +7,7 @@
     "parceiros": [
       {
         "nome": "Agibank",
-        "faturamento_anterior": 701378.46,
+        "faturamento_anterior": 444421.3000000001,
         "valor": 260000,
         "esperado": 699867.43,
         "origem": "volume",
@@ -15,7 +15,7 @@
       },
       {
         "nome": "Bradesco CPI",
-        "faturamento_anterior": 451571.57,
+        "faturamento_anterior": 445806.0399999999,
         "valor": 434870,
         "esperado": 440833.57,
         "origem": "volume",
@@ -23,7 +23,7 @@
       },
       {
         "nome": "Bradesco Digitação",
-        "faturamento_anterior": 18599.72,
+        "faturamento_anterior": 17485.989999999998,
         "valor": 16896.64,
         "esperado": 12170.52,
         "origem": "volume",
@@ -31,7 +31,7 @@
       },
       {
         "nome": "Bradesco Esteira Única",
-        "faturamento_anterior": 510119.07,
+        "faturamento_anterior": 450253.01999999996,
         "valor": 424300.92,
         "esperado": 509000,
         "origem": "volume",
@@ -47,7 +47,7 @@
       },
       {
         "nome": "Eagle",
-        "faturamento_anterior": 14763,
+        "faturamento_anterior": 12442.5,
         "valor": 12442.5,
         "esperado": 14430,
         "origem": "volume",
@@ -55,7 +55,7 @@
       },
       {
         "nome": "Zurich",
-        "faturamento_anterior": 62401.52,
+        "faturamento_anterior": 39247.75,
         "valor": 39247.75,
         "esperado": 29143.69,
         "origem": "volume",
