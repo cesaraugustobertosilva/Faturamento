@@ -11,7 +11,7 @@
         "valor": 260000,
         "esperado": 699867.43,
         "origem": "volume",
-        "delta": -0.9257002143963179
+        "delta": -0.6285010719815894
       },
       {
         "nome": "Bradesco CPI",
@@ -71,7 +71,7 @@
       },
       {
         "nome": "Bradesco Contratos e Pacotes",
-        "faturamento_anterior": 103991.44,
+        "faturamento_anterior": 96,
         "valor": 96024.98,
         "esperado": 122839.45,
         "origem": "manual",
@@ -103,7 +103,7 @@
       },
       {
         "nome": "Demais Clientes",
-        "faturamento_anterior": 434221.66,
+        "faturamento_anterior": 261000,
         "valor": 261110.44,
         "esperado": 261110.44,
         "origem": "manual",
@@ -162,10 +162,6 @@
       {
         "mes": "2026-04-01",
         "valor": 1409656.6
-      },
-      {
-        "mes": "2026-06-01",
-        "valor": 0
       }
     ],
     "feriados": [
