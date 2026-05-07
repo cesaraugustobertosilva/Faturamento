@@ -4665,6 +4665,26 @@
       "volume": 9,
       "avulso": false,
       "origem_sheets": true
+    },
+    {
+      "cliente": "Agibank",
+      "tipo": "diario",
+      "linha": "Ofícios",
+      "data": "2026-05-04",
+      "mes": "",
+      "volume": 1,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-07T14:48:39.090Z"
+    },
+    {
+      "cliente": "Agibank",
+      "tipo": "diario",
+      "linha": "Ofícios",
+      "data": "2026-05-05",
+      "mes": "",
+      "volume": 1,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-07T14:48:39.090Z"
     }
   ],
   "users": [
