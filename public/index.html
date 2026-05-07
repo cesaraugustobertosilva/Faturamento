@@ -798,6 +798,7 @@ async function saveAll(){
     if (!res.ok) throw new Error('Status ' + res.status);
     _apiOnline = true;
     _setSyncDot('ok', 'Sincronizado');
+    if (typeof _lastFocusReload !== 'undefined') _lastFocusReload = Date.now();
   } catch(e) {
     _apiOnline = false;
     _setSyncDot('err', 'Offline - clique para tentar');
