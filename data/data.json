@@ -4665,6 +4665,16 @@
       "volume": 9,
       "avulso": false,
       "origem_sheets": true
+    },
+    {
+      "cliente": "CWT",
+      "tipo": "mensal",
+      "linha": "",
+      "data": "",
+      "mes": "2026-05",
+      "volume": 120000,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-07T14:54:25.710Z"
     }
   ],
   "users": [
