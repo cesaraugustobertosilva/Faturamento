@@ -8,7 +8,7 @@
       {
         "nome": "Agibank",
         "faturamento_anterior": 701378.46,
-        "valor": 602024.44,
+        "valor": 260000,
         "esperado": 699867.43,
         "origem": "volume",
         "delta": -0.13980217653506194
