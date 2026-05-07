@@ -42,7 +42,7 @@
         "faturamento_anterior": 105358.39,
         "valor": 105358.39,
         "esperado": 105358.39,
-        "origem": "manual",
+        "origem": "volume",
         "delta": 0
       },
       {
@@ -64,7 +64,7 @@
       {
         "nome": "CWT",
         "faturamento_anterior": 66538.01,
-        "valor": 120000,
+        "valor": 66500,
         "esperado": 76046.58,
         "origem": "volume",
         "delta": 0.5779802326416257
@@ -72,9 +72,9 @@
       {
         "nome": "Bradesco Contratos e Pacotes",
         "faturamento_anterior": 96,
-        "valor": 96024.98,
+        "valor": 96000,
         "esperado": 122839.45,
-        "origem": "manual",
+        "origem": "volume",
         "delta": -0.21828875007174
       },
       {
@@ -82,15 +82,15 @@
         "faturamento_anterior": 1000,
         "valor": 1000,
         "esperado": 1000,
-        "origem": "manual",
+        "origem": "volume",
         "delta": 0
       },
       {
         "nome": "Hoepers",
         "faturamento_anterior": 3551.6,
-        "valor": 3551.6,
+        "valor": 3374.8,
         "esperado": 3551.6,
-        "origem": "manual",
+        "origem": "volume",
         "delta": 0
       },
       {
@@ -98,15 +98,15 @@
         "faturamento_anterior": 585,
         "valor": 585,
         "esperado": 585,
-        "origem": "manual",
+        "origem": "volume",
         "delta": 0
       },
       {
         "nome": "Demais Clientes",
         "faturamento_anterior": 261000,
-        "valor": 261110.44,
+        "valor": 261.11044,
         "esperado": 261110.44,
-        "origem": "manual",
+        "origem": "volume",
         "delta": 0
       }
     ],
