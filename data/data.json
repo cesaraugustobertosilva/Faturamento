@@ -4665,6 +4665,16 @@
       "volume": 9,
       "avulso": false,
       "origem_sheets": true
+    },
+    {
+      "cliente": "Agibank",
+      "tipo": "diario",
+      "linha": "Ofícios",
+      "data": "2026-05-04",
+      "mes": "",
+      "volume": 1,
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-07T19:59:24.234Z"
     }
   ],
   "users": [
