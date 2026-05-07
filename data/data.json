@@ -3909,16 +3909,6 @@
     {
       "cliente": "Agibank",
       "tipo": "diario",
-      "linha": "Ofícios",
-      "data": "2026-05-04",
-      "mes": "",
-      "volume": 1,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-07T20:36:47.100Z"
-    },
-    {
-      "cliente": "Agibank",
-      "tipo": "diario",
       "linha": "Linha de Captura",
       "data": "2026-04-27",
       "mes": "",
@@ -4735,6 +4725,86 @@
       "volume": 261000,
       "preenchidoPor": "César Augusto",
       "preenchidoEm": "2026-05-07T20:42:51.139Z"
+    },
+    {
+      "cliente": "Agibank",
+      "tipo": "diario",
+      "linha": "Ofícios",
+      "data": "2026-05-04",
+      "mes": "",
+      "volume": 1,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-07T20:45:10.568Z"
+    },
+    {
+      "cliente": "Bradesco Contratos e Pacotes",
+      "tipo": "mensal",
+      "linha": "",
+      "data": "",
+      "mes": "2026-05",
+      "volume": 96000,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-07T20:45:10.568Z"
+    },
+    {
+      "cliente": "Bradesco Obrigações de Fazer",
+      "tipo": "mensal",
+      "linha": "",
+      "data": "",
+      "mes": "2026-05",
+      "volume": 105358.39,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-07T20:45:10.568Z"
+    },
+    {
+      "cliente": "CWT",
+      "tipo": "mensal",
+      "linha": "",
+      "data": "",
+      "mes": "2026-05",
+      "volume": 66500,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-07T20:45:10.568Z"
+    },
+    {
+      "cliente": "GSI Law",
+      "tipo": "mensal",
+      "linha": "",
+      "data": "",
+      "mes": "2026-05",
+      "volume": 1000,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-07T20:45:10.568Z"
+    },
+    {
+      "cliente": "Hoepers",
+      "tipo": "mensal",
+      "linha": "",
+      "data": "",
+      "mes": "2026-05",
+      "volume": 3374.8,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-07T20:45:10.568Z"
+    },
+    {
+      "cliente": "Zarro",
+      "tipo": "mensal",
+      "linha": "",
+      "data": "",
+      "mes": "2026-05",
+      "volume": 585,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-07T20:45:10.568Z"
+    },
+    {
+      "cliente": "Demais Clientes",
+      "tipo": "mensal",
+      "linha": "",
+      "data": "",
+      "mes": "2026-05",
+      "volume": 261.11044,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-07T20:45:10.568Z"
     }
   ],
   "users": [
