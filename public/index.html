@@ -102,7 +102,9 @@ tbody tr:nth-child(even){background:#F7FAFA}
 .frm-grid input{padding:7px 9px;border-radius:8px;border:1.5px solid #C5DDD9;font-size:.85rem;width:100%}
 .prow-frm{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr auto;gap:6px;margin-bottom:6px;align-items:center}
 .prow-frm input{padding:6px 7px;border-radius:8px;border:1.5px solid #C5DDD9;font-size:.82rem;}
-.hrow{display:grid;grid-template-columns:1fr 1.2fr auto;gap:6px;margin-bottom:6px}
+.hrow{display:grid;grid-template-columns:1fr 1.2fr auto;gap:6px;margin-bottom:6px;align-items:center}
+#banner-mes-sel{background:rgba(230,126,34,0.08);border:1.5px solid rgba(230,126,34,0.5);border-radius:10px;padding:10px 16px;display:flex;align-items:center;gap:12px;font-size:.85rem;color:var(--blue-dark)}
+.hrow input{padding:6px 7px;border-radius:8px;border:1.5px solid #C5DDD9;font-size:.82rem;width:100%}
 .tarifa-section{margin-bottom:24px}
 .tarifa-section h4{font-size:.85rem;font-weight:700;color:var(--blue-dark);padding:8px 12px;background:var(--blue-light);border-radius:8px;margin-bottom:10px}
 .tarifa-row{display:grid;grid-template-columns:1fr auto auto;gap:8px;align-items:center;margin-bottom:6px}
@@ -243,6 +245,8 @@ tbody tr:nth-child(even){background:#F7FAFA}
       <canvas id="chart-p" style="box-sizing: border-box; display: block; height: 317px; width: 459px;" width="516" height="357"></canvas>
     </div>
   </div>
+
+  <div id="banner-mes-sel" style="display:none;margin-bottom:16px"></div>
 
   <div class="card" style="margin-bottom:24px">
     <div class="card-hd"><h2>Representatividade dos Parceiros</h2></div>
@@ -699,6 +703,7 @@ function calcularValorRegistro(r){
 // ESTADO GLOBAL
 // ============================================================
 var D,TARIFAS,VOLUMES_BASE,chartH=null,chartP=null;
+var _mesSelecionado=null; // "YYYY-MM" quando um mes do grafico esta selecionado, null = mes atual
 // USERS e CURRENT_USER declarados na secao de autenticacao acima
 
 var LS_KEY = 'faturamento_data';
@@ -830,6 +835,86 @@ function salvarComoHTML(){
 // ============================================================
 // PROJEÇÃO
 // ============================================================
+function calcularParceirosMes(mesStr){
+  var vols=VOLUMES_BASE.filter(function(v){
+    if(v.avulso)return false;
+    if(v.tipo==='diario')return v.data&&v.data.startsWith(mesStr);
+    if(v.tipo==='mensal')return v.mes&&v.mes.startsWith(mesStr);
+    return false;
+  });
+  if(!vols.length)return null;
+  var fat=calcularFaturamentoPorVolume(vols,TARIFAS);
+  var avulsos={};
+  VOLUMES_BASE.filter(function(v){return v.avulso&&v.data&&v.data.startsWith(mesStr);})
+    .forEach(function(v){if(!avulsos[v.cliente])avulsos[v.cliente]=0;avulsos[v.cliente]+=(v.volume||0);});
+  return D.parceiros.map(function(p){
+    var valor=(fat[p.nome]||0)+(avulsos[p.nome]||0);
+    return{nome:p.nome,valor:valor,esperado:p.esperado,faturamento_anterior:p.faturamento_anterior,origem:fat[p.nome]>0?'volume':'manual'};
+  });
+}
+function getParceirosView(){
+  if(!_mesSelecionado)return D.parceiros;
+  return calcularParceirosMes(_mesSelecionado)||D.parceiros;
+}
+function selecionarMes(mesStr){
+  if(_mesSelecionado===mesStr){_mesSelecionado=null;renderVistasMes();return;}
+  if(!calcularParceirosMes(mesStr)){toast('Sem volumes individuais registrados para este mes.','err');return;}
+  _mesSelecionado=mesStr;
+  renderVistasMes();
+}
+function limparSelecaoMes(){
+  _mesSelecionado=null;
+  renderChartH();
+  renderVistasMes();
+}
+function renderVistasMes(){
+  renderBannerMesSel();
+  renderChartH();
+  renderChartP();
+  renderBars();
+  renderComparativos();
+  renderTable();
+}
+function renderBannerMesSel(){
+  var el=document.getElementById('banner-mes-sel');
+  if(!el)return;
+  if(!_mesSelecionado){el.style.display='none';return;}
+  var mesesPT=["Janeiro","Fevereiro","Marco","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
+  var p=_mesSelecionado.split('-');
+  var label=mesesPT[+p[1]-1]+'/'+p[0];
+  el.style.display='flex';
+  el.innerHTML='<span>Visualizando historico de <strong>'+label+'</strong> (valores calculados dos volumes registrados)</span>'+
+    '<button class="btn btn-ghost btn-sm" onclick="limparSelecaoMes()" style="margin-left:auto">Voltar ao mes atual</button>';
+}
+
+function atualizarFatAnterior(){
+  var hoje = new Date();
+  var mesAtualNum = hoje.getMonth() + 1;
+  var anoAtual = hoje.getFullYear();
+  var mesPrevNum = mesAtualNum === 1 ? 12 : mesAtualNum - 1;
+  var anoPrev = mesAtualNum === 1 ? anoAtual - 1 : anoAtual;
+  var mesPrevStr = anoPrev + '-' + String(mesPrevNum).padStart(2, '0');
+  var volumesMes = VOLUMES_BASE.filter(function(v){
+    if(v.avulso) return false;
+    if(v.tipo === 'diario') return v.data && v.data.startsWith(mesPrevStr);
+    if(v.tipo === 'mensal') return v.mes && v.mes.startsWith(mesPrevStr);
+    return false;
+  });
+  if(!volumesMes.length) return;
+  var fat = calcularFaturamentoPorVolume(volumesMes, TARIFAS);
+  var avulsosPorCliente = {};
+  VOLUMES_BASE.filter(function(v){
+    return v.avulso && v.data && v.data.startsWith(mesPrevStr);
+  }).forEach(function(v){
+    if(!avulsosPorCliente[v.cliente]) avulsosPorCliente[v.cliente] = 0;
+    avulsosPorCliente[v.cliente] += (v.volume || 0);
+  });
+  D.parceiros.forEach(function(p){
+    var valor = (fat[p.nome] || 0) + (avulsosPorCliente[p.nome] || 0);
+    if(valor > 0) p.faturamento_anterior = valor;
+  });
+}
+
 function calcularEAtualizarProjecao(){
   var hoje=new Date().toISOString().slice(0,10);
   var anoAtual=new Date().getFullYear();
@@ -926,15 +1011,24 @@ function renderKPIs(){
 }
 
 function renderComparativos(){
+  var parceiros=getParceirosView();
+  var historico=!!_mesSelecionado;
   var el=document.getElementById("comp-grid");el.innerHTML="";
-  D.parceiros.forEach(function(p){
-    var ating=p.esperado>0?p.valor/p.esperado:null;
-    var cls=ating==null?"crit":ating>=1?"ok":ating>=0.8?"warn":"crit";
-    var barPct=ating!=null?Math.min(ating,1.3):0;
+  var lblComp=document.getElementById("lbl-mes-comp");
+  if(lblComp&&_mesSelecionado){
+    var mesesPT=["Janeiro","Fevereiro","Marco","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
+    var p=_mesSelecionado.split('-');
+    lblComp.textContent=mesesPT[+p[1]-1]+'/'+p[0];
+  }
+  parceiros.forEach(function(p){
+    var ating=!historico&&p.esperado>0?p.valor/p.esperado:null;
+    var cls=ating==null?(historico?"neu":"crit"):ating>=1?"ok":ating>=0.8?"warn":"crit";
+    var barPct=ating!=null?Math.min(ating,1.3):(historico?1:0);
+    var labelValor=historico?'Realizado':'Projetado';
     el.innerHTML+='<div class="comp-card '+cls+'"><div class="c-nome">'+p.nome+'</div>'+
       '<div class="c-pct">'+(ating!=null?P(ating):"—")+'</div>'+
-      '<div class="c-vals"><div>Projetado: <strong>'+R(p.valor)+'</strong></div>'+
-      '<div>Esperado: <strong>'+(p.esperado?R(p.esperado):"—")+'</strong></div></div>'+
+      '<div class="c-vals"><div>'+labelValor+': <strong>'+R(p.valor)+'</strong></div>'+
+      (historico?'':'<div>Esperado: <strong>'+(p.esperado?R(p.esperado):"—")+'</strong></div>')+'</div>'+
       '<div class="c-bar-bg"><div class="c-bar-fill" style="width:'+(barPct*100).toFixed(1)+'%;background:'+(COR[p.nome]||"#075056")+'"></div></div></div>';
   });
 }
@@ -957,7 +1051,11 @@ function renderChartH(){
           type:"bar",
           label:"Faturamento",
           data:valores,
-          backgroundColor:sorted.map(function(h){return h.mes.slice(0,7)===mesAtual?"rgba(42,124,121,0.9)":"rgba(7,80,86,0.85)";}),
+          backgroundColor:sorted.map(function(h){
+            var m=h.mes.slice(0,7);
+            if(m===_mesSelecionado)return'rgba(230,126,34,0.95)';
+            return m===mesAtual?'rgba(42,124,121,0.9)':'rgba(7,80,86,0.85)';
+          }),
           borderRadius:6,maxBarThickness:40,order:2
         },
         {
@@ -975,6 +1073,12 @@ function renderChartH(){
       ]
     },
     options:{responsive:true,maintainAspectRatio:false,
+      onClick:function(evt,els){
+        if(!els.length)return;
+        var mesStr=sorted[els[0].index].mes.slice(0,7);
+        selecionarMes(mesStr);
+      },
+      onHover:function(evt){evt.native.target.style.cursor='pointer';},
       plugins:{
         legend:{display:true,position:"top",labels:{boxWidth:14,font:{size:11},padding:16}},
         tooltip:{callbacks:{label:function(c){return c.dataset.label.split(":")[0]+": "+R(c.parsed.y);}}}
@@ -985,13 +1089,14 @@ function renderChartH(){
 
 function renderChartP(){
   if(typeof Chart==='undefined') return;
+  var parceiros=getParceirosView();
   var ctx=document.getElementById("chart-p").getContext("2d");
   if(chartP)chartP.destroy();
   chartP=new Chart(ctx,{
     type:"doughnut",
-    data:{labels:D.parceiros.map(function(p){return p.nome;}),
-      datasets:[{data:D.parceiros.map(function(p){return p.valor;}),
-        backgroundColor:D.parceiros.map(function(p){return COR[p.nome]||"#075056";}),borderWidth:1}]},
+    data:{labels:parceiros.map(function(p){return p.nome;}),
+      datasets:[{data:parceiros.map(function(p){return p.valor;}),
+        backgroundColor:parceiros.map(function(p){return COR[p.nome]||"#075056";}),borderWidth:1}]},
     options:{responsive:true,maintainAspectRatio:false,cutout:"60%",
       plugins:{legend:{position:"right",labels:{boxWidth:14}},
         tooltip:{callbacks:{label:function(c){var t=c.dataset.data.reduce(function(a,b){return a+b;},0);
@@ -1001,9 +1106,10 @@ function renderChartP(){
 }
 
 function renderBars(){
+  var parceiros=getParceirosView();
   var el=document.getElementById("progress-bars");el.innerHTML="";
-  var total=D.parceiros.reduce(function(s,p){return s+(p.valor||0);},0);
-  D.parceiros.forEach(function(p){
+  var total=parceiros.reduce(function(s,p){return s+(p.valor||0);},0);
+  parceiros.forEach(function(p){
     var part=total?p.valor/total:0;
     el.innerHTML+='<div class="prog-row"><div class="prog-head"><span><strong>'+p.nome+'</strong></span>'+
       '<span>'+R(p.valor)+' &bull; '+P(part)+'</span></div>'+
@@ -1012,15 +1118,21 @@ function renderBars(){
 }
 
 function renderTable(){
+  var parceiros=getParceirosView();
+  var historico=!!_mesSelecionado;
   var tb=document.querySelector("#tbl tbody");tb.innerHTML="";
-  var total=D.parceiros.reduce(function(s,p){return s+(p.valor||0);},0);
-  D.parceiros.forEach(function(p){
+  var thProj=document.getElementById("th-projetado");
+  var thEsp=document.getElementById("th-esperado");
+  if(thProj)thProj.style.opacity=historico?"0.4":"1";
+  if(thEsp)thEsp.style.opacity=historico?"0.4":"1";
+  var total=parceiros.reduce(function(s,p){return s+(p.valor||0);},0);
+  parceiros.forEach(function(p){
     var part=total?p.valor/total:0;
-    var ating=p.esperado>0?p.valor/p.esperado:null;
+    var ating=!historico&&p.esperado>0?p.valor/p.esperado:null;
     var cls=ating==null?"neu":ating>=1?"up":"down";
     var ob=p.origem==="volume"?"<span class='badge info'>Volume</span>":"<span class='badge neu'>Manual</span>";
     tb.innerHTML+="<tr><td><strong>"+p.nome+"</strong></td><td>"+R(p.faturamento_anterior)+"</td>"+
-      "<td>"+R(p.valor)+"</td><td>"+(p.esperado?R(p.esperado):"—")+"</td>"+
+      "<td>"+R(p.valor)+"</td><td>"+(p.esperado&&!historico?R(p.esperado):"—")+"</td>"+
       "<td><span class='badge "+cls+"'>"+(ating!=null?P(ating):"—")+"</span></td>"+
       "<td>"+P(part)+"</td><td>"+ob+"</td></tr>";
   });
@@ -1054,7 +1166,9 @@ function verificarFechamentoMes(){
 }
 
 function render(){
+  atualizarFatAnterior();
   var fechou = verificarFechamentoMes();
+  renderBannerMesSel();
   renderKPIs();renderComparativos();renderChartH();renderChartP();renderBars();renderTable();
   calcularEAtualizarProjecao();
   if(fechou) saveAll().catch(function(){});
@@ -1068,7 +1182,7 @@ function render(){
   var _labelLong=_mesesPT[_m-1]+"/"+_a;
   var el;
   el=document.getElementById("lbl-mes-atual");   if(el) el.textContent="Previsão Mês Atual ("+_label+")";
-  el=document.getElementById("lbl-mes-comp");    if(el) el.textContent=_labelLong;
+  el=document.getElementById("lbl-mes-comp");    if(el&&!_mesSelecionado) el.textContent=_labelLong;
   el=document.getElementById("th-projetado");    if(el) el.textContent="Projetado ("+_label+")";
   el=document.getElementById("th-esperado");     if(el) el.textContent="Esperado ("+_label+")";
   document.getElementById("last-update").textContent="Atualizado: "+new Date().toLocaleString("pt-BR");
@@ -1109,11 +1223,16 @@ function renderParceirosFrm(){
 function addParceiro(){D.parceiros.push({nome:"Novo Parceiro",faturamento_anterior:0,valor:0,esperado:0,origem:"manual"});renderParceirosFrm();}
 function removeParceiro(i){D.parceiros.splice(i,1);renderParceirosFrm();}
 function renderHistoricoFrm(){
-  var el=document.getElementById("historico-form");el.innerHTML="";
-  D.historico_mensal.forEach(function(h,i){
+  var el=document.getElementById("historico-form");
+  el.innerHTML='<div class="hrow" style="font-weight:700;font-size:.75rem;color:var(--muted);margin-bottom:8px"><span>Mes</span><span>Faturamento Total (R$)</span><span></span></div>';
+  var indices=D.historico_mensal.map(function(_,i){return i;});
+  indices.sort(function(a,b){return new Date(D.historico_mensal[b].mes)-new Date(D.historico_mensal[a].mes);});
+  indices.forEach(function(i){
+    var h=D.historico_mensal[i];
+    var mesVal=h.mes?h.mes.slice(0,7):'';
     el.innerHTML+='<div class="hrow" id="hr-'+i+'">'+
-      '<input type="text" id="hm-'+i+'" value="'+h.mes+'" placeholder="Ex: 2026-05-01"/>'+
-      '<input type="number" id="hv-'+i+'" value="'+h.valor+'" step="0.01"/>'+
+      '<input type="month" id="hm-'+i+'" value="'+mesVal+'"/>'+
+      '<input type="number" id="hv-'+i+'" value="'+(h.valor||0)+'" step="0.01"/>'+
       '<button class="btn btn-red btn-sm" onclick="removeHistorico('+i+')">X</button></div>';
   });
 }
@@ -1140,8 +1259,9 @@ function saveData(){
       valor:v,esperado:e,origem:p.origem||"manual",delta:e>0?(v-e)/e:null};
   });
   D.historico_mensal=D.historico_mensal.map(function(h,i){
-    return{mes:document.getElementById("hm-"+i).value||h.mes,
-      valor:+document.getElementById("hv-"+i).value||0};
+    var mesRaw=(document.getElementById("hm-"+i)||{}).value||h.mes||'';
+    var mesVal=mesRaw.length===7?mesRaw+'-01':mesRaw;
+    return{mes:mesVal,valor:+document.getElementById("hv-"+i).value||0};
   }).filter(function(h){return h.mes;});
   D.historico_mensal.sort(function(a,b){return new Date(a.mes)-new Date(b.mes);});
   D.feriados=(D.feriados||[]).map(function(f,i){return document.getElementById("fd-"+i).value||f;}).filter(Boolean);
