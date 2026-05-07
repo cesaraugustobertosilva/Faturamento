@@ -4673,8 +4673,18 @@
       "data": "2026-05-04",
       "mes": "",
       "volume": 1,
-      "preenchidoPor": "Alice da Silva Teixeira",
-      "preenchidoEm": "2026-05-07T19:59:24.234Z"
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-07T20:31:49.744Z"
+    },
+    {
+      "cliente": "Bradesco CPI",
+      "tipo": "diario",
+      "linha": "Apoio ADM",
+      "data": "2026-05-04",
+      "mes": "",
+      "volume": 60,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-07T20:31:49.744Z"
     }
   ],
   "users": [
