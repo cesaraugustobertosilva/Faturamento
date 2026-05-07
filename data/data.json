@@ -16,10 +16,10 @@
       {
         "nome": "Bradesco CPI",
         "faturamento_anterior": 451571.57,
-        "valor": 2174685,
+        "valor": 434870,
         "esperado": 440833.57,
         "origem": "volume",
-        "delta": -0.010188720427983407
+        "delta": -0.013527939807306433
       },
       {
         "nome": "Bradesco Digitação",
