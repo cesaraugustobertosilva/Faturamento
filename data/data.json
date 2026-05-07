@@ -11,7 +11,7 @@
         "valor": 444421.3000000001,
         "esperado": 699867.43,
         "origem": "volume",
-        "delta": -0.32954513971310256
+        "delta": -0.36499216715942895
       },
       {
         "nome": "Bradesco CPI",
@@ -19,7 +19,7 @@
         "valor": 436342.04000000015,
         "esperado": 440833.57,
         "origem": "volume",
-        "delta": -0.007461160455634094
+        "delta": -0.010188720427983407
       },
       {
         "nome": "Bradesco Digitação",
@@ -27,7 +27,7 @@
         "valor": 16896.64,
         "esperado": 12170.52,
         "origem": "volume",
-        "delta": 0.2988319315855032
+        "delta": 0.388325231789603
       },
       {
         "nome": "Bradesco Esteira Única",
@@ -35,7 +35,7 @@
         "valor": 424300.92,
         "esperado": 509000,
         "origem": "volume",
-        "delta": -0.04874500982318275
+        "delta": -0.16640290766208254
       },
       {
         "nome": "Bradesco Obrigações de Fazer",
@@ -51,7 +51,7 @@
         "valor": 12442.5,
         "esperado": 14430,
         "origem": "volume",
-        "delta": 0.11172141372141368
+        "delta": -0.13773388773388773
       },
       {
         "nome": "Zurich",
@@ -59,7 +59,7 @@
         "valor": 39247.75,
         "esperado": 29143.69,
         "origem": "volume",
-        "delta": 0.26918348362887484
+        "delta": 0.346698033090525
       },
       {
         "nome": "CWT",
@@ -4688,6 +4688,13 @@
       "login": "executivo",
       "senha": "exec123",
       "perfil": "executivo"
+    },
+    {
+      "id": 1778161710278,
+      "nome": "César Auguso",
+      "login": "cesar.silva",
+      "senha": "Amor0326",
+      "perfil": "admin"
     }
   ]
 }
