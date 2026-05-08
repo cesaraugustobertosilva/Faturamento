@@ -19,7 +19,7 @@
         "valor": 1740279.44,
         "esperado": 440833.57,
         "origem": "volume",
-        "delta": -0.013074571430664912
+        "delta": 2.9477017142773403
       },
       {
         "nome": "Bradesco Digitação",
@@ -5158,7 +5158,7 @@
       "nome": "Joao Zocarato",
       "login": "joao.zocarato",
       "senha": "*78$6Sof",
-      "perfil": "executivo"
+      "perfil": "admin"
     },
     {
       "id": 1778182657400,
