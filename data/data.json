@@ -7,11 +7,11 @@
     "parceiros": [
       {
         "nome": "Agibank",
-        "faturamento_anterior": 444421.30000000005,
+        "faturamento_anterior": 602335.62,
         "valor": 322054.87999999995,
         "esperado": 699867.43,
         "origem": "volume",
-        "delta": -1
+        "delta": -0.5398344512188545
       },
       {
         "nome": "Bradesco CPI",
@@ -19,7 +19,7 @@
         "valor": 435468.44,
         "esperado": 440833.57,
         "origem": "volume",
-        "delta": 2.9477017142773403
+        "delta": -0.012170420687335596
       },
       {
         "nome": "Bradesco Digitação",
@@ -51,7 +51,7 @@
         "valor": 9398,
         "esperado": 14430,
         "origem": "volume",
-        "delta": -1
+        "delta": -0.3487179487179487
       },
       {
         "nome": "Zurich",
@@ -59,7 +59,7 @@
         "valor": 39376.20000000001,
         "esperado": 29143.69,
         "origem": "volume",
-        "delta": -1
+        "delta": 0.35110550517110267
       },
       {
         "nome": "CWT",
@@ -107,7 +107,7 @@
         "valor": 261110.44,
         "esperado": 261110.44,
         "origem": "volume",
-        "delta": -0.999
+        "delta": 0
       }
     ],
     "historico_mensal": [
