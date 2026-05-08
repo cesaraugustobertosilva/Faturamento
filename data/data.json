@@ -4734,7 +4734,7 @@
       "mes": "",
       "volume": 1,
       "preenchidoPor": "Monique Pedretti Dias",
-      "preenchidoEm": "2026-05-08T13:10:05.273Z"
+      "preenchidoEm": "2026-05-08T13:17:23.632Z"
     },
     {
       "cliente": "Bradesco CPI",
@@ -4744,7 +4744,7 @@
       "mes": "",
       "volume": 60,
       "preenchidoPor": "Monique Pedretti Dias",
-      "preenchidoEm": "2026-05-08T13:10:05.273Z"
+      "preenchidoEm": "2026-05-08T13:17:23.632Z"
     },
     {
       "cliente": "Bradesco Esteira Única",
@@ -4754,7 +4754,7 @@
       "mes": "",
       "volume": 1094,
       "preenchidoPor": "Monique Pedretti Dias",
-      "preenchidoEm": "2026-05-08T13:10:05.273Z"
+      "preenchidoEm": "2026-05-08T13:17:23.632Z"
     },
     {
       "cliente": "Bradesco Esteira Única",
@@ -4764,7 +4764,7 @@
       "mes": "",
       "volume": 668,
       "preenchidoPor": "Monique Pedretti Dias",
-      "preenchidoEm": "2026-05-08T13:10:05.273Z"
+      "preenchidoEm": "2026-05-08T13:17:23.632Z"
     },
     {
       "cliente": "Bradesco Esteira Única",
@@ -4774,7 +4774,7 @@
       "mes": "",
       "volume": 668,
       "preenchidoPor": "Monique Pedretti Dias",
-      "preenchidoEm": "2026-05-08T13:10:05.273Z"
+      "preenchidoEm": "2026-05-08T13:17:23.632Z"
     },
     {
       "cliente": "Bradesco Esteira Única",
@@ -4784,7 +4784,7 @@
       "mes": "",
       "volume": 742,
       "preenchidoPor": "Monique Pedretti Dias",
-      "preenchidoEm": "2026-05-08T13:10:05.273Z"
+      "preenchidoEm": "2026-05-08T13:17:23.632Z"
     },
     {
       "cliente": "Bradesco Esteira Única",
@@ -4794,7 +4794,7 @@
       "mes": "",
       "volume": 42,
       "preenchidoPor": "Monique Pedretti Dias",
-      "preenchidoEm": "2026-05-08T13:10:05.273Z"
+      "preenchidoEm": "2026-05-08T13:17:23.632Z"
     },
     {
       "cliente": "Bradesco Esteira Única",
@@ -4804,7 +4804,7 @@
       "mes": "",
       "volume": 22,
       "preenchidoPor": "Monique Pedretti Dias",
-      "preenchidoEm": "2026-05-08T13:10:05.273Z"
+      "preenchidoEm": "2026-05-08T13:17:23.632Z"
     },
     {
       "cliente": "Bradesco Esteira Única",
@@ -4814,7 +4814,7 @@
       "mes": "",
       "volume": 24,
       "preenchidoPor": "Monique Pedretti Dias",
-      "preenchidoEm": "2026-05-08T13:10:05.273Z"
+      "preenchidoEm": "2026-05-08T13:17:23.632Z"
     },
     {
       "cliente": "Bradesco Esteira Única",
@@ -4824,7 +4824,7 @@
       "mes": "",
       "volume": 27,
       "preenchidoPor": "Monique Pedretti Dias",
-      "preenchidoEm": "2026-05-08T13:10:05.273Z"
+      "preenchidoEm": "2026-05-08T13:17:23.632Z"
     },
     {
       "cliente": "Bradesco Esteira Única",
@@ -4834,7 +4834,7 @@
       "mes": "",
       "volume": 26,
       "preenchidoPor": "Monique Pedretti Dias",
-      "preenchidoEm": "2026-05-08T13:10:05.273Z"
+      "preenchidoEm": "2026-05-08T13:17:23.632Z"
     },
     {
       "cliente": "Bradesco Esteira Única",
@@ -4844,7 +4844,57 @@
       "mes": "",
       "volume": 11,
       "preenchidoPor": "Monique Pedretti Dias",
-      "preenchidoEm": "2026-05-08T13:10:05.273Z"
+      "preenchidoEm": "2026-05-08T13:17:23.632Z"
+    },
+    {
+      "cliente": "Bradesco Esteira Única",
+      "tipo": "diario",
+      "linha": "Captura de Iniciais",
+      "data": "2026-05-04",
+      "mes": "",
+      "volume": 1361,
+      "preenchidoPor": "Monique Pedretti Dias",
+      "preenchidoEm": "2026-05-08T13:17:23.632Z"
+    },
+    {
+      "cliente": "Bradesco Esteira Única",
+      "tipo": "diario",
+      "linha": "Captura de Iniciais",
+      "data": "2026-05-05",
+      "mes": "",
+      "volume": 796,
+      "preenchidoPor": "Monique Pedretti Dias",
+      "preenchidoEm": "2026-05-08T13:17:23.632Z"
+    },
+    {
+      "cliente": "Bradesco Esteira Única",
+      "tipo": "diario",
+      "linha": "Captura de Iniciais",
+      "data": "2026-05-06",
+      "mes": "",
+      "volume": 692,
+      "preenchidoPor": "Monique Pedretti Dias",
+      "preenchidoEm": "2026-05-08T13:17:23.632Z"
+    },
+    {
+      "cliente": "Bradesco Esteira Única",
+      "tipo": "diario",
+      "linha": "Captura de Iniciais",
+      "data": "2026-05-07",
+      "mes": "",
+      "volume": 818,
+      "preenchidoPor": "Monique Pedretti Dias",
+      "preenchidoEm": "2026-05-08T13:17:23.632Z"
+    },
+    {
+      "cliente": "Bradesco Esteira Única",
+      "tipo": "diario",
+      "linha": "Reanálise",
+      "data": "2026-05-04",
+      "mes": "",
+      "volume": 250,
+      "preenchidoPor": "Monique Pedretti Dias",
+      "preenchidoEm": "2026-05-08T13:17:23.632Z"
     },
     {
       "cliente": "Bradesco Contratos e Pacotes",
@@ -4854,7 +4904,7 @@
       "mes": "2026-05",
       "volume": 96000,
       "preenchidoPor": "Monique Pedretti Dias",
-      "preenchidoEm": "2026-05-08T13:10:05.273Z"
+      "preenchidoEm": "2026-05-08T13:17:23.632Z"
     },
     {
       "cliente": "Bradesco Obrigações de Fazer",
@@ -4864,7 +4914,7 @@
       "mes": "2026-05",
       "volume": 105358.39,
       "preenchidoPor": "Monique Pedretti Dias",
-      "preenchidoEm": "2026-05-08T13:10:05.273Z"
+      "preenchidoEm": "2026-05-08T13:17:23.632Z"
     },
     {
       "cliente": "CWT",
@@ -4874,7 +4924,7 @@
       "mes": "2026-05",
       "volume": 66500,
       "preenchidoPor": "Monique Pedretti Dias",
-      "preenchidoEm": "2026-05-08T13:10:05.273Z"
+      "preenchidoEm": "2026-05-08T13:17:23.632Z"
     },
     {
       "cliente": "GSI Law",
@@ -4884,7 +4934,7 @@
       "mes": "2026-05",
       "volume": 1000,
       "preenchidoPor": "Monique Pedretti Dias",
-      "preenchidoEm": "2026-05-08T13:10:05.273Z"
+      "preenchidoEm": "2026-05-08T13:17:23.632Z"
     },
     {
       "cliente": "Hoepers",
@@ -4894,7 +4944,7 @@
       "mes": "2026-05",
       "volume": 3374.8,
       "preenchidoPor": "Monique Pedretti Dias",
-      "preenchidoEm": "2026-05-08T13:10:05.273Z"
+      "preenchidoEm": "2026-05-08T13:17:23.632Z"
     },
     {
       "cliente": "Zarro",
@@ -4904,7 +4954,7 @@
       "mes": "2026-05",
       "volume": 585,
       "preenchidoPor": "Monique Pedretti Dias",
-      "preenchidoEm": "2026-05-08T13:10:05.273Z"
+      "preenchidoEm": "2026-05-08T13:17:23.632Z"
     },
     {
       "cliente": "Demais Clientes",
@@ -4914,7 +4964,7 @@
       "mes": "2026-05",
       "volume": 261.11044,
       "preenchidoPor": "Monique Pedretti Dias",
-      "preenchidoEm": "2026-05-08T13:10:05.273Z"
+      "preenchidoEm": "2026-05-08T13:17:23.632Z"
     }
   ],
   "users": [
