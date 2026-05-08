@@ -1593,16 +1593,39 @@ function renderVolSheetTabela(){
       var li=conf.linhas.find(function(l){return l.nome===v.linha;});
       if(li) acumMes+=_calcSheetVal(li.tipo,v.volume||0,li.tarifa);
     });
+    var ajusteExistente=VOLUMES_BASE.find(function(v){
+      return v.cliente===cliente&&v.avulso&&v.tipo==='mensal'&&v.mes&&v.mes.startsWith(volMesAtual);
+    });
+    var ajusteVal=ajusteExistente?ajusteExistente.volume:'';
+    var ajusteId='ajuste-'+cliente.replace(/[^a-z0-9]/gi,'-');
+    var totalAcumId='acumtotal-'+cliente.replace(/[^a-z0-9]/gi,'-');
     var trAcum=document.createElement('tr');
     trAcum.style.cssText='background:rgba(7,80,86,.07);border-top:2px solid var(--blue-light)';
     var tdAcumLabel=document.createElement('td');
-    tdAcumLabel.colSpan=3+5;
+    tdAcumLabel.colSpan=5;
     tdAcumLabel.style.cssText='font-size:.76rem;color:var(--blue-dark);font-style:italic;padding:3px 8px';
     tdAcumLabel.textContent='Acumulado '+volMesAtual.split('-').reverse().join('/')+' (todos os dias)';
+    var tdAjLbl=document.createElement('td');
+    tdAjLbl.style.cssText='font-size:.74rem;color:var(--muted);text-align:right;padding-right:4px;white-space:nowrap;vertical-align:middle';
+    tdAjLbl.textContent='Ajustes:';
+    var tdAjInp=document.createElement('td');
+    tdAjInp.style.cssText='text-align:center;padding:2px 3px';
+    var inpAj=document.createElement('input');
+    inpAj.type='number'; inpAj.min='0'; inpAj.step='0.01'; inpAj.className='sheet-ajuste-input';
+    inpAj.style.cssText='width:80px;min-width:60px;text-align:center;border:1px solid var(--blue-light);border-radius:4px;padding:3px 5px;font-size:.82rem';
+    inpAj.placeholder='0,00'; inpAj.value=ajusteVal!==''?ajusteVal:'';
+    inpAj.id=ajusteId; inpAj.dataset.cliente=cliente; inpAj.dataset.mes=volMesAtual;
+    inpAj.dataset.acumBase=acumMes; inpAj.dataset.totalId=totalAcumId;
+    if(ajusteVal!=='') inpAj.style.background='rgba(42,124,121,.12)';
+    tdAjInp.appendChild(inpAj);
     var tdAcumVal=document.createElement('td');
+    tdAcumVal.colSpan=2; tdAcumVal.id=totalAcumId;
     tdAcumVal.style.cssText='text-align:right;font-weight:700;color:var(--blue-mid);font-size:.82rem;white-space:nowrap';
-    tdAcumVal.textContent=acumMes>0?R(acumMes):'—';
+    var totalComAjuste=acumMes+(parseFloat(ajusteVal)||0);
+    tdAcumVal.textContent=totalComAjuste>0?R(totalComAjuste):'—';
     trAcum.appendChild(tdAcumLabel);
+    trAcum.appendChild(tdAjLbl);
+    trAcum.appendChild(tdAjInp);
     trAcum.appendChild(tdAcumVal);
     tbody.appendChild(trAcum);
   });
@@ -1634,6 +1657,16 @@ function renderVolSheetTabela(){
     tdCalc.textContent = val!=='' && parseFloat(val)>0 ? R(parseFloat(val)) : '—';
     tr.appendChild(tdC); tr.appendChild(tdT); tr.appendChild(tdV); tr.appendChild(tdCalc);
     tbody.appendChild(tr);
+  });
+  // Handler ajuste em tempo real
+  document.querySelectorAll('#vol-sheet-tbody .sheet-ajuste-input').forEach(function(inp){
+    inp.addEventListener('input', function(){
+      var v=parseFloat(this.value)||0;
+      this.style.background=v>0?'rgba(42,124,121,.12)':'';
+      var base=parseFloat(this.dataset.acumBase)||0;
+      var totalEl=document.getElementById(this.dataset.totalId);
+      if(totalEl){var t=base+v; totalEl.textContent=t>0?R(t):'—';}
+    });
   });
   // Handlers de calculo em tempo real
   document.querySelectorAll('#vol-sheet-tbody .sheet-input').forEach(function(inp){
@@ -1701,6 +1734,20 @@ function salvarTodosVolumes(){
     } else {
       VOLUMES_BASE.push({cliente:inp.dataset.cliente,tipo:'mensal',linha:'',data:'',
         mes:inp.dataset.mes||volMesAtual,volume:volume,preenchidoPor:quem,preenchidoEm:agora});
+      changed++;
+    }
+  });
+  // Processa campos de ajuste (avulso mensal por cliente)
+  document.querySelectorAll('#vol-sheet-tbody .sheet-ajuste-input').forEach(function(inp){
+    var cli=inp.dataset.cliente;
+    var mes=inp.dataset.mes||volMesAtual;
+    VOLUMES_BASE=VOLUMES_BASE.filter(function(v){
+      return !(v.cliente===cli&&v.avulso&&v.tipo==='mensal'&&v.mes&&v.mes.startsWith(mes));
+    });
+    var vol=inp.value!==''?parseFloat(inp.value):null;
+    if(vol!==null&&vol>0){
+      VOLUMES_BASE.push({cliente:cli,tipo:'mensal',avulso:true,data:mes+'-01',mes:mes,
+        volume:vol,preenchidoPor:quem,preenchidoEm:agora});
       changed++;
     }
   });
