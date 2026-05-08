@@ -936,18 +936,33 @@ function calcularEAtualizarProjecao(){
     }
   });
   var volumesSemAvulso=volumesMes.filter(function(v){return!v.avulso;});
-  var fatAcumulado=calcularFaturamentoPorVolume(volumesSemAvulso,TARIFAS);
+  // Separa volumes de fee fixo (nao extrapolam) dos unitarios (extrapolam por dias uteis)
+  var volumesFixo=volumesSemAvulso.filter(function(v){
+    var conf=TARIFAS[v.cliente];
+    if(!conf) return false;
+    if(conf.tipo_cliente==='mensal_fechado') return true;
+    var lc=conf.linhas&&conf.linhas.find(function(l){return l.nome===v.linha;});
+    return lc&&lc.tipo==='fixo';
+  });
+  var volumesUnitario=volumesSemAvulso.filter(function(v){
+    var conf=TARIFAS[v.cliente];
+    if(!conf) return false;
+    if(conf.tipo_cliente==='mensal_fechado') return false;
+    var lc=conf.linhas&&conf.linhas.find(function(l){return l.nome===v.linha;});
+    return !lc||lc.tipo!=='fixo';
+  });
+  var fatFixo=calcularFaturamentoPorVolume(volumesFixo,TARIFAS);
+  var fatUnitario=calcularFaturamentoPorVolume(volumesUnitario,TARIFAS);
+  var fatAcumulado={};
+  Object.keys(TARIFAS).forEach(function(c){fatAcumulado[c]=(fatFixo[c]||0)+(fatUnitario[c]||0);});
   var totalProjecao=0;
-  Object.keys(fatAcumulado).forEach(function(cliente){
-    var conf=TARIFAS[cliente];
-    if(conf&&conf.tipo_cliente==="mensal_fechado"){totalProjecao+=fatAcumulado[cliente];}
-    else{totalProjecao+=duP>0?(fatAcumulado[cliente]/duP)*duTotal:0;}
+  Object.keys(TARIFAS).forEach(function(c){
+    var conf=TARIFAS[c]; if(!conf) return;
+    var fixo=fatFixo[c]||0; var unit=fatUnitario[c]||0;
+    totalProjecao+=fixo+(conf.tipo_cliente==='mensal_fechado'?unit:(duP>0?(unit/duP)*duTotal:0));
   });
-  // Soma avulsos fixos por cima (sem extrapolar por dias úteis)
-  Object.keys(avulsosPorCliente).forEach(function(c){
-    totalProjecao+=avulsosPorCliente[c];
-  });
-  return{totalProjecao:totalProjecao,fatAcumulado:fatAcumulado,avulsosPorCliente:avulsosPorCliente,duP:duP,duTotal:duTotal};
+  Object.keys(avulsosPorCliente).forEach(function(c){totalProjecao+=avulsosPorCliente[c];});
+  return{totalProjecao:totalProjecao,fatAcumulado:fatAcumulado,fatFixo:fatFixo,fatUnitario:fatUnitario,avulsosPorCliente:avulsosPorCliente,duP:duP,duTotal:duTotal};
 }
 
 function aplicarProjecao(){
@@ -955,14 +970,10 @@ function aplicarProjecao(){
   D.parceiros.forEach(function(p,i){
     var conf=TARIFAS[p.nome];
     if(!conf)return;
-    var acum=r.fatAcumulado[p.nome]||0;
+    var fixo=r.fatFixo[p.nome]||0;
+    var unit=r.fatUnitario[p.nome]||0;
     var avulso=r.avulsosPorCliente[p.nome]||0;
-    var valorProjetado=0;
-    if(conf.tipo_cliente==="mensal_fechado"){
-      valorProjetado=acum;
-    }else{
-      valorProjetado=r.duP>0?(acum/r.duP)*r.duTotal:0;
-    }
+    var valorProjetado=fixo+(conf.tipo_cliente==='mensal_fechado'?unit:(r.duP>0?(unit/r.duP)*r.duTotal:0));
     D.parceiros[i].valor=valorProjetado+avulso;
     D.parceiros[i].origem="volume";
   });
@@ -1560,6 +1571,32 @@ function renderVolSheetTabela(){
       tdT.style.cssText = 'font-size:.74rem;color:var(--muted);white-space:nowrap';
       tdT.textContent = linha.tipo==='fixo' ? 'Fee: '+R(linha.tarifa) : R(linha.tarifa)+'/un';
       tr.appendChild(tdL); tr.appendChild(tdT);
+      if(linha.tipo==='fixo'){
+        // Fee fixo: input mensal unico sem colunas de dias
+        var existFixo=VOLUMES_BASE.find(function(v){
+          return v.cliente===cliente&&v.linha===linha.nome&&v.tipo==='mensal'&&v.mes&&v.mes.startsWith(volMesAtual)&&!v.avulso;
+        });
+        var valFixo=existFixo?existFixo.volume:'';
+        var tdVF=document.createElement('td'); tdVF.colSpan=5;
+        tdVF.style.cssText='text-align:center;padding:4px 8px;vertical-align:middle';
+        var inpF=document.createElement('input');
+        inpF.type='number'; inpF.min='0'; inpF.step='0.01'; inpF.className='sheet-input-fixo';
+        inpF.style.cssText='width:140px;min-width:100px;text-align:center;border:1px solid var(--blue-light);border-radius:4px;padding:4px 6px;font-size:.84rem';
+        inpF.placeholder='Qtd. no mês'; inpF.value=valFixo!==''?valFixo:'';
+        inpF.dataset.cliente=cliente; inpF.dataset.linha=linha.nome;
+        inpF.dataset.mes=volMesAtual; inpF.dataset.tarifa=linha.tarifa;
+        inpF.dataset.tipoTarifa=linha.tipo; inpF.dataset.calcId=calcId;
+        if(valFixo!=='') inpF.classList.add('filled');
+        if(existFixo&&existFixo.preenchidoPor){
+          var spF=document.createElement('div'); spF.className='preenchido-por'; spF.textContent=existFixo.preenchidoPor;
+          tdVF.appendChild(inpF); tdVF.appendChild(spF);
+        } else { tdVF.appendChild(inpF); }
+        tr.appendChild(tdVF);
+        var tdTF=document.createElement('td'); tdTF.id=calcId;
+        tdTF.style.cssText='text-align:right;font-weight:700;color:var(--blue-mid);font-size:.81rem;white-space:nowrap';
+        tdTF.textContent=valFixo!==''&&parseFloat(valFixo)>0?R(_calcSheetVal(linha.tipo,parseFloat(valFixo),linha.tarifa)):'—';
+        tr.appendChild(tdTF);
+      } else {
       var totalSemana = 0;
       // 5 colunas de dias
       dias.forEach(function(dia){
@@ -1587,6 +1624,7 @@ function renderVolSheetTabela(){
       tdTotal.style.cssText='text-align:right;font-weight:700;color:var(--blue-mid);font-size:.81rem;white-space:nowrap';
       tdTotal.textContent = totalSemana>0 ? R(totalSemana) : '—';
       tr.appendChild(tdTotal);
+      } // fim else fixo
       tbody.appendChild(tr);
     });
     // Linha de acumulado do mes inteiro para este cliente
@@ -1661,6 +1699,15 @@ function renderVolSheetTabela(){
     tdCalc.textContent = val!=='' && parseFloat(val)>0 ? R(parseFloat(val)) : '—';
     tr.appendChild(tdC); tr.appendChild(tdT); tr.appendChild(tdV); tr.appendChild(tdCalc);
     tbody.appendChild(tr);
+  });
+  // Handler fee fixo em tempo real
+  document.querySelectorAll('#vol-sheet-tbody .sheet-input-fixo').forEach(function(inp){
+    inp.addEventListener('input', function(){
+      var v=parseFloat(this.value)||0;
+      if(v>0) this.classList.add('filled'); else this.classList.remove('filled');
+      var calcEl=document.getElementById(this.dataset.calcId);
+      if(calcEl) calcEl.textContent=v>0?R(_calcSheetVal(this.dataset.tipoTarifa,v,parseFloat(this.dataset.tarifa)||0)):'—';
+    });
   });
   // Handler ajuste em tempo real
   document.querySelectorAll('#vol-sheet-tbody .sheet-ajuste-input').forEach(function(inp){
@@ -1741,6 +1788,19 @@ function salvarTodosVolumes(){
       changed++;
     }
   });
+  // Processa linhas fee fixo (input mensal unico por linha)
+  document.querySelectorAll('#vol-sheet-tbody .sheet-input-fixo').forEach(function(inp){
+    var cli=inp.dataset.cliente; var lin=inp.dataset.linha; var mes=inp.dataset.mes||volMesAtual;
+    VOLUMES_BASE=VOLUMES_BASE.filter(function(v){
+      return !(v.cliente===cli&&v.linha===lin&&v.tipo==='mensal'&&v.mes&&v.mes.startsWith(mes)&&!v.avulso);
+    });
+    var vol=inp.value!==''?parseFloat(inp.value):null;
+    if(vol!==null&&vol>0){
+      VOLUMES_BASE.push({cliente:cli,tipo:'mensal',linha:lin,mes:mes,data:'',
+        volume:vol,preenchidoPor:quem,preenchidoEm:agora});
+      changed++;
+    }
+  });
   // Processa campos de ajuste (avulso mensal por cliente)
   document.querySelectorAll('#vol-sheet-tbody .sheet-ajuste-input').forEach(function(inp){
     var cli=inp.dataset.cliente;
@@ -1760,9 +1820,10 @@ function salvarTodosVolumes(){
     D.parceiros.forEach(function(p,i){
       var conf=TARIFAS[p.nome];
       if(!conf)return;
-      var acum=r.fatAcumulado[p.nome]||0;
+      var fixo=r.fatFixo[p.nome]||0;
+      var unit=r.fatUnitario[p.nome]||0;
       var avulso=r.avulsosPorCliente[p.nome]||0;
-      var valorProjetado=conf.tipo_cliente==="mensal_fechado"?acum:(r.duP>0?(acum/r.duP)*r.duTotal:0);
+      var valorProjetado=fixo+(conf.tipo_cliente==='mensal_fechado'?unit:(r.duP>0?(unit/r.duP)*r.duTotal:0));
       D.parceiros[i].valor=valorProjetado+avulso;
       D.parceiros[i].origem="volume";
     });
