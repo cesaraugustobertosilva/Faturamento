@@ -1792,7 +1792,11 @@ function salvarTodosVolumes(){
   document.querySelectorAll('#vol-sheet-tbody .sheet-input-fixo').forEach(function(inp){
     var cli=inp.dataset.cliente; var lin=inp.dataset.linha; var mes=inp.dataset.mes||volMesAtual;
     VOLUMES_BASE=VOLUMES_BASE.filter(function(v){
-      return !(v.cliente===cli&&v.linha===lin&&v.tipo==='mensal'&&v.mes&&v.mes.startsWith(mes)&&!v.avulso);
+      if(v.cliente!==cli||v.linha!==lin||v.avulso) return true;
+      // Remove entradas mensais E diarias antigas desta linha no mes corrente
+      if(v.tipo==='mensal'&&v.mes&&v.mes.startsWith(mes)) return false;
+      if(v.tipo==='diario'&&v.data&&v.data.startsWith(mes)) return false;
+      return true;
     });
     var vol=inp.value!==''?parseFloat(inp.value):null;
     if(vol!==null&&vol>0){
