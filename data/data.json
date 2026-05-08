@@ -4733,8 +4733,98 @@
       "data": "2026-05-04",
       "mes": "",
       "volume": 1,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T12:06:43.766Z"
+      "preenchidoPor": "Monique Pedretti Dias",
+      "preenchidoEm": "2026-05-08T13:02:58.889Z"
+    },
+    {
+      "cliente": "Bradesco CPI",
+      "tipo": "diario",
+      "linha": "Apoio ADM",
+      "data": "2026-05-04",
+      "mes": "",
+      "volume": 60,
+      "preenchidoPor": "Monique Pedretti Dias",
+      "preenchidoEm": "2026-05-08T13:02:58.889Z"
+    },
+    {
+      "cliente": "Bradesco Esteira Única",
+      "tipo": "diario",
+      "linha": "Cadastro Judicial",
+      "data": "2026-05-04",
+      "mes": "",
+      "volume": 1094,
+      "preenchidoPor": "Monique Pedretti Dias",
+      "preenchidoEm": "2026-05-08T13:02:58.889Z"
+    },
+    {
+      "cliente": "Bradesco Esteira Única",
+      "tipo": "diario",
+      "linha": "Cadastro Judicial",
+      "data": "2026-05-05",
+      "mes": "",
+      "volume": 668,
+      "preenchidoPor": "Monique Pedretti Dias",
+      "preenchidoEm": "2026-05-08T13:02:58.889Z"
+    },
+    {
+      "cliente": "Bradesco Esteira Única",
+      "tipo": "diario",
+      "linha": "Cadastro Judicial",
+      "data": "2026-05-06",
+      "mes": "",
+      "volume": 668,
+      "preenchidoPor": "Monique Pedretti Dias",
+      "preenchidoEm": "2026-05-08T13:02:58.889Z"
+    },
+    {
+      "cliente": "Bradesco Esteira Única",
+      "tipo": "diario",
+      "linha": "Cadastro Judicial",
+      "data": "2026-05-07",
+      "mes": "",
+      "volume": 742,
+      "preenchidoPor": "Monique Pedretti Dias",
+      "preenchidoEm": "2026-05-08T13:02:58.889Z"
+    },
+    {
+      "cliente": "Bradesco Esteira Única",
+      "tipo": "diario",
+      "linha": "Processos Cancelados",
+      "data": "2026-05-04",
+      "mes": "",
+      "volume": 42,
+      "preenchidoPor": "Monique Pedretti Dias",
+      "preenchidoEm": "2026-05-08T13:02:58.889Z"
+    },
+    {
+      "cliente": "Bradesco Esteira Única",
+      "tipo": "diario",
+      "linha": "Processos Cancelados",
+      "data": "2026-05-05",
+      "mes": "",
+      "volume": 22,
+      "preenchidoPor": "Monique Pedretti Dias",
+      "preenchidoEm": "2026-05-08T13:02:58.889Z"
+    },
+    {
+      "cliente": "Bradesco Esteira Única",
+      "tipo": "diario",
+      "linha": "Processos Cancelados",
+      "data": "2026-05-06",
+      "mes": "",
+      "volume": 24,
+      "preenchidoPor": "Monique Pedretti Dias",
+      "preenchidoEm": "2026-05-08T13:02:58.889Z"
+    },
+    {
+      "cliente": "Bradesco Esteira Única",
+      "tipo": "diario",
+      "linha": "Processos Cancelados",
+      "data": "2026-05-07",
+      "mes": "",
+      "volume": 27,
+      "preenchidoPor": "Monique Pedretti Dias",
+      "preenchidoEm": "2026-05-08T13:02:58.889Z"
     },
     {
       "cliente": "Bradesco Contratos e Pacotes",
@@ -4743,8 +4833,8 @@
       "data": "",
       "mes": "2026-05",
       "volume": 96000,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T12:06:43.766Z"
+      "preenchidoPor": "Monique Pedretti Dias",
+      "preenchidoEm": "2026-05-08T13:02:58.889Z"
     },
     {
       "cliente": "Bradesco Obrigações de Fazer",
@@ -4753,8 +4843,8 @@
       "data": "",
       "mes": "2026-05",
       "volume": 105358.39,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T12:06:43.766Z"
+      "preenchidoPor": "Monique Pedretti Dias",
+      "preenchidoEm": "2026-05-08T13:02:58.889Z"
     },
     {
       "cliente": "CWT",
@@ -4763,8 +4853,8 @@
       "data": "",
       "mes": "2026-05",
       "volume": 66500,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T12:06:43.766Z"
+      "preenchidoPor": "Monique Pedretti Dias",
+      "preenchidoEm": "2026-05-08T13:02:58.889Z"
     },
     {
       "cliente": "GSI Law",
@@ -4773,8 +4863,8 @@
       "data": "",
       "mes": "2026-05",
       "volume": 1000,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T12:06:43.766Z"
+      "preenchidoPor": "Monique Pedretti Dias",
+      "preenchidoEm": "2026-05-08T13:02:58.889Z"
     },
     {
       "cliente": "Hoepers",
@@ -4783,8 +4873,8 @@
       "data": "",
       "mes": "2026-05",
       "volume": 3374.8,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T12:06:43.766Z"
+      "preenchidoPor": "Monique Pedretti Dias",
+      "preenchidoEm": "2026-05-08T13:02:58.889Z"
     },
     {
       "cliente": "Zarro",
@@ -4793,8 +4883,8 @@
       "data": "",
       "mes": "2026-05",
       "volume": 585,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T12:06:43.766Z"
+      "preenchidoPor": "Monique Pedretti Dias",
+      "preenchidoEm": "2026-05-08T13:02:58.889Z"
     },
     {
       "cliente": "Demais Clientes",
@@ -4803,8 +4893,8 @@
       "data": "",
       "mes": "2026-05",
       "volume": 261.11044,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T12:06:43.766Z"
+      "preenchidoPor": "Monique Pedretti Dias",
+      "preenchidoEm": "2026-05-08T13:02:58.889Z"
     }
   ],
   "users": [
