@@ -8,7 +8,7 @@
       {
         "nome": "Agibank",
         "faturamento_anterior": 444421.30000000005,
-        "valor": 267546.88,
+        "valor": 267546.87999999995,
         "esperado": 699867.43,
         "origem": "volume",
         "delta": -1
@@ -48,7 +48,7 @@
       {
         "nome": "Eagle",
         "faturamento_anterior": 12442.5,
-        "valor": 0,
+        "valor": 9398,
         "esperado": 14430,
         "origem": "volume",
         "delta": -1
