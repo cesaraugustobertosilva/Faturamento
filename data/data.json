@@ -8,7 +8,7 @@
       {
         "nome": "Agibank",
         "faturamento_anterior": 444421.30000000005,
-        "valor": 260000,
+        "valor": 208000,
         "esperado": 699867.43,
         "origem": "volume",
         "delta": -0.6285010719815894
@@ -16,7 +16,7 @@
       {
         "nome": "Bradesco CPI",
         "faturamento_anterior": 445806.0399999999,
-        "valor": 2174685,
+        "valor": 0,
         "esperado": 440833.57,
         "origem": "volume",
         "delta": 3.933120224941127
@@ -24,7 +24,7 @@
       {
         "nome": "Bradesco Digitação",
         "faturamento_anterior": 17485.99,
-        "valor": 16896.64,
+        "valor": 0,
         "esperado": 12170.52,
         "origem": "volume",
         "delta": 0.388325231789603
@@ -32,7 +32,7 @@
       {
         "nome": "Bradesco Esteira Única",
         "faturamento_anterior": 450253.0199999999,
-        "valor": 424300.92,
+        "valor": 0,
         "esperado": 509000,
         "origem": "volume",
         "delta": -0.16640290766208254
@@ -48,7 +48,7 @@
       {
         "nome": "Eagle",
         "faturamento_anterior": 12442.5,
-        "valor": 12442.5,
+        "valor": 0,
         "esperado": 14430,
         "origem": "volume",
         "delta": -0.13773388773388773
@@ -56,7 +56,7 @@
       {
         "nome": "Zurich",
         "faturamento_anterior": 39247.75,
-        "valor": 39247.75,
+        "valor": 0,
         "esperado": 29143.69,
         "origem": "volume",
         "delta": 0.346698033090525
