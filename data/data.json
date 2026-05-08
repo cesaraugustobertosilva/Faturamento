@@ -8,10 +8,10 @@
       {
         "nome": "Agibank",
         "faturamento_anterior": 444421.30000000005,
-        "valor": 208000,
+        "valor": 0,
         "esperado": 699867.43,
         "origem": "volume",
-        "delta": -0.7028008575852716
+        "delta": -1
       },
       {
         "nome": "Bradesco CPI",
