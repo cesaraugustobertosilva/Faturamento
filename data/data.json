@@ -104,7 +104,7 @@
       {
         "nome": "Demais Clientes",
         "faturamento_anterior": 261000,
-        "valor": 261.11044,
+        "valor": 261110.44,
         "esperado": 261110.44,
         "origem": "volume",
         "delta": -0.999
