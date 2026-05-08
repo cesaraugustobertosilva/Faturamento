@@ -56,7 +56,7 @@
       {
         "nome": "Zurich",
         "faturamento_anterior": 39247.75,
-        "valor": 0,
+        "valor": 39376.20000000001,
         "esperado": 29143.69,
         "origem": "volume",
         "delta": -1
