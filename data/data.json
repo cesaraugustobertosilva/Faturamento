@@ -3910,6 +3910,716 @@
       "cliente": "Agibank",
       "tipo": "diario",
       "linha": "Linha de Captura",
+      "data": "2026-05-04",
+      "mes": "",
+      "volume": 1185,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "Agibank",
+      "tipo": "diario",
+      "linha": "Linha de Captura",
+      "data": "2026-05-05",
+      "mes": "",
+      "volume": 564,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "Agibank",
+      "tipo": "diario",
+      "linha": "Linha de Captura",
+      "data": "2026-05-06",
+      "mes": "",
+      "volume": 466,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "Agibank",
+      "tipo": "diario",
+      "linha": "Linha de Captura",
+      "data": "2026-05-07",
+      "mes": "",
+      "volume": 336,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "Agibank",
+      "tipo": "diario",
+      "linha": "Análise e Cadastro",
+      "data": "2026-05-04",
+      "mes": "",
+      "volume": 359,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "Agibank",
+      "tipo": "diario",
+      "linha": "Análise e Cadastro",
+      "data": "2026-05-05",
+      "mes": "",
+      "volume": 815,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "Agibank",
+      "tipo": "diario",
+      "linha": "Análise e Cadastro",
+      "data": "2026-05-06",
+      "mes": "",
+      "volume": 379,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "Agibank",
+      "tipo": "diario",
+      "linha": "Análise e Cadastro",
+      "data": "2026-05-07",
+      "mes": "",
+      "volume": 823,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "Agibank",
+      "tipo": "diario",
+      "linha": "Análise e Cadastro",
+      "data": "2026-05-08",
+      "mes": "",
+      "volume": 445,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "Agibank",
+      "tipo": "diario",
+      "linha": "Subsídios",
+      "data": "2026-05-04",
+      "mes": "",
+      "volume": 50,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "Agibank",
+      "tipo": "diario",
+      "linha": "Subsídios",
+      "data": "2026-05-05",
+      "mes": "",
+      "volume": 47,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "Agibank",
+      "tipo": "diario",
+      "linha": "Subsídios",
+      "data": "2026-05-06",
+      "mes": "",
+      "volume": 54,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "Agibank",
+      "tipo": "diario",
+      "linha": "Subsídios",
+      "data": "2026-05-07",
+      "mes": "",
+      "volume": 64,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "Agibank",
+      "tipo": "diario",
+      "linha": "Subsídios",
+      "data": "2026-05-08",
+      "mes": "",
+      "volume": 33,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "Agibank",
+      "tipo": "diario",
+      "linha": "Contratos",
+      "data": "2026-05-04",
+      "mes": "",
+      "volume": 322,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "Agibank",
+      "tipo": "diario",
+      "linha": "Contratos",
+      "data": "2026-05-05",
+      "mes": "",
+      "volume": 485,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "Agibank",
+      "tipo": "diario",
+      "linha": "Contratos",
+      "data": "2026-05-06",
+      "mes": "",
+      "volume": 396,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "Agibank",
+      "tipo": "diario",
+      "linha": "Contratos",
+      "data": "2026-05-07",
+      "mes": "",
+      "volume": 420,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "Bradesco CPI",
+      "tipo": "diario",
+      "linha": "Bobina Eletrônica",
+      "data": "2026-05-07",
+      "mes": "",
+      "volume": 3,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "Bradesco CPI",
+      "tipo": "diario",
+      "linha": "Carteira de Cobrança",
+      "data": "2026-05-07",
+      "mes": "",
+      "volume": 9,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "Bradesco CPI",
+      "tipo": "diario",
+      "linha": "TED/PAGFOR/NATIVO",
+      "data": "2026-05-07",
+      "mes": "",
+      "volume": 40,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "Bradesco CPI",
+      "tipo": "diario",
+      "linha": "Cheque",
+      "data": "2026-05-07",
+      "mes": "",
+      "volume": 21,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "Bradesco Digitação",
+      "tipo": "diario",
+      "linha": "Custódia DN - Tipo A",
+      "data": "2026-05-04",
+      "mes": "",
+      "volume": 312,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "Bradesco Digitação",
+      "tipo": "diario",
+      "linha": "Custódia DN - Tipo A",
+      "data": "2026-05-05",
+      "mes": "",
+      "volume": 330,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "Bradesco Digitação",
+      "tipo": "diario",
+      "linha": "Custódia DN - Tipo A",
+      "data": "2026-05-06",
+      "mes": "",
+      "volume": 177,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "Bradesco Digitação",
+      "tipo": "diario",
+      "linha": "Custódia SB - Tipo B",
+      "data": "2026-05-04",
+      "mes": "",
+      "volume": 455,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "Bradesco Digitação",
+      "tipo": "diario",
+      "linha": "Custódia SB - Tipo B",
+      "data": "2026-05-05",
+      "mes": "",
+      "volume": 421,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "Bradesco Digitação",
+      "tipo": "diario",
+      "linha": "Custódia SB - Tipo B",
+      "data": "2026-05-06",
+      "mes": "",
+      "volume": 833,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "Bradesco Digitação",
+      "tipo": "diario",
+      "linha": "Custódia Tipo D",
+      "data": "2026-05-04",
+      "mes": "",
+      "volume": 2,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "Bradesco Digitação",
+      "tipo": "diario",
+      "linha": "Custódia Tipo D",
+      "data": "2026-05-05",
+      "mes": "",
+      "volume": 142,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "Bradesco Digitação",
+      "tipo": "diario",
+      "linha": "Custódia Tipo D",
+      "data": "2026-05-06",
+      "mes": "",
+      "volume": 2,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "Bradesco Digitação",
+      "tipo": "diario",
+      "linha": "Complementação",
+      "data": "2026-05-04",
+      "mes": "",
+      "volume": 1136,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "Bradesco Digitação",
+      "tipo": "diario",
+      "linha": "Complementação",
+      "data": "2026-05-05",
+      "mes": "",
+      "volume": 1377,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "Bradesco Digitação",
+      "tipo": "diario",
+      "linha": "Complementação",
+      "data": "2026-05-06",
+      "mes": "",
+      "volume": 1458,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "Bradesco Esteira Única",
+      "tipo": "diario",
+      "linha": "Cadastro Judicial",
+      "data": "2026-05-04",
+      "mes": "",
+      "volume": 1094,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "Bradesco Esteira Única",
+      "tipo": "diario",
+      "linha": "Cadastro Judicial",
+      "data": "2026-05-05",
+      "mes": "",
+      "volume": 668,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "Bradesco Esteira Única",
+      "tipo": "diario",
+      "linha": "Cadastro Judicial",
+      "data": "2026-05-06",
+      "mes": "",
+      "volume": 668,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "Bradesco Esteira Única",
+      "tipo": "diario",
+      "linha": "Cadastro Judicial",
+      "data": "2026-05-07",
+      "mes": "",
+      "volume": 742,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "Bradesco Esteira Única",
+      "tipo": "diario",
+      "linha": "Processos Cancelados",
+      "data": "2026-05-04",
+      "mes": "",
+      "volume": 42,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "Bradesco Esteira Única",
+      "tipo": "diario",
+      "linha": "Processos Cancelados",
+      "data": "2026-05-05",
+      "mes": "",
+      "volume": 22,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "Bradesco Esteira Única",
+      "tipo": "diario",
+      "linha": "Processos Cancelados",
+      "data": "2026-05-06",
+      "mes": "",
+      "volume": 24,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "Bradesco Esteira Única",
+      "tipo": "diario",
+      "linha": "Processos Cancelados",
+      "data": "2026-05-07",
+      "mes": "",
+      "volume": 27,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "Bradesco Esteira Única",
+      "tipo": "diario",
+      "linha": "Subsídios Complementação",
+      "data": "2026-05-04",
+      "mes": "",
+      "volume": 26,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "Bradesco Esteira Única",
+      "tipo": "diario",
+      "linha": "Subsídios Complementação",
+      "data": "2026-05-06",
+      "mes": "",
+      "volume": 11,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "Bradesco Esteira Única",
+      "tipo": "diario",
+      "linha": "Captura de Iniciais",
+      "data": "2026-05-04",
+      "mes": "",
+      "volume": 1361,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "Bradesco Esteira Única",
+      "tipo": "diario",
+      "linha": "Captura de Iniciais",
+      "data": "2026-05-05",
+      "mes": "",
+      "volume": 796,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "Bradesco Esteira Única",
+      "tipo": "diario",
+      "linha": "Captura de Iniciais",
+      "data": "2026-05-06",
+      "mes": "",
+      "volume": 692,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "Bradesco Esteira Única",
+      "tipo": "diario",
+      "linha": "Captura de Iniciais",
+      "data": "2026-05-07",
+      "mes": "",
+      "volume": 818,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "Bradesco Esteira Única",
+      "tipo": "diario",
+      "linha": "Reanálise",
+      "data": "2026-05-04",
+      "mes": "",
+      "volume": 250,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "Zurich",
+      "tipo": "diario",
+      "linha": "Cadastro Benner",
+      "data": "2026-05-04",
+      "mes": "",
+      "volume": 11,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "Zurich",
+      "tipo": "diario",
+      "linha": "Cadastro Benner",
+      "data": "2026-05-05",
+      "mes": "",
+      "volume": 23,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "Zurich",
+      "tipo": "diario",
+      "linha": "Cadastro Benner",
+      "data": "2026-05-06",
+      "mes": "",
+      "volume": 22,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "Zurich",
+      "tipo": "diario",
+      "linha": "Cadastro Benner",
+      "data": "2026-05-07",
+      "mes": "",
+      "volume": 22,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "Zurich",
+      "tipo": "diario",
+      "linha": "Cadastro Sinjud",
+      "data": "2026-05-04",
+      "mes": "",
+      "volume": 11,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "Zurich",
+      "tipo": "diario",
+      "linha": "Cadastro Sinjud",
+      "data": "2026-05-05",
+      "mes": "",
+      "volume": 23,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "Zurich",
+      "tipo": "diario",
+      "linha": "Cadastro Sinjud",
+      "data": "2026-05-06",
+      "mes": "",
+      "volume": 22,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "Zurich",
+      "tipo": "diario",
+      "linha": "Cadastro Sinjud",
+      "data": "2026-05-07",
+      "mes": "",
+      "volume": 22,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "Zurich",
+      "tipo": "diario",
+      "linha": "Tratativa Completa",
+      "data": "2026-05-04",
+      "mes": "",
+      "volume": 11,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "Zurich",
+      "tipo": "diario",
+      "linha": "Tratativa Completa",
+      "data": "2026-05-05",
+      "mes": "",
+      "volume": 23,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "Zurich",
+      "tipo": "diario",
+      "linha": "Tratativa Completa",
+      "data": "2026-05-06",
+      "mes": "",
+      "volume": 22,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "Zurich",
+      "tipo": "diario",
+      "linha": "Tratativa Completa",
+      "data": "2026-05-07",
+      "mes": "",
+      "volume": 22,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "Zurich",
+      "tipo": "diario",
+      "linha": "Intimação",
+      "data": "2026-05-04",
+      "mes": "",
+      "volume": 1,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "Zurich",
+      "tipo": "diario",
+      "linha": "Intimação",
+      "data": "2026-05-06",
+      "mes": "",
+      "volume": 9,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "Zurich",
+      "tipo": "diario",
+      "linha": "Intimação",
+      "data": "2026-05-07",
+      "mes": "",
+      "volume": 33,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "Bradesco Contratos e Pacotes",
+      "tipo": "mensal",
+      "linha": "",
+      "data": "",
+      "mes": "2026-05",
+      "volume": 96000,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "Bradesco Obrigações de Fazer",
+      "tipo": "mensal",
+      "linha": "",
+      "data": "",
+      "mes": "2026-05",
+      "volume": 105358.39,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "CWT",
+      "tipo": "mensal",
+      "linha": "",
+      "data": "",
+      "mes": "2026-05",
+      "volume": 66500,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "GSI Law",
+      "tipo": "mensal",
+      "linha": "",
+      "data": "",
+      "mes": "2026-05",
+      "volume": 1000,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "Hoepers",
+      "tipo": "mensal",
+      "linha": "",
+      "data": "",
+      "mes": "2026-05",
+      "volume": 3374.8,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "Zarro",
+      "tipo": "mensal",
+      "linha": "",
+      "data": "",
+      "mes": "2026-05",
+      "volume": 585,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "Demais Clientes",
+      "tipo": "mensal",
+      "linha": "",
+      "data": "",
+      "mes": "2026-05",
+      "volume": 261.11044,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T16:03:12.138Z"
+    },
+    {
+      "cliente": "Agibank",
+      "tipo": "diario",
+      "linha": "Linha de Captura",
       "data": "2026-04-27",
       "mes": "",
       "volume": 1037,
@@ -4745,816 +5455,6 @@
       "volume": 261000,
       "preenchidoPor": "Marcos Adriano",
       "preenchidoEm": "2026-05-08T16:05:46.611Z"
-    },
-    {
-      "cliente": "Agibank",
-      "tipo": "diario",
-      "linha": "Linha de Captura",
-      "data": "2026-05-04",
-      "mes": "",
-      "volume": 1185,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Agibank",
-      "tipo": "diario",
-      "linha": "Linha de Captura",
-      "data": "2026-05-05",
-      "mes": "",
-      "volume": 564,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Agibank",
-      "tipo": "diario",
-      "linha": "Linha de Captura",
-      "data": "2026-05-06",
-      "mes": "",
-      "volume": 466,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Agibank",
-      "tipo": "diario",
-      "linha": "Linha de Captura",
-      "data": "2026-05-07",
-      "mes": "",
-      "volume": 336,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Agibank",
-      "tipo": "diario",
-      "linha": "Análise e Cadastro",
-      "data": "2026-05-04",
-      "mes": "",
-      "volume": 359,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Agibank",
-      "tipo": "diario",
-      "linha": "Análise e Cadastro",
-      "data": "2026-05-05",
-      "mes": "",
-      "volume": 815,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Agibank",
-      "tipo": "diario",
-      "linha": "Análise e Cadastro",
-      "data": "2026-05-06",
-      "mes": "",
-      "volume": 379,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Agibank",
-      "tipo": "diario",
-      "linha": "Análise e Cadastro",
-      "data": "2026-05-07",
-      "mes": "",
-      "volume": 823,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Agibank",
-      "tipo": "diario",
-      "linha": "Análise e Cadastro",
-      "data": "2026-05-08",
-      "mes": "",
-      "volume": 445,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Agibank",
-      "tipo": "diario",
-      "linha": "Subsídios",
-      "data": "2026-05-04",
-      "mes": "",
-      "volume": 50,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Agibank",
-      "tipo": "diario",
-      "linha": "Subsídios",
-      "data": "2026-05-05",
-      "mes": "",
-      "volume": 47,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Agibank",
-      "tipo": "diario",
-      "linha": "Subsídios",
-      "data": "2026-05-06",
-      "mes": "",
-      "volume": 54,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Agibank",
-      "tipo": "diario",
-      "linha": "Subsídios",
-      "data": "2026-05-07",
-      "mes": "",
-      "volume": 64,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Agibank",
-      "tipo": "diario",
-      "linha": "Subsídios",
-      "data": "2026-05-08",
-      "mes": "",
-      "volume": 33,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Agibank",
-      "tipo": "diario",
-      "linha": "Contratos",
-      "data": "2026-05-04",
-      "mes": "",
-      "volume": 322,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Agibank",
-      "tipo": "diario",
-      "linha": "Contratos",
-      "data": "2026-05-05",
-      "mes": "",
-      "volume": 485,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Agibank",
-      "tipo": "diario",
-      "linha": "Contratos",
-      "data": "2026-05-06",
-      "mes": "",
-      "volume": 396,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Agibank",
-      "tipo": "diario",
-      "linha": "Contratos",
-      "data": "2026-05-07",
-      "mes": "",
-      "volume": 420,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Bradesco CPI",
-      "tipo": "diario",
-      "linha": "Bobina Eletrônica",
-      "data": "2026-05-07",
-      "mes": "",
-      "volume": 3,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Bradesco CPI",
-      "tipo": "diario",
-      "linha": "Carteira de Cobrança",
-      "data": "2026-05-07",
-      "mes": "",
-      "volume": 9,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Bradesco CPI",
-      "tipo": "diario",
-      "linha": "TED/PAGFOR/NATIVO",
-      "data": "2026-05-07",
-      "mes": "",
-      "volume": 40,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Bradesco CPI",
-      "tipo": "diario",
-      "linha": "Cheque",
-      "data": "2026-05-07",
-      "mes": "",
-      "volume": 21,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Bradesco Digitação",
-      "tipo": "diario",
-      "linha": "Custódia DN - Tipo A",
-      "data": "2026-05-04",
-      "mes": "",
-      "volume": 312,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Bradesco Digitação",
-      "tipo": "diario",
-      "linha": "Custódia DN - Tipo A",
-      "data": "2026-05-05",
-      "mes": "",
-      "volume": 330,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Bradesco Digitação",
-      "tipo": "diario",
-      "linha": "Custódia DN - Tipo A",
-      "data": "2026-05-06",
-      "mes": "",
-      "volume": 177,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Bradesco Digitação",
-      "tipo": "diario",
-      "linha": "Custódia SB - Tipo B",
-      "data": "2026-05-04",
-      "mes": "",
-      "volume": 455,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Bradesco Digitação",
-      "tipo": "diario",
-      "linha": "Custódia SB - Tipo B",
-      "data": "2026-05-05",
-      "mes": "",
-      "volume": 421,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Bradesco Digitação",
-      "tipo": "diario",
-      "linha": "Custódia SB - Tipo B",
-      "data": "2026-05-06",
-      "mes": "",
-      "volume": 833,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Bradesco Digitação",
-      "tipo": "diario",
-      "linha": "Custódia Tipo D",
-      "data": "2026-05-04",
-      "mes": "",
-      "volume": 2,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Bradesco Digitação",
-      "tipo": "diario",
-      "linha": "Custódia Tipo D",
-      "data": "2026-05-05",
-      "mes": "",
-      "volume": 142,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Bradesco Digitação",
-      "tipo": "diario",
-      "linha": "Custódia Tipo D",
-      "data": "2026-05-06",
-      "mes": "",
-      "volume": 2,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Bradesco Digitação",
-      "tipo": "diario",
-      "linha": "Complementação",
-      "data": "2026-05-04",
-      "mes": "",
-      "volume": 1136,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Bradesco Digitação",
-      "tipo": "diario",
-      "linha": "Complementação",
-      "data": "2026-05-05",
-      "mes": "",
-      "volume": 1377,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Bradesco Digitação",
-      "tipo": "diario",
-      "linha": "Complementação",
-      "data": "2026-05-06",
-      "mes": "",
-      "volume": 1458,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Bradesco Esteira Única",
-      "tipo": "diario",
-      "linha": "Cadastro Judicial",
-      "data": "2026-05-04",
-      "mes": "",
-      "volume": 1094,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Bradesco Esteira Única",
-      "tipo": "diario",
-      "linha": "Cadastro Judicial",
-      "data": "2026-05-05",
-      "mes": "",
-      "volume": 668,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Bradesco Esteira Única",
-      "tipo": "diario",
-      "linha": "Cadastro Judicial",
-      "data": "2026-05-06",
-      "mes": "",
-      "volume": 668,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Bradesco Esteira Única",
-      "tipo": "diario",
-      "linha": "Cadastro Judicial",
-      "data": "2026-05-07",
-      "mes": "",
-      "volume": 742,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Bradesco Esteira Única",
-      "tipo": "diario",
-      "linha": "Processos Cancelados",
-      "data": "2026-05-04",
-      "mes": "",
-      "volume": 42,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Bradesco Esteira Única",
-      "tipo": "diario",
-      "linha": "Processos Cancelados",
-      "data": "2026-05-05",
-      "mes": "",
-      "volume": 22,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Bradesco Esteira Única",
-      "tipo": "diario",
-      "linha": "Processos Cancelados",
-      "data": "2026-05-06",
-      "mes": "",
-      "volume": 24,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Bradesco Esteira Única",
-      "tipo": "diario",
-      "linha": "Processos Cancelados",
-      "data": "2026-05-07",
-      "mes": "",
-      "volume": 27,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Bradesco Esteira Única",
-      "tipo": "diario",
-      "linha": "Subsídios Complementação",
-      "data": "2026-05-04",
-      "mes": "",
-      "volume": 26,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Bradesco Esteira Única",
-      "tipo": "diario",
-      "linha": "Subsídios Complementação",
-      "data": "2026-05-06",
-      "mes": "",
-      "volume": 11,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Bradesco Esteira Única",
-      "tipo": "diario",
-      "linha": "Captura de Iniciais",
-      "data": "2026-05-04",
-      "mes": "",
-      "volume": 1361,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Bradesco Esteira Única",
-      "tipo": "diario",
-      "linha": "Captura de Iniciais",
-      "data": "2026-05-05",
-      "mes": "",
-      "volume": 796,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Bradesco Esteira Única",
-      "tipo": "diario",
-      "linha": "Captura de Iniciais",
-      "data": "2026-05-06",
-      "mes": "",
-      "volume": 692,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Bradesco Esteira Única",
-      "tipo": "diario",
-      "linha": "Captura de Iniciais",
-      "data": "2026-05-07",
-      "mes": "",
-      "volume": 818,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Bradesco Esteira Única",
-      "tipo": "diario",
-      "linha": "Reanálise",
-      "data": "2026-05-04",
-      "mes": "",
-      "volume": 250,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Eagle",
-      "tipo": "diario",
-      "linha": "Cadastro Judicial",
-      "data": "2026-05-04",
-      "mes": "",
-      "volume": 39,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Eagle",
-      "tipo": "diario",
-      "linha": "Cadastro Judicial",
-      "data": "2026-05-05",
-      "mes": "",
-      "volume": 24,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Eagle",
-      "tipo": "diario",
-      "linha": "Cadastro Judicial",
-      "data": "2026-05-06",
-      "mes": "",
-      "volume": 25,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Eagle",
-      "tipo": "diario",
-      "linha": "Cadastro Judicial",
-      "data": "2026-05-07",
-      "mes": "",
-      "volume": 24,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Eagle",
-      "tipo": "diario",
-      "linha": "Cadastro Judicial",
-      "data": "2026-05-08",
-      "mes": "",
-      "volume": 15,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Eagle",
-      "tipo": "diario",
-      "linha": "Captura de Iniciais",
-      "data": "2026-05-04",
-      "mes": "",
-      "volume": 39,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Eagle",
-      "tipo": "diario",
-      "linha": "Captura de Iniciais",
-      "data": "2026-05-05",
-      "mes": "",
-      "volume": 24,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Eagle",
-      "tipo": "diario",
-      "linha": "Captura de Iniciais",
-      "data": "2026-05-06",
-      "mes": "",
-      "volume": 25,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Eagle",
-      "tipo": "diario",
-      "linha": "Captura de Iniciais",
-      "data": "2026-05-07",
-      "mes": "",
-      "volume": 24,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Eagle",
-      "tipo": "diario",
-      "linha": "Captura de Iniciais",
-      "data": "2026-05-08",
-      "mes": "",
-      "volume": 15,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Zurich",
-      "tipo": "diario",
-      "linha": "Cadastro Benner",
-      "data": "2026-05-04",
-      "mes": "",
-      "volume": 11,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Zurich",
-      "tipo": "diario",
-      "linha": "Cadastro Benner",
-      "data": "2026-05-05",
-      "mes": "",
-      "volume": 23,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Zurich",
-      "tipo": "diario",
-      "linha": "Cadastro Benner",
-      "data": "2026-05-06",
-      "mes": "",
-      "volume": 22,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Zurich",
-      "tipo": "diario",
-      "linha": "Cadastro Benner",
-      "data": "2026-05-07",
-      "mes": "",
-      "volume": 22,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Zurich",
-      "tipo": "diario",
-      "linha": "Cadastro Sinjud",
-      "data": "2026-05-04",
-      "mes": "",
-      "volume": 11,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Zurich",
-      "tipo": "diario",
-      "linha": "Cadastro Sinjud",
-      "data": "2026-05-05",
-      "mes": "",
-      "volume": 23,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Zurich",
-      "tipo": "diario",
-      "linha": "Cadastro Sinjud",
-      "data": "2026-05-06",
-      "mes": "",
-      "volume": 22,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Zurich",
-      "tipo": "diario",
-      "linha": "Cadastro Sinjud",
-      "data": "2026-05-07",
-      "mes": "",
-      "volume": 22,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Zurich",
-      "tipo": "diario",
-      "linha": "Tratativa Completa",
-      "data": "2026-05-04",
-      "mes": "",
-      "volume": 11,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Zurich",
-      "tipo": "diario",
-      "linha": "Tratativa Completa",
-      "data": "2026-05-05",
-      "mes": "",
-      "volume": 23,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Zurich",
-      "tipo": "diario",
-      "linha": "Tratativa Completa",
-      "data": "2026-05-06",
-      "mes": "",
-      "volume": 22,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Zurich",
-      "tipo": "diario",
-      "linha": "Tratativa Completa",
-      "data": "2026-05-07",
-      "mes": "",
-      "volume": 22,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Zurich",
-      "tipo": "diario",
-      "linha": "Intimação",
-      "data": "2026-05-04",
-      "mes": "",
-      "volume": 1,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Zurich",
-      "tipo": "diario",
-      "linha": "Intimação",
-      "data": "2026-05-06",
-      "mes": "",
-      "volume": 9,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Zurich",
-      "tipo": "diario",
-      "linha": "Intimação",
-      "data": "2026-05-07",
-      "mes": "",
-      "volume": 33,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Bradesco Contratos e Pacotes",
-      "tipo": "mensal",
-      "linha": "",
-      "data": "",
-      "mes": "2026-05",
-      "volume": 96000,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Bradesco Obrigações de Fazer",
-      "tipo": "mensal",
-      "linha": "",
-      "data": "",
-      "mes": "2026-05",
-      "volume": 105358.39,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "CWT",
-      "tipo": "mensal",
-      "linha": "",
-      "data": "",
-      "mes": "2026-05",
-      "volume": 66500,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "GSI Law",
-      "tipo": "mensal",
-      "linha": "",
-      "data": "",
-      "mes": "2026-05",
-      "volume": 1000,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Hoepers",
-      "tipo": "mensal",
-      "linha": "",
-      "data": "",
-      "mes": "2026-05",
-      "volume": 3374.8,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Zarro",
-      "tipo": "mensal",
-      "linha": "",
-      "data": "",
-      "mes": "2026-05",
-      "volume": 585,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
-    },
-    {
-      "cliente": "Demais Clientes",
-      "tipo": "mensal",
-      "linha": "",
-      "data": "",
-      "mes": "2026-05",
-      "volume": 261.11044,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T16:26:44.223Z"
     }
   ],
   "users": [
