@@ -957,7 +957,6 @@ function aplicarProjecao(){
     if(!conf)return;
     var acum=r.fatAcumulado[p.nome]||0;
     var avulso=r.avulsosPorCliente[p.nome]||0;
-    // Só atualiza se houver volume OU avulso registrado
     var valorProjetado=0;
     if(conf.tipo_cliente==="mensal_fechado"){
       valorProjetado=acum;
