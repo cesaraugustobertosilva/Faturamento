@@ -8,7 +8,7 @@
       {
         "nome": "Agibank",
         "faturamento_anterior": 444421.30000000005,
-        "valor": 254994.4,
+        "valor": 192992.32,
         "esperado": 699867.43,
         "origem": "volume",
         "delta": -1
@@ -4733,8 +4733,8 @@
       "data": "2026-05-04",
       "mes": "",
       "volume": 1185,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-08T15:57:14.031Z"
     },
     {
       "cliente": "Agibank",
@@ -4743,8 +4743,8 @@
       "data": "2026-05-05",
       "mes": "",
       "volume": 564,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-08T15:57:14.031Z"
     },
     {
       "cliente": "Agibank",
@@ -4753,8 +4753,8 @@
       "data": "2026-05-06",
       "mes": "",
       "volume": 466,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-08T15:57:14.031Z"
     },
     {
       "cliente": "Agibank",
@@ -4763,58 +4763,8 @@
       "data": "2026-05-07",
       "mes": "",
       "volume": 336,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
-    },
-    {
-      "cliente": "Agibank",
-      "tipo": "diario",
-      "linha": "Análise e Cadastro",
-      "data": "2026-05-04",
-      "mes": "",
-      "volume": 359,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
-    },
-    {
-      "cliente": "Agibank",
-      "tipo": "diario",
-      "linha": "Análise e Cadastro",
-      "data": "2026-05-05",
-      "mes": "",
-      "volume": 815,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
-    },
-    {
-      "cliente": "Agibank",
-      "tipo": "diario",
-      "linha": "Análise e Cadastro",
-      "data": "2026-05-06",
-      "mes": "",
-      "volume": 379,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
-    },
-    {
-      "cliente": "Agibank",
-      "tipo": "diario",
-      "linha": "Análise e Cadastro",
-      "data": "2026-05-07",
-      "mes": "",
-      "volume": 823,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
-    },
-    {
-      "cliente": "Agibank",
-      "tipo": "diario",
-      "linha": "Análise e Cadastro",
-      "data": "2026-05-08",
-      "mes": "",
-      "volume": 445,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-08T15:57:14.031Z"
     },
     {
       "cliente": "Agibank",
@@ -4823,8 +4773,8 @@
       "data": "2026-05-04",
       "mes": "",
       "volume": 50,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-08T15:57:14.031Z"
     },
     {
       "cliente": "Agibank",
@@ -4833,8 +4783,8 @@
       "data": "2026-05-05",
       "mes": "",
       "volume": 47,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-08T15:57:14.031Z"
     },
     {
       "cliente": "Agibank",
@@ -4843,8 +4793,8 @@
       "data": "2026-05-06",
       "mes": "",
       "volume": 54,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-08T15:57:14.031Z"
     },
     {
       "cliente": "Agibank",
@@ -4853,8 +4803,8 @@
       "data": "2026-05-07",
       "mes": "",
       "volume": 64,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-08T15:57:14.031Z"
     },
     {
       "cliente": "Agibank",
@@ -4863,8 +4813,8 @@
       "data": "2026-05-08",
       "mes": "",
       "volume": 33,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-08T15:57:14.031Z"
     },
     {
       "cliente": "Agibank",
@@ -4873,8 +4823,8 @@
       "data": "2026-05-04",
       "mes": "",
       "volume": 322,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-08T15:57:14.031Z"
     },
     {
       "cliente": "Agibank",
@@ -4883,8 +4833,8 @@
       "data": "2026-05-05",
       "mes": "",
       "volume": 485,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-08T15:57:14.031Z"
     },
     {
       "cliente": "Agibank",
@@ -4893,8 +4843,8 @@
       "data": "2026-05-06",
       "mes": "",
       "volume": 396,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-08T15:57:14.031Z"
     },
     {
       "cliente": "Agibank",
@@ -4903,18 +4853,8 @@
       "data": "2026-05-07",
       "mes": "",
       "volume": 420,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
-    },
-    {
-      "cliente": "Agibank",
-      "tipo": "diario",
-      "linha": "Contratos",
-      "data": "2026-05-08",
-      "mes": "",
-      "volume": 412,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-08T15:57:14.031Z"
     },
     {
       "cliente": "Bradesco CPI",
@@ -4923,8 +4863,8 @@
       "data": "2026-05-07",
       "mes": "",
       "volume": 3,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-08T15:57:14.031Z"
     },
     {
       "cliente": "Bradesco CPI",
@@ -4933,8 +4873,8 @@
       "data": "2026-05-07",
       "mes": "",
       "volume": 9,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-08T15:57:14.031Z"
     },
     {
       "cliente": "Bradesco CPI",
@@ -4943,8 +4883,8 @@
       "data": "2026-05-07",
       "mes": "",
       "volume": 40,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-08T15:57:14.031Z"
     },
     {
       "cliente": "Bradesco CPI",
@@ -4953,8 +4893,8 @@
       "data": "2026-05-07",
       "mes": "",
       "volume": 21,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-08T15:57:14.031Z"
     },
     {
       "cliente": "Bradesco Digitação",
@@ -4963,8 +4903,8 @@
       "data": "2026-05-04",
       "mes": "",
       "volume": 312,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-08T15:57:14.031Z"
     },
     {
       "cliente": "Bradesco Digitação",
@@ -4973,8 +4913,8 @@
       "data": "2026-05-05",
       "mes": "",
       "volume": 330,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-08T15:57:14.031Z"
     },
     {
       "cliente": "Bradesco Digitação",
@@ -4983,8 +4923,8 @@
       "data": "2026-05-06",
       "mes": "",
       "volume": 177,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-08T15:57:14.031Z"
     },
     {
       "cliente": "Bradesco Digitação",
@@ -4993,8 +4933,8 @@
       "data": "2026-05-04",
       "mes": "",
       "volume": 455,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-08T15:57:14.031Z"
     },
     {
       "cliente": "Bradesco Digitação",
@@ -5003,8 +4943,8 @@
       "data": "2026-05-05",
       "mes": "",
       "volume": 421,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-08T15:57:14.031Z"
     },
     {
       "cliente": "Bradesco Digitação",
@@ -5013,8 +4953,8 @@
       "data": "2026-05-06",
       "mes": "",
       "volume": 833,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-08T15:57:14.031Z"
     },
     {
       "cliente": "Bradesco Digitação",
@@ -5023,8 +4963,8 @@
       "data": "2026-05-04",
       "mes": "",
       "volume": 2,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-08T15:57:14.031Z"
     },
     {
       "cliente": "Bradesco Digitação",
@@ -5033,8 +4973,8 @@
       "data": "2026-05-05",
       "mes": "",
       "volume": 142,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-08T15:57:14.031Z"
     },
     {
       "cliente": "Bradesco Digitação",
@@ -5043,8 +4983,8 @@
       "data": "2026-05-06",
       "mes": "",
       "volume": 2,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-08T15:57:14.031Z"
     },
     {
       "cliente": "Bradesco Digitação",
@@ -5053,8 +4993,8 @@
       "data": "2026-05-04",
       "mes": "",
       "volume": 1136,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-08T15:57:14.031Z"
     },
     {
       "cliente": "Bradesco Digitação",
@@ -5063,8 +5003,8 @@
       "data": "2026-05-05",
       "mes": "",
       "volume": 1377,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-08T15:57:14.031Z"
     },
     {
       "cliente": "Bradesco Digitação",
@@ -5073,8 +5013,8 @@
       "data": "2026-05-06",
       "mes": "",
       "volume": 1458,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-08T15:57:14.031Z"
     },
     {
       "cliente": "Bradesco Esteira Única",
@@ -5083,8 +5023,8 @@
       "data": "2026-05-04",
       "mes": "",
       "volume": 1094,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-08T15:57:14.031Z"
     },
     {
       "cliente": "Bradesco Esteira Única",
@@ -5093,8 +5033,8 @@
       "data": "2026-05-05",
       "mes": "",
       "volume": 668,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-08T15:57:14.031Z"
     },
     {
       "cliente": "Bradesco Esteira Única",
@@ -5103,8 +5043,8 @@
       "data": "2026-05-06",
       "mes": "",
       "volume": 668,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-08T15:57:14.031Z"
     },
     {
       "cliente": "Bradesco Esteira Única",
@@ -5113,8 +5053,8 @@
       "data": "2026-05-07",
       "mes": "",
       "volume": 742,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-08T15:57:14.031Z"
     },
     {
       "cliente": "Bradesco Esteira Única",
@@ -5123,8 +5063,8 @@
       "data": "2026-05-04",
       "mes": "",
       "volume": 42,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-08T15:57:14.031Z"
     },
     {
       "cliente": "Bradesco Esteira Única",
@@ -5133,8 +5073,8 @@
       "data": "2026-05-05",
       "mes": "",
       "volume": 22,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-08T15:57:14.031Z"
     },
     {
       "cliente": "Bradesco Esteira Única",
@@ -5143,8 +5083,8 @@
       "data": "2026-05-06",
       "mes": "",
       "volume": 24,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-08T15:57:14.031Z"
     },
     {
       "cliente": "Bradesco Esteira Única",
@@ -5153,8 +5093,8 @@
       "data": "2026-05-07",
       "mes": "",
       "volume": 27,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-08T15:57:14.031Z"
     },
     {
       "cliente": "Bradesco Esteira Única",
@@ -5163,8 +5103,8 @@
       "data": "2026-05-04",
       "mes": "",
       "volume": 26,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-08T15:57:14.031Z"
     },
     {
       "cliente": "Bradesco Esteira Única",
@@ -5173,8 +5113,8 @@
       "data": "2026-05-06",
       "mes": "",
       "volume": 11,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-08T15:57:14.031Z"
     },
     {
       "cliente": "Bradesco Esteira Única",
@@ -5183,8 +5123,8 @@
       "data": "2026-05-04",
       "mes": "",
       "volume": 1361,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-08T15:57:14.031Z"
     },
     {
       "cliente": "Bradesco Esteira Única",
@@ -5193,8 +5133,8 @@
       "data": "2026-05-05",
       "mes": "",
       "volume": 796,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-08T15:57:14.031Z"
     },
     {
       "cliente": "Bradesco Esteira Única",
@@ -5203,8 +5143,8 @@
       "data": "2026-05-06",
       "mes": "",
       "volume": 692,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-08T15:57:14.031Z"
     },
     {
       "cliente": "Bradesco Esteira Única",
@@ -5213,8 +5153,8 @@
       "data": "2026-05-07",
       "mes": "",
       "volume": 818,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-08T15:57:14.031Z"
     },
     {
       "cliente": "Bradesco Esteira Única",
@@ -5223,8 +5163,8 @@
       "data": "2026-05-04",
       "mes": "",
       "volume": 250,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-08T15:57:14.031Z"
     },
     {
       "cliente": "Zurich",
@@ -5233,8 +5173,8 @@
       "data": "2026-05-04",
       "mes": "",
       "volume": 11,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-08T15:57:14.031Z"
     },
     {
       "cliente": "Zurich",
@@ -5243,8 +5183,8 @@
       "data": "2026-05-05",
       "mes": "",
       "volume": 23,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-08T15:57:14.031Z"
     },
     {
       "cliente": "Zurich",
@@ -5253,8 +5193,8 @@
       "data": "2026-05-06",
       "mes": "",
       "volume": 22,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-08T15:57:14.031Z"
     },
     {
       "cliente": "Zurich",
@@ -5263,8 +5203,8 @@
       "data": "2026-05-07",
       "mes": "",
       "volume": 22,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-08T15:57:14.031Z"
     },
     {
       "cliente": "Zurich",
@@ -5273,8 +5213,8 @@
       "data": "2026-05-04",
       "mes": "",
       "volume": 11,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-08T15:57:14.031Z"
     },
     {
       "cliente": "Zurich",
@@ -5283,8 +5223,8 @@
       "data": "2026-05-05",
       "mes": "",
       "volume": 23,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-08T15:57:14.031Z"
     },
     {
       "cliente": "Zurich",
@@ -5293,8 +5233,8 @@
       "data": "2026-05-06",
       "mes": "",
       "volume": 22,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-08T15:57:14.031Z"
     },
     {
       "cliente": "Zurich",
@@ -5303,8 +5243,8 @@
       "data": "2026-05-07",
       "mes": "",
       "volume": 22,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-08T15:57:14.031Z"
     },
     {
       "cliente": "Zurich",
@@ -5313,8 +5253,8 @@
       "data": "2026-05-04",
       "mes": "",
       "volume": 11,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-08T15:57:14.031Z"
     },
     {
       "cliente": "Zurich",
@@ -5323,8 +5263,8 @@
       "data": "2026-05-05",
       "mes": "",
       "volume": 23,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-08T15:57:14.031Z"
     },
     {
       "cliente": "Zurich",
@@ -5333,8 +5273,8 @@
       "data": "2026-05-06",
       "mes": "",
       "volume": 22,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-08T15:57:14.031Z"
     },
     {
       "cliente": "Zurich",
@@ -5343,8 +5283,8 @@
       "data": "2026-05-07",
       "mes": "",
       "volume": 22,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-08T15:57:14.031Z"
     },
     {
       "cliente": "Zurich",
@@ -5353,8 +5293,8 @@
       "data": "2026-05-04",
       "mes": "",
       "volume": 1,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-08T15:57:14.031Z"
     },
     {
       "cliente": "Zurich",
@@ -5363,8 +5303,8 @@
       "data": "2026-05-06",
       "mes": "",
       "volume": 9,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-08T15:57:14.031Z"
     },
     {
       "cliente": "Zurich",
@@ -5373,8 +5313,8 @@
       "data": "2026-05-07",
       "mes": "",
       "volume": 33,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-08T15:57:14.031Z"
     },
     {
       "cliente": "Bradesco Contratos e Pacotes",
@@ -5383,8 +5323,8 @@
       "data": "",
       "mes": "2026-05",
       "volume": 96000,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-08T15:57:14.031Z"
     },
     {
       "cliente": "Bradesco Obrigações de Fazer",
@@ -5393,8 +5333,8 @@
       "data": "",
       "mes": "2026-05",
       "volume": 105358.39,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-08T15:57:14.031Z"
     },
     {
       "cliente": "CWT",
@@ -5403,8 +5343,8 @@
       "data": "",
       "mes": "2026-05",
       "volume": 66500,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-08T15:57:14.031Z"
     },
     {
       "cliente": "GSI Law",
@@ -5413,8 +5353,8 @@
       "data": "",
       "mes": "2026-05",
       "volume": 1000,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-08T15:57:14.031Z"
     },
     {
       "cliente": "Hoepers",
@@ -5423,8 +5363,8 @@
       "data": "",
       "mes": "2026-05",
       "volume": 3374.8,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-08T15:57:14.031Z"
     },
     {
       "cliente": "Zarro",
@@ -5433,8 +5373,8 @@
       "data": "",
       "mes": "2026-05",
       "volume": 585,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-08T15:57:14.031Z"
     },
     {
       "cliente": "Demais Clientes",
@@ -5443,8 +5383,8 @@
       "data": "",
       "mes": "2026-05",
       "volume": 261.11044,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-08T15:56:58.007Z"
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-08T15:57:14.031Z"
     }
   ],
   "users": [
