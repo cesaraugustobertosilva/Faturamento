@@ -924,7 +924,7 @@ function calcularEAtualizarProjecao(){
   var mesStr=anoAtual+"-"+String(mesAtual).padStart(2,"0");
   var volumesMes=VOLUMES_BASE.filter(function(v){
     if(v.tipo==="diario")return v.data&&v.data.startsWith(mesStr);
-    if(v.tipo==="mensal")return v.mes===mesStr;
+    if(v.tipo==="mensal")return v.mes&&v.mes.startsWith(mesStr);
     return false;
   });
   // Separa avulsos dos volumes normais antes de projetar
@@ -957,15 +957,12 @@ function aplicarProjecao(){
     if(!conf)return;
     var acum=r.fatAcumulado[p.nome]||0;
     var avulso=r.avulsosPorCliente[p.nome]||0;
-    // Só atualiza se houver volume OU avulso registrado
-    if(acum===0&&avulso===0)return;
     var valorProjetado=0;
     if(conf.tipo_cliente==="mensal_fechado"){
       valorProjetado=acum;
     }else{
       valorProjetado=r.duP>0?(acum/r.duP)*r.duTotal:0;
     }
-    // Avulso soma fixo sobre o valor projetado (sem extrapolar)
     D.parceiros[i].valor=valorProjetado+avulso;
     D.parceiros[i].origem="volume";
   });
@@ -1148,7 +1145,7 @@ function verificarFechamentoMes(){
   var volumesMes = VOLUMES_BASE.filter(function(v){
     if(v.avulso) return false;
     if(v.tipo==='diario') return v.data && v.data.startsWith(mesPrevStr);
-    if(v.tipo==='mensal') return v.mes===mesPrevStr;
+    if(v.tipo==='mensal') return v.mes&&v.mes.startsWith(mesPrevStr);
     return false;
   });
   if(!volumesMes.length) return false;
@@ -1268,6 +1265,13 @@ function saveData(){
     var hvEl=document.getElementById("hv-"+i);
     return{mes:mesVal,valor:hvEl?+hvEl.value||0:h.valor||0};
   }).filter(function(h){return h.mes;});
+  // Deduplicate: if two entries share the same YYYY-MM, keep the one with highest valor
+  var mesMap={};
+  D.historico_mensal.forEach(function(h){
+    var key=h.mes.slice(0,7);
+    if(!mesMap[key]||h.valor>mesMap[key].valor) mesMap[key]=h;
+  });
+  D.historico_mensal=Object.keys(mesMap).map(function(k){return mesMap[k];});
   D.historico_mensal.sort(function(a,b){return new Date(a.mes)-new Date(b.mes);});
   D.feriados=(D.feriados||[]).map(function(f,i){return document.getElementById("fd-"+i).value||f;}).filter(Boolean);
   if(CURRENT_USER && CURRENT_USER.perfil==='admin'){
@@ -1581,6 +1585,26 @@ function renderVolSheetTabela(){
       tr.appendChild(tdTotal);
       tbody.appendChild(tr);
     });
+    // Linha de acumulado do mes inteiro para este cliente
+    var acumMes=0;
+    VOLUMES_BASE.forEach(function(v){
+      if(v.cliente!==cliente||v.tipo!=='diario'||v.avulso) return;
+      if(!v.data||!v.data.startsWith(volMesAtual)) return;
+      var li=conf.linhas.find(function(l){return l.nome===v.linha;});
+      if(li) acumMes+=_calcSheetVal(li.tipo,v.volume||0,li.tarifa);
+    });
+    var trAcum=document.createElement('tr');
+    trAcum.style.cssText='background:rgba(7,80,86,.07);border-top:2px solid var(--blue-light)';
+    var tdAcumLabel=document.createElement('td');
+    tdAcumLabel.colSpan=3+5;
+    tdAcumLabel.style.cssText='font-size:.76rem;color:var(--blue-dark);font-style:italic;padding:3px 8px';
+    tdAcumLabel.textContent='Acumulado '+volMesAtual.split('-').reverse().join('/')+' (todos os dias)';
+    var tdAcumVal=document.createElement('td');
+    tdAcumVal.style.cssText='text-align:right;font-weight:700;color:var(--blue-mid);font-size:.82rem;white-space:nowrap';
+    tdAcumVal.textContent=acumMes>0?R(acumMes):'—';
+    trAcum.appendChild(tdAcumLabel);
+    trAcum.appendChild(tdAcumVal);
+    tbody.appendChild(trAcum);
   });
   // Separador clientes mensais
   var trSep = document.createElement('tr'); trSep.className='sheet-section-row';
@@ -1687,7 +1711,6 @@ function salvarTodosVolumes(){
       if(!conf)return;
       var acum=r.fatAcumulado[p.nome]||0;
       var avulso=r.avulsosPorCliente[p.nome]||0;
-      if(acum===0&&avulso===0)return;
       var valorProjetado=conf.tipo_cliente==="mensal_fechado"?acum:(r.duP>0?(acum/r.duP)*r.duTotal:0);
       D.parceiros[i].valor=valorProjetado+avulso;
       D.parceiros[i].origem="volume";
