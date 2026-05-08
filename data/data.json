@@ -16,7 +16,7 @@
       {
         "nome": "Bradesco CPI",
         "faturamento_anterior": 445806.0399999999,
-        "valor": 0,
+        "valor": 1739748,
         "esperado": 440833.57,
         "origem": "volume",
         "delta": 3.933120224941127
@@ -32,7 +32,7 @@
       {
         "nome": "Bradesco Esteira Única",
         "faturamento_anterior": 450253.0199999999,
-        "valor": 0,
+        "valor": 303423,
         "esperado": 509000,
         "origem": "volume",
         "delta": -0.16640290766208254
