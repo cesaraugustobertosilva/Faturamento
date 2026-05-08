@@ -4737,14 +4737,64 @@
       "preenchidoEm": "2026-05-08T14:04:09.066Z"
     },
     {
+      "cliente": "Agibank",
+      "tipo": "diario",
+      "linha": "Subsídios",
+      "data": "2026-05-04",
+      "mes": "",
+      "volume": 50,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T15:27:22.450Z"
+    },
+    {
+      "cliente": "Agibank",
+      "tipo": "diario",
+      "linha": "Subsídios",
+      "data": "2026-05-05",
+      "mes": "",
+      "volume": 47,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T15:27:22.450Z"
+    },
+    {
+      "cliente": "Agibank",
+      "tipo": "diario",
+      "linha": "Subsídios",
+      "data": "2026-05-06",
+      "mes": "",
+      "volume": 54,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T15:27:22.450Z"
+    },
+    {
+      "cliente": "Agibank",
+      "tipo": "diario",
+      "linha": "Subsídios",
+      "data": "2026-05-07",
+      "mes": "",
+      "volume": 64,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T15:27:22.450Z"
+    },
+    {
+      "cliente": "Agibank",
+      "tipo": "diario",
+      "linha": "Subsídios",
+      "data": "2026-05-08",
+      "mes": "",
+      "volume": 33,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T15:27:22.450Z"
+    },
+    {
       "cliente": "Bradesco CPI",
       "tipo": "diario",
       "linha": "Bobina Eletrônica",
       "data": "2026-05-07",
       "mes": "",
       "volume": 3,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T15:03:04.439Z"
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T15:27:22.450Z"
     },
     {
       "cliente": "Bradesco CPI",
@@ -4753,8 +4803,8 @@
       "data": "2026-05-07",
       "mes": "",
       "volume": 9,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T15:03:04.439Z"
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T15:27:22.450Z"
     },
     {
       "cliente": "Bradesco CPI",
@@ -4763,8 +4813,8 @@
       "data": "2026-05-07",
       "mes": "",
       "volume": 40,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T15:03:04.439Z"
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T15:27:22.450Z"
     },
     {
       "cliente": "Bradesco CPI",
@@ -4773,8 +4823,8 @@
       "data": "2026-05-07",
       "mes": "",
       "volume": 21,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T15:03:04.439Z"
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T15:27:22.450Z"
     },
     {
       "cliente": "Bradesco Digitação",
@@ -4783,8 +4833,8 @@
       "data": "2026-05-04",
       "mes": "",
       "volume": 312,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T15:03:04.439Z"
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T15:27:22.450Z"
     },
     {
       "cliente": "Bradesco Digitação",
@@ -4793,8 +4843,8 @@
       "data": "2026-05-05",
       "mes": "",
       "volume": 330,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T15:03:04.439Z"
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T15:27:22.450Z"
     },
     {
       "cliente": "Bradesco Digitação",
@@ -4803,8 +4853,8 @@
       "data": "2026-05-06",
       "mes": "",
       "volume": 177,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T15:03:04.439Z"
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T15:27:22.450Z"
     },
     {
       "cliente": "Bradesco Digitação",
@@ -4813,8 +4863,8 @@
       "data": "2026-05-04",
       "mes": "",
       "volume": 455,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T15:03:04.439Z"
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T15:27:22.450Z"
     },
     {
       "cliente": "Bradesco Digitação",
@@ -4823,8 +4873,8 @@
       "data": "2026-05-05",
       "mes": "",
       "volume": 421,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T15:03:04.439Z"
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T15:27:22.450Z"
     },
     {
       "cliente": "Bradesco Digitação",
@@ -4833,8 +4883,8 @@
       "data": "2026-05-06",
       "mes": "",
       "volume": 833,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T15:03:04.439Z"
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T15:27:22.450Z"
     },
     {
       "cliente": "Bradesco Digitação",
@@ -4843,8 +4893,8 @@
       "data": "2026-05-04",
       "mes": "",
       "volume": 2,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T15:03:04.439Z"
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T15:27:22.450Z"
     },
     {
       "cliente": "Bradesco Digitação",
@@ -4853,8 +4903,8 @@
       "data": "2026-05-05",
       "mes": "",
       "volume": 142,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T15:03:04.439Z"
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T15:27:22.450Z"
     },
     {
       "cliente": "Bradesco Digitação",
@@ -4863,8 +4913,8 @@
       "data": "2026-05-06",
       "mes": "",
       "volume": 2,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T15:03:04.439Z"
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T15:27:22.450Z"
     },
     {
       "cliente": "Bradesco Digitação",
@@ -4873,8 +4923,8 @@
       "data": "2026-05-04",
       "mes": "",
       "volume": 1136,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T15:03:04.439Z"
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T15:27:22.450Z"
     },
     {
       "cliente": "Bradesco Digitação",
@@ -4883,8 +4933,8 @@
       "data": "2026-05-05",
       "mes": "",
       "volume": 1377,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T15:03:04.439Z"
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T15:27:22.450Z"
     },
     {
       "cliente": "Bradesco Digitação",
@@ -4893,8 +4943,8 @@
       "data": "2026-05-06",
       "mes": "",
       "volume": 1458,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T15:03:04.439Z"
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T15:27:22.450Z"
     },
     {
       "cliente": "Bradesco Esteira Única",
@@ -4903,8 +4953,8 @@
       "data": "2026-05-04",
       "mes": "",
       "volume": 1094,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T15:03:04.439Z"
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T15:27:22.450Z"
     },
     {
       "cliente": "Bradesco Esteira Única",
@@ -4913,8 +4963,8 @@
       "data": "2026-05-05",
       "mes": "",
       "volume": 668,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T15:03:04.439Z"
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T15:27:22.450Z"
     },
     {
       "cliente": "Bradesco Esteira Única",
@@ -4923,8 +4973,8 @@
       "data": "2026-05-06",
       "mes": "",
       "volume": 668,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T15:03:04.439Z"
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T15:27:22.450Z"
     },
     {
       "cliente": "Bradesco Esteira Única",
@@ -4933,8 +4983,8 @@
       "data": "2026-05-07",
       "mes": "",
       "volume": 742,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T15:03:04.439Z"
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T15:27:22.450Z"
     },
     {
       "cliente": "Bradesco Esteira Única",
@@ -4943,8 +4993,8 @@
       "data": "2026-05-04",
       "mes": "",
       "volume": 42,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T15:03:04.439Z"
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T15:27:22.450Z"
     },
     {
       "cliente": "Bradesco Esteira Única",
@@ -4953,8 +5003,8 @@
       "data": "2026-05-05",
       "mes": "",
       "volume": 22,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T15:03:04.439Z"
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T15:27:22.450Z"
     },
     {
       "cliente": "Bradesco Esteira Única",
@@ -4963,8 +5013,8 @@
       "data": "2026-05-06",
       "mes": "",
       "volume": 24,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T15:03:04.439Z"
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T15:27:22.450Z"
     },
     {
       "cliente": "Bradesco Esteira Única",
@@ -4973,8 +5023,8 @@
       "data": "2026-05-07",
       "mes": "",
       "volume": 27,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T15:03:04.439Z"
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T15:27:22.450Z"
     },
     {
       "cliente": "Bradesco Esteira Única",
@@ -4983,8 +5033,8 @@
       "data": "2026-05-04",
       "mes": "",
       "volume": 26,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T15:03:04.439Z"
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T15:27:22.450Z"
     },
     {
       "cliente": "Bradesco Esteira Única",
@@ -4993,8 +5043,8 @@
       "data": "2026-05-06",
       "mes": "",
       "volume": 11,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T15:03:04.439Z"
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T15:27:22.450Z"
     },
     {
       "cliente": "Bradesco Esteira Única",
@@ -5003,8 +5053,8 @@
       "data": "2026-05-04",
       "mes": "",
       "volume": 1361,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T15:03:04.439Z"
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T15:27:22.450Z"
     },
     {
       "cliente": "Bradesco Esteira Única",
@@ -5013,8 +5063,8 @@
       "data": "2026-05-05",
       "mes": "",
       "volume": 796,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T15:03:04.439Z"
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T15:27:22.450Z"
     },
     {
       "cliente": "Bradesco Esteira Única",
@@ -5023,8 +5073,8 @@
       "data": "2026-05-06",
       "mes": "",
       "volume": 692,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T15:03:04.439Z"
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T15:27:22.450Z"
     },
     {
       "cliente": "Bradesco Esteira Única",
@@ -5033,8 +5083,8 @@
       "data": "2026-05-07",
       "mes": "",
       "volume": 818,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T15:03:04.439Z"
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T15:27:22.450Z"
     },
     {
       "cliente": "Bradesco Esteira Única",
@@ -5043,8 +5093,8 @@
       "data": "2026-05-04",
       "mes": "",
       "volume": 250,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T15:03:04.439Z"
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T15:27:22.450Z"
     },
     {
       "cliente": "Bradesco Contratos e Pacotes",
@@ -5053,8 +5103,8 @@
       "data": "",
       "mes": "2026-05",
       "volume": 96000,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T15:03:04.439Z"
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T15:27:22.450Z"
     },
     {
       "cliente": "Bradesco Obrigações de Fazer",
@@ -5063,8 +5113,8 @@
       "data": "",
       "mes": "2026-05",
       "volume": 105358.39,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T15:03:04.439Z"
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T15:27:22.450Z"
     },
     {
       "cliente": "CWT",
@@ -5073,8 +5123,8 @@
       "data": "",
       "mes": "2026-05",
       "volume": 66500,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T15:03:04.439Z"
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T15:27:22.450Z"
     },
     {
       "cliente": "GSI Law",
@@ -5083,8 +5133,8 @@
       "data": "",
       "mes": "2026-05",
       "volume": 1000,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T15:03:04.439Z"
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T15:27:22.450Z"
     },
     {
       "cliente": "Hoepers",
@@ -5093,8 +5143,8 @@
       "data": "",
       "mes": "2026-05",
       "volume": 3374.8,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T15:03:04.439Z"
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T15:27:22.450Z"
     },
     {
       "cliente": "Zarro",
@@ -5103,8 +5153,8 @@
       "data": "",
       "mes": "2026-05",
       "volume": 585,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T15:03:04.439Z"
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T15:27:22.450Z"
     },
     {
       "cliente": "Demais Clientes",
@@ -5113,28 +5163,8 @@
       "data": "",
       "mes": "2026-05",
       "volume": 261.11044,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T15:03:04.439Z"
-    },
-    {
-      "cliente": "Agibank",
-      "tipo": "mensal",
-      "linha": "Ofícios",
-      "mes": "2026-05",
-      "data": "",
-      "volume": 1,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T15:03:04.439Z"
-    },
-    {
-      "cliente": "Bradesco CPI",
-      "tipo": "mensal",
-      "linha": "Apoio ADM",
-      "mes": "2026-05",
-      "data": "",
-      "volume": 60,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T15:03:04.439Z"
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-08T15:27:22.450Z"
     }
   ],
   "users": [
