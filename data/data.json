@@ -8,7 +8,7 @@
       {
         "nome": "Agibank",
         "faturamento_anterior": 602976.4600000002,
-        "valor": 277045.73333333334,
+        "valor": 277045.7333333333,
         "esperado": 699867.43,
         "origem": "volume",
         "delta": -0.5398344512188544
@@ -104,7 +104,7 @@
       {
         "nome": "Demais Clientes",
         "faturamento_anterior": 261000,
-        "valor": 298013.63,
+        "valor": 261000,
         "esperado": 261110.44,
         "origem": "volume",
         "delta": 0
