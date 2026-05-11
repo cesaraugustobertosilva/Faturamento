@@ -801,6 +801,38 @@ function recarregarDados(){
   loadData().then(function(){ try{render();}catch(e){} toast('Dados atualizados!','ok'); });
 }
 
+// Recalcula entradas de historico_mensal que foram salvas sem clientes manuais
+function corrigirHistoricoManual(){
+  var mesAtual = new Date().toISOString().slice(0,7);
+  var precisaSalvar = false;
+  D.historico_mensal.forEach(function(h, idx){
+    var mesStr = h.mes.slice(0,7);
+    if(mesStr === mesAtual) return; // mes atual nao é historico
+    var vols = VOLUMES_BASE.filter(function(v){
+      if(v.avulso) return false;
+      if(v.tipo==='diario') return v.data && v.data.startsWith(mesStr);
+      if(v.tipo==='mensal') return v.mes && v.mes.startsWith(mesStr);
+      return false;
+    });
+    if(!vols.length) return;
+    var fat = calcularFaturamentoPorVolume(vols, TARIFAS);
+    var totalVol = Object.keys(fat).reduce(function(s,k){ return s+fat[k]; }, 0);
+    VOLUMES_BASE.filter(function(v){ return v.avulso && v.data && v.data.startsWith(mesStr); })
+      .forEach(function(v){ totalVol += v.volume||0; });
+    var totalManual = 0;
+    D.parceiros.forEach(function(p){
+      if(!TARIFAS[p.nome] && (p.faturamento_anterior||0)>0) totalManual += p.faturamento_anterior;
+    });
+    var totalCorrigido = totalVol + totalManual;
+    // Atualiza apenas se o valor armazenado difere mais de 1% (indica que foi salvo sem manuais)
+    if(totalCorrigido > 0 && Math.abs(totalCorrigido - h.valor) / totalCorrigido > 0.01){
+      D.historico_mensal[idx].valor = totalCorrigido;
+      precisaSalvar = true;
+    }
+  });
+  if(precisaSalvar) saveAll().catch(function(){});
+}
+
 
 async function saveAll(){
   var payload = {d: D, tarifas: TARIFAS, volumes: VOLUMES_BASE, users: USERS};
@@ -1195,9 +1227,21 @@ function verificarFechamentoMes(){
 function render(){
   atualizarFatAnterior();
   var fechou = verificarFechamentoMes();
+  corrigirHistoricoManual();
+  // Aplica projeção atual a D.parceiros antes de renderizar
+  var _r = calcularEAtualizarProjecao();
+  D.parceiros.forEach(function(p, i){
+    var conf = TARIFAS[p.nome];
+    if(!conf) return;
+    var fixo = _r.fatFixo[p.nome]||0;
+    var unit = _r.fatUnitario[p.nome]||0;
+    var avulso = _r.avulsosPorCliente[p.nome]||0;
+    var valorProjetado = fixo + (conf.tipo_cliente==='mensal_fechado' ? unit : (_r.duP>0 ? (unit/_r.duP)*_r.duTotal : 0));
+    D.parceiros[i].valor = valorProjetado + avulso;
+    D.parceiros[i].origem = "volume";
+  });
   renderBannerMesSel();
   renderKPIs();renderComparativos();renderChartH();renderChartP();renderBars();renderTable();
-  calcularEAtualizarProjecao();
   if(fechou) saveAll().catch(function(){});
   // Atualizar labels com mês atual dinamicamente
   var _mesesPT=["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
