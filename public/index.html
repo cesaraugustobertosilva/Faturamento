@@ -313,7 +313,6 @@ tbody tr:nth-child(even){background:#F7FAFA}
     <div class="modal-bd">
       <div class="tabs">
         <button class="tab active" onclick="switchTab(0,this)">Consolidado</button>
-        <button class="tab" onclick="switchTab(1,this)">Parceiros</button>
         <button class="tab" onclick="switchTab(2,this)">Historico</button>
         <button class="tab" onclick="switchTab(3,this)">Feriados</button>
         <button class="tab" id="tab-usuarios" onclick="switchTab(4,this)" style="display:none">Usuarios</button>
@@ -323,11 +322,6 @@ tbody tr:nth-child(even){background:#F7FAFA}
           <div><label for="f3">Média 12 Meses</label><input type="number" id="f3" step="0.01"></div>
           <div><label for="f4">Expectativa de Faturamento</label><input type="number" id="f4" step="0.01"></div>
         </div>
-      </div>
-      <div class="tab-pane" id="tp1">
-        <div class="alert-info">Os valores "Projetado" dos clientes com volume diário são calculados automaticamente pelo motor de projeção. Para clientes mensais fechados, preencha o valor manualmente.</div>
-        <div id="parceiros-form"></div>
-        <button class="btn btn-blue btn-sm" onclick="addParceiro()" style="margin-top:8px">+ Adicionar Parceiro</button>
       </div>
       <div class="tab-pane" id="tp2">
         <div id="historico-form"></div>
@@ -376,65 +370,85 @@ tbody tr:nth-child(even){background:#F7FAFA}
     </div>
     <div class="modal-bd">
 
-      <!-- Navegacao por semana -->
-      <div class="sheet-nav">
-        <button class="sheet-nav-btn" onclick="navSemana(-1)">&#8592; Semana Anterior</button>
-        <span class="sheet-month-label" id="vol-semana-label">---</span>
-        <button class="sheet-nav-btn" onclick="navSemana(1)">Proxima Semana &#8594;</button>
-        <button class="btn btn-green btn-sm" onclick="salvarTodosVolumes()" style="margin-left:auto">Salvar Todos</button>
+      <div class="tabs">
+        <button class="tab active" onclick="switchVolTab(0,this)">Planilha</button>
+        <button class="tab" onclick="switchVolTab(1,this)">Parceiros</button>
       </div>
 
-      <!-- Tabela spreadsheet semanal -->
-      <div class="vol-tabela-wrap" style="max-height:440px;overflow:auto;margin-bottom:16px;border:1px solid #D5E4E1;border-radius:10px">
-        <table class="sheet-table" style="min-width:900px">
-          <thead>
-            <tr>
-              <th style="min-width:140px">Cliente</th>
-              <th style="min-width:150px">Linha de Servico</th>
-              <th style="min-width:100px">Tarifa</th>
-              <th id="th-seg" style="min-width:82px;text-align:center">Seg</th>
-              <th id="th-ter" style="min-width:82px;text-align:center">Ter</th>
-              <th id="th-qua" style="min-width:82px;text-align:center">Qua</th>
-              <th id="th-qui" style="min-width:82px;text-align:center">Qui</th>
-              <th id="th-sex" style="min-width:82px;text-align:center">Sex</th>
-              <th style="min-width:110px;text-align:right">Total Semana</th>
-            </tr>
-          </thead>
-          <tbody id="vol-sheet-tbody"></tbody>
-        </table>
-      </div>
+      <!-- ABA: Planilha de volumes -->
+      <div class="tab-pane active" id="tvp0">
 
-      <!-- Ultima data preenchida -->
-      <div class="card" style="margin-bottom:14px">
-        <div class="card-hd"><h2>Ultima Data Preenchida por Cliente</h2></div>
-        <div id="vol-ultima-data" style="display:flex;flex-wrap:wrap;gap:8px"></div>
-      </div>
-
-      <!-- Historico de registros -->
-      <div class="card">
-        <div class="card-hd">
-          <h2>Todos os Registros</h2>
-          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
-            <label style="font-size:.75rem;color:var(--muted);font-weight:600">De:</label>
-            <input type="date" id="exp-de" class="sheet-date-pick" style="padding:4px 8px;font-size:.78rem">
-            <label style="font-size:.75rem;color:var(--muted);font-weight:600">Ate:</label>
-            <input type="date" id="exp-ate" class="sheet-date-pick" style="padding:4px 8px;font-size:.78rem">
-            <button class="btn btn-blue btn-sm" onclick="exportarVolumesCSV()">Exportar CSV</button>
-            <button class="btn btn-red btn-sm" onclick="apagarBaseVolumes()">Limpar Base</button>
-          </div>
+        <!-- Navegacao por semana -->
+        <div class="sheet-nav">
+          <button class="sheet-nav-btn" onclick="navSemana(-1)">&#8592; Semana Anterior</button>
+          <span class="sheet-month-label" id="vol-semana-label">---</span>
+          <button class="sheet-nav-btn" onclick="navSemana(1)">Proxima Semana &#8594;</button>
+          <button class="btn btn-green btn-sm" onclick="salvarTodosVolumes()" style="margin-left:auto">Salvar Todos</button>
         </div>
-        <div class="vol-tabela-wrap">
-          <table class="vol-tabela" style="width:100%;border-collapse:collapse">
+
+        <!-- Tabela spreadsheet semanal -->
+        <div class="vol-tabela-wrap" style="max-height:440px;overflow:auto;margin-bottom:16px;border:1px solid #D5E4E1;border-radius:10px">
+          <table class="sheet-table" style="min-width:900px">
             <thead>
               <tr>
-                <th>Cliente</th><th>Linha</th><th>Tipo</th><th>Data/Mes</th>
-                <th>Volume</th><th>Valor Calc.</th><th>Preenchido por</th><th></th>
+                <th style="min-width:140px">Cliente</th>
+                <th style="min-width:150px">Linha de Servico</th>
+                <th style="min-width:100px">Tarifa</th>
+                <th id="th-seg" style="min-width:82px;text-align:center">Seg</th>
+                <th id="th-ter" style="min-width:82px;text-align:center">Ter</th>
+                <th id="th-qua" style="min-width:82px;text-align:center">Qua</th>
+                <th id="th-qui" style="min-width:82px;text-align:center">Qui</th>
+                <th id="th-sex" style="min-width:82px;text-align:center">Sex</th>
+                <th style="min-width:110px;text-align:right">Total Semana</th>
               </tr>
             </thead>
-            <tbody id="vol-tbody"></tbody>
+            <tbody id="vol-sheet-tbody"></tbody>
           </table>
         </div>
-      </div>
+
+        <!-- Ultima data preenchida -->
+        <div class="card" style="margin-bottom:14px">
+          <div class="card-hd"><h2>Ultima Data Preenchida por Cliente</h2></div>
+          <div id="vol-ultima-data" style="display:flex;flex-wrap:wrap;gap:8px"></div>
+        </div>
+
+        <!-- Historico de registros -->
+        <div class="card">
+          <div class="card-hd">
+            <h2>Todos os Registros</h2>
+            <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+              <label style="font-size:.75rem;color:var(--muted);font-weight:600">De:</label>
+              <input type="date" id="exp-de" class="sheet-date-pick" style="padding:4px 8px;font-size:.78rem">
+              <label style="font-size:.75rem;color:var(--muted);font-weight:600">Ate:</label>
+              <input type="date" id="exp-ate" class="sheet-date-pick" style="padding:4px 8px;font-size:.78rem">
+              <button class="btn btn-blue btn-sm" onclick="exportarVolumesCSV()">Exportar CSV</button>
+              <button class="btn btn-red btn-sm" onclick="apagarBaseVolumes()">Limpar Base</button>
+            </div>
+          </div>
+          <div class="vol-tabela-wrap">
+            <table class="vol-tabela" style="width:100%;border-collapse:collapse">
+              <thead>
+                <tr>
+                  <th>Cliente</th><th>Linha</th><th>Tipo</th><th>Data/Mes</th>
+                  <th>Volume</th><th>Valor Calc.</th><th>Preenchido por</th><th></th>
+                </tr>
+              </thead>
+              <tbody id="vol-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+
+      </div><!-- fim tvp0 -->
+
+      <!-- ABA: Parceiros -->
+      <div class="tab-pane" id="tvp1">
+        <div class="alert-info">Os valores "Projetado" dos clientes com volume diário são calculados automaticamente pelo motor de projeção. Para clientes mensais fechados, preencha o valor manualmente.</div>
+        <div id="parceiros-form"></div>
+        <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap">
+          <button class="btn btn-blue btn-sm" onclick="addParceiro()">+ Adicionar Parceiro</button>
+          <button class="btn btn-blue" onclick="saveParceirosDados()">Salvar Parceiros</button>
+        </div>
+      </div><!-- fim tvp1 -->
 
     </div>
   </div>
@@ -1200,7 +1214,7 @@ function render(){
 function openModal(){
   document.getElementById("f3").value=D.consolidado.media_12_meses;
   document.getElementById("f4").value=D.consolidado.expectativa_faturamento;
-  renderParceirosFrm();renderHistoricoFrm();renderFeriadosFrm();
+  renderHistoricoFrm();renderFeriadosFrm();
   var isAdmin = CURRENT_USER && CURRENT_USER.perfil==='admin';
   var tabU = document.getElementById('tab-usuarios');
   var tpU  = document.getElementById('tp4');
@@ -1209,10 +1223,18 @@ function openModal(){
   document.getElementById("ov").classList.add("open");
 }
 function switchTab(n,el){
-  document.querySelectorAll(".tab").forEach(function(t){t.classList.remove("active");});
-  document.querySelectorAll(".tab-pane").forEach(function(p){p.classList.remove("active");});
+  var modal=document.getElementById("ov");
+  modal.querySelectorAll(".tab").forEach(function(t){t.classList.remove("active");});
+  modal.querySelectorAll(".tab-pane").forEach(function(p){p.classList.remove("active");});
   el.classList.add("active");
   document.getElementById("tp"+n).classList.add("active");
+}
+function switchVolTab(n,el){
+  var modal=document.getElementById("ov-volumes");
+  modal.querySelectorAll(".tab").forEach(function(t){t.classList.remove("active");});
+  modal.querySelectorAll(".tab-pane").forEach(function(p){p.classList.remove("active");});
+  el.classList.add("active");
+  document.getElementById("tvp"+n).classList.add("active");
 }
 function renderParceirosFrm(){
   var el=document.getElementById("parceiros-form");
@@ -1301,6 +1323,22 @@ function saveData(){
     });
   }
   saveAll().then(function(){ toast("Dados salvos!","ok"); closeModal("ov"); render(); });
+}
+function saveParceirosDados(){
+  D.parceiros=D.parceiros.map(function(p,i){
+    var pnEl=document.getElementById("pn-"+i);
+    var pvEl=document.getElementById("pv-"+i);
+    var peEl=document.getElementById("pe-"+i);
+    var pfaEl=document.getElementById("pfa-"+i);
+    if(!pvEl)return p;
+    var temVolume=!!TARIFAS[p.nome];
+    var v=temVolume?p.valor:+pvEl.value||0;
+    var e=+peEl.value||0;
+    return{nome:pnEl?pnEl.value||p.nome:p.nome,
+      faturamento_anterior:pfaEl?+pfaEl.value||0:p.faturamento_anterior||0,
+      valor:v,esperado:e,origem:temVolume?"volume":p.origem||"manual",delta:e>0?(v-e)/e:null};
+  });
+  saveAll().then(function(){ toast("Parceiros salvos!","ok"); render(); renderParceirosFrm(); });
 }
 
 // ============================================================
@@ -1512,6 +1550,7 @@ function openModalVolumes(){
   var ateEl = document.getElementById('exp-ate');
   if(deEl && !deEl.value) deEl.value = ano+'-'+mes+'-01';
   if(ateEl && !ateEl.value) ateEl.value = ano+'-'+mes+'-'+String(ultimoDia).padStart(2,'0');
+  renderParceirosFrm();
   renderVolSheet();
   renderVolTabela();
   document.getElementById("ov-volumes").classList.add("open");
@@ -1763,6 +1802,21 @@ function salvarTodosVolumes(){
       paresMensais[mc] = {cliente:inp.dataset.cliente, mes:inp.dataset.mes||volMesAtual};
     }
   });
+  // Captura metadados dos registros existentes antes de remover (preserva autor/data quando valor nao mudou)
+  var metaDiario = {};
+  var metaMensal = {};
+  var metaFixo = {};
+  VOLUMES_BASE.forEach(function(v){
+    if(v.avulso) return;
+    if(v.tipo==='diario'){
+      var chave = v.cliente+'||'+v.linha+'||'+v.data;
+      if(paresDiarios[chave]) metaDiario[chave+'||'+v.volume]={preenchidoPor:v.preenchidoPor,preenchidoEm:v.preenchidoEm};
+    } else if(v.tipo==='mensal'){
+      var mc = v.cliente+'||'+v.mes;
+      if(paresMensais[mc]) metaMensal[mc+'||'+v.volume]={preenchidoPor:v.preenchidoPor,preenchidoEm:v.preenchidoEm};
+      if(v.linha) metaFixo[v.cliente+'||'+v.linha+'||'+v.mes+'||'+v.volume]={preenchidoPor:v.preenchidoPor,preenchidoEm:v.preenchidoEm};
+    }
+  });
   // Remove registros existentes para os pares desta semana
   Object.values(paresDiarios).forEach(function(p){
     VOLUMES_BASE = VOLUMES_BASE.filter(function(v){
@@ -1774,18 +1828,26 @@ function salvarTodosVolumes(){
       return !(v.cliente===p.cliente && v.tipo==='mensal' && v.mes===p.mes && !v.avulso);
     });
   });
-  // Insere os novos valores
+  // Insere os novos valores preservando metadados quando o volume nao mudou
   inputs.forEach(function(inp){
     var volume = inp.value!=='' ? parseFloat(inp.value) : null;
     if(volume===null || volume<=0) return;
     if(inp.dataset.tipo==='diario'){
+      var chave = inp.dataset.cliente+'||'+inp.dataset.linha+'||'+inp.dataset.data;
+      var mk = chave+'||'+volume;
+      var meta = metaDiario[mk] || null;
+      if(!meta) changed++;
       VOLUMES_BASE.push({cliente:inp.dataset.cliente,tipo:'diario',linha:inp.dataset.linha,
-        data:inp.dataset.data,mes:'',volume:volume,preenchidoPor:quem,preenchidoEm:agora});
-      changed++;
+        data:inp.dataset.data,mes:'',volume:volume,
+        preenchidoPor:meta?meta.preenchidoPor:quem,preenchidoEm:meta?meta.preenchidoEm:agora});
     } else {
+      var mc = inp.dataset.cliente+'||'+(inp.dataset.mes||volMesAtual);
+      var mk = mc+'||'+volume;
+      var meta = metaMensal[mk] || null;
+      if(!meta) changed++;
       VOLUMES_BASE.push({cliente:inp.dataset.cliente,tipo:'mensal',linha:'',data:'',
-        mes:inp.dataset.mes||volMesAtual,volume:volume,preenchidoPor:quem,preenchidoEm:agora});
-      changed++;
+        mes:inp.dataset.mes||volMesAtual,volume:volume,
+        preenchidoPor:meta?meta.preenchidoPor:quem,preenchidoEm:meta?meta.preenchidoEm:agora});
     }
   });
   // Processa linhas fee fixo (input mensal unico por linha)
@@ -1800,9 +1862,11 @@ function salvarTodosVolumes(){
     });
     var vol=inp.value!==''?parseFloat(inp.value):null;
     if(vol!==null&&vol>0){
+      var mk=cli+'||'+lin+'||'+mes+'||'+vol;
+      var meta=metaFixo[mk]||null;
+      if(!meta) changed++;
       VOLUMES_BASE.push({cliente:cli,tipo:'mensal',linha:lin,mes:mes,data:'',
-        volume:vol,preenchidoPor:quem,preenchidoEm:agora});
-      changed++;
+        volume:vol,preenchidoPor:meta?meta.preenchidoPor:quem,preenchidoEm:meta?meta.preenchidoEm:agora});
     }
   });
   // Processa campos de ajuste (avulso mensal por cliente)
