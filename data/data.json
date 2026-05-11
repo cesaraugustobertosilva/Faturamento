@@ -71,7 +71,7 @@
       },
       {
         "nome": "Bradesco Contratos e Pacotes",
-        "faturamento_anterior": 96,
+        "faturamento_anterior": 96000,
         "valor": 96000.49,
         "esperado": 122839.45,
         "origem": "volume",
@@ -3044,856 +3044,6 @@
       "cliente": "Agibank",
       "tipo": "diario",
       "linha": "Linha de Captura",
-      "data": "2026-04-20",
-      "mes": "",
-      "volume": 1156,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Agibank",
-      "tipo": "diario",
-      "linha": "Linha de Captura",
-      "data": "2026-04-22",
-      "mes": "",
-      "volume": 926,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Agibank",
-      "tipo": "diario",
-      "linha": "Linha de Captura",
-      "data": "2026-04-23",
-      "mes": "",
-      "volume": 1005,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Agibank",
-      "tipo": "diario",
-      "linha": "Linha de Captura",
-      "data": "2026-04-24",
-      "mes": "",
-      "volume": 944,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Agibank",
-      "tipo": "diario",
-      "linha": "Análise e Cadastro",
-      "data": "2026-04-20",
-      "mes": "",
-      "volume": 1173,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Agibank",
-      "tipo": "diario",
-      "linha": "Análise e Cadastro",
-      "data": "2026-04-22",
-      "mes": "",
-      "volume": 599,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Agibank",
-      "tipo": "diario",
-      "linha": "Análise e Cadastro",
-      "data": "2026-04-23",
-      "mes": "",
-      "volume": 855,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Agibank",
-      "tipo": "diario",
-      "linha": "Análise e Cadastro",
-      "data": "2026-04-24",
-      "mes": "",
-      "volume": 1154,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Agibank",
-      "tipo": "diario",
-      "linha": "Subsídios",
-      "data": "2026-04-20",
-      "mes": "",
-      "volume": 44,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Agibank",
-      "tipo": "diario",
-      "linha": "Subsídios",
-      "data": "2026-04-22",
-      "mes": "",
-      "volume": 46,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Agibank",
-      "tipo": "diario",
-      "linha": "Subsídios",
-      "data": "2026-04-23",
-      "mes": "",
-      "volume": 46,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Agibank",
-      "tipo": "diario",
-      "linha": "Subsídios",
-      "data": "2026-04-24",
-      "mes": "",
-      "volume": 45,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Agibank",
-      "tipo": "diario",
-      "linha": "Contratos",
-      "data": "2026-04-20",
-      "mes": "",
-      "volume": 322,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Agibank",
-      "tipo": "diario",
-      "linha": "Contratos",
-      "data": "2026-04-22",
-      "mes": "",
-      "volume": 412,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Agibank",
-      "tipo": "diario",
-      "linha": "Contratos",
-      "data": "2026-04-23",
-      "mes": "",
-      "volume": 410,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Agibank",
-      "tipo": "diario",
-      "linha": "Contratos",
-      "data": "2026-04-24",
-      "mes": "",
-      "volume": 320,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Bradesco CPI",
-      "tipo": "diario",
-      "linha": "Bobina Eletrônica",
-      "data": "2026-04-20",
-      "mes": "",
-      "volume": 1,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Bradesco CPI",
-      "tipo": "diario",
-      "linha": "Bobina Eletrônica",
-      "data": "2026-04-22",
-      "mes": "",
-      "volume": 6,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Bradesco CPI",
-      "tipo": "diario",
-      "linha": "Bobina Eletrônica",
-      "data": "2026-04-23",
-      "mes": "",
-      "volume": 1,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Bradesco CPI",
-      "tipo": "diario",
-      "linha": "Carteira de Cobrança",
-      "data": "2026-04-20",
-      "mes": "",
-      "volume": 4,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Bradesco CPI",
-      "tipo": "diario",
-      "linha": "Carteira de Cobrança",
-      "data": "2026-04-22",
-      "mes": "",
-      "volume": 191,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Bradesco CPI",
-      "tipo": "diario",
-      "linha": "Carteira de Cobrança",
-      "data": "2026-04-23",
-      "mes": "",
-      "volume": 115,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Bradesco CPI",
-      "tipo": "diario",
-      "linha": "TED/PAGFOR/NATIVO",
-      "data": "2026-04-20",
-      "mes": "",
-      "volume": 28,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Bradesco CPI",
-      "tipo": "diario",
-      "linha": "TED/PAGFOR/NATIVO",
-      "data": "2026-04-22",
-      "mes": "",
-      "volume": 11,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Bradesco CPI",
-      "tipo": "diario",
-      "linha": "TED/PAGFOR/NATIVO",
-      "data": "2026-04-23",
-      "mes": "",
-      "volume": 23,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Bradesco CPI",
-      "tipo": "diario",
-      "linha": "TED/PAGFOR/NATIVO",
-      "data": "2026-04-24",
-      "mes": "",
-      "volume": 25,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Bradesco CPI",
-      "tipo": "diario",
-      "linha": "Cheque",
-      "data": "2026-04-20",
-      "mes": "",
-      "volume": 28,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Bradesco CPI",
-      "tipo": "diario",
-      "linha": "Cheque",
-      "data": "2026-04-22",
-      "mes": "",
-      "volume": 25,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Bradesco CPI",
-      "tipo": "diario",
-      "linha": "Cheque",
-      "data": "2026-04-23",
-      "mes": "",
-      "volume": 13,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Bradesco CPI",
-      "tipo": "diario",
-      "linha": "Cheque",
-      "data": "2026-04-24",
-      "mes": "",
-      "volume": 1,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Bradesco Digitação",
-      "tipo": "diario",
-      "linha": "Custódia DN - Tipo A",
-      "data": "2026-04-20",
-      "mes": "",
-      "volume": 461,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Bradesco Digitação",
-      "tipo": "diario",
-      "linha": "Custódia DN - Tipo A",
-      "data": "2026-04-22",
-      "mes": "",
-      "volume": 115,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Bradesco Digitação",
-      "tipo": "diario",
-      "linha": "Custódia DN - Tipo A",
-      "data": "2026-04-23",
-      "mes": "",
-      "volume": 204,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Bradesco Digitação",
-      "tipo": "diario",
-      "linha": "Custódia DN - Tipo A",
-      "data": "2026-04-24",
-      "mes": "",
-      "volume": 164,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Bradesco Digitação",
-      "tipo": "diario",
-      "linha": "Custódia SB - Tipo B",
-      "data": "2026-04-20",
-      "mes": "",
-      "volume": 506,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Bradesco Digitação",
-      "tipo": "diario",
-      "linha": "Custódia SB - Tipo B",
-      "data": "2026-04-22",
-      "mes": "",
-      "volume": 745,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Bradesco Digitação",
-      "tipo": "diario",
-      "linha": "Custódia SB - Tipo B",
-      "data": "2026-04-23",
-      "mes": "",
-      "volume": 183,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Bradesco Digitação",
-      "tipo": "diario",
-      "linha": "Custódia SB - Tipo B",
-      "data": "2026-04-24",
-      "mes": "",
-      "volume": 376,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Bradesco Digitação",
-      "tipo": "diario",
-      "linha": "Custódia Tipo D",
-      "data": "2026-04-20",
-      "mes": "",
-      "volume": 208,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Bradesco Digitação",
-      "tipo": "diario",
-      "linha": "Custódia Tipo D",
-      "data": "2026-04-22",
-      "mes": "",
-      "volume": 244,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Bradesco Digitação",
-      "tipo": "diario",
-      "linha": "Custódia Tipo D",
-      "data": "2026-04-23",
-      "mes": "",
-      "volume": 182,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Bradesco Digitação",
-      "tipo": "diario",
-      "linha": "Custódia Tipo D",
-      "data": "2026-04-24",
-      "mes": "",
-      "volume": 96,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Bradesco Digitação",
-      "tipo": "diario",
-      "linha": "Complementação",
-      "data": "2026-04-20",
-      "mes": "",
-      "volume": 2296,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Bradesco Digitação",
-      "tipo": "diario",
-      "linha": "Complementação",
-      "data": "2026-04-22",
-      "mes": "",
-      "volume": 2497,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Bradesco Digitação",
-      "tipo": "diario",
-      "linha": "Complementação",
-      "data": "2026-04-23",
-      "mes": "",
-      "volume": 2389,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Bradesco Digitação",
-      "tipo": "diario",
-      "linha": "Complementação",
-      "data": "2026-04-24",
-      "mes": "",
-      "volume": 2128,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Bradesco Digitação",
-      "tipo": "diario",
-      "linha": "Complem. Dinâmico",
-      "data": "2026-04-20",
-      "mes": "",
-      "volume": 189,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Bradesco Digitação",
-      "tipo": "diario",
-      "linha": "Complem. Dinâmico",
-      "data": "2026-04-22",
-      "mes": "",
-      "volume": 205,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Bradesco Digitação",
-      "tipo": "diario",
-      "linha": "Complem. Dinâmico",
-      "data": "2026-04-23",
-      "mes": "",
-      "volume": 206,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Bradesco Digitação",
-      "tipo": "diario",
-      "linha": "Complem. Dinâmico",
-      "data": "2026-04-24",
-      "mes": "",
-      "volume": 200,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Bradesco Esteira Única",
-      "tipo": "diario",
-      "linha": "Cadastro Judicial",
-      "data": "2026-04-20",
-      "mes": "",
-      "volume": 554,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Bradesco Esteira Única",
-      "tipo": "diario",
-      "linha": "Cadastro Judicial",
-      "data": "2026-04-22",
-      "mes": "",
-      "volume": 721,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Bradesco Esteira Única",
-      "tipo": "diario",
-      "linha": "Cadastro Judicial",
-      "data": "2026-04-23",
-      "mes": "",
-      "volume": 611,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Bradesco Esteira Única",
-      "tipo": "diario",
-      "linha": "Cadastro Judicial",
-      "data": "2026-04-24",
-      "mes": "",
-      "volume": 789,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Bradesco Esteira Única",
-      "tipo": "diario",
-      "linha": "Processos Cancelados",
-      "data": "2026-04-20",
-      "mes": "",
-      "volume": 12,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Bradesco Esteira Única",
-      "tipo": "diario",
-      "linha": "Processos Cancelados",
-      "data": "2026-04-22",
-      "mes": "",
-      "volume": 20,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Bradesco Esteira Única",
-      "tipo": "diario",
-      "linha": "Processos Cancelados",
-      "data": "2026-04-23",
-      "mes": "",
-      "volume": 20,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Bradesco Esteira Única",
-      "tipo": "diario",
-      "linha": "Processos Cancelados",
-      "data": "2026-04-24",
-      "mes": "",
-      "volume": 28,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Bradesco Esteira Única",
-      "tipo": "diario",
-      "linha": "Subsídios Complementação",
-      "data": "2026-04-20",
-      "mes": "",
-      "volume": 3,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Bradesco Esteira Única",
-      "tipo": "diario",
-      "linha": "Subsídios Complementação",
-      "data": "2026-04-22",
-      "mes": "",
-      "volume": 130,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Bradesco Esteira Única",
-      "tipo": "diario",
-      "linha": "Captura de Iniciais",
-      "data": "2026-04-20",
-      "mes": "",
-      "volume": 622,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Bradesco Esteira Única",
-      "tipo": "diario",
-      "linha": "Captura de Iniciais",
-      "data": "2026-04-22",
-      "mes": "",
-      "volume": 608,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Bradesco Esteira Única",
-      "tipo": "diario",
-      "linha": "Captura de Iniciais",
-      "data": "2026-04-23",
-      "mes": "",
-      "volume": 645,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Bradesco Esteira Única",
-      "tipo": "diario",
-      "linha": "Captura de Iniciais",
-      "data": "2026-04-24",
-      "mes": "",
-      "volume": 741,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Eagle",
-      "tipo": "diario",
-      "linha": "Cadastro Judicial",
-      "data": "2026-04-20",
-      "mes": "",
-      "volume": 47,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Eagle",
-      "tipo": "diario",
-      "linha": "Cadastro Judicial",
-      "data": "2026-04-22",
-      "mes": "",
-      "volume": 44,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Eagle",
-      "tipo": "diario",
-      "linha": "Cadastro Judicial",
-      "data": "2026-04-23",
-      "mes": "",
-      "volume": 1,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Eagle",
-      "tipo": "diario",
-      "linha": "Cadastro Judicial",
-      "data": "2026-04-24",
-      "mes": "",
-      "volume": 63,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Eagle",
-      "tipo": "diario",
-      "linha": "Captura de Iniciais",
-      "data": "2026-04-20",
-      "mes": "",
-      "volume": 47,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Eagle",
-      "tipo": "diario",
-      "linha": "Captura de Iniciais",
-      "data": "2026-04-22",
-      "mes": "",
-      "volume": 44,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Eagle",
-      "tipo": "diario",
-      "linha": "Captura de Iniciais",
-      "data": "2026-04-23",
-      "mes": "",
-      "volume": 1,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Eagle",
-      "tipo": "diario",
-      "linha": "Captura de Iniciais",
-      "data": "2026-04-24",
-      "mes": "",
-      "volume": 63,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Zurich",
-      "tipo": "diario",
-      "linha": "Cadastro Benner",
-      "data": "2026-04-22",
-      "mes": "",
-      "volume": 8,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Zurich",
-      "tipo": "diario",
-      "linha": "Cadastro Benner",
-      "data": "2026-04-23",
-      "mes": "",
-      "volume": 19,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Zurich",
-      "tipo": "diario",
-      "linha": "Cadastro Benner",
-      "data": "2026-04-24",
-      "mes": "",
-      "volume": 17,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Zurich",
-      "tipo": "diario",
-      "linha": "Cadastro Sinjud",
-      "data": "2026-04-22",
-      "mes": "",
-      "volume": 8,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Zurich",
-      "tipo": "diario",
-      "linha": "Cadastro Sinjud",
-      "data": "2026-04-23",
-      "mes": "",
-      "volume": 19,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Zurich",
-      "tipo": "diario",
-      "linha": "Cadastro Sinjud",
-      "data": "2026-04-24",
-      "mes": "",
-      "volume": 17,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Zurich",
-      "tipo": "diario",
-      "linha": "Tratativa Completa",
-      "data": "2026-04-22",
-      "mes": "",
-      "volume": 8,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Zurich",
-      "tipo": "diario",
-      "linha": "Tratativa Completa",
-      "data": "2026-04-23",
-      "mes": "",
-      "volume": 19,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Zurich",
-      "tipo": "diario",
-      "linha": "Tratativa Completa",
-      "data": "2026-04-24",
-      "mes": "",
-      "volume": 17,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Zurich",
-      "tipo": "diario",
-      "linha": "Intimação",
-      "data": "2026-04-20",
-      "mes": "",
-      "volume": 7,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Zurich",
-      "tipo": "diario",
-      "linha": "Intimação",
-      "data": "2026-04-22",
-      "mes": "",
-      "volume": 5,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Zurich",
-      "tipo": "diario",
-      "linha": "Intimação",
-      "data": "2026-04-23",
-      "mes": "",
-      "volume": 12,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Zurich",
-      "tipo": "diario",
-      "linha": "Intimação",
-      "data": "2026-04-24",
-      "mes": "",
-      "volume": 7,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T21:09:52.748Z"
-    },
-    {
-      "cliente": "Agibank",
-      "tipo": "diario",
-      "linha": "Linha de Captura",
       "data": "2026-05-04",
       "mes": "",
       "volume": 1185,
@@ -5501,6 +4651,856 @@
       "preenchidoEm": "2026-05-08T21:18:03.552Z"
     },
     {
+      "cliente": "Agibank",
+      "tipo": "diario",
+      "linha": "Linha de Captura",
+      "data": "2026-04-20",
+      "mes": "",
+      "volume": 1156,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Agibank",
+      "tipo": "diario",
+      "linha": "Linha de Captura",
+      "data": "2026-04-22",
+      "mes": "",
+      "volume": 926,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Agibank",
+      "tipo": "diario",
+      "linha": "Linha de Captura",
+      "data": "2026-04-23",
+      "mes": "",
+      "volume": 1005,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Agibank",
+      "tipo": "diario",
+      "linha": "Linha de Captura",
+      "data": "2026-04-24",
+      "mes": "",
+      "volume": 944,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Agibank",
+      "tipo": "diario",
+      "linha": "Análise e Cadastro",
+      "data": "2026-04-20",
+      "mes": "",
+      "volume": 1173,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Agibank",
+      "tipo": "diario",
+      "linha": "Análise e Cadastro",
+      "data": "2026-04-22",
+      "mes": "",
+      "volume": 599,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Agibank",
+      "tipo": "diario",
+      "linha": "Análise e Cadastro",
+      "data": "2026-04-23",
+      "mes": "",
+      "volume": 855,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Agibank",
+      "tipo": "diario",
+      "linha": "Análise e Cadastro",
+      "data": "2026-04-24",
+      "mes": "",
+      "volume": 1154,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Agibank",
+      "tipo": "diario",
+      "linha": "Subsídios",
+      "data": "2026-04-20",
+      "mes": "",
+      "volume": 44,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Agibank",
+      "tipo": "diario",
+      "linha": "Subsídios",
+      "data": "2026-04-22",
+      "mes": "",
+      "volume": 46,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Agibank",
+      "tipo": "diario",
+      "linha": "Subsídios",
+      "data": "2026-04-23",
+      "mes": "",
+      "volume": 46,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Agibank",
+      "tipo": "diario",
+      "linha": "Subsídios",
+      "data": "2026-04-24",
+      "mes": "",
+      "volume": 45,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Agibank",
+      "tipo": "diario",
+      "linha": "Contratos",
+      "data": "2026-04-20",
+      "mes": "",
+      "volume": 322,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Agibank",
+      "tipo": "diario",
+      "linha": "Contratos",
+      "data": "2026-04-22",
+      "mes": "",
+      "volume": 412,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Agibank",
+      "tipo": "diario",
+      "linha": "Contratos",
+      "data": "2026-04-23",
+      "mes": "",
+      "volume": 410,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Agibank",
+      "tipo": "diario",
+      "linha": "Contratos",
+      "data": "2026-04-24",
+      "mes": "",
+      "volume": 320,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Bradesco CPI",
+      "tipo": "diario",
+      "linha": "Bobina Eletrônica",
+      "data": "2026-04-20",
+      "mes": "",
+      "volume": 1,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Bradesco CPI",
+      "tipo": "diario",
+      "linha": "Bobina Eletrônica",
+      "data": "2026-04-22",
+      "mes": "",
+      "volume": 6,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Bradesco CPI",
+      "tipo": "diario",
+      "linha": "Bobina Eletrônica",
+      "data": "2026-04-23",
+      "mes": "",
+      "volume": 1,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Bradesco CPI",
+      "tipo": "diario",
+      "linha": "Carteira de Cobrança",
+      "data": "2026-04-20",
+      "mes": "",
+      "volume": 4,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Bradesco CPI",
+      "tipo": "diario",
+      "linha": "Carteira de Cobrança",
+      "data": "2026-04-22",
+      "mes": "",
+      "volume": 191,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Bradesco CPI",
+      "tipo": "diario",
+      "linha": "Carteira de Cobrança",
+      "data": "2026-04-23",
+      "mes": "",
+      "volume": 115,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Bradesco CPI",
+      "tipo": "diario",
+      "linha": "TED/PAGFOR/NATIVO",
+      "data": "2026-04-20",
+      "mes": "",
+      "volume": 28,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Bradesco CPI",
+      "tipo": "diario",
+      "linha": "TED/PAGFOR/NATIVO",
+      "data": "2026-04-22",
+      "mes": "",
+      "volume": 11,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Bradesco CPI",
+      "tipo": "diario",
+      "linha": "TED/PAGFOR/NATIVO",
+      "data": "2026-04-23",
+      "mes": "",
+      "volume": 23,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Bradesco CPI",
+      "tipo": "diario",
+      "linha": "TED/PAGFOR/NATIVO",
+      "data": "2026-04-24",
+      "mes": "",
+      "volume": 25,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Bradesco CPI",
+      "tipo": "diario",
+      "linha": "Cheque",
+      "data": "2026-04-20",
+      "mes": "",
+      "volume": 28,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Bradesco CPI",
+      "tipo": "diario",
+      "linha": "Cheque",
+      "data": "2026-04-22",
+      "mes": "",
+      "volume": 25,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Bradesco CPI",
+      "tipo": "diario",
+      "linha": "Cheque",
+      "data": "2026-04-23",
+      "mes": "",
+      "volume": 13,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Bradesco CPI",
+      "tipo": "diario",
+      "linha": "Cheque",
+      "data": "2026-04-24",
+      "mes": "",
+      "volume": 1,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Bradesco Digitação",
+      "tipo": "diario",
+      "linha": "Custódia DN - Tipo A",
+      "data": "2026-04-20",
+      "mes": "",
+      "volume": 461,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Bradesco Digitação",
+      "tipo": "diario",
+      "linha": "Custódia DN - Tipo A",
+      "data": "2026-04-22",
+      "mes": "",
+      "volume": 115,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Bradesco Digitação",
+      "tipo": "diario",
+      "linha": "Custódia DN - Tipo A",
+      "data": "2026-04-23",
+      "mes": "",
+      "volume": 204,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Bradesco Digitação",
+      "tipo": "diario",
+      "linha": "Custódia DN - Tipo A",
+      "data": "2026-04-24",
+      "mes": "",
+      "volume": 164,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Bradesco Digitação",
+      "tipo": "diario",
+      "linha": "Custódia SB - Tipo B",
+      "data": "2026-04-20",
+      "mes": "",
+      "volume": 506,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Bradesco Digitação",
+      "tipo": "diario",
+      "linha": "Custódia SB - Tipo B",
+      "data": "2026-04-22",
+      "mes": "",
+      "volume": 745,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Bradesco Digitação",
+      "tipo": "diario",
+      "linha": "Custódia SB - Tipo B",
+      "data": "2026-04-23",
+      "mes": "",
+      "volume": 183,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Bradesco Digitação",
+      "tipo": "diario",
+      "linha": "Custódia SB - Tipo B",
+      "data": "2026-04-24",
+      "mes": "",
+      "volume": 376,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Bradesco Digitação",
+      "tipo": "diario",
+      "linha": "Custódia Tipo D",
+      "data": "2026-04-20",
+      "mes": "",
+      "volume": 208,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Bradesco Digitação",
+      "tipo": "diario",
+      "linha": "Custódia Tipo D",
+      "data": "2026-04-22",
+      "mes": "",
+      "volume": 244,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Bradesco Digitação",
+      "tipo": "diario",
+      "linha": "Custódia Tipo D",
+      "data": "2026-04-23",
+      "mes": "",
+      "volume": 182,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Bradesco Digitação",
+      "tipo": "diario",
+      "linha": "Custódia Tipo D",
+      "data": "2026-04-24",
+      "mes": "",
+      "volume": 96,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Bradesco Digitação",
+      "tipo": "diario",
+      "linha": "Complementação",
+      "data": "2026-04-20",
+      "mes": "",
+      "volume": 2296,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Bradesco Digitação",
+      "tipo": "diario",
+      "linha": "Complementação",
+      "data": "2026-04-22",
+      "mes": "",
+      "volume": 2497,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Bradesco Digitação",
+      "tipo": "diario",
+      "linha": "Complementação",
+      "data": "2026-04-23",
+      "mes": "",
+      "volume": 2389,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Bradesco Digitação",
+      "tipo": "diario",
+      "linha": "Complementação",
+      "data": "2026-04-24",
+      "mes": "",
+      "volume": 2128,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Bradesco Digitação",
+      "tipo": "diario",
+      "linha": "Complem. Dinâmico",
+      "data": "2026-04-20",
+      "mes": "",
+      "volume": 189,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Bradesco Digitação",
+      "tipo": "diario",
+      "linha": "Complem. Dinâmico",
+      "data": "2026-04-22",
+      "mes": "",
+      "volume": 205,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Bradesco Digitação",
+      "tipo": "diario",
+      "linha": "Complem. Dinâmico",
+      "data": "2026-04-23",
+      "mes": "",
+      "volume": 206,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Bradesco Digitação",
+      "tipo": "diario",
+      "linha": "Complem. Dinâmico",
+      "data": "2026-04-24",
+      "mes": "",
+      "volume": 200,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Bradesco Esteira Única",
+      "tipo": "diario",
+      "linha": "Cadastro Judicial",
+      "data": "2026-04-20",
+      "mes": "",
+      "volume": 554,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Bradesco Esteira Única",
+      "tipo": "diario",
+      "linha": "Cadastro Judicial",
+      "data": "2026-04-22",
+      "mes": "",
+      "volume": 721,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Bradesco Esteira Única",
+      "tipo": "diario",
+      "linha": "Cadastro Judicial",
+      "data": "2026-04-23",
+      "mes": "",
+      "volume": 611,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Bradesco Esteira Única",
+      "tipo": "diario",
+      "linha": "Cadastro Judicial",
+      "data": "2026-04-24",
+      "mes": "",
+      "volume": 789,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Bradesco Esteira Única",
+      "tipo": "diario",
+      "linha": "Processos Cancelados",
+      "data": "2026-04-20",
+      "mes": "",
+      "volume": 12,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Bradesco Esteira Única",
+      "tipo": "diario",
+      "linha": "Processos Cancelados",
+      "data": "2026-04-22",
+      "mes": "",
+      "volume": 20,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Bradesco Esteira Única",
+      "tipo": "diario",
+      "linha": "Processos Cancelados",
+      "data": "2026-04-23",
+      "mes": "",
+      "volume": 20,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Bradesco Esteira Única",
+      "tipo": "diario",
+      "linha": "Processos Cancelados",
+      "data": "2026-04-24",
+      "mes": "",
+      "volume": 28,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Bradesco Esteira Única",
+      "tipo": "diario",
+      "linha": "Subsídios Complementação",
+      "data": "2026-04-20",
+      "mes": "",
+      "volume": 3,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Bradesco Esteira Única",
+      "tipo": "diario",
+      "linha": "Subsídios Complementação",
+      "data": "2026-04-22",
+      "mes": "",
+      "volume": 130,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Bradesco Esteira Única",
+      "tipo": "diario",
+      "linha": "Captura de Iniciais",
+      "data": "2026-04-20",
+      "mes": "",
+      "volume": 622,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Bradesco Esteira Única",
+      "tipo": "diario",
+      "linha": "Captura de Iniciais",
+      "data": "2026-04-22",
+      "mes": "",
+      "volume": 608,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Bradesco Esteira Única",
+      "tipo": "diario",
+      "linha": "Captura de Iniciais",
+      "data": "2026-04-23",
+      "mes": "",
+      "volume": 645,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Bradesco Esteira Única",
+      "tipo": "diario",
+      "linha": "Captura de Iniciais",
+      "data": "2026-04-24",
+      "mes": "",
+      "volume": 741,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Eagle",
+      "tipo": "diario",
+      "linha": "Cadastro Judicial",
+      "data": "2026-04-20",
+      "mes": "",
+      "volume": 47,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Eagle",
+      "tipo": "diario",
+      "linha": "Cadastro Judicial",
+      "data": "2026-04-22",
+      "mes": "",
+      "volume": 44,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Eagle",
+      "tipo": "diario",
+      "linha": "Cadastro Judicial",
+      "data": "2026-04-23",
+      "mes": "",
+      "volume": 1,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Eagle",
+      "tipo": "diario",
+      "linha": "Cadastro Judicial",
+      "data": "2026-04-24",
+      "mes": "",
+      "volume": 63,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Eagle",
+      "tipo": "diario",
+      "linha": "Captura de Iniciais",
+      "data": "2026-04-20",
+      "mes": "",
+      "volume": 47,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Eagle",
+      "tipo": "diario",
+      "linha": "Captura de Iniciais",
+      "data": "2026-04-22",
+      "mes": "",
+      "volume": 44,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Eagle",
+      "tipo": "diario",
+      "linha": "Captura de Iniciais",
+      "data": "2026-04-23",
+      "mes": "",
+      "volume": 1,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Eagle",
+      "tipo": "diario",
+      "linha": "Captura de Iniciais",
+      "data": "2026-04-24",
+      "mes": "",
+      "volume": 63,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Zurich",
+      "tipo": "diario",
+      "linha": "Cadastro Benner",
+      "data": "2026-04-22",
+      "mes": "",
+      "volume": 8,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Zurich",
+      "tipo": "diario",
+      "linha": "Cadastro Benner",
+      "data": "2026-04-23",
+      "mes": "",
+      "volume": 19,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Zurich",
+      "tipo": "diario",
+      "linha": "Cadastro Benner",
+      "data": "2026-04-24",
+      "mes": "",
+      "volume": 17,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Zurich",
+      "tipo": "diario",
+      "linha": "Cadastro Sinjud",
+      "data": "2026-04-22",
+      "mes": "",
+      "volume": 8,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Zurich",
+      "tipo": "diario",
+      "linha": "Cadastro Sinjud",
+      "data": "2026-04-23",
+      "mes": "",
+      "volume": 19,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Zurich",
+      "tipo": "diario",
+      "linha": "Cadastro Sinjud",
+      "data": "2026-04-24",
+      "mes": "",
+      "volume": 17,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Zurich",
+      "tipo": "diario",
+      "linha": "Tratativa Completa",
+      "data": "2026-04-22",
+      "mes": "",
+      "volume": 8,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Zurich",
+      "tipo": "diario",
+      "linha": "Tratativa Completa",
+      "data": "2026-04-23",
+      "mes": "",
+      "volume": 19,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Zurich",
+      "tipo": "diario",
+      "linha": "Tratativa Completa",
+      "data": "2026-04-24",
+      "mes": "",
+      "volume": 17,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Zurich",
+      "tipo": "diario",
+      "linha": "Intimação",
+      "data": "2026-04-20",
+      "mes": "",
+      "volume": 7,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Zurich",
+      "tipo": "diario",
+      "linha": "Intimação",
+      "data": "2026-04-22",
+      "mes": "",
+      "volume": 5,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Zurich",
+      "tipo": "diario",
+      "linha": "Intimação",
+      "data": "2026-04-23",
+      "mes": "",
+      "volume": 12,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
+      "cliente": "Zurich",
+      "tipo": "diario",
+      "linha": "Intimação",
+      "data": "2026-04-24",
+      "mes": "",
+      "volume": 7,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T21:09:52.748Z"
+    },
+    {
       "cliente": "Bradesco Contratos e Pacotes",
       "tipo": "mensal",
       "linha": "",
@@ -5519,6 +5519,16 @@
       "volume": 105358.39,
       "preenchidoPor": "César Augusto",
       "preenchidoEm": "2026-05-08T21:18:03.552Z"
+    },
+    {
+      "cliente": "CWT",
+      "tipo": "mensal",
+      "linha": "",
+      "data": "",
+      "mes": "2026-04",
+      "volume": 66538.01,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-11T14:03:42.635Z"
     },
     {
       "cliente": "GSI Law",
@@ -5568,7 +5578,7 @@
       "mes": "2026-04",
       "volume": 210555.16,
       "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-11T11:42:49.988Z"
+      "preenchidoEm": "2026-05-11T14:03:42.635Z"
     },
     {
       "cliente": "Bradesco CPI",
@@ -5578,7 +5588,7 @@
       "mes": "2026-04",
       "volume": 440698.53,
       "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-11T11:42:49.988Z"
+      "preenchidoEm": "2026-05-11T14:03:42.635Z"
     },
     {
       "cliente": "Bradesco Esteira Única",
@@ -5588,7 +5598,7 @@
       "mes": "2026-04",
       "volume": 22432.3,
       "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-11T11:42:49.988Z"
+      "preenchidoEm": "2026-05-11T14:03:42.635Z"
     }
   ],
   "users": [
