@@ -4971,6 +4971,16 @@
       "preenchidoEm": "2026-05-08T19:27:57.515Z"
     },
     {
+      "cliente": "Agibank",
+      "tipo": "diario",
+      "linha": "Contratos",
+      "data": "2026-05-08",
+      "mes": "",
+      "volume": 400,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-11T20:13:35.788Z"
+    },
+    {
       "cliente": "Bradesco CPI",
       "tipo": "diario",
       "linha": "Bobina Eletrônica",
