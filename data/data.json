@@ -23,7 +23,7 @@
       },
       {
         "nome": "Bradesco Digitação",
-        "faturamento_anterior": 17485.990000000005,
+        "faturamento_anterior": 17485.99,
         "valor": 6183.733333333334,
         "esperado": 12170.52,
         "origem": "volume",
@@ -5599,6 +5599,36 @@
       "volume": 22432.3,
       "preenchidoPor": "César Augusto",
       "preenchidoEm": "2026-05-11T14:03:42.635Z"
+    },
+    {
+      "cliente": "Bradesco CPI",
+      "tipo": "mensal",
+      "avulso": true,
+      "data": "2026-03-01",
+      "mes": "2026-03",
+      "volume": 451571.57,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-11T15:13:15.555Z"
+    },
+    {
+      "cliente": "Bradesco Digitação",
+      "tipo": "mensal",
+      "avulso": true,
+      "data": "2026-03-01",
+      "mes": "2026-03",
+      "volume": 18599.72,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-11T15:13:15.555Z"
+    },
+    {
+      "cliente": "Bradesco Esteira Única",
+      "tipo": "mensal",
+      "avulso": true,
+      "data": "2026-03-01",
+      "mes": "2026-03",
+      "volume": 510119.07,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-11T15:13:15.555Z"
     }
   ],
   "users": [
