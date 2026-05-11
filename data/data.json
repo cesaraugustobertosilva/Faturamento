@@ -5591,6 +5591,16 @@
       "preenchidoEm": "2026-05-11T16:18:21.124Z"
     },
     {
+      "cliente": "Agibank",
+      "tipo": "mensal",
+      "linha": "Ofícios",
+      "mes": "2026-05",
+      "data": "",
+      "volume": 1,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-11T20:11:32.591Z"
+    },
+    {
       "cliente": "Bradesco CPI",
       "tipo": "mensal",
       "linha": "Apoio ADM",
