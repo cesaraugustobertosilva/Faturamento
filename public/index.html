@@ -860,8 +860,11 @@ function calcularParceirosMes(mesStr){
   VOLUMES_BASE.filter(function(v){return v.avulso&&v.data&&v.data.startsWith(mesStr);})
     .forEach(function(v){if(!avulsos[v.cliente])avulsos[v.cliente]=0;avulsos[v.cliente]+=(v.volume||0);});
   return D.parceiros.map(function(p){
-    var valor=(fat[p.nome]||0)+(avulsos[p.nome]||0);
-    return{nome:p.nome,valor:valor,esperado:p.esperado,faturamento_anterior:p.faturamento_anterior,origem:fat[p.nome]>0?'volume':'manual'};
+    var temTarifa=!!TARIFAS[p.nome];
+    var valor=temTarifa
+      ?(fat[p.nome]||0)+(avulsos[p.nome]||0)
+      :(p.faturamento_anterior||p.valor||0);
+    return{nome:p.nome,valor:valor,esperado:p.esperado,faturamento_anterior:p.faturamento_anterior,origem:temTarifa&&(fat[p.nome]||0)>0?'volume':'manual'};
   });
 }
 function getParceirosView(){
@@ -1179,6 +1182,10 @@ function verificarFechamentoMes(){
   // soma avulsos do mes
   VOLUMES_BASE.filter(function(v){ return v.avulso && v.data && v.data.startsWith(mesPrevStr); })
     .forEach(function(v){ total += v.volume||0; });
+  // soma clientes manuais (sem tarifa definida) usando faturamento_anterior, já atualizado por atualizarFatAnterior
+  D.parceiros.forEach(function(p){
+    if(!TARIFAS[p.nome] && (p.faturamento_anterior||0)>0) total += p.faturamento_anterior;
+  });
   if(total<=0) return false;
   D.historico_mensal.push({mes:mesPrevStr+'-01', valor:total});
   D.historico_mensal.sort(function(a,b){ return new Date(a.mes)-new Date(b.mes); });
