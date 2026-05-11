@@ -3781,96 +3781,6 @@
       "preenchidoEm": "2026-05-08T19:27:57.515Z"
     },
     {
-      "cliente": "Bradesco Contratos e Pacotes",
-      "tipo": "mensal",
-      "linha": "",
-      "data": "",
-      "mes": "2026-05",
-      "volume": 96000.49,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-11T11:42:11.186Z"
-    },
-    {
-      "cliente": "Bradesco Obrigações de Fazer",
-      "tipo": "mensal",
-      "linha": "",
-      "data": "",
-      "mes": "2026-05",
-      "volume": 105358.39,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T19:27:57.515Z"
-    },
-    {
-      "cliente": "CWT",
-      "tipo": "mensal",
-      "linha": "",
-      "data": "",
-      "mes": "2026-05",
-      "volume": 66500,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T19:27:57.515Z"
-    },
-    {
-      "cliente": "GSI Law",
-      "tipo": "mensal",
-      "linha": "",
-      "data": "",
-      "mes": "2026-05",
-      "volume": 1000,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T19:27:57.515Z"
-    },
-    {
-      "cliente": "Hoepers",
-      "tipo": "mensal",
-      "linha": "",
-      "data": "",
-      "mes": "2026-05",
-      "volume": 3374.8,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T19:27:57.515Z"
-    },
-    {
-      "cliente": "Zarro",
-      "tipo": "mensal",
-      "linha": "",
-      "data": "",
-      "mes": "2026-05",
-      "volume": 585,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T19:27:57.515Z"
-    },
-    {
-      "cliente": "Demais Clientes",
-      "tipo": "mensal",
-      "linha": "",
-      "data": "",
-      "mes": "2026-05",
-      "volume": 261110.44,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T19:27:57.515Z"
-    },
-    {
-      "cliente": "Agibank",
-      "tipo": "mensal",
-      "linha": "Ofícios",
-      "mes": "2026-05",
-      "data": "",
-      "volume": 1,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T19:27:57.515Z"
-    },
-    {
-      "cliente": "Bradesco CPI",
-      "tipo": "mensal",
-      "linha": "Apoio ADM",
-      "mes": "2026-05",
-      "data": "",
-      "volume": 60,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T19:27:57.515Z"
-    },
-    {
       "cliente": "Agibank",
       "tipo": "diario",
       "linha": "Linha de Captura",
@@ -5629,6 +5539,96 @@
       "volume": 510119.07,
       "preenchidoPor": "César Augusto",
       "preenchidoEm": "2026-05-11T15:13:15.555Z"
+    },
+    {
+      "cliente": "Bradesco Contratos e Pacotes",
+      "tipo": "mensal",
+      "linha": "",
+      "data": "",
+      "mes": "2026-05",
+      "volume": 96000.49,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-11T11:42:11.186Z"
+    },
+    {
+      "cliente": "Bradesco Obrigações de Fazer",
+      "tipo": "mensal",
+      "linha": "",
+      "data": "",
+      "mes": "2026-05",
+      "volume": 105358.39,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T19:27:57.515Z"
+    },
+    {
+      "cliente": "CWT",
+      "tipo": "mensal",
+      "linha": "",
+      "data": "",
+      "mes": "2026-05",
+      "volume": 66500,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T19:27:57.515Z"
+    },
+    {
+      "cliente": "GSI Law",
+      "tipo": "mensal",
+      "linha": "",
+      "data": "",
+      "mes": "2026-05",
+      "volume": 1000,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T19:27:57.515Z"
+    },
+    {
+      "cliente": "Hoepers",
+      "tipo": "mensal",
+      "linha": "",
+      "data": "",
+      "mes": "2026-05",
+      "volume": 3374.8,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T19:27:57.515Z"
+    },
+    {
+      "cliente": "Zarro",
+      "tipo": "mensal",
+      "linha": "",
+      "data": "",
+      "mes": "2026-05",
+      "volume": 585,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T19:27:57.515Z"
+    },
+    {
+      "cliente": "Demais Clientes",
+      "tipo": "mensal",
+      "linha": "",
+      "data": "",
+      "mes": "2026-05",
+      "volume": 298013.63,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-11T15:15:02.102Z"
+    },
+    {
+      "cliente": "Agibank",
+      "tipo": "mensal",
+      "linha": "Ofícios",
+      "mes": "2026-05",
+      "data": "",
+      "volume": 1,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T19:27:57.515Z"
+    },
+    {
+      "cliente": "Bradesco CPI",
+      "tipo": "mensal",
+      "linha": "Apoio ADM",
+      "mes": "2026-05",
+      "data": "",
+      "volume": 60,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-08T19:27:57.515Z"
     }
   ],
   "users": [
