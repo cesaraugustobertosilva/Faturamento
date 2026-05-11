@@ -4823,6 +4823,16 @@
     {
       "cliente": "Agibank",
       "tipo": "diario",
+      "linha": "Linha de Captura",
+      "data": "2026-05-08",
+      "mes": "",
+      "volume": 1152,
+      "preenchidoPor": "César Augusto",
+      "preenchidoEm": "2026-05-11T20:12:57.238Z"
+    },
+    {
+      "cliente": "Agibank",
+      "tipo": "diario",
       "linha": "Análise e Cadastro",
       "data": "2026-05-04",
       "mes": "",
