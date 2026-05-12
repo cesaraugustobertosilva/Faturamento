@@ -5483,6 +5483,16 @@
     {
       "cliente": "Zurich",
       "tipo": "diario",
+      "linha": "Cadastro Benner",
+      "data": "2026-05-08",
+      "mes": "",
+      "volume": 23,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-12T13:13:06.872Z"
+    },
+    {
+      "cliente": "Zurich",
+      "tipo": "diario",
       "linha": "Cadastro Sinjud",
       "data": "2026-05-04",
       "mes": "",
@@ -5523,6 +5533,16 @@
     {
       "cliente": "Zurich",
       "tipo": "diario",
+      "linha": "Cadastro Sinjud",
+      "data": "2026-05-08",
+      "mes": "",
+      "volume": 23,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-12T13:13:06.872Z"
+    },
+    {
+      "cliente": "Zurich",
+      "tipo": "diario",
       "linha": "Tratativa Completa",
       "data": "2026-05-04",
       "mes": "",
@@ -5559,6 +5579,16 @@
       "volume": 22,
       "preenchidoPor": "César Augusto",
       "preenchidoEm": "2026-05-08T19:27:57.515Z"
+    },
+    {
+      "cliente": "Zurich",
+      "tipo": "diario",
+      "linha": "Tratativa Completa",
+      "data": "2026-05-08",
+      "mes": "",
+      "volume": 23,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-12T13:13:06.872Z"
     },
     {
       "cliente": "Zurich",
@@ -5589,6 +5619,16 @@
       "volume": 33,
       "preenchidoPor": "César Augusto",
       "preenchidoEm": "2026-05-08T19:27:57.515Z"
+    },
+    {
+      "cliente": "Zurich",
+      "tipo": "diario",
+      "linha": "Intimação",
+      "data": "2026-05-08",
+      "mes": "",
+      "volume": 12,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-12T13:13:06.872Z"
     },
     {
       "cliente": "Bradesco Contratos e Pacotes",
