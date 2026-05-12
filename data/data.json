@@ -8,7 +8,7 @@
       {
         "nome": "Agibank",
         "faturamento_anterior": 602976.4600000002,
-        "valor": 333762.5333333333,
+        "valor": 293510.7428571428,
         "esperado": 699867.43,
         "origem": "volume",
         "delta": -0.5398344512188544
@@ -16,7 +16,7 @@
       {
         "nome": "Bradesco CPI",
         "faturamento_anterior": 451567.57,
-        "valor": 435379.86666666664,
+        "valor": 435316.6,
         "esperado": 440833.57,
         "origem": "volume",
         "delta": -0.012170420687335596
@@ -24,7 +24,7 @@
       {
         "nome": "Bradesco Digitação",
         "faturamento_anterior": 17485.990000000005,
-        "valor": 6183.733333333334,
+        "valor": 5300.342857142858,
         "esperado": 12170.52,
         "origem": "volume",
         "delta": -0.3902906367188913
@@ -32,7 +32,7 @@
       {
         "nome": "Bradesco Esteira Única",
         "faturamento_anterior": 472685.32,
-        "valor": 359265.4666666667,
+        "valor": 307941.82857142854,
         "esperado": 509000,
         "origem": "volume",
         "delta": -0.15300872298624754
@@ -48,7 +48,7 @@
       {
         "nome": "Eagle",
         "faturamento_anterior": 12442.5,
-        "valor": 7831.666666666666,
+        "valor": 6712.857142857143,
         "esperado": 14430,
         "origem": "volume",
         "delta": -0.3487179487179487
@@ -56,7 +56,7 @@
       {
         "nome": "Zurich",
         "faturamento_anterior": 39247.75,
-        "valor": 32813.50000000001,
+        "valor": 28125.857142857152,
         "esperado": 29143.69,
         "origem": "volume",
         "delta": 0.35110550517110267
@@ -5146,9 +5146,9 @@
       "linha": "Cadastro Judicial",
       "data": "2026-05-05",
       "mes": "",
-      "volume": 668,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T19:27:57.515Z"
+      "volume": 658,
+      "preenchidoPor": "Monique Pedretti Dias",
+      "preenchidoEm": "2026-05-12T12:33:10.788Z"
     },
     {
       "cliente": "Bradesco Esteira Única",
@@ -5156,9 +5156,9 @@
       "linha": "Cadastro Judicial",
       "data": "2026-05-06",
       "mes": "",
-      "volume": 668,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T19:27:57.515Z"
+      "volume": 657,
+      "preenchidoPor": "Monique Pedretti Dias",
+      "preenchidoEm": "2026-05-12T12:33:10.788Z"
     },
     {
       "cliente": "Bradesco Esteira Única",
@@ -5166,9 +5166,19 @@
       "linha": "Cadastro Judicial",
       "data": "2026-05-07",
       "mes": "",
-      "volume": 742,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T19:27:57.515Z"
+      "volume": 685,
+      "preenchidoPor": "Monique Pedretti Dias",
+      "preenchidoEm": "2026-05-12T12:33:10.788Z"
+    },
+    {
+      "cliente": "Bradesco Esteira Única",
+      "tipo": "diario",
+      "linha": "Cadastro Judicial",
+      "data": "2026-05-08",
+      "mes": "",
+      "volume": 638,
+      "preenchidoPor": "Monique Pedretti Dias",
+      "preenchidoEm": "2026-05-12T12:33:10.788Z"
     },
     {
       "cliente": "Bradesco Esteira Única",
@@ -5196,9 +5206,9 @@
       "linha": "Processos Cancelados",
       "data": "2026-05-06",
       "mes": "",
-      "volume": 24,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T19:27:57.515Z"
+      "volume": 22,
+      "preenchidoPor": "Monique Pedretti Dias",
+      "preenchidoEm": "2026-05-12T12:33:10.788Z"
     },
     {
       "cliente": "Bradesco Esteira Única",
@@ -5209,6 +5219,16 @@
       "volume": 27,
       "preenchidoPor": "César Augusto",
       "preenchidoEm": "2026-05-08T19:27:57.515Z"
+    },
+    {
+      "cliente": "Bradesco Esteira Única",
+      "tipo": "diario",
+      "linha": "Processos Cancelados",
+      "data": "2026-05-08",
+      "mes": "",
+      "volume": 29,
+      "preenchidoPor": "Monique Pedretti Dias",
+      "preenchidoEm": "2026-05-12T12:33:10.788Z"
     },
     {
       "cliente": "Bradesco Esteira Única",
