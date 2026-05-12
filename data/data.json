@@ -5466,9 +5466,19 @@
       "linha": "Captura de Iniciais",
       "data": "2026-05-07",
       "mes": "",
-      "volume": 818,
-      "preenchidoPor": "César Augusto",
-      "preenchidoEm": "2026-05-08T19:27:57.515Z"
+      "volume": 817,
+      "preenchidoPor": "Monique Pedretti Dias",
+      "preenchidoEm": "2026-05-12T13:33:25.859Z"
+    },
+    {
+      "cliente": "Bradesco Esteira Única",
+      "tipo": "diario",
+      "linha": "Captura de Iniciais",
+      "data": "2026-05-08",
+      "mes": "",
+      "volume": 711,
+      "preenchidoPor": "Monique Pedretti Dias",
+      "preenchidoEm": "2026-05-12T13:33:25.859Z"
     },
     {
       "cliente": "Bradesco Esteira Única",
