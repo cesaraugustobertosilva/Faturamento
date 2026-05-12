@@ -8,7 +8,7 @@
       {
         "nome": "Agibank",
         "faturamento_anterior": 602976.4600000002,
-        "valor": 294017.14285714284,
+        "valor": 358878.5428571428,
         "esperado": 699867.43,
         "origem": "volume",
         "delta": -0.5398344512188544
@@ -32,7 +32,7 @@
       {
         "nome": "Bradesco Esteira Única",
         "faturamento_anterior": 472685.32,
-        "valor": 396101.2285714287,
+        "valor": 396101.22857142857,
         "esperado": 509000,
         "origem": "volume",
         "delta": -0.15300872298624754
