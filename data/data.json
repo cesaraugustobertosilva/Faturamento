@@ -5551,6 +5551,36 @@
       "preenchidoEm": "2026-05-08T19:27:57.515Z"
     },
     {
+      "cliente": "Bradesco Esteira Única",
+      "tipo": "diario",
+      "linha": "Cadastro Judicial",
+      "data": "2026-05-11",
+      "mes": "",
+      "volume": 678,
+      "preenchidoPor": "Monique Pedretti Dias",
+      "preenchidoEm": "2026-05-12T12:34:48.491Z"
+    },
+    {
+      "cliente": "Bradesco Esteira Única",
+      "tipo": "diario",
+      "linha": "Processos Cancelados",
+      "data": "2026-05-11",
+      "mes": "",
+      "volume": 120,
+      "preenchidoPor": "Monique Pedretti Dias",
+      "preenchidoEm": "2026-05-12T12:34:48.491Z"
+    },
+    {
+      "cliente": "Bradesco Esteira Única",
+      "tipo": "diario",
+      "linha": "Subsídios Complementação",
+      "data": "2026-05-11",
+      "mes": "",
+      "volume": 170,
+      "preenchidoPor": "Monique Pedretti Dias",
+      "preenchidoEm": "2026-05-12T12:34:48.491Z"
+    },
+    {
       "cliente": "Bradesco Contratos e Pacotes",
       "tipo": "mensal",
       "linha": "",
