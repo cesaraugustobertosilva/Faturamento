@@ -4784,76 +4784,6 @@
       "cliente": "Agibank",
       "tipo": "diario",
       "linha": "Linha de Captura",
-      "data": "2026-05-11",
-      "mes": "",
-      "volume": 1537,
-      "preenchidoPor": "Marcos Adriano",
-      "preenchidoEm": "2026-05-12T13:07:14.040Z"
-    },
-    {
-      "cliente": "Bradesco Esteira Única",
-      "tipo": "diario",
-      "linha": "Cadastro Judicial",
-      "data": "2026-05-11",
-      "mes": "",
-      "volume": 678,
-      "preenchidoPor": "Monique Pedretti Dias",
-      "preenchidoEm": "2026-05-12T12:34:48.491Z"
-    },
-    {
-      "cliente": "Bradesco Esteira Única",
-      "tipo": "diario",
-      "linha": "Processos Cancelados",
-      "data": "2026-05-11",
-      "mes": "",
-      "volume": 120,
-      "preenchidoPor": "Monique Pedretti Dias",
-      "preenchidoEm": "2026-05-12T12:34:48.491Z"
-    },
-    {
-      "cliente": "Bradesco Esteira Única",
-      "tipo": "diario",
-      "linha": "Subsídios Complementação",
-      "data": "2026-05-11",
-      "mes": "",
-      "volume": 170,
-      "preenchidoPor": "Monique Pedretti Dias",
-      "preenchidoEm": "2026-05-12T12:34:48.491Z"
-    },
-    {
-      "cliente": "Bradesco Esteira Única",
-      "tipo": "diario",
-      "linha": "Captura de Iniciais",
-      "data": "2026-05-11",
-      "mes": "",
-      "volume": 1408,
-      "preenchidoPor": "Monique Pedretti Dias",
-      "preenchidoEm": "2026-05-14T13:31:14.384Z"
-    },
-    {
-      "cliente": "Bradesco Esteira Única",
-      "tipo": "diario",
-      "linha": "Captura de Iniciais",
-      "data": "2026-05-12",
-      "mes": "",
-      "volume": 1040,
-      "preenchidoPor": "Monique Pedretti Dias",
-      "preenchidoEm": "2026-05-14T13:31:14.384Z"
-    },
-    {
-      "cliente": "Bradesco Esteira Única",
-      "tipo": "diario",
-      "linha": "Captura de Iniciais",
-      "data": "2026-05-13",
-      "mes": "",
-      "volume": 1007,
-      "preenchidoPor": "Monique Pedretti Dias",
-      "preenchidoEm": "2026-05-14T13:31:14.384Z"
-    },
-    {
-      "cliente": "Agibank",
-      "tipo": "diario",
-      "linha": "Linha de Captura",
       "data": "2026-05-04",
       "mes": "",
       "volume": 1185,
@@ -5819,6 +5749,86 @@
       "volume": 12,
       "preenchidoPor": "Marcos Adriano",
       "preenchidoEm": "2026-05-12T13:13:06.872Z"
+    },
+    {
+      "cliente": "Agibank",
+      "tipo": "diario",
+      "linha": "Linha de Captura",
+      "data": "2026-05-11",
+      "mes": "",
+      "volume": 1537,
+      "preenchidoPor": "Marcos Adriano",
+      "preenchidoEm": "2026-05-12T13:07:14.040Z"
+    },
+    {
+      "cliente": "Bradesco Esteira Única",
+      "tipo": "diario",
+      "linha": "Cadastro Judicial",
+      "data": "2026-05-11",
+      "mes": "",
+      "volume": 678,
+      "preenchidoPor": "Monique Pedretti Dias",
+      "preenchidoEm": "2026-05-12T12:34:48.491Z"
+    },
+    {
+      "cliente": "Bradesco Esteira Única",
+      "tipo": "diario",
+      "linha": "Processos Cancelados",
+      "data": "2026-05-11",
+      "mes": "",
+      "volume": 120,
+      "preenchidoPor": "Monique Pedretti Dias",
+      "preenchidoEm": "2026-05-12T12:34:48.491Z"
+    },
+    {
+      "cliente": "Bradesco Esteira Única",
+      "tipo": "diario",
+      "linha": "Subsídios Complementação",
+      "data": "2026-05-11",
+      "mes": "",
+      "volume": 170,
+      "preenchidoPor": "Monique Pedretti Dias",
+      "preenchidoEm": "2026-05-12T12:34:48.491Z"
+    },
+    {
+      "cliente": "Bradesco Esteira Única",
+      "tipo": "diario",
+      "linha": "Subsídios Complementação",
+      "data": "2026-05-13",
+      "mes": "",
+      "volume": 3,
+      "preenchidoPor": "Monique Pedretti Dias",
+      "preenchidoEm": "2026-05-14T13:41:16.249Z"
+    },
+    {
+      "cliente": "Bradesco Esteira Única",
+      "tipo": "diario",
+      "linha": "Captura de Iniciais",
+      "data": "2026-05-11",
+      "mes": "",
+      "volume": 1408,
+      "preenchidoPor": "Monique Pedretti Dias",
+      "preenchidoEm": "2026-05-14T13:31:14.384Z"
+    },
+    {
+      "cliente": "Bradesco Esteira Única",
+      "tipo": "diario",
+      "linha": "Captura de Iniciais",
+      "data": "2026-05-12",
+      "mes": "",
+      "volume": 1040,
+      "preenchidoPor": "Monique Pedretti Dias",
+      "preenchidoEm": "2026-05-14T13:31:14.384Z"
+    },
+    {
+      "cliente": "Bradesco Esteira Única",
+      "tipo": "diario",
+      "linha": "Captura de Iniciais",
+      "data": "2026-05-13",
+      "mes": "",
+      "volume": 1007,
+      "preenchidoPor": "Monique Pedretti Dias",
+      "preenchidoEm": "2026-05-14T13:31:14.384Z"
     },
     {
       "cliente": "Bradesco Contratos e Pacotes",
