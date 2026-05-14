@@ -8,7 +8,7 @@
       {
         "nome": "Agibank",
         "faturamento_anterior": 602976.4600000002,
-        "valor": 359177.1714285714,
+        "valor": 290915.57777777774,
         "esperado": 699867.43,
         "origem": "volume",
         "delta": -0.5398344512188544
@@ -16,7 +16,7 @@
       {
         "nome": "Bradesco CPI",
         "faturamento_anterior": 451567.57,
-        "valor": 435316.6,
+        "valor": 435232.2444444444,
         "esperado": 440833.57,
         "origem": "volume",
         "delta": -0.012170420687335596
@@ -24,7 +24,7 @@
       {
         "nome": "Bradesco Digitação",
         "faturamento_anterior": 17485.990000000005,
-        "valor": 9522.228571428572,
+        "valor": 7406.177777777779,
         "esperado": 12170.52,
         "origem": "volume",
         "delta": -0.3902906367188913
@@ -32,7 +32,7 @@
       {
         "nome": "Bradesco Esteira Única",
         "faturamento_anterior": 472685.32,
-        "valor": 447465.79999999993,
+        "valor": 348028.9555555555,
         "esperado": 509000,
         "origem": "volume",
         "delta": -0.15300872298624754
@@ -48,7 +48,7 @@
       {
         "nome": "Eagle",
         "faturamento_anterior": 12442.5,
-        "valor": 6712.857142857143,
+        "valor": 5221.111111111111,
         "esperado": 14430,
         "origem": "volume",
         "delta": -0.3487179487179487
@@ -56,7 +56,7 @@
       {
         "nome": "Zurich",
         "faturamento_anterior": 39247.75,
-        "valor": 36402.31428571429,
+        "valor": 28312.911111111116,
         "esperado": 29143.69,
         "origem": "volume",
         "delta": 0.35110550517110267
@@ -5786,9 +5786,29 @@
       "linha": "Captura de Iniciais",
       "data": "2026-05-11",
       "mes": "",
-      "volume": 1410,
+      "volume": 1408,
       "preenchidoPor": "Monique Pedretti Dias",
-      "preenchidoEm": "2026-05-12T13:35:41.857Z"
+      "preenchidoEm": "2026-05-14T13:31:14.384Z"
+    },
+    {
+      "cliente": "Bradesco Esteira Única",
+      "tipo": "diario",
+      "linha": "Captura de Iniciais",
+      "data": "2026-05-12",
+      "mes": "",
+      "volume": 1040,
+      "preenchidoPor": "Monique Pedretti Dias",
+      "preenchidoEm": "2026-05-14T13:31:14.384Z"
+    },
+    {
+      "cliente": "Bradesco Esteira Única",
+      "tipo": "diario",
+      "linha": "Captura de Iniciais",
+      "data": "2026-05-13",
+      "mes": "",
+      "volume": 1007,
+      "preenchidoPor": "Monique Pedretti Dias",
+      "preenchidoEm": "2026-05-14T13:31:14.384Z"
     },
     {
       "cliente": "Bradesco Contratos e Pacotes",
