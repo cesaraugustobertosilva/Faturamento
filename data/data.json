@@ -5831,6 +5831,96 @@
       "preenchidoEm": "2026-05-15T13:05:33.976Z"
     },
     {
+      "cliente": "Agibank",
+      "tipo": "diario",
+      "linha": "Subsídios",
+      "data": "2026-05-11",
+      "mes": "",
+      "volume": 80,
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-15T13:07:40.571Z"
+    },
+    {
+      "cliente": "Agibank",
+      "tipo": "diario",
+      "linha": "Subsídios",
+      "data": "2026-05-12",
+      "mes": "",
+      "volume": 107,
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-15T13:07:40.571Z"
+    },
+    {
+      "cliente": "Agibank",
+      "tipo": "diario",
+      "linha": "Subsídios",
+      "data": "2026-05-13",
+      "mes": "",
+      "volume": 79,
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-15T13:07:40.571Z"
+    },
+    {
+      "cliente": "Agibank",
+      "tipo": "diario",
+      "linha": "Subsídios",
+      "data": "2026-05-14",
+      "mes": "",
+      "volume": 126,
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-15T13:07:40.571Z"
+    },
+    {
+      "cliente": "Agibank",
+      "tipo": "diario",
+      "linha": "Contratos",
+      "data": "2026-05-11",
+      "mes": "",
+      "volume": 432,
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-15T13:07:40.571Z"
+    },
+    {
+      "cliente": "Agibank",
+      "tipo": "diario",
+      "linha": "Contratos",
+      "data": "2026-05-12",
+      "mes": "",
+      "volume": 481,
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-15T13:07:40.571Z"
+    },
+    {
+      "cliente": "Agibank",
+      "tipo": "diario",
+      "linha": "Contratos",
+      "data": "2026-05-13",
+      "mes": "",
+      "volume": 520,
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-15T13:07:40.571Z"
+    },
+    {
+      "cliente": "Agibank",
+      "tipo": "diario",
+      "linha": "Contratos",
+      "data": "2026-05-14",
+      "mes": "",
+      "volume": 382,
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-15T13:07:40.571Z"
+    },
+    {
+      "cliente": "Agibank",
+      "tipo": "diario",
+      "linha": "Contratos",
+      "data": "2026-05-15",
+      "mes": "",
+      "volume": 420,
+      "preenchidoPor": "Alice da Silva Teixeira",
+      "preenchidoEm": "2026-05-15T13:07:40.571Z"
+    },
+    {
       "cliente": "Bradesco Digitação",
       "tipo": "diario",
       "linha": "Custódia DN - Tipo A",
