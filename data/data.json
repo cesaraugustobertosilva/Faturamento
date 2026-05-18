@@ -5953,6 +5953,26 @@
     {
       "cliente": "Bradesco Digitação",
       "tipo": "diario",
+      "linha": "Custódia DN - Tipo A",
+      "data": "2026-05-14",
+      "mes": "",
+      "volume": 263,
+      "preenchidoPor": "Monique Pedretti Dias",
+      "preenchidoEm": "2026-05-18T14:49:48.965Z"
+    },
+    {
+      "cliente": "Bradesco Digitação",
+      "tipo": "diario",
+      "linha": "Custódia DN - Tipo A",
+      "data": "2026-05-15",
+      "mes": "",
+      "volume": 311,
+      "preenchidoPor": "Monique Pedretti Dias",
+      "preenchidoEm": "2026-05-18T14:49:48.965Z"
+    },
+    {
+      "cliente": "Bradesco Digitação",
+      "tipo": "diario",
       "linha": "Custódia SB - Tipo B",
       "data": "2026-05-11",
       "mes": "",
@@ -5979,6 +5999,26 @@
       "volume": 413,
       "preenchidoPor": "Monique Pedretti Dias",
       "preenchidoEm": "2026-05-14T13:44:26.674Z"
+    },
+    {
+      "cliente": "Bradesco Digitação",
+      "tipo": "diario",
+      "linha": "Custódia SB - Tipo B",
+      "data": "2026-05-14",
+      "mes": "",
+      "volume": 212,
+      "preenchidoPor": "Monique Pedretti Dias",
+      "preenchidoEm": "2026-05-18T14:49:48.965Z"
+    },
+    {
+      "cliente": "Bradesco Digitação",
+      "tipo": "diario",
+      "linha": "Custódia SB - Tipo B",
+      "data": "2026-05-15",
+      "mes": "",
+      "volume": 533,
+      "preenchidoPor": "Monique Pedretti Dias",
+      "preenchidoEm": "2026-05-18T14:49:48.965Z"
     },
     {
       "cliente": "Bradesco Digitação",
@@ -6013,6 +6053,26 @@
     {
       "cliente": "Bradesco Digitação",
       "tipo": "diario",
+      "linha": "Custódia Tipo D",
+      "data": "2026-05-14",
+      "mes": "",
+      "volume": 76,
+      "preenchidoPor": "Monique Pedretti Dias",
+      "preenchidoEm": "2026-05-18T14:49:48.965Z"
+    },
+    {
+      "cliente": "Bradesco Digitação",
+      "tipo": "diario",
+      "linha": "Custódia Tipo D",
+      "data": "2026-05-15",
+      "mes": "",
+      "volume": 12,
+      "preenchidoPor": "Monique Pedretti Dias",
+      "preenchidoEm": "2026-05-18T14:49:48.965Z"
+    },
+    {
+      "cliente": "Bradesco Digitação",
+      "tipo": "diario",
       "linha": "Complementação",
       "data": "2026-05-11",
       "mes": "",
@@ -6043,6 +6103,26 @@
     {
       "cliente": "Bradesco Digitação",
       "tipo": "diario",
+      "linha": "Complementação",
+      "data": "2026-05-14",
+      "mes": "",
+      "volume": 2900,
+      "preenchidoPor": "Monique Pedretti Dias",
+      "preenchidoEm": "2026-05-18T14:49:48.965Z"
+    },
+    {
+      "cliente": "Bradesco Digitação",
+      "tipo": "diario",
+      "linha": "Complementação",
+      "data": "2026-05-15",
+      "mes": "",
+      "volume": 1403,
+      "preenchidoPor": "Monique Pedretti Dias",
+      "preenchidoEm": "2026-05-18T14:49:48.965Z"
+    },
+    {
+      "cliente": "Bradesco Digitação",
+      "tipo": "diario",
       "linha": "Complem. Dinâmico",
       "data": "2026-05-11",
       "mes": "",
@@ -6069,6 +6149,26 @@
       "volume": 230,
       "preenchidoPor": "Monique Pedretti Dias",
       "preenchidoEm": "2026-05-14T13:44:26.674Z"
+    },
+    {
+      "cliente": "Bradesco Digitação",
+      "tipo": "diario",
+      "linha": "Complem. Dinâmico",
+      "data": "2026-05-14",
+      "mes": "",
+      "volume": 171,
+      "preenchidoPor": "Monique Pedretti Dias",
+      "preenchidoEm": "2026-05-18T14:49:48.965Z"
+    },
+    {
+      "cliente": "Bradesco Digitação",
+      "tipo": "diario",
+      "linha": "Complem. Dinâmico",
+      "data": "2026-05-15",
+      "mes": "",
+      "volume": 279,
+      "preenchidoPor": "Monique Pedretti Dias",
+      "preenchidoEm": "2026-05-18T14:49:48.965Z"
     },
     {
       "cliente": "Bradesco Esteira Única",
