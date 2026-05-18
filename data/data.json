@@ -6076,9 +6076,9 @@
       "linha": "Cadastro Judicial",
       "data": "2026-05-11",
       "mes": "",
-      "volume": 627,
+      "volume": 1064,
       "preenchidoPor": "Monique Pedretti Dias",
-      "preenchidoEm": "2026-05-14T13:42:02.129Z"
+      "preenchidoEm": "2026-05-18T14:44:26.284Z"
     },
     {
       "cliente": "Bradesco Esteira Única",
@@ -6086,9 +6086,9 @@
       "linha": "Cadastro Judicial",
       "data": "2026-05-12",
       "mes": "",
-      "volume": 553,
+      "volume": 552,
       "preenchidoPor": "Monique Pedretti Dias",
-      "preenchidoEm": "2026-05-14T13:42:02.129Z"
+      "preenchidoEm": "2026-05-18T14:44:26.284Z"
     },
     {
       "cliente": "Bradesco Esteira Única",
@@ -6096,9 +6096,29 @@
       "linha": "Cadastro Judicial",
       "data": "2026-05-13",
       "mes": "",
-      "volume": 589,
+      "volume": 559,
       "preenchidoPor": "Monique Pedretti Dias",
-      "preenchidoEm": "2026-05-14T13:42:02.129Z"
+      "preenchidoEm": "2026-05-18T14:44:26.284Z"
+    },
+    {
+      "cliente": "Bradesco Esteira Única",
+      "tipo": "diario",
+      "linha": "Cadastro Judicial",
+      "data": "2026-05-14",
+      "mes": "",
+      "volume": 620,
+      "preenchidoPor": "Monique Pedretti Dias",
+      "preenchidoEm": "2026-05-18T14:44:26.284Z"
+    },
+    {
+      "cliente": "Bradesco Esteira Única",
+      "tipo": "diario",
+      "linha": "Cadastro Judicial",
+      "data": "2026-05-15",
+      "mes": "",
+      "volume": 730,
+      "preenchidoPor": "Monique Pedretti Dias",
+      "preenchidoEm": "2026-05-18T14:44:26.284Z"
     },
     {
       "cliente": "Bradesco Esteira Única",
@@ -6106,9 +6126,9 @@
       "linha": "Processos Cancelados",
       "data": "2026-05-11",
       "mes": "",
-      "volume": 103,
+      "volume": 120,
       "preenchidoPor": "Monique Pedretti Dias",
-      "preenchidoEm": "2026-05-14T13:42:02.129Z"
+      "preenchidoEm": "2026-05-18T14:44:26.284Z"
     },
     {
       "cliente": "Bradesco Esteira Única",
@@ -6129,6 +6149,26 @@
       "volume": 22,
       "preenchidoPor": "Monique Pedretti Dias",
       "preenchidoEm": "2026-05-14T13:42:02.129Z"
+    },
+    {
+      "cliente": "Bradesco Esteira Única",
+      "tipo": "diario",
+      "linha": "Processos Cancelados",
+      "data": "2026-05-14",
+      "mes": "",
+      "volume": 31,
+      "preenchidoPor": "Monique Pedretti Dias",
+      "preenchidoEm": "2026-05-18T14:44:26.284Z"
+    },
+    {
+      "cliente": "Bradesco Esteira Única",
+      "tipo": "diario",
+      "linha": "Processos Cancelados",
+      "data": "2026-05-15",
+      "mes": "",
+      "volume": 20,
+      "preenchidoPor": "Monique Pedretti Dias",
+      "preenchidoEm": "2026-05-18T14:44:26.284Z"
     },
     {
       "cliente": "Bradesco Esteira Única",
