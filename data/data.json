@@ -6221,6 +6221,26 @@
       "preenchidoEm": "2026-05-14T13:31:14.384Z"
     },
     {
+      "cliente": "Bradesco Esteira Única",
+      "tipo": "diario",
+      "linha": "Captura de Iniciais",
+      "data": "2026-05-14",
+      "mes": "",
+      "volume": 1033,
+      "preenchidoPor": "Monique Pedretti Dias",
+      "preenchidoEm": "2026-05-18T14:47:45.634Z"
+    },
+    {
+      "cliente": "Bradesco Esteira Única",
+      "tipo": "diario",
+      "linha": "Captura de Iniciais",
+      "data": "2026-05-15",
+      "mes": "",
+      "volume": 765,
+      "preenchidoPor": "Monique Pedretti Dias",
+      "preenchidoEm": "2026-05-18T14:47:45.634Z"
+    },
+    {
       "cliente": "Bradesco Contratos e Pacotes",
       "tipo": "mensal",
       "linha": "",
